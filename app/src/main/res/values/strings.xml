@@ -1,0 +1,67 @@
+<resources>
+    <string name="app_name">Chlorophilia</string>
+
+    <string name="title_home">My plants</string>
+    <string name="title_search">Search a plant !</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="list_plant_common_name">Common name :</string>
+    <string name="list_plant_family_common_name">Family common name :</string>
+    <string name="list_plant_scientific_name">Scientific name :</string>
+    <string name="list_plant_genus">Genus :</string>
+    <string name="list_plant_family">Family :</string>
+
+    <string name="title_notifications_desc">title_notifications_desc</string>
+    <string name="list_plant_common_name_desc">list_plant_common_name_desc</string>
+    <string name="list_plant_family_common_name_desc">list_plant_family_common_name_desc</string>
+    <string name="list_plant_scientific_name_desc">list_plant_scientific_name_desc</string>
+    <string name="list_plant_genus_desc">list_plant_genus_desc</string>
+    <string name="list_plant_family_desc">list_plant_family_desc</string>
+    <string name="list_plant_back_to_list_button">Return to list</string>
+    <string name="list_plant_see_details">SEE DETAILS ?</string>
+    <string name="list_plant_add_plant">Add Plant to my book</string>
+
+    <string name="title_custom">Would you like to name your plant ?</string>
+    <string name="done">Done !</string>
+    <string name="no_thx">No thanks !</string>
+
+    <string name="plant_change_picture">Click to change picture</string>
+    <string name="plant_detail_env">Environment</string>
+    <string name="plant_detail_ground">Ground</string>
+    <string name="plant_detail_sow">Sowing</string>
+    <string name="plant_detail_nickname">Nickname :</string>
+    <string name="plant_detail_common_name">Common name :</string>
+    <string name="plant_detail_scientific_name">Scientific name :</string>
+    <string name="plant_detail_family">Family :</string>
+    <string name="plant_detail_Precipitation">Precipitation :</string>
+    <string name="plant_detail_light">Light :</string>
+    <string name="plant_detail_ph">Soil pH :</string>
+    <string name="plant_detail_atmosphericHumidity">Atmospheric humidity :</string>
+    <string name="plant_detail_minimumTemperature">Temperature :</string>
+    <string name="plant_detail_soilNutriments">Soil nutriments :</string>
+    <string name="plant_detail_soilSalinity">Soil salinity :</string>
+    <string name="plant_detail_soilHumidity">Soil humidity :</string>
+    <string name="plant_detail_spread">Spread :</string>
+    <string name="plant_detail_minimumRootDepth">Min. root depths :</string>
+    <string name="plant_detail_sowing">Sowing :</string>
+    <string name="plant_detail_rowSpacing">Row spacing</string>
+    <string name="plant_detail_days_to_harvest">Harvest after :</string>
+    <string name="plant_detail_growthMonths">Grows months :</string>
+    <string name="plant_detail_bloomMonths">Bloom months :</string>
+    <string name="plant_detail_fruitMonths">Fruit months :</string>
+    <string name="plant_detail_bibliography">Bibliography :</string>
+
+
+    <string name="noLightInfoText">There were no light information for this particular plant, but we can say that :</string>
+
+    <string name="searchTooltip">Try out a common english name like \"kitchen sage\" or a scientific name like : \"laurus nobilis\" or even in your own language like \"Olivier\" in French for instance.\n\n More than 1 million plants are actually indexed.</string>
+
+    <string name="home_request_camera">This functionality requires access to your camera in order to take a picture of your plant !\n\n If you misclicked \"Deny\" go to your phone \"Preferences/App Permission\" and grant permission to Camera and Files and Media !</string>
+
+    <string name="home_first_time">Welcome to Chlorophilia.\n\nPlease click on the Search button to find your first plant and add it to your book !</string>
+
+    <string name="ok">OK !</string>
+    <string name="gotit">GOT IT !</string>
+
+    
+</resources>
