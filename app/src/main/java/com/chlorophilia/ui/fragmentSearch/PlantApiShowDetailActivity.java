@@ -109,7 +109,7 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                 //Get plant slug  from input
                 String slug = jsonPlantFromApiListDetail.getSlug();
                 Plant plant = tryApiJsonToPlantObject(slug);
-                Intent intent = new Intent(getApplicationContext(), SeeDetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), SeePlantDetailsActivity.class);
                 intent.putExtra("plant", plant);
                 intent.putExtra("imgURL", imgURL);
                 startActivity(intent);
