@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -19,6 +20,8 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.apiProvider.ApiInstance;
 import com.chlorophilia.ui.entities.JsonPlantFromApiList;
 import com.chlorophilia.ui.entities.Plant;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 

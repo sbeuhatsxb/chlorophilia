@@ -3,6 +3,7 @@ package com.chlorophilia.ui.fragmentSearch;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -25,6 +28,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     Button addPlant;
+    FloatingActionButton fab;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -223,11 +227,21 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         }
 
         addPlant = (Button) findViewById(R.id.detailAddPlantButton);
-
         addPlant.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
+                //Get plant slug  from input
+                Intent intent = new Intent(getApplicationContext(), NicknameActivity.class);
+                intent.putExtra("plant", plant);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 //Get plant slug  from input
                 Intent intent = new Intent(getApplicationContext(), NicknameActivity.class);
                 intent.putExtra("plant", plant);
