@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.icu.text.SimpleDateFormat;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,14 +21,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
+import com.chlorophilia.ui.fragmentSearch.NicknameActivity;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -46,6 +52,7 @@ public class MyPlantsViewDetails extends AppCompatActivity {
 
     String currentPhotoPath;
     Plant plant;
+    FloatingActionButton fab;
 
     @SuppressLint("SetTextI18n")
     public void onCreate(Bundle savedInstanceState) {
@@ -59,7 +66,6 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         plant = (Plant) getIntent().getSerializableExtra("plant");
 
         Button deleteButton = findViewById(R.id.deletePlantButton);
-        Button measureLight = findViewById(R.id.measureLight);
         ImageView plant_detail_img = (ImageView) findViewById(R.id.myPlantPicture);
         TextView plant_detail_nickname = findViewById(R.id.myPlantNickname);
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
@@ -270,6 +276,23 @@ public class MyPlantsViewDetails extends AppCompatActivity {
             plant_detail_bibliography.setText("");
         }
 
+        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.baseline_brightness_medium_24);
+        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
+        DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#FFD700"));
+
+        fab = (FloatingActionButton) findViewById(R.id.fab_sun);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent lightIntent = new Intent(getApplicationContext(), SensorActivity.class);
+                if (plant.getLight() != null) {
+                    lightIntent.putExtra("plantLight", Integer.parseInt(plant.getLight()));
+                } else {
+                    lightIntent.putExtra("plantLight", -1);
+                }
+                startActivity(lightIntent);
+            }
+        });
 
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -289,18 +312,6 @@ public class MyPlantsViewDetails extends AppCompatActivity {
             }
         });
 
-        measureLight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent lightIntent = new Intent(getApplicationContext(), SensorActivity.class);
-                if (plant.getLight() != null) {
-                    lightIntent.putExtra("plantLight", Integer.parseInt(plant.getLight()));
-                } else {
-                    lightIntent.putExtra("plantLight", -1);
-                }
-                startActivity(lightIntent);
-            }
-        });
     }
 
     private void dispatchTakePictureIntent() {

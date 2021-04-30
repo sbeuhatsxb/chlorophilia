@@ -11,12 +11,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:backgroundTint="@android:color/holo_green_dark"
         android:contentDescription="@string/list_plant_add_plant"
-        android:src="@android:drawable/ic_input_add"
+        android:src="@drawable/baseline_add_20"
+        android:tint="#FFFFFF"
+        app:backgroundTint="@android:color/holo_green_dark"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:rippleColor="#FFFFFF" />
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"

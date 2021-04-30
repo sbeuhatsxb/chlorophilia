@@ -59,10 +59,13 @@ public class SensorActivity extends Activity implements SensorEventListener {
         textSunStatus = findViewById(R.id.textSunStatus);
         background = findViewById(R.id.sunBackground);
 
+        //Color mode
         //Decrease from blue to red
         //This array represents a HSL scale for a HUE from blue (240) to red (0)
         //The background color is set according to  240  minus (since it's decreasing from blue to red in HSL) the given light
-        float[] arrayBg = {(240 - abs(measureOfLight / 1000 * 2)), 100, 25};
+        //Not sure its working : third parameter is a %age of brightness...
+        float[] arrayBg = {(240 - abs(measureOfLight / 1000 * 2)), 100, (100*abs(measureOfLight))/120000};
+
         background.setBackgroundColor(Color.HSVToColor(arrayBg));
         textSunStatus.setTextColor(Color.parseColor("white"));
 
