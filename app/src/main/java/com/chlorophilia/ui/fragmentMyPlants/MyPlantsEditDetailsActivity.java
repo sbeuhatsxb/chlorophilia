@@ -279,11 +279,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         updatePlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
-                plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
-                plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
-                plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
-                plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
                 plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
                 plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
@@ -301,6 +296,32 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
                 plant.setFruitMonths(jsonConstructor(growthCheckboxes));
                 plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
+
+                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
+                    plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
+                } else {
+                    plant.setLight("");
+                }
+                if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
+                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilHumidity("");
+                }
+                if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
+                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
+                } else {
+                    plant.setAtmosphericHumidity("");
+                }
+                if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
+                    plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilNutriments("");
+                }
+                if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
+                    plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilSalinity("");
+                }
 
                 PlantDataHandler db = new PlantDataHandler(getApplicationContext());
                 db.updatePlant(plant);

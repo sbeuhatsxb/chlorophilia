@@ -64,7 +64,7 @@ public class MyPlantsViewDetails extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String[] SOILRICHNESS = {"extremely poor", "very poor", "poor", "fairly poor", "lower middle", "middle", "higher middle", "fairly rich", "rich", "very rich", "extremely rich"};
+        final String[] SOILRICHNESS = {"", "extremely poor", "poor", "fairly poor", "lower middle", "middle", "higher middle", "fairly rich", "rich", "very rich", "extremely rich"};
 
         setContentView(R.layout.activity_myplants_show_detail);
         PlantDataHandler db = new PlantDataHandler(getApplicationContext());
@@ -187,9 +187,13 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         }
 
         if (plant.getAtmosphericHumidity() != null) {
-            double atmosphericHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
-            int atmosphericHumidity = (int) Math.round(atmosphericHumidityDouble);
-            plant_detail_atmosphericHumidity.setText(atmosphericHumidity + " %");
+            if(plant.getAtmosphericHumidity().equals("0")){
+                plant_detail_atmosphericHumidity.setText(getResources().getString(R.string.up_to_ten_percent));
+            } else {
+                double atmosphericHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
+                int atmosphericHumidity = (int) Math.round(atmosphericHumidityDouble);
+                plant_detail_atmosphericHumidity.setText(atmosphericHumidity + " %");
+            }
         } else {
             plant_detail_atmosphericHumidity.setText("");
         }
@@ -221,9 +225,14 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         }
 
         if (plant.getSoilHumidity() != null) {
-            double soilHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
-            int soilHumidity = (int) Math.round(soilHumidityDouble);
-            plant_detail_soilHumidity.setText(soilHumidity + " %");
+
+            if(plant.getSoilHumidity().equals("0")){
+                plant_detail_soilHumidity.setText(getResources().getString(R.string.up_to_ten_percent));
+            } else {
+                double soilHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
+                int soilHumidity = (int) Math.round(soilHumidityDouble);
+                plant_detail_soilHumidity.setText(soilHumidity + " %");
+            }
         } else {
             plant_detail_soilHumidity.setText("");
         }

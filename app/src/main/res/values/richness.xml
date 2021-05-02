@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="soilrichness">
+        <item>No idea !</item>
         <item>extremely poor</item>
-        <item>very poor</item>
         <item>poor</item>
         <item>fairly poor</item>
         <item>lower middle</item>

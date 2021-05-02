@@ -254,35 +254,151 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String temperature_measure = plant.getTemperatureMeasure();
 
         ContentValues values = new ContentValues();
-        values.put("nickname", nickname);
-        values.put("common_name", common_name);
-        values.put("scientific_name", scientific_name);
-        values.put("family", family);
-        values.put("bibliography", bibliography);
-        values.put("sowing", sowing);
-        values.put("days_to_harvest", days_to_harvest);
-        values.put("ph_minimum", ph_minimum);
-        values.put("ph_maximum", ph_maximum);
-        values.put("light", light);
-        values.put("atmospheric_humidity", atmospheric_humidity);
-        values.put("growth_months", growth_months);
-        values.put("bloom_months", bloom_months);
-        values.put("fruit_months", fruit_months);
-        values.put("soil_nutriments", soil_nutriments);
-        values.put("soil_salinity", soil_salinity);
-        values.put("soil_humidity", soil_humidity);
-        values.put("spread", spread);
-        values.put("row_spacing", row_spacing);
-        values.put("minimum_precipitation", minimum_precipitation);
-        values.put("maximum_precipitation", maximum_precipitation);
-        values.put("minimum_temperature", minimum_temperature);
-        values.put("maximum_temperature", maximum_temperature);
-        values.put("minimum_root_depth", minimum_root_depth);
-        values.put("root_depth_measure", root_depth_measure);
-        values.put("spread_measure", spread_measure);
-        values.put("row_spacing_measure", row_spacing_measure);
-        values.put("precipitation_measure", precipitation_measure);
-        values.put("temperature_measure", temperature_measure);
+        if(!nickname.equals("")){
+            values.put("nickname", nickname);
+        } else {
+            values.putNull("nickname");
+        }
+        if(!common_name.equals("")){
+            values.put("common_name", common_name);
+        } else {
+            values.putNull("common_name");
+        }
+        if(!scientific_name.equals("")){
+            values.put("scientific_name", scientific_name);
+        } else {
+            values.putNull("scientific_name");
+        }
+        if(!family.equals("")){
+            values.put("family", family);
+        } else {
+            values.putNull("family");
+        }
+        if(!bibliography.equals("")){
+            values.put("bibliography", bibliography);
+        } else {
+            values.putNull("bibliography");
+        }
+        if(!sowing.equals("")){
+            values.put("sowing", sowing);
+        } else {
+            values.putNull("sowing");
+        }
+        if(!days_to_harvest.equals("")){
+            values.put("days_to_harvest", days_to_harvest);
+        } else {
+            values.putNull("days_to_harvest");
+        }
+        if(!ph_minimum.equals("")){
+            values.put("ph_minimum", ph_minimum);
+        } else {
+            values.putNull("ph_minimum");
+        }
+        if(!ph_maximum.equals("")){
+            values.put("ph_maximum", ph_maximum);
+        } else {
+            values.putNull("ph_maximum");
+        }
+        if(!light.equals("")){
+            values.put("light", light);
+        } else {
+            values.putNull("light");
+        }
+        if(!atmospheric_humidity.equals("")){
+            values.put("atmospheric_humidity", atmospheric_humidity);
+        } else {
+            values.putNull("atmospheric_humidity");
+        }
+        if(!growth_months.equals("")){
+            values.put("growth_months", growth_months);
+        } else {
+            values.putNull("growth_months");
+        }
+        if(!bloom_months.equals("")){
+            values.put("bloom_months", bloom_months);
+        } else {
+            values.putNull("bloom_months");
+        }
+        if(!fruit_months.equals("")){
+            values.put("fruit_months", fruit_months);
+        } else {
+            values.putNull("fruit_months");
+        }
+        if(!soil_nutriments.equals("")){
+            values.put("soil_nutriments", soil_nutriments);
+        } else {
+            values.putNull("soil_nutriments");
+        }
+        if(!soil_salinity.equals("")){
+            values.put("soil_salinity", soil_salinity);
+        } else {
+            values.putNull("soil_salinity");
+        }
+        if(!soil_humidity.equals("")){
+            values.put("soil_humidity", soil_humidity);
+        } else {
+            values.putNull("soil_humidity");
+        }
+        if(!spread.equals("")){
+            values.put("spread", spread);
+        } else {
+            values.putNull("spread");
+        }
+        if(!row_spacing.equals("")){
+            values.put("row_spacing", row_spacing);
+        } else {
+            values.putNull("row_spacing");
+        }
+        if(!minimum_precipitation.equals("")){
+            values.put("minimum_precipitation", minimum_precipitation);
+        } else {
+            values.putNull("minimum_precipitation");
+        }
+        if(!maximum_precipitation.equals("")){
+            values.put("maximum_precipitation", maximum_precipitation);
+        } else {
+            values.putNull("maximum_precipitation");
+        }
+        if(!minimum_temperature.equals("")){
+            values.put("minimum_temperature", minimum_temperature);
+        } else {
+            values.putNull("minimum_temperature");
+        }
+        if(!maximum_temperature.equals("")){
+            values.put("maximum_temperature", maximum_temperature);
+        } else {
+            values.putNull("maximum_temperature");
+        }
+        if(!minimum_root_depth.equals("")){
+            values.put("minimum_root_depth", minimum_root_depth);
+        } else {
+            values.putNull("minimum_root_depth");
+        }
+        if(!root_depth_measure.equals("")){
+            values.put("root_depth_measure", root_depth_measure);
+        } else {
+            values.putNull("root_depth_measure");
+        }
+        if(!spread_measure.equals("")){
+            values.put("spread_measure", spread_measure);
+        } else {
+            values.putNull("spread_measure");
+        }
+        if(!row_spacing_measure.equals("")){
+            values.put("row_spacing_measure", row_spacing_measure);
+        } else {
+            values.putNull("row_spacing_measure");
+        }
+        if(!precipitation_measure.equals("")){
+            values.put("precipitation_measure", precipitation_measure);
+        } else {
+            values.putNull("precipitation_measure");
+        }
+        if(!temperature_measure.equals("")){
+            values.put("temperature_measure", temperature_measure);
+        } else {
+            values.putNull("temperature_measure");
+        }
 
         long id = plant.getId();
         db.update("plant", values, "id = ?", new String[]{String.valueOf(id)});
