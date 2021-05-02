@@ -98,6 +98,6 @@
     <string name="november">November</string>
     <string name="december">December</string>
 
-    <string name="remote_server_failed">Remote server is not responding. Try again later.</string>
+    <string name="remote_server_failed">Remote server is not responding. Please try again later.</string>
 
 </resources>

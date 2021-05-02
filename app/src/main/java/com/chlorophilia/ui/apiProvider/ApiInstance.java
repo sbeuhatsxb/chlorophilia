@@ -80,7 +80,6 @@ public class ApiInstance extends AppCompatActivity {
         //Running api
         this.run(request);
         //Waiting for API to send a response for two seconds
-        //TODO MANAGE MALFORMED RESPONSE OR NO RESPONSE FROM API
         synchronized (lock) {
             while (responseString == null) {
                 lock.wait(5000);
