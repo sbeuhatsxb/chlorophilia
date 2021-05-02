@@ -35,11 +35,16 @@ import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.ListIterator;
 
 import static java.lang.Math.abs;
 
@@ -254,19 +259,34 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         }
 
         if (plant.getGrowthMonths() != null) {
-            plant_detail_growthMonths.setText(plant.getGrowthMonths());
+            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getGrowthMonths());
+            String growth = "";
+            for(String month : arrayMonths) {
+                growth += month+" ";
+            }
+            plant_detail_growthMonths.setText(growth);
         } else {
             plant_detail_growthMonths.setText("");
         }
 
         if (plant.getBloomMonths() != null) {
-            plant_detail_bloomMonths.setText(plant.getBloomMonths());
+            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getBloomMonths());
+            String growth = "";
+            for(String month : arrayMonths) {
+                growth += month+" ";
+            }
+            plant_detail_bloomMonths.setText(growth);
         } else {
             plant_detail_bloomMonths.setText("");
         }
 
         if (plant.getFruitMonths() != null) {
-            plant_detail_fruitMonths.setText(plant.getFruitMonths());
+            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getFruitMonths());
+            String growth = "";
+            for(String month : arrayMonths) {
+                growth += month+" ";
+            }
+            plant_detail_fruitMonths.setText(growth);
         } else {
             plant_detail_fruitMonths.setText("");
         }
@@ -448,6 +468,26 @@ public class MyPlantsViewDetails extends AppCompatActivity {
 //        Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
 //        plant_detail_img.setImageBitmap(bitmap);
 //    }
+
+    private ArrayList<String> jsonArrayToStringConverter(String json){
+        ArrayList<String> stringArray = new ArrayList<String>();
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                String str = jsonArray.getString(i);
+                stringArray.add(str.substring(0, 1).toUpperCase() + str.substring(1)+".");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return stringArray;
+    }
 }
 
 
