@@ -1,6 +1,7 @@
 package com.chlorophilia.ui.apiProvider;
 
 import android.content.Intent;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -47,6 +48,7 @@ public class ApiInstance extends AppCompatActivity {
      * @throws Exception
      */
     public String getPlantListFromSlug(String param) throws Exception {
+        responseString = "";
         this.param = param;
         //Building URI
         Request request = new Request.Builder()
@@ -57,11 +59,9 @@ public class ApiInstance extends AppCompatActivity {
         //Waiting for API to send a response for two seconds
         //TODO MANAGE MALFORMED RESPONSE OR NO RESPONSE FROM API
         synchronized (lock) {
-            while (responseString == null) {
-                lock.wait(2000);
-            }
-            return responseString;
+            lock.wait(2000);
         }
+        return responseString;
     }
 
     /**
@@ -83,7 +83,7 @@ public class ApiInstance extends AppCompatActivity {
         //TODO MANAGE MALFORMED RESPONSE OR NO RESPONSE FROM API
         synchronized (lock) {
             while (responseString == null) {
-                lock.wait(2000);
+                lock.wait(5000);
             }
             return responseString;
         }

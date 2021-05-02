@@ -24,9 +24,14 @@ import com.chlorophilia.ui.fragmentSearch.NicknameActivity;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 import static java.lang.Math.abs;
 
@@ -56,7 +61,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_myplants_edit_details);
 
         plant = (Plant) getIntent().getSerializableExtra("plant");
-        String imgURL = getIntent().getExtras().getString("imgURL");
 
         //NON EDITABLE
         TextView plant_edit_detail_scientific_name = findViewById(R.id.myPlantEditScientificName);
@@ -118,6 +122,141 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         final CheckBox fruit_november = (CheckBox) findViewById(R.id.fruit_november);
         final CheckBox fruit_october = (CheckBox) findViewById(R.id.fruit_october);
         final CheckBox fruit_december = (CheckBox) findViewById(R.id.fruit_december);
+
+        //POPULATE CHECKBOXES
+        if(plant.getBloomMonths() != null){
+            ArrayList<String> bloomMonths = jsonArrayToArrayListConverter(plant.getBloomMonths());
+            ListIterator<String> li = bloomMonths.listIterator();
+            while (li.hasNext()){
+                switch (li.next()) {
+                    case "jan":
+                        populateCheckboxes(bloom_january);
+                        break;
+                    case "feb":
+                        populateCheckboxes(bloom_february);
+                        break;
+                    case "mar":
+                        populateCheckboxes(bloom_march);
+                        break;
+                    case "apr":
+                        populateCheckboxes(bloom_april);
+                        break;
+                    case "may":
+                        populateCheckboxes(bloom_may);
+                        break;
+                    case "jun":
+                        populateCheckboxes(bloom_june);
+                        break;
+                    case "jul":
+                        populateCheckboxes(bloom_july);
+                        break;
+                    case "aug":
+                        populateCheckboxes(bloom_august);
+                        break;
+                    case "sep":
+                        populateCheckboxes(bloom_september);
+                        break;
+                    case "oct":
+                        populateCheckboxes(bloom_october);
+                        break;
+                    case "nov":
+                        populateCheckboxes(bloom_november);
+                        break;
+                    case "dec":
+                        populateCheckboxes(bloom_december);
+                        break;
+                }
+            }
+        }
+        if(plant.getFruitMonths() != null){
+            ArrayList<String> fruitMonths = jsonArrayToArrayListConverter(plant.getFruitMonths());
+            ListIterator<String> li = fruitMonths.listIterator();
+            while (li.hasNext()){
+                switch (li.next()) {
+                    case "jan":
+                        populateCheckboxes(fruit_january);
+                        break;
+                    case "feb":
+                        populateCheckboxes(fruit_february);
+                        break;
+                    case "mar":
+                        populateCheckboxes(fruit_march);
+                        break;
+                    case "apr":
+                        populateCheckboxes(fruit_april);
+                        break;
+                    case "may":
+                        populateCheckboxes(fruit_may);
+                        break;
+                    case "jun":
+                        populateCheckboxes(fruit_june);
+                        break;
+                    case "jul":
+                        populateCheckboxes(fruit_july);
+                        break;
+                    case "aug":
+                        populateCheckboxes(fruit_august);
+                        break;
+                    case "sep":
+                        populateCheckboxes(fruit_september);
+                        break;
+                    case "oct":
+                        populateCheckboxes(fruit_october);
+                        break;
+                    case "nov":
+                        populateCheckboxes(fruit_november);
+                        break;
+                    case "dec":
+                        populateCheckboxes(fruit_december);
+                        break;
+                }
+            }
+        }
+        if(plant.getGrowthMonths() != null){
+            ArrayList<String> growthMonths = jsonArrayToArrayListConverter(plant.getGrowthMonths());
+            ListIterator<String> li = growthMonths.listIterator();
+            while (li.hasNext()){
+                switch (li.next()) {
+                    case "jan":
+                        populateCheckboxes(growth_january);
+                        break;
+                    case "feb":
+                        populateCheckboxes(growth_february);
+                        break;
+                    case "mar":
+                        populateCheckboxes(growth_march);
+                        break;
+                    case "apr":
+                        populateCheckboxes(growth_april);
+                        break;
+                    case "may":
+                        populateCheckboxes(growth_may);
+                        break;
+                    case "jun":
+                        populateCheckboxes(growth_june);
+                        break;
+                    case "jul":
+                        populateCheckboxes(growth_july);
+                        break;
+                    case "aug":
+                        populateCheckboxes(growth_august);
+                        break;
+                    case "sep":
+                        populateCheckboxes(growth_september);
+                        break;
+                    case "oct":
+                        populateCheckboxes(growth_october);
+                        break;
+                    case "nov":
+                        populateCheckboxes(growth_november);
+                        break;
+                    case "dec":
+                        populateCheckboxes(growth_december);
+                        break;
+                }
+            }
+        }
+
 
         //EDITABLE
         EditText plant_edit_detail_nickname = (EditText) findViewById(R.id.myPlantEditNickname);
@@ -592,5 +731,28 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         return new StringBuilder(str)
                 .deleteCharAt(str.length() - 1)
                 .toString();
+    }
+
+    private ArrayList<String> jsonArrayToArrayListConverter(String json){
+        ArrayList<String> stringArray = new ArrayList<String>();
+        JSONArray jsonArray = null;
+        try {
+            jsonArray = new JSONArray(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                stringArray.add(jsonArray.getString(i));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return stringArray;
+    }
+
+    private void populateCheckboxes(CheckBox checkBox){
+        checkBox.setChecked(true);
     }
 }

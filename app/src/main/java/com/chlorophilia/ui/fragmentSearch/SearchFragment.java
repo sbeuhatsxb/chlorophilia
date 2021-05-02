@@ -70,41 +70,45 @@ public class SearchFragment extends Fragment {
                         getApi.setToken(getResources().getString(R.string.token));
                         //Getting answer from the API
                         String responseAsString = getApi.getPlantListFromSlug(param);
-                        //Building a gson manager
-                        final Gson gson = new GsonBuilder()
-                                .serializeNulls()
-                                .disableHtmlEscaping()
-                                .create();
+                        if(responseAsString.equals("")){
+                            Toast.makeText(getContext(), getResources().getString(R.string.remote_server_failed), Toast.LENGTH_LONG).show();
+                        } else {
+                            //Building a gson manager
+                            final Gson gson = new GsonBuilder()
+                                    .serializeNulls()
+                                    .disableHtmlEscaping()
+                                    .create();
 
-                        //Converting response to a JSON Object
-                        JSONObject responseToJsoObject = new JSONObject(responseAsString);
-                        try {
-                            //Check if API found something
-                            if (responseToJsoObject.getJSONArray("data").length() > 0) {
-                                //Passing through ["data"] object and turning this json into a java array
-                                JSONArray responseAsJson = responseToJsoObject.getJSONArray("data");
-                                //Parsing response as an array
-                                jsonPlantFromApiLists = new ArrayList<JsonPlantFromApiList>();
-                                for (int i = 0; i < responseAsJson.length(); i++) {
-                                    //Plant Class correlated to the json format
-                                    JsonPlantFromApiList jsonPlantFromApiList = new JsonPlantFromApiList();
-                                    jsonPlantFromApiList = gson.fromJson(responseAsJson.getJSONObject(i).toString(), (Type) JsonPlantFromApiList.class);
-                                    //Adding plant to collection
-                                    jsonPlantFromApiLists.add(jsonPlantFromApiList);
+                            //Converting response to a JSON Object
+                            JSONObject responseToJsoObject = new JSONObject(responseAsString);
+                            try {
+                                //Check if API found something
+                                if (responseToJsoObject.getJSONArray("data").length() > 0) {
+                                    //Passing through ["data"] object and turning this json into a java array
+                                    JSONArray responseAsJson = responseToJsoObject.getJSONArray("data");
+                                    //Parsing response as an array
+                                    jsonPlantFromApiLists = new ArrayList<JsonPlantFromApiList>();
+                                    for (int i = 0; i < responseAsJson.length(); i++) {
+                                        //Plant Class correlated to the json format
+                                        JsonPlantFromApiList jsonPlantFromApiList = new JsonPlantFromApiList();
+                                        jsonPlantFromApiList = gson.fromJson(responseAsJson.getJSONObject(i).toString(), (Type) JsonPlantFromApiList.class);
+                                        //Adding plant to collection
+                                        jsonPlantFromApiLists.add(jsonPlantFromApiList);
+                                    }
+
+                                    Intent intent = new Intent(getActivity(), PlantApiShowList.class);
+                                    intent.putParcelableArrayListExtra("plants", (ArrayList<? extends Parcelable>) jsonPlantFromApiLists);
+                                    startActivity(intent);
+                                } else {
+                                    CharSequence text = "Sorry, no plant having this name was found";
+                                    int duration = Toast.LENGTH_SHORT;
+
+                                    Toast toast = Toast.makeText(getContext(), text, duration);
+                                    toast.show();
                                 }
-
-                                Intent intent = new Intent(getActivity(), PlantApiShowList.class);
-                                intent.putParcelableArrayListExtra("plants", (ArrayList<? extends Parcelable>) jsonPlantFromApiLists);
-                                startActivity(intent);
-                            } else {
-                                CharSequence text = "Sorry, no plant having this name was found";
-                                int duration = Toast.LENGTH_SHORT;
-
-                                Toast toast = Toast.makeText(getContext(), text, duration);
-                                toast.show();
+                            } catch (JSONException e) {
+                                e.printStackTrace();
                             }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
 
                     } catch (Exception e) {

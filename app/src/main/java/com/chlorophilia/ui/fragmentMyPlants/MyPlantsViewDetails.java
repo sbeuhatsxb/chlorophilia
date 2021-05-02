@@ -35,6 +35,7 @@ import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -43,8 +44,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.ListIterator;
+import java.util.Hashtable;
 
 import static java.lang.Math.abs;
 
@@ -277,7 +279,6 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         } else {
             plant_detail_growthMonths.setText("");
         }
-
         if (plant.getBloomMonths() != null) {
             ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getBloomMonths());
             String growth = "";
@@ -478,6 +479,11 @@ public class MyPlantsViewDetails extends AppCompatActivity {
 //        plant_detail_img.setImageBitmap(bitmap);
 //    }
 
+    /**
+     * Convert and sort months for display
+     * @param json
+     * @return
+     */
     private ArrayList<String> jsonArrayToStringConverter(String json){
         ArrayList<String> stringArray = new ArrayList<String>();
         JSONArray jsonArray = null;
@@ -486,14 +492,56 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        String[] text = new String[jsonArray.length()];
 
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
+                text[i] = jsonArray.getString(i);
                 String str = jsonArray.getString(i);
                 stringArray.add(str.substring(0, 1).toUpperCase() + str.substring(1)+".");
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        }
+
+        //Ordering monthes
+        Hashtable monthInt = new Hashtable();
+        monthInt.put("Jan.", 1);
+        monthInt.put("Feb.", 2);
+        monthInt.put("Mar.", 3);
+        monthInt.put("Apr.", 4);
+        monthInt.put("May.", 5);
+        monthInt.put("Jun.", 6);
+        monthInt.put("Jul.", 7);
+        monthInt.put("Aug.", 8);
+        monthInt.put("Sep.", 9);
+        monthInt.put("Oct.", 10);
+        monthInt.put("Nov.", 11);
+        monthInt.put("Dec.", 12);
+
+        ArrayList<Integer> disorderNumberedMonthList = new ArrayList<>();
+        for( String month : stringArray){
+            disorderNumberedMonthList.add(Integer.valueOf(monthInt.get(month).toString()));
+        }
+        Collections.sort(disorderNumberedMonthList);
+
+        Hashtable monthStr = new Hashtable();
+        monthStr.put(1, "Jan.");
+        monthStr.put(2, "Feb.");
+        monthStr.put(3, "Mar.");
+        monthStr.put(4, "Apr.");
+        monthStr.put(5, "May.");
+        monthStr.put(6, "Jun.");
+        monthStr.put(7, "Jul.");
+        monthStr.put(8, "Aug.");
+        monthStr.put(9, "Sep.");
+        monthStr.put(10, "Oct.");
+        monthStr.put(11, "Nov.");
+        monthStr.put(12, "Dec.");
+
+        stringArray.clear();
+        for( Integer month : disorderNumberedMonthList){
+            stringArray.add(monthStr.get(month).toString());
         }
         return stringArray;
     }
