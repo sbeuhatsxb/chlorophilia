@@ -11,7 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDialog;
+import com.chlorophilia.ui.dialogs.MyPlantsShowDialog;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         //TODO : RECREATE DB -- HERE DEBUG START BEGIN
-        //PlantDataHandler db = new PlantDataHandler(this);
         //db.destroyAndRecreate();
 
         setContentView(R.layout.activity_main);

@@ -59,7 +59,7 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/detailAddPlantButton"
+                            android:id="@+id/detailUpdatePlantButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/list_plant_add_plant" />
@@ -124,7 +124,7 @@
                         android:background="#2C4CAF50">
 
                         <TextView
-                            android:id="@+id/textView22"
+                            android:id="@+id/editPrecipitationTextMin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/plant_detail_Precipitation"
@@ -145,7 +145,7 @@
                         android:background="#2C4CAF50">
 
                         <TextView
-                            android:id="@+id/empty3"
+                            android:id="@+id/editPrecipitationTextMax"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text=""
@@ -241,7 +241,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/textView26"
+                            android:id="@+id/editTemperatureTextMin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/plant_detail_minimumTemperature" />
@@ -260,7 +260,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/empty1"
+                            android:id="@+id/editTemperatureTextMax"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingLeft="5dp"
@@ -377,7 +377,7 @@
                         android:background="#2C4CAF50">
 
                         <TextView
-                            android:id="@+id/textView30"
+                            android:id="@+id/editSpreadText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
@@ -397,7 +397,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
-                            android:id="@+id/textView33"
+                            android:id="@+id/editRowSpacingText"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/plant_detail_rowSpacing" />

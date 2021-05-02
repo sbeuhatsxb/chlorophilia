@@ -1,4 +1,4 @@
-package com.chlorophilia.ui.fragmentMyPlants;
+package com.chlorophilia.ui.dialogs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chlorophilia.MainActivity;
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
+import com.chlorophilia.ui.fragmentMyPlants.MyPlantsViewListAdapter;
 import com.chlorophilia.ui.model.PlantDataHandler;
 
-public class MyPlantsRemove extends AppCompatActivity {
+public class MyPlantsRemoveDialog extends AppCompatActivity {
 
     Plant plant;
 

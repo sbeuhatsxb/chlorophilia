@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="soilrichness">
+        <item>extremely poor</item>
+        <item>very poor</item>
+        <item>poor</item>
+        <item>fairly poor</item>
+        <item>lower middle</item>
+        <item>middle</item>
+        <item>higher middle</item>
+        <item>fairly rich</item>
+        <item>rich</item>
+        <item>very rich</item>
+        <item>extremely rich</item>
+    </string-array>
+</resources>

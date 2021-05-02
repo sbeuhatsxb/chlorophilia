@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -21,7 +20,6 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -230,7 +228,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             plant_detail_bibliography.setText("");
         }
 
-        addPlant = (Button) findViewById(R.id.detailAddPlantButton);
+        addPlant = (Button) findViewById(R.id.detailUpdatePlantButton);
         addPlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

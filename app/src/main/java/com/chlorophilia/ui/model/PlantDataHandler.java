@@ -18,10 +18,10 @@ import java.util.Random;
 public class PlantDataHandler extends SQLiteOpenHelper {
 
     private static final String CREATE_DATABASE_PLANT =
-            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT);";
+            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT);";
 
     private static final String INSERT_DATABASE_PLANT =
-            "INSERT INTO plant (nickname, common_name, scientific_name, family, bibliography, defaultImage, sowing, days_to_harvest, ph_maximum, ph_minimum, light, atmospheric_humidity, growth_months, bloom_months, fruit_months, soil_nutriments, soil_salinity, soil_humidity, spread, row_spacing, minimum_precipitation, maximum_precipitation, minimum_temperature, maximum_temperature, minimum_root_depth, root_depth_measure, spread_measure, row_spacing_measure, precipitation_measure, temperature_measure, temperature_measure, created_at) VALUES ";
+            "INSERT INTO plant (nickname, common_name, scientific_name, family, bibliography, defaultImage, sowing, days_to_harvest, ph_maximum, ph_minimum, light, atmospheric_humidity, growth_months, bloom_months, fruit_months, soil_nutriments, soil_salinity, soil_humidity, spread, row_spacing, minimum_precipitation, maximum_precipitation, minimum_temperature, maximum_temperature, minimum_root_depth, root_depth_measure, spread_measure, row_spacing_measure, precipitation_measure, temperature_measure, temperature_measure, created_at, watered_at) VALUES ";
 
     private static final String DROP_DATABASE_PLANT_TABLE = "DROP TABLE IF EXISTS plant;";
 
@@ -78,7 +78,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String row_spacing_measure = plant.getRowSpacingMeasure();
         String precipitation_measure = plant.getPrecipitationMeasure();
         String temperature_measure = plant.getTemperatureMeasure();
-
 
         int[] drawables = {
                 R.drawable.rand_plant_1,
@@ -140,7 +139,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         db.execSQL(DROP_DATABASE_PLANT_TABLE);
         onCreate(db);
     }
-
 
     public ArrayList<Plant> getPlants() {
         ArrayList<Plant> plantList = new ArrayList<Plant>();
@@ -208,10 +206,98 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updatePlant(long id, String field, String fieldValue) {
+    public void oldUpdatePlant(long id, String field, String fieldValue) {
         SQLiteDatabase db = this.getWritableDatabase();
         String query = UPDATE_PLANT_FROM_DATABASE + field + " = " + "'" + fieldValue + "'" + " WHERE id=" + id;
         db.execSQL(query);
+        db.close();
+    }
+
+    public void updatePlant(long id, String field, String fieldValue) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(field, fieldValue);
+        db.update("plant", values, "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void updatePlant(Plant plant) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String nickname = plant.getNickname();
+        String common_name = plant.getCommon_name();
+        String bibliography = plant.getBibliography();
+        String scientific_name = plant.getScientific_name();
+        String family = plant.getFamily();
+        String sowing = plant.getSowing();
+        String days_to_harvest = plant.getDays_to_harvest();
+        String ph_maximum = plant.getPhMaximum();
+        String ph_minimum = plant.getPhMinimum();
+        String light = plant.getLight();
+        String atmospheric_humidity = plant.getAtmosphericHumidity();
+        String growth_months = plant.getGrowthMonths();
+        String bloom_months = plant.getBloomMonths();
+        String fruit_months = plant.getFruitMonths();
+        String soil_nutriments = plant.getSoilNutriments();
+        String soil_salinity = plant.getSoilSalinity();
+        String soil_humidity = plant.getSoilHumidity();
+        String spread = plant.getSpread();
+        String row_spacing = plant.getRowSpacing();
+        String minimum_precipitation = plant.getMinimumPrecipitation();
+        String maximum_precipitation = plant.getMaximumPrecipitation();
+        String minimum_temperature = plant.getMinimumTemperature();
+        String maximum_temperature = plant.getMaximumTemperature();
+        String minimum_root_depth = plant.getMinimumRootDepth();
+        String root_depth_measure = plant.getRootDepthMeasure();
+        String spread_measure = plant.getSpreadMeasure();
+        String row_spacing_measure = plant.getRowSpacingMeasure();
+        String precipitation_measure = plant.getPrecipitationMeasure();
+        String temperature_measure = plant.getTemperatureMeasure();
+
+        ContentValues values = new ContentValues();
+        values.put("nickname", nickname);
+        values.put("common_name", common_name);
+        values.put("scientific_name", scientific_name);
+        values.put("family", family);
+        values.put("bibliography", bibliography);
+        values.put("sowing", sowing);
+        values.put("days_to_harvest", days_to_harvest);
+        values.put("ph_minimum", ph_minimum);
+        values.put("ph_maximum", ph_maximum);
+        values.put("light", light);
+        values.put("atmospheric_humidity", atmospheric_humidity);
+        values.put("growth_months", growth_months);
+        values.put("bloom_months", bloom_months);
+        values.put("fruit_months", fruit_months);
+        values.put("soil_nutriments", soil_nutriments);
+        values.put("soil_salinity", soil_salinity);
+        values.put("soil_humidity", soil_humidity);
+        values.put("spread", spread);
+        values.put("row_spacing", row_spacing);
+        values.put("minimum_precipitation", minimum_precipitation);
+        values.put("maximum_precipitation", maximum_precipitation);
+        values.put("minimum_temperature", minimum_temperature);
+        values.put("maximum_temperature", maximum_temperature);
+        values.put("minimum_root_depth", minimum_root_depth);
+        values.put("root_depth_measure", root_depth_measure);
+        values.put("spread_measure", spread_measure);
+        values.put("row_spacing_measure", row_spacing_measure);
+        values.put("precipitation_measure", precipitation_measure);
+        values.put("temperature_measure", temperature_measure);
+
+        long id = plant.getId();
+        db.update("plant", values, "id = ?", new String[]{String.valueOf(id)});
+        db.close();
+    }
+
+    public void dateUpdatePlant(long id, String field, Date fieldValue) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        ContentValues values = new ContentValues();
+        String date = sdf.format(new Date());
+        values.put("created_at", date);
+        db.update("plant", values, "id = ?", new String[]{String.valueOf(id)});
+
         db.close();
     }
 

@@ -43,10 +43,11 @@
         <activity android:name="com.chlorophilia.ui.fragmentSearch.NicknameActivity" />
         <activity android:name="com.chlorophilia.ui.fragmentMyPlants.MyPlantsViewDetails" />
         <activity android:name="com.chlorophilia.ui.sensorProvider.SensorActivity" />
-        <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.fragmentMyPlants.MyPlantsRemove" />
+        <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.dialogs.MyPlantsRemoveDialog" />
         <activity android:name="com.chlorophilia.ui.fragmentSearch.SeePlantDetailsActivity" />
-        <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDialog" />
+        <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.dialogs.MyPlantsShowDialog" />
         <activity android:name="com.chlorophilia.ui.apiProvider.ApiInstance" />
+        <activity android:name=".ui.fragmentMyPlants.MyPlantsEditDetailsActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

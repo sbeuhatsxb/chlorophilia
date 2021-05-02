@@ -21,10 +21,12 @@
     <string name="list_plant_see_details">SEE DETAILS ?</string>
     <string name="list_plant_add_plant">Add Plant to my book</string>
 
+
     <string name="title_custom">Would you like to name your plant ?</string>
     <string name="done">Done !</string>
     <string name="no_thx">No thanks !</string>
 
+    <string name="plant_update_plant">Update</string>
     <string name="plant_change_picture">Click to change picture</string>
     <string name="plant_detail_env">Environment</string>
     <string name="plant_detail_ground">Ground</string>
@@ -44,13 +46,32 @@
     <string name="plant_detail_spread">Spread :</string>
     <string name="plant_detail_minimumRootDepth">Min. root depths :</string>
     <string name="plant_detail_sowing">Sowing :</string>
-    <string name="plant_detail_rowSpacing">Row spacing</string>
+    <string name="plant_detail_rowSpacing">Row spacing :</string>
     <string name="plant_detail_days_to_harvest">Harvest after :</string>
     <string name="plant_detail_growthMonths">Grows months :</string>
     <string name="plant_detail_bloomMonths">Bloom months :</string>
     <string name="plant_detail_fruitMonths">Fruit months :</string>
     <string name="plant_detail_bibliography">Bibliography :</string>
 
+    <string name="plant_edit_detail_precipitation_min">Precipitation in</string>
+    <string name="plant_edit_detail_precipitation_max">Precipitation in</string>
+    <string name="plant_edit_detail_temperature_min">Temperature in celsius (min.) :</string>
+    <string name="plant_edit_detail_temperature_max">Temperature in celsius (max.) :</string>
+    <string name="plant_edit_detail_ph_min">Soil pH (min.):</string>
+    <string name="plant_edit_detail_ph_max">Soil pH (max.) :</string>
+    <string name="plant_edit_detail_atmosphericHumidity">Atmospheric humidity (max. 10) :</string>
+    <string name="plant_edit_detail_soilNutriments">Soil nutriments (max. 10) :</string>
+    <string name="plant_edit_detail_soilSalinity">Soil salinity (max. 10) :</string>
+    <string name="plant_edit_detail_soilHumidity">Soil humidity (max. 10) :</string>
+    <string name="plant_edit_detail_spread">Spread</string>
+    <string name="plant_edit_detail_minimumRootDepth">Min. root depths (in cm.) :</string>
+    <string name="plant_edit_detail_sowing">Sowing (instructions) :</string>
+    <string name="plant_edit_detail_rowSpacing">Row spacing</string>
+    <string name="plant_edit_detail_days_to_harvest">Harvest after :</string>
+    <string name="plant_edit_detail_growthMonths">Grows months :</string>
+    <string name="plant_edit_detail_bloomMonths">Bloom months :</string>
+    <string name="plant_edit_detail_fruitMonths">Fruit months :</string>
+    <string name="plant_edit_detail_bibliography">Bibliography (instructions) :</string>
 
     <string name="noLightInfoText">There were no light information for this particular plant, but we can say that :</string>
 
@@ -63,5 +84,17 @@
     <string name="ok">OK !</string>
     <string name="gotit">GOT IT !</string>
 
+    <string name="january">January</string>
+    <string name="february">February</string>
+    <string name="march">March</string>
+    <string name="april">April</string>
+    <string name="may">May</string>
+    <string name="june">June</string>
+    <string name="july">July</string>
+    <string name="august">August</string>
+    <string name="september">September</string>
+    <string name="october">October</string>
+    <string name="november">November</string>
+    <string name="december">December</string>
     
 </resources>

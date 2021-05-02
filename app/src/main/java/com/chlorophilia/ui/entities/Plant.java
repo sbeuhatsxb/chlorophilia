@@ -38,6 +38,7 @@ public class Plant implements Serializable {
     private String temperatureMeasure;
     private String filenameCustomPicture;
     private Date createdAt;
+    private Date wateredAt;
 
     public Plant() {
     }
@@ -311,5 +312,13 @@ public class Plant implements Serializable {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Date getWateredAt() {
+        return wateredAt;
+    }
+
+    public void setWateredAt(Date wateredAt) {
+        this.wateredAt = wateredAt;
     }
 }

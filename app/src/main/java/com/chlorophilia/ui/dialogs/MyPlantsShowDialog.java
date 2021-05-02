@@ -1,4 +1,4 @@
-package com.chlorophilia.ui.fragmentMyPlants;
+package com.chlorophilia.ui.dialogs;
 
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;

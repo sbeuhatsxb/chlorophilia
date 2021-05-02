@@ -28,8 +28,9 @@ import androidx.core.content.FileProvider;
 import androidx.core.graphics.drawable.DrawableCompat;
 
 import com.chlorophilia.R;
+import com.chlorophilia.ui.dialogs.MyPlantsRemoveDialog;
+import com.chlorophilia.ui.dialogs.MyPlantsShowDialog;
 import com.chlorophilia.ui.entities.Plant;
-import com.chlorophilia.ui.fragmentSearch.NicknameActivity;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -66,6 +67,7 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         plant = (Plant) getIntent().getSerializableExtra("plant");
 
         Button deleteButton = findViewById(R.id.deletePlantButton);
+        Button editButton = findViewById(R.id.editDetails);
         ImageView plant_detail_img = (ImageView) findViewById(R.id.myPlantPicture);
         TextView plant_detail_nickname = findViewById(R.id.myPlantNickname);
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
@@ -160,7 +162,6 @@ public class MyPlantsViewDetails extends AppCompatActivity {
                 for (int i = 0; i < abs(lightQuantity - 10); i++) {
                     sunnyString += new String(new int[]{cloud}, 0, 1);
                 }
-
             }
 
             plant_detail_light.setText(sunnyString);
@@ -294,16 +295,28 @@ public class MyPlantsViewDetails extends AppCompatActivity {
             }
         });
 
+        //DELETE PLANT
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MyPlantsRemove.class);
+                Intent intent = new Intent(getApplicationContext(), MyPlantsRemoveDialog.class);
                 intent.putExtra("plant", plant);
                 startActivity(intent);
             }
         });
 
+        //EDIT PLANT
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MyPlantsEditDetailsActivity.class);
+                intent.putExtra("plant", plant);
+                startActivity(intent);
+                finish();
+            }
+        });
 
+        //TAKE PICTURE
         plant_detail_img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
