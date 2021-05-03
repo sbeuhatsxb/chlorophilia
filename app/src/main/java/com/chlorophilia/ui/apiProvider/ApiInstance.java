@@ -22,19 +22,16 @@ import okhttp3.ResponseBody;
 public class ApiInstance extends AppCompatActivity {
 
     //Object lock dedicated to wait API response before dealing with the response
-    private Object lock = new Object();
+    private final Object lock = new Object();
     private final OkHttpClient client = new OkHttpClient();
-    private String url = "https://trefle.io";
-    private String apiVersion = "/api/v1";
-    private String search = "/plants/search";
-    private String species = "/species/";
-    private String plants = "/plants/";
+    private final String url = "https://trefle.io";
+    private final String apiVersion = "/api/v1";
+    //private String plants = "/plants/";
     private String token;
     //Param sent to query "a plant" to the api
     private String param;
     private String responseString;
 
-//        System.out.println("?token="+getResources().getString(R.string.token));
 
     public void setToken(String token) {
         this.token = "?token=" + token;
@@ -51,6 +48,7 @@ public class ApiInstance extends AppCompatActivity {
         responseString = "";
         this.param = param;
         //Building URI
+        String search = "/plants/search";
         Request request = new Request.Builder()
                 .url(url + apiVersion + search + token + "&q=" + param)
                 .build();
@@ -74,6 +72,7 @@ public class ApiInstance extends AppCompatActivity {
     public String getPlantSpeciesFromSlug(String param) throws Exception {
         this.param = param;
         //Building URI
+        String species = "/species/";
         Request request = new Request.Builder()
                 .url(url + apiVersion + species + param + token)
                 .build();
@@ -105,19 +104,12 @@ public class ApiInstance extends AppCompatActivity {
                 try (ResponseBody responseBody = response.body()) {
                     if (response.code() == 503 || response.code() == 500) {
                         //TODO Manage message to user
+                        return;
                     }
                     if (!response.isSuccessful()) {
-                        Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                        startIntent.putExtra("message", "There was a problem with the server. Unexpected code " + response);
-                        startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        startActivity(startIntent);
+                        return;
                     }
 
-//                    Headers responseHeaders = response.headers();
-//                    for (int i = 0, size = responseHeaders.size(); i < size; i++) {
-//                        //Logging headers
-//                        System.out.println(responseHeaders.name(i) + ": " + responseHeaders.value(i));
-//                    }
                     synchronized (lock) {
                         //okhttp doesn't manage to send the body directly, had to send it as a String
                         responseString = response.body().string();
