@@ -249,7 +249,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             plant_detail_bibliography.setText("");
         }
 
-        addPlant = (Button) findViewById(R.id.detailUpdatePlantButton);
+        addPlant = (Button) findViewById(R.id.button_update);
         addPlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

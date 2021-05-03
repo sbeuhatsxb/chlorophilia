@@ -5,6 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/list_plant_add_plant"
+        android:src="@drawable/baseline_add_20"
+        app:backgroundTint="@android:color/holo_green_dark"
+        app:fabSize="auto"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:maxImageSize="36dp" />
+
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
@@ -38,7 +52,7 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/detailUpdatePlantButton"
+                            android:id="@+id/button_update"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -867,7 +881,7 @@
                     <EditText
                         android:id="@+id/myPlantEditBibliography"
                         android:layout_width="match_parent"
-                        android:layout_height="65dp"
+                        android:layout_height="150dp"
                         android:ems="10"
                         android:gravity="start|top"
                         android:inputType="textMultiLine" />

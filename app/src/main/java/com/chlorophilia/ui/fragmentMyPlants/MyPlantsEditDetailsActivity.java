@@ -2,12 +2,10 @@ package com.chlorophilia.ui.fragmentMyPlants;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -22,7 +20,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
-import com.chlorophilia.ui.fragmentSearch.NicknameActivity;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.toolbox.InputFilterMinMax;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -30,7 +27,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -419,10 +415,88 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_harvestDays.setText("");
         }
 
-        updatePlant = (Button) findViewById(R.id.detailUpdatePlantButton);
+        updatePlant = (Button) findViewById(R.id.button_update);
         updatePlant.setText(getResources().getString(R.string.plant_update_plant) + " " + plant.getNickname());
-
         updatePlant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
+                plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
+                plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
+                plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
+                plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
+                plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
+                plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
+                plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
+                plant.setNickname(plant_edit_detail_nickname.getText().toString());
+                plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
+                plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
+                plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
+                plant.setSowing(plant_edit_detail_sowing.getText().toString());
+                plant.setSpread(plant_edit_detail_spread.getText().toString());
+                plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
+                plant.setFruitMonths(jsonConstructor(growthCheckboxes));
+                plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
+
+                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
+                    plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
+                } else {
+                    plant.setLight("");
+                }
+                if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
+                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilHumidity("");
+                }
+                if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
+                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
+                } else {
+                    plant.setAtmosphericHumidity("");
+                }
+                if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
+                    plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilNutriments("");
+                }
+                if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
+                    plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
+                } else {
+                    plant.setSoilSalinity("");
+                }
+
+
+                //Form validation
+                boolean validForm = true;
+                if(!plant_edit_detail_Precipitation_max.getText().toString().equals("") && !plant_edit_detail_Precipitation_min.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_Precipitation_max.getText().toString()) < Integer.parseInt(plant_edit_detail_Precipitation_min.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPrec), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+                if(!plant_edit_detail_ph_min.getText().toString().equals("") && !plant_edit_detail_ph_max.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_ph_max.getText().toString()) < Integer.parseInt(plant_edit_detail_ph_min.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPh), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+                if(!plant_edit_detail_TemperatureMax.getText().toString().equals("") && !plant_edit_detail_TemperatureMin.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_TemperatureMax.getText().toString()) < Integer.parseInt(plant_edit_detail_TemperatureMin.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxTemp), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+
+                if(validForm){
+                    PlantDataHandler db = new PlantDataHandler(getApplicationContext());
+                    db.updatePlant(plant);
+                    finish();
+                }
+
+            }
+        });
+
+        fab = (FloatingActionButton) findViewById(R.id.fab_update);
+        fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
