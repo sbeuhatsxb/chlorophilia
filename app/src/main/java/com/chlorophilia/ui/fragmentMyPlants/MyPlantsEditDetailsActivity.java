@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,6 +24,7 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.fragmentSearch.NicknameActivity;
 import com.chlorophilia.ui.model.PlantDataHandler;
+import com.chlorophilia.ui.toolbox.InputFilterMinMax;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -273,6 +276,10 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         EditText plant_edit_detail_sowing = (EditText) findViewById(R.id.myPlantEditSowing);
         EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
 
+        //SET LIMIT TO EDIT TEXT
+        plant_edit_detail_ph_min.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
+        plant_edit_detail_ph_max.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
+
         //DESCRIPTIONS
         TextView editRowSpacingText = findViewById(R.id.editRowSpacingText);
         TextView editSpreadText = findViewById(R.id.editSpreadText);
@@ -295,7 +302,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         Spinner plant_edit_detail_soilSalinity = (Spinner) findViewById(R.id.soil_salinity_spinner);
         Spinner plant_edit_detail_soilHumidity = (Spinner) findViewById(R.id.soil_humidity_spinner);
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
+        // SPINNERS : Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterUpToTen = ArrayAdapter.createFromResource(this,
                 R.array.upToTen, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
@@ -307,7 +314,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_light.setSelection(Integer.parseInt(plant.getLight()));
         }
 
-        //RICHNESS
+        //SPINNER RICHNESS
         ArrayAdapter<CharSequence> adapterRichness = ArrayAdapter.createFromResource(this,
                 R.array.soilrichness, android.R.layout.simple_spinner_item);
         adapterRichness.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -320,7 +327,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_soilSalinity.setSelection(Integer.parseInt(plant.getSoilSalinity()));
         }
 
-        //PERCENTAGES
+        //SPINNER PERCENTAGES
         ArrayAdapter<CharSequence> adapterPercent = ArrayAdapter.createFromResource(this,
                 R.array.percent, android.R.layout.simple_spinner_item);
         adapterPercent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -363,7 +370,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         } else {
             plant_edit_detail_Precipitation_max.setText("");
         }
-
 
         if (plant.getMinimumTemperature() != null) {
             plant_edit_detail_TemperatureMin.setText(plant.getMinimumTemperature());
@@ -415,6 +421,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
         updatePlant = (Button) findViewById(R.id.detailUpdatePlantButton);
         updatePlant.setText(getResources().getString(R.string.plant_update_plant) + " " + plant.getNickname());
+
         updatePlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -462,9 +469,34 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                     plant.setSoilSalinity("");
                 }
 
-                PlantDataHandler db = new PlantDataHandler(getApplicationContext());
-                db.updatePlant(plant);
-                finish();
+
+                //Form validation
+                boolean validForm = true;
+                if(!plant_edit_detail_Precipitation_max.getText().toString().equals("") && !plant_edit_detail_Precipitation_min.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_Precipitation_max.getText().toString()) < Integer.parseInt(plant_edit_detail_Precipitation_min.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPrec), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+                if(!plant_edit_detail_ph_min.getText().toString().equals("") && !plant_edit_detail_ph_max.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_ph_max.getText().toString()) < Integer.parseInt(plant_edit_detail_ph_min.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPh), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+                if(!plant_edit_detail_TemperatureMax.getText().toString().equals("") && !plant_edit_detail_TemperatureMin.getText().toString().equals("")){
+                    if(Integer.parseInt(plant_edit_detail_TemperatureMax.getText().toString()) < Integer.parseInt(plant_edit_detail_TemperatureMin.getText().toString())){
+                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxTemp), Toast.LENGTH_LONG).show();
+                        validForm = false;
+                    }
+                }
+
+                if(validForm){
+                    PlantDataHandler db = new PlantDataHandler(getApplicationContext());
+                    db.updatePlant(plant);
+                    finish();
+                }
+
             }
         });
 

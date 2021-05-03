@@ -17,7 +17,7 @@ import com.chlorophilia.ui.model.PlantDataHandler;
 
 public class MyPlantsFragment extends Fragment {
 
-    MyPlantsViewListAdapter adapter;
+    MyPlantsListAdapter adapter;
 
     /**
      * @param inflater
@@ -32,7 +32,7 @@ public class MyPlantsFragment extends Fragment {
         ListView listView = (ListView) root.findViewById(R.id.list);
 
         PlantDataHandler db = new PlantDataHandler(getActivity());
-        adapter = new MyPlantsViewListAdapter(db.getPlants(), getActivity().getApplicationContext());
+        adapter = new MyPlantsListAdapter(db.getPlants(), getActivity().getApplicationContext());
 
         adapter.notifyDataSetChanged();
         listView.setAdapter(adapter);
@@ -43,7 +43,7 @@ public class MyPlantsFragment extends Fragment {
 
                 Plant plant = db.getPlants().get(position);
 
-                Intent intent = new Intent(getActivity(), MyPlantsViewDetails.class);
+                Intent intent = new Intent(getActivity(), MyPlantsShowDetails.class);
                 intent.putExtra("plant", plant);
                 startActivity(intent);
             }

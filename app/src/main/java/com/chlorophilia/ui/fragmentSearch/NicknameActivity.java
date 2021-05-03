@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
-import com.chlorophilia.ui.fragmentMyPlants.MyPlantsViewDetails;
+import com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDetails;
 import com.chlorophilia.ui.model.PlantDataHandler;
 
 
@@ -41,7 +41,7 @@ public class NicknameActivity extends AppCompatActivity {
                     long insertedId = db.insertInto(plant);
                     plant.setId(insertedId);
                     Toast.makeText(getApplicationContext(), "Plant added !", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), MyPlantsViewDetails.class);
+                    Intent intent = new Intent(getApplicationContext(), MyPlantsShowDetails.class);
                     intent.putExtra("plant", plant);
                     startActivity(intent);
                     finish();
@@ -60,7 +60,7 @@ public class NicknameActivity extends AppCompatActivity {
                 long insertedId = db.insertInto(plant);
                 plant.setId(insertedId);
                 Toast.makeText(getApplicationContext(), "Plant added !", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getApplicationContext(), MyPlantsViewDetails.class);
+                Intent intent = new Intent(getApplicationContext(), MyPlantsShowDetails.class);
                 intent.putExtra("plant", plant);
                 startActivity(intent);
                 finish();

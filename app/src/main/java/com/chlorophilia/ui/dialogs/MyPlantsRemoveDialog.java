@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.chlorophilia.MainActivity;
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
-import com.chlorophilia.ui.fragmentMyPlants.MyPlantsViewListAdapter;
+import com.chlorophilia.ui.fragmentMyPlants.MyPlantsListAdapter;
 import com.chlorophilia.ui.model.PlantDataHandler;
 
 public class MyPlantsRemoveDialog extends AppCompatActivity {
@@ -37,7 +37,7 @@ public class MyPlantsRemoveDialog extends AppCompatActivity {
                 long id = plant.getId();
                 db.deletePlant(id);
 
-                new MyPlantsViewListAdapter(db.getPlants(), getApplicationContext());
+                new MyPlantsListAdapter(db.getPlants(), getApplicationContext());
                 Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startIntent.putExtra("message", plant.getNickname() + " is no more !");
                 startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

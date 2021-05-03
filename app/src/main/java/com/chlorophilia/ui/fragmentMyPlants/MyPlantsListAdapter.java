@@ -25,7 +25,7 @@ import java.util.ArrayList;
 /**
  * Custom adapter dedicated to display a list of plant with some info into the home fragment scrolling view.
  */
-public class MyPlantsViewListAdapter extends ArrayAdapter<Plant> implements View.OnClickListener {
+public class MyPlantsListAdapter extends ArrayAdapter<Plant> implements View.OnClickListener {
     private ArrayList<Plant> dataSet;
     Context mContext;
 
@@ -36,7 +36,7 @@ public class MyPlantsViewListAdapter extends ArrayAdapter<Plant> implements View
         ImageView img;
     }
 
-    public MyPlantsViewListAdapter(ArrayList<Plant> data, Context context) {
+    public MyPlantsListAdapter(ArrayList<Plant> data, Context context) {
         super(context, R.layout.activity_main_row_item, data);
         this.dataSet = data;
         this.mContext = context;
