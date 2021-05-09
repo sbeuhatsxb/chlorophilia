@@ -54,7 +54,7 @@ import static java.lang.Math.abs;
 /**
  * Detailed view of plants properties
  */
-public class MyPlantsViewDetails extends AppCompatActivity {
+public class MyPlantsShowDetails extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
 
@@ -336,6 +336,7 @@ public class MyPlantsViewDetails extends AppCompatActivity {
         });
 
         //EDIT PLANT
+        editButton.setText(getResources().getString(R.string.plant_update_plant_show));
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -409,7 +410,7 @@ public class MyPlantsViewDetails extends AppCompatActivity {
             plant.setFilenameCustomPicture(currentPhotoPath);
             TextView plant_textImageView = findViewById(R.id.textImageView);
             ImageView plant_detail_img = (ImageView) findViewById(R.id.myPlantPicture);
-            new MyPlantsViewListAdapter(db.getPlants(), getApplicationContext()).notifyDataSetChanged();
+            new MyPlantsListAdapter(db.getPlants(), getApplicationContext()).notifyDataSetChanged();
 
             try {
                 File f = new File(currentPhotoPath);

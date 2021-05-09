@@ -59,7 +59,7 @@
                         android:orientation="vertical">
 
                         <Button
-                            android:id="@+id/detailUpdatePlantButton"
+                            android:id="@+id/button_update"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/list_plant_add_plant" />

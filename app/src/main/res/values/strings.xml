@@ -28,6 +28,7 @@
     <string name="done">Done !</string>
     <string name="no_thx">No thanks !</string>
 
+    <string name="plant_update_plant_show">Fill your own data</string>
     <string name="plant_update_plant">Update</string>
     <string name="plant_change_picture">Click to change picture</string>
     <string name="plant_detail_env">Environment</string>
@@ -100,5 +101,9 @@
     <string name="december">December</string>
 
     <string name="remote_server_failed">Remote server is not responding. Please try again later.</string>
+
+    <string name="minMaxTemp">Maximum temperature can\'t be lower than minimum temperature</string>
+    <string name="minMaxPrec">Maximum precipitation can\'t be lower than minimum temperature</string>
+    <string name="minMaxPh">Maximum pH can\'t be lower than minimum pH</string>
 
 </resources>
