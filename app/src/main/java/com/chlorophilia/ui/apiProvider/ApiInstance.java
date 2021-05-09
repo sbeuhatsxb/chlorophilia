@@ -24,20 +24,21 @@ public class ApiInstance extends AppCompatActivity {
     //Object lock dedicated to wait API response before dealing with the response
     private Object lock = new Object();
     private final OkHttpClient client = new OkHttpClient();
-    private String url = "https://trefle.io";
+    private String url = "http://192.168.1.68";
     private String apiVersion = "/api/v1";
-    private String search = "/plants/search";
+    private String search = "/species";
     private String species = "/species/";
     private String plants = "/plants/";
     private String token;
     //Param sent to query "a plant" to the api
     private String param;
+    private Integer id;
     private String responseString;
 
 //        System.out.println("?token="+getResources().getString(R.string.token));
 
     public void setToken(String token) {
-        this.token = "?token=" + token;
+        this.token = "/token=" + token;
     }
 
     /**
@@ -52,9 +53,10 @@ public class ApiInstance extends AppCompatActivity {
         this.param = param;
         //Building URI
         Request request = new Request.Builder()
-                .url(url + apiVersion + search + token + "&q=" + param)
+                .url(url + apiVersion + search + token + "/q=" + param)
                 .build();
         //Running api
+        String truc =url + apiVersion + search + token + "/q=" + param;
         this.run(request);
         //Waiting for API to send a response for two seconds
         //TODO MANAGE MALFORMED RESPONSE OR NO RESPONSE FROM API
@@ -65,21 +67,21 @@ public class ApiInstance extends AppCompatActivity {
     }
 
     /**
-     * This method calls for a specie from trefle.io API. Param represents which plant-slug will be sent to the API
+     * This method calls for a specie from trefle.io API. Param represents which plant-id will be sent to the API
      *
-     * @param param
+     * @param id
      * @return
      * @throws Exception
      */
-    public String getPlantSpeciesFromSlug(String param) throws Exception {
-        this.param = param;
+    public String getPlantFromId(Integer id) throws Exception {
+        this.id = id;
         //Building URI
         Request request = new Request.Builder()
-                .url(url + apiVersion + species + param + token)
+                .url(url + apiVersion + plants + id)
                 .build();
         //Running api
         this.run(request);
-        //Waiting for API to send a response for two seconds
+        //Waiting for API to send a response for five seconds
         synchronized (lock) {
             while (responseString == null) {
                 lock.wait(5000);

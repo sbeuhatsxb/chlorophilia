@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -20,17 +19,17 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.apiProvider.ApiInstance;
 import com.chlorophilia.ui.entities.JsonPlantFromApiList;
 import com.chlorophilia.ui.entities.Plant;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 /**
  * View dedicated to add a plant from the PlantApiShowList
@@ -62,12 +61,14 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
         TextView familyCommonName = findViewById(R.id.list_plant_family_common_name_desc);
         TextView genus = findViewById(R.id.list_plant_genus_desc);
         TextView scientificName = findViewById(R.id.list_plant_scientific_name_desc);
+        TextView common_names = findViewById(R.id.list_plant_common_names);
 
         commonName.setText(jsonPlantFromApiListDetail.getCommon_name());
         family.setText(jsonPlantFromApiListDetail.getFamily());
         familyCommonName.setText(jsonPlantFromApiListDetail.getFamily_common_name());
         genus.setText(jsonPlantFromApiListDetail.getGenus());
         scientificName.setText(jsonPlantFromApiListDetail.getScientific_name());
+        common_names.setText(jsonPlantFromApiListDetail.getCommon_names());
         new DownLoadImageTask(plantPictureExample).execute(imgURL);
 
         backToList = (Button) findViewById(R.id.backToList);
@@ -92,9 +93,9 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Get plant slug  from input
-                String slug = jsonPlantFromApiListDetail.getSlug();
-                Plant plant = tryApiJsonToPlantObject(slug);
+                //Get plant id  from input
+                Integer id = jsonPlantFromApiListDetail.getId();
+                Plant plant = tryApiJsonToPlantObject(id);
                 Intent intent = new Intent(getApplicationContext(), NicknameActivity.class);
                 intent.putExtra("plant", plant);
                 startActivity(intent);
@@ -109,9 +110,9 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Get plant slug  from input
-                String slug = jsonPlantFromApiListDetail.getSlug();
-                Plant plant = tryApiJsonToPlantObject(slug);
+                //Get plant id  from input
+                Integer id = jsonPlantFromApiListDetail.getId();
+                Plant plant = tryApiJsonToPlantObject(id);
                 Intent intent = new Intent(getApplicationContext(), SeePlantDetailsActivity.class);
                 intent.putExtra("plant", plant);
                 intent.putExtra("imgURL", imgURL);
@@ -194,15 +195,15 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
         return valuesReturned;
     }
 
-    private Plant tryApiJsonToPlantObject(String slug) {
+    private Plant tryApiJsonToPlantObject(Integer id) {
         //new API call
         ApiInstance getApi = new ApiInstance();
-        if (!slug.equals("")) {
+        if (!id.equals("")) {
             try {
                 //Setting token
                 getApi.setToken(getResources().getString(R.string.token));
                 //Getting answer from the API
-                String responseAsString = getApi.getPlantSpeciesFromSlug(slug);
+                String responseAsString = getApi.getPlantFromId(id);
                 //Building a gson manager
                 final Gson gson = new GsonBuilder()
                         .serializeNulls()
@@ -221,129 +222,99 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                     bookPlant.setFamily(jsonPlantFromApiListDetail.getFamily());
 
                     //Passing through ["data"]["growth"] objects and adding them to an Hashtable
-                    String[] items = {"sowing", "days_to_harvest", "ph_maximum", "ph_minimum", "light", "atmospheric_humidity", "growth_months", "bloom_months",
-                            "fruit_months", "soil_nutriments", "soil_salinity", "soil_humidity"
-                    };
+                    //OLD API
+//                    String[] items = {"sowing", "days_to_harvest", "ph_maximum", "ph_minimum", "light", "atmospheric_humidity", "growth_months", "bloom_months",
+//                            "fruit_months", "soil_nutriments", "soil_salinity", "soil_humidity"};
+                    String[] items = {"plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
+                            "fruitMonths", "soilNutriments", "soilSalinity","plantingSpreadCm", "plantingRowSpacingCm", "minimumRootDepthCm"};
 
                     for (int i = 0; i < items.length; i++) {
                         String item = items[i];
-                        Object getItem = responseToJsonObject.getJSONObject("data").getJSONObject("growth").get(item);
+                        Object getItem = responseToJsonObject.get(item);
                         if (!getItem.toString().equals("null")) {
                             switch (item) {
-                                case "sowing":
+                                case "plantingSowingDescription":
                                     bookPlant.setSowing(getItem.toString());
                                     break;
-                                case "days_to_harvest":
-                                    bookPlant.setDays_to_harvest(getItem.toString());
-                                    break;
-                                case "ph_maximum":
+                                case "phMaximum":
                                     bookPlant.setPhMaximum(getItem.toString());
                                     break;
-                                case "ph_minimum":
+                                case "phMinimum":
                                     bookPlant.setPhMinimum(getItem.toString());
                                     break;
                                 case "light":
                                     bookPlant.setLight(getItem.toString());
                                     break;
-                                case "atmospheric_humidity":
+                                case "atmosphericHumidity":
                                     bookPlant.setAtmosphericHumidity(getItem.toString());
                                     break;
-                                case "growth_months":
-                                    bookPlant.setGrowthMonths(getItem.toString());
-                                    break;
-                                case "bloom_months":
-                                    bookPlant.setBloomMonths(getItem.toString());
-                                    break;
-                                case "fruit_months":
-                                    bookPlant.setFruitMonths(getItem.toString());
-                                    break;
-                                case "soil_nutriments":
+                                case "soilNutriments":
                                     bookPlant.setSoilNutriments(getItem.toString());
                                     break;
-                                case "soil_salinity":
+                                case "soilSalinity":
                                     bookPlant.setSoilSalinity(getItem.toString());
                                     break;
-                                case "soil_humidity":
-                                    bookPlant.setSoilHumidity(getItem.toString());
+                                case "plantingSpreadCm":
+                                    bookPlant.setSpread(getItem.toString());
+                                    break;
+                                case "plantingRowSpacingCm":
+                                    bookPlant.setRowSpacing(getItem.toString());
+                                    break;
+                                case "minimumRootDepthCm":
+                                    bookPlant.setMinimumRootDepth(getItem.toString());
                                     break;
                             }
-
                         }
                     }
 
+                    //Monthes
+                    //TODO : Conversation done according to old def. Nonsense actually.
+                    //TODO : Need to convert views as well (the big part)
                     String[] itemsArray = {
-                            "spread", "row_spacing", "minimum_precipitation", "maximum_precipitation",
-                            "minimum_temperature", "maximum_temperature", "minimum_root_depth"
+                            "growthMonths", "bloomMonths", "fruitMonths"
                     };
-
+                    Hashtable monthStr = new Hashtable();
+                    monthStr.put(1, "jan");
+                    monthStr.put(2, "feb");
+                    monthStr.put(3, "mar");
+                    monthStr.put(4, "apr");
+                    monthStr.put(5, "may");
+                    monthStr.put(6, "jun");
+                    monthStr.put(7, "jul");
+                    monthStr.put(8, "aug");
+                    monthStr.put(9, "sep");
+                    monthStr.put(10, "oct");
+                    monthStr.put(11, "nov");
+                    monthStr.put(12, "dec");
                     for (int i = 0; i < itemsArray.length; i++) {
                         String item = itemsArray[i];
-                        Object getItem = responseToJsonObject.getJSONObject("data").getJSONObject("growth").getJSONObject(item);
-                        String[] results;
+                        Object getItem = responseToJsonObject.get(item);
+                        ArrayList<String> stringArray = new ArrayList<String>();
                         if (!getItem.toString().equals("null")) {
                             switch (item) {
-                                case "spread":
-                                    results = stringConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setSpreadMeasure(results[0]);
+                                case "growthMonths":
+                                    for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
+                                        Object month = ((JSONArray) getItem).get(j);
+                                        int monthNumber = ((JSONObject) month).getInt("id");
+                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
                                     }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setSpread(results[1]);
-                                    }
+                                    bookPlant.setGrowthMonths(stringArray.toString());
                                     break;
-                                case "row_spacing":
-                                    results = stringConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setRowSpacingMeasure(results[0]);
+                                case "bloomMonths":
+                                    for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
+                                        Object month = ((JSONArray) getItem).get(j);
+                                        int monthNumber = ((JSONObject) month).getInt("id");
+                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
                                     }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setRowSpacing(results[1]);
-                                    }
+                                    bookPlant.setBloomMonths(stringArray.toString());
                                     break;
-                                case "minimum_precipitation":
-                                    results = stringConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setPrecipitationMeasure(results[0]);
+                                case "fruitMonths":
+                                    for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
+                                        Object month = ((JSONArray) getItem).get(j);
+                                        int monthNumber = ((JSONObject) month).getInt("id");
+                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
                                     }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setMinimumPrecipitation(results[1]);
-                                    }
-                                    break;
-                                case "minimum_root_depth":
-                                    results = stringConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setRootDepthMeasure(results[0]);
-                                    }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setMinimumRootDepth(results[1]);
-                                    }
-                                    break;
-                                case "maximum_precipitation":
-                                    results = stringConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setPrecipitationMeasure(results[0]);
-                                    }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setMaximumPrecipitation(results[1]);
-                                    }
-                                    break;
-                                case "minimum_temperature":
-                                    results = stringTemperatureConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setTemperatureMeasure(results[0]);
-                                    }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setMinimumTemperature(results[1]);
-                                    }
-                                    break;
-                                case "maximum_temperature":
-                                    results = stringTemperatureConverter(getItem.toString());
-                                    if (!results[0].equals(null)) {
-                                        bookPlant.setTemperatureMeasure(results[0]);
-                                    }
-                                    if (!results[1].equals("null")) {
-                                        bookPlant.setMaximumTemperature(results[1]);
-                                    }
+                                    bookPlant.setFruitMonths(stringArray.toString());
                                     break;
                             }
                         }

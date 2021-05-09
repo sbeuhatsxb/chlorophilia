@@ -16,47 +16,55 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/plantPictureExample"
+                android:layout_width="match_parent"
+                android:layout_height="340dp" />
             <LinearLayout
-                android:id="@+id/linearLayout2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/backToList"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:backgroundTint="#CDDC39"
-                    android:text="@string/list_plant_back_to_list_button" />
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal">
 
                 <Button
                     android:id="@+id/addPlantButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:backgroundTint="#FF9800"
                     android:text="@string/list_plant_add_plant" />
             </LinearLayout>
-
-            <ImageView
-                android:id="@+id/plantPictureExample"
-                android:layout_width="match_parent"
-                android:layout_height="360dp" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/seeDetails"
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/list_plant_see_details" />
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/backToList"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="#CDDC39"
+                        android:text="@string/list_plant_back_to_list_button" />
+
+                    <Button
+                        android:id="@+id/seeDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="@string/list_plant_see_details" />
+
+                </LinearLayout>
+
             </LinearLayout>
 
             <TableLayout
@@ -66,14 +74,13 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="125dp"
                         android:layout_height="30dp"
                         android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
                         android:text="@string/list_plant_common_name"
                         android:textSize="14sp" />
@@ -82,7 +89,6 @@
                         android:id="@+id/list_plant_common_name_desc"
                         android:layout_width="230dp"
                         android:layout_height="30dp"
-                        android:layout_marginTop="20dp"
                         android:text="@string/list_plant_common_name_desc"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -181,15 +187,36 @@
                         android:layout_width="230dp"
                         android:layout_height="30dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginEnd="16dp"
+
                         android:autoText="false"
                         android:text="@string/list_plant_scientific_name_desc"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                 </TableRow>
-            </TableLayout>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="125dp"
+                        android:layout_height="31dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="20dp"
+                        android:text="@string/list_plant_family_common_names" />
+
+                    <TextView
+                        android:id="@+id/list_plant_common_names"
+                        android:layout_width="230dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:text="TextView" />
+                </TableRow>
+            </TableLayout>
         </LinearLayout>
     </ScrollView>
 

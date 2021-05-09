@@ -70,6 +70,7 @@ public class SearchFragment extends Fragment {
                         getApi.setToken(getResources().getString(R.string.token));
                         //Getting answer from the API
                         String responseAsString = getApi.getPlantListFromSlug(param);
+
                         if(responseAsString.equals("")){
                             Toast.makeText(getContext(), getResources().getString(R.string.remote_server_failed), Toast.LENGTH_LONG).show();
                         } else {
@@ -80,12 +81,12 @@ public class SearchFragment extends Fragment {
                                     .create();
 
                             //Converting response to a JSON Object
-                            JSONObject responseToJsoObject = new JSONObject(responseAsString);
+                            JSONObject responseToJsonObject = new JSONObject(responseAsString);
                             try {
                                 //Check if API found something
-                                if (responseToJsoObject.getJSONArray("data").length() > 0) {
+                                if (responseToJsonObject.getJSONArray("plants").length() > 0) {
                                     //Passing through ["data"] object and turning this json into a java array
-                                    JSONArray responseAsJson = responseToJsoObject.getJSONArray("data");
+                                    JSONArray responseAsJson = responseToJsonObject.getJSONArray("plants");
                                     //Parsing response as an array
                                     jsonPlantFromApiLists = new ArrayList<JsonPlantFromApiList>();
                                     for (int i = 0; i < responseAsJson.length(); i++) {

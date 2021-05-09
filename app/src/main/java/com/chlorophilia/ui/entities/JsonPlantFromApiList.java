@@ -43,6 +43,9 @@ public class JsonPlantFromApiList implements Parcelable {
     @SerializedName("family_common_name")
     @Expose
     private String family_common_name;
+    @SerializedName("common_names")
+    @Expose
+    private String common_names;
     @SerializedName("genus_id")
     @Expose
     private int genus_id;
@@ -69,6 +72,7 @@ public class JsonPlantFromApiList implements Parcelable {
     protected JsonPlantFromApiList(Parcel in) {
         id = in.readInt();
         common_name = in.readString();
+        common_names = in.readString();
         slug = in.readString();
         scientific_name = in.readString();
         year = in.readInt();
@@ -87,6 +91,7 @@ public class JsonPlantFromApiList implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(common_name);
+        dest.writeString(common_names);
         dest.writeString(slug);
         dest.writeString(scientific_name);
         dest.writeInt(year);
@@ -96,7 +101,14 @@ public class JsonPlantFromApiList implements Parcelable {
         dest.writeString(rank);
         dest.writeString(family_common_name);
         dest.writeInt(genus_id);
-        dest.writeString(image_url);
+        StringBuilder sb = new StringBuilder(image_url);
+        //Removing http"S" causing certificate errors
+        if(sb.charAt(4) == 115){
+            sb.deleteCharAt(4);
+            dest.writeString(sb.toString());
+        } else {
+            dest.writeString(image_url);
+        }
         dest.writeString(genus);
         dest.writeString(family);
     }
@@ -211,6 +223,7 @@ public class JsonPlantFromApiList implements Parcelable {
     }
 
     public void setImage_url(String image_url) {
+
         this.image_url = image_url;
     }
 
@@ -244,5 +257,13 @@ public class JsonPlantFromApiList implements Parcelable {
 
     public void setLinks(Object links) {
         this.links = links;
+    }
+
+    public String getCommon_names() {
+        return common_names;
+    }
+
+    public void setCommon_names(String common_names) {
+        this.common_names = common_names;
     }
 }
