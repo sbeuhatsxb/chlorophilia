@@ -233,7 +233,7 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                             "plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
                             "fruitMonths", "soilNutriments", "soilSalinity","plantingSpreadCm", "plantingRowSpacingCm", "minimumRootDepthCm",
                             "growthForm", "growthHabit", "growthRate", "ediblePart", "vegetable", "edible", "anaerobicTolerance", "averageHeightCm",
-                            "maximumHeightCm", "urlPowo", "urlPlantnet", "urlGbif", "urlWikipediaEn"
+                            "maximumHeightCm", "urlPowo", "urlPlantnet", "urlGbif", "urlWikipediaEn", "groundHumidity"
                     };
                     //Uppers fields are expected in the RestAPI, there for we're parsing each field and each JsonArray corresponding set the proper value
                     for (int i = 0; i < items.length; i++) {
@@ -309,6 +309,9 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                                     break;
                                 case "urlWikipediaEn":
                                     bookPlant.setUrlWikipediaEn(getItem.toString());
+                                    break;
+                                case "groundHumidity":
+                                    bookPlant.setSoilHumidity(getItem.toString());
                                     break;
                             }
                         }

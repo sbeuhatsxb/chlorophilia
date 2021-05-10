@@ -19,6 +19,14 @@ public class PlantDataHandler extends SQLiteOpenHelper {
 
     //Since 0 is a value for this Database, and since Java manages 0 as NULL, we assume to record everything in string
     //Except for data managed by Android or Java directly
+    //TODO:
+//    "flowerColor": "yellow",
+//            "flowerConspicuous": null,
+//            "foliageColor": null,
+//            "foliageTexture": null,
+//            "fruitColor": null,
+//            "fruitConspicuous": null,
+    //groundHumidity
     private static final String CREATE_DATABASE_PLANT =
             "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT);";
 

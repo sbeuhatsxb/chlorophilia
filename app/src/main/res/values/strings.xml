@@ -75,6 +75,20 @@
     <string name="plant_edit_detail_bloomMonths">Bloom months :</string>
     <string name="plant_edit_detail_fruitMonths">Fruit months :</string>
     <string name="plant_edit_detail_bibliography">Bibliography (instructions) :</string>
+    <string name="plant_edit_detail_anaerobic">Anaerobic tolerance :</string>
+    <string name="plant_edit_detail_growthForm">Growth Form :</string>
+    <string name="plant_edit_detail_growthHabit">Growth Habit :</string>
+    <string name="plant_edit_detail_growthRate">Growth Rate :</string>
+    <string name="plant_edit_detail_ediblePart">Edible Part :</string>
+    <string name="plant_edit_detail_vegetable">Vegetable :</string>
+    <string name="plant_edit_detail_edible">Edible :</string>
+    <string name="plant_edit_detail_averageHeightCm">Average Height :</string>
+    <string name="plant_edit_detail_maximumHeight">Max Height :</string>
+    <string name="plant_edit_detail_flowerColor">Flower Color :</string>
+    <string name="plant_edit_detail_flowerConspicuous">Flower Conspicuous :</string>
+    <string name="plant_edit_detail_foliageTexture">Foliage Texture :</string>
+    <string name="plant_edit_detail_fruitColor">Fruit Color :</string>
+    <string name="plant_edit_detail_fruitConspicuous">Fruit Conspicuous :</string>
 
     <string name="noLightInfoText">There were no light information for this particular plant, but we can say that :</string>
 
