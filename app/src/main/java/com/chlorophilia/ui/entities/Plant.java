@@ -3,8 +3,12 @@ package com.chlorophilia.ui.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Main plant entity : not much is happening here
+ */
 public class Plant implements Serializable {
 
+    //Since 0 is a value for this Database, and since Java manages 0 as NULL, we record everything in string
     private long id;
     private String nickname;
     private String common_name;
@@ -39,6 +43,20 @@ public class Plant implements Serializable {
     private String filenameCustomPicture;
     private Date createdAt;
     private Date wateredAt;
+    //API V2
+    private String growthForm;
+    private String growthHabit;
+    private String growthRate;
+    private String ediblePart;
+    private String vegetable;
+    private String edible;
+    private String anaerobicTolerance;
+    private String averageHeightCm;
+    private String maximumHeightCm;
+    private String urlPowo;
+    private String urlPlantnet;
+    private String urlGbif;
+    private String urlWikipediaEn;
 
     public Plant() {
     }
@@ -320,5 +338,109 @@ public class Plant implements Serializable {
 
     public void setWateredAt(Date wateredAt) {
         this.wateredAt = wateredAt;
+    }
+
+    public String getGrowthForm() {
+        return growthForm;
+    }
+
+    public void setGrowthForm(String growthForm) {
+        this.growthForm = growthForm;
+    }
+
+    public String getGrowthHabit() {
+        return growthHabit;
+    }
+
+    public void setGrowthHabit(String growthHabit) {
+        this.growthHabit = growthHabit;
+    }
+
+    public String getGrowthRate() {
+        return growthRate;
+    }
+
+    public void setGrowthRate(String growthRate) {
+        this.growthRate = growthRate;
+    }
+
+    public String getEdiblePart() {
+        return ediblePart;
+    }
+
+    public void setEdiblePart(String ediblePart) {
+        this.ediblePart = ediblePart;
+    }
+
+    public String getVegetable() {
+        return vegetable;
+    }
+
+    public void setVegetable(String vegetable) {
+        this.vegetable = vegetable;
+    }
+
+    public String getEdible() {
+        return edible;
+    }
+
+    public void setEdible(String edible) {
+        this.edible = edible;
+    }
+
+    public String getAnaerobicTolerance() {
+        return anaerobicTolerance;
+    }
+
+    public void setAnaerobicTolerance(String anaerobicTolerance) {
+        this.anaerobicTolerance = anaerobicTolerance;
+    }
+
+    public String getAverageHeightCm() {
+        return averageHeightCm;
+    }
+
+    public void setAverageHeightCm(String averageHeightCm) {
+        this.averageHeightCm = averageHeightCm;
+    }
+
+    public String getMaximumHeightCm() {
+        return maximumHeightCm;
+    }
+
+    public void setMaximumHeightCm(String maximumHeightCm) {
+        this.maximumHeightCm = maximumHeightCm;
+    }
+
+    public String getUrlPowo() {
+        return urlPowo;
+    }
+
+    public void setUrlPowo(String urlPowo) {
+        this.urlPowo = urlPowo;
+    }
+
+    public String getUrlPlantnet() {
+        return urlPlantnet;
+    }
+
+    public void setUrlPlantnet(String urlPlantnet) {
+        this.urlPlantnet = urlPlantnet;
+    }
+
+    public String getUrlGbif() {
+        return urlGbif;
+    }
+
+    public void setUrlGbif(String urlGbif) {
+        this.urlGbif = urlGbif;
+    }
+
+    public String getUrlWikipediaEn() {
+        return urlWikipediaEn;
+    }
+
+    public void setUrlWikipediaEn(String urlWikipediaEn) {
+        this.urlWikipediaEn = urlWikipediaEn;
     }
 }

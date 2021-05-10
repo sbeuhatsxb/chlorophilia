@@ -33,7 +33,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**
- * Class dedicated to call trefle.io API
+ * Class dedicated to call the API with a slug
  */
 public class SearchFragment extends Fragment {
 
@@ -97,7 +97,7 @@ public class SearchFragment extends Fragment {
                                         jsonPlantFromApiLists.add(jsonPlantFromApiList);
                                     }
 
-                                    Intent intent = new Intent(getActivity(), PlantApiShowList.class);
+                                    Intent intent = new Intent(getActivity(), SearchApiShowList.class);
                                     intent.putParcelableArrayListExtra("plants", (ArrayList<? extends Parcelable>) jsonPlantFromApiLists);
                                     startActivity(intent);
                                 } else {

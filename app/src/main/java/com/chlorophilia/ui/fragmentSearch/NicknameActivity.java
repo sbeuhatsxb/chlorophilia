@@ -15,6 +15,9 @@ import com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDetails;
 import com.chlorophilia.ui.model.PlantDataHandler;
 
 
+/**
+ * Name your plant !
+ */
 public class NicknameActivity extends AppCompatActivity {
 
     private EditText nicknameInput = null;

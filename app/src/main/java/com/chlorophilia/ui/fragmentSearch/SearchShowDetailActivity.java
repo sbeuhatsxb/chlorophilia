@@ -34,7 +34,7 @@ import java.util.Hashtable;
 /**
  * View dedicated to add a plant from the PlantApiShowList
  */
-public class PlantApiShowDetailActivity extends AppCompatActivity {
+public class SearchShowDetailActivity extends AppCompatActivity {
 
     private Button addPlant;
     private Button backToList;
@@ -79,7 +79,7 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                 ArrayList<JsonPlantFromApiList> jsonPlantFromApiLists;
                 Intent intent = getIntent();
                 jsonPlantFromApiLists = intent.getParcelableArrayListExtra("ApiPlantList");
-                intent = new Intent(getApplicationContext(), PlantApiShowList.class);
+                intent = new Intent(getApplicationContext(), SearchApiShowList.class);
                 intent.putParcelableArrayListExtra("plants", (ArrayList<? extends Parcelable>) jsonPlantFromApiLists);
                 startActivity(intent);
             }
@@ -124,6 +124,10 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
     private class DownLoadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView imageView;
 
+        /**
+         *
+         * @param imageView
+         */
         public DownLoadImageTask(ImageView imageView) {
             this.imageView = imageView;
         }
@@ -221,13 +225,17 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                     bookPlant.setScientific_name(jsonPlantFromApiListDetail.getScientific_name());
                     bookPlant.setFamily(jsonPlantFromApiListDetail.getFamily());
 
-                    //Passing through ["data"]["growth"] objects and adding them to an Hashtable
-                    //OLD API
-//                    String[] items = {"sowing", "days_to_harvest", "ph_maximum", "ph_minimum", "light", "atmospheric_humidity", "growth_months", "bloom_months",
-//                            "fruit_months", "soil_nutriments", "soil_salinity", "soil_humidity"};
-                    String[] items = {"plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
-                            "fruitMonths", "soilNutriments", "soilSalinity","plantingSpreadCm", "plantingRowSpacingCm", "minimumRootDepthCm"};
-
+                    //OLD API (for memories !)
+                    // String[] items = {"sowing", "days_to_harvest", "ph_maximum", "ph_minimum", "light", "atmospheric_humidity", "growth_months", "bloom_months",
+                    //"fruit_months", "soil_nutriments", "soil_salinity", "soil_humidity"};
+                    //API V2
+                    String[] items = {
+                            "plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
+                            "fruitMonths", "soilNutriments", "soilSalinity","plantingSpreadCm", "plantingRowSpacingCm", "minimumRootDepthCm",
+                            "growthForm", "growthHabit", "growthRate", "ediblePart", "vegetable", "edible", "anaerobicTolerance", "averageHeightCm",
+                            "maximumHeightCm", "urlPowo", "urlPlantnet", "urlGbif", "urlWikipediaEn"
+                    };
+                    //Uppers fields are expected in the RestAPI, there for we're parsing each field and each JsonArray corresponding set the proper value
                     for (int i = 0; i < items.length; i++) {
                         String item = items[i];
                         Object getItem = responseToJsonObject.get(item);
@@ -263,11 +271,51 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                                 case "minimumRootDepthCm":
                                     bookPlant.setMinimumRootDepth(getItem.toString());
                                     break;
+                                case "growthForm":
+                                    bookPlant.setGrowthForm(getItem.toString());
+                                    break;
+                                case "growthHabit":
+                                    bookPlant.setGrowthHabit(getItem.toString());
+                                    break;
+                                case "growthRate":
+                                    bookPlant.setGrowthRate(getItem.toString());
+                                    break;
+                                case "ediblePart":
+                                    bookPlant.setEdiblePart(getItem.toString());
+                                    break;
+                                case "vegetable":
+                                    bookPlant.setVegetable(getItem.toString());
+                                    break;
+                                case "edible":
+                                    bookPlant.setEdible(getItem.toString());
+                                    break;
+                                case "anaerobicTolerance":
+                                    bookPlant.setAnaerobicTolerance(getItem.toString());
+                                    break;
+                                case "averageHeightCm":
+                                    bookPlant.setAverageHeightCm(getItem.toString());
+                                    break;
+                                case "maximumHeightCm":
+                                    bookPlant.setMaximumHeightCm(getItem.toString());
+                                    break;
+                                case "urlPowo":
+                                    bookPlant.setUrlPowo(getItem.toString());
+                                    break;
+                                case "urlPlantnet":
+                                    bookPlant.setUrlPlantnet(getItem.toString());
+                                    break;
+                                case "urlGbif":
+                                    bookPlant.setUrlGbif(getItem.toString());
+                                    break;
+                                case "urlWikipediaEn":
+                                    bookPlant.setUrlWikipediaEn(getItem.toString());
+                                    break;
                             }
                         }
                     }
 
-                    //Monthes
+                    //Monthes : other logic since those are arrays that need to be recorded as string into the DB
+                    //TODO : Technical Debt since ApiV2
                     //TODO : Conversation done according to old def. Nonsense actually.
                     //TODO : Need to convert views as well (the big part)
                     String[] itemsArray = {
@@ -319,7 +367,6 @@ public class PlantApiShowDetailActivity extends AppCompatActivity {
                             }
                         }
                     }
-
                     return bookPlant;
 
                 } catch (JSONException e) {

@@ -23,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         PlantDataHandler db = new PlantDataHandler(this);
+        //TODO : RECREATE DB -- HERE DEBUG START BEGIN
+        //db.destroyAndRecreate();
+
         if (db.getPlants().size() == 0) {
             Intent intent = new Intent(getApplicationContext(), MyPlantsShowDialog.class);
             intent.putExtra("message", getResources().getString(R.string.home_first_time));
@@ -34,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
             String message = (String) getIntent().getExtras().get("message");
             Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         }
-
-        //TODO : RECREATE DB -- HERE DEBUG START BEGIN
-        //db.destroyAndRecreate();
 
         setContentView(R.layout.activity_main);
 

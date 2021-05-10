@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 /**
- * Class dedidacted to automaticly convert a Json object gotten from API to a Java Parcelable object
+ * Class ONLY dedicated to automaticly convert a Json object gotten from API to a Java Parcelable object
  */
 public class JsonPlantFromApiList implements Parcelable {
 

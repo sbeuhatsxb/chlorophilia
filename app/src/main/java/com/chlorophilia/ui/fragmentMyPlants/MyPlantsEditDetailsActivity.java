@@ -84,7 +84,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_family.setText("");
         }
 
-//CHECKBOXES !!
+        //CHECKBOXES !!!
         final CheckBox bloom_january = (CheckBox) findViewById(R.id.bloom_january);
         final CheckBox bloom_february = (CheckBox) findViewById(R.id.bloom_february);
         final CheckBox bloom_march = (CheckBox) findViewById(R.id.bloom_march);

@@ -39,8 +39,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.chlorophilia.ui.fragmentSearch.PlantApiShowList" />
-        <activity android:name="com.chlorophilia.ui.fragmentSearch.PlantApiShowDetailActivity" />
+        <activity android:name="com.chlorophilia.ui.fragmentSearch.SearchApiShowList" />
+        <activity android:name="com.chlorophilia.ui.fragmentSearch.SearchShowDetailActivity" />
         <activity android:name="com.chlorophilia.ui.fragmentSearch.NicknameActivity" />
         <activity android:name="com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDetails" />
         <activity android:name="com.chlorophilia.ui.sensorProvider.SensorActivity" />

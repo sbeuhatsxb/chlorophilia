@@ -505,22 +505,6 @@
                     android:paddingLeft="7dp"
                     android:text="TextView" />
 
-                <TextView
-                    android:id="@+id/textView21"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:paddingLeft="7dp"
-                    android:text="@string/plant_detail_bibliography" />
-
-                <TextView
-                    android:id="@+id/myPlantBibliography"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginLeft="8dp"
-                    android:paddingLeft="5dp"
-                    android:text="TextView" />
-
             </LinearLayout>
 
         </ScrollView>

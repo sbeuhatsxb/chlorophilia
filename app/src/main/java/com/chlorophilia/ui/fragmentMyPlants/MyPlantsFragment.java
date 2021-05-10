@@ -15,6 +15,9 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 
+/**
+ * This fragment calls the plant "carousel" listview
+ */
 public class MyPlantsFragment extends Fragment {
 
     MyPlantsListAdapter adapter;

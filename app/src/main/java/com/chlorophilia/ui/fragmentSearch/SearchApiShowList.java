@@ -14,7 +14,7 @@ import java.util.ArrayList;
 /**
  * Displays a list of plants gathered by the API.
  */
-public class PlantApiShowList extends ListActivity {
+public class SearchApiShowList extends ListActivity {
 
     ArrayList<JsonPlantFromApiList> jsonPlantFromApiLists;
 
@@ -37,7 +37,7 @@ public class PlantApiShowList extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent intent = new Intent(this, PlantApiShowDetailActivity.class);
+        Intent intent = new Intent(this, SearchShowDetailActivity.class);
         JsonPlantFromApiList selectedJsonPlantFromApiList = jsonPlantFromApiLists.get(position);
         intent.putExtra("ApiPlantDetail", selectedJsonPlantFromApiList);
         //Sending list to next view to eventually come back from next view

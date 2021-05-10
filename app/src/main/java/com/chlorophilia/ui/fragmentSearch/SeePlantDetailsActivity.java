@@ -32,6 +32,9 @@ import java.util.Hashtable;
 
 import static java.lang.Math.abs;
 
+/**
+ * A short Plant detailed preview
+ */
 public class SeePlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
@@ -73,7 +76,6 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         TextView plant_detail_growthMonths = findViewById(R.id.myPlantGrowsMonths);
         TextView plant_detail_bloomMonths = findViewById(R.id.myPlantBloomMonths);
         TextView plant_detail_fruitMonths = findViewById(R.id.myPlantFruitMonths);
-        TextView plant_detail_bibliography = findViewById(R.id.myPlantBibliography);
 
         if (plant.getCommon_name() != null) {
             plant_detail_common_name.setText(plant.getCommon_name());
@@ -241,12 +243,6 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             plant_detail_fruitMonths.setText(growth);
         } else {
             plant_detail_fruitMonths.setText("");
-        }
-
-        if (plant.getBibliography() != null) {
-            plant_detail_bibliography.setText(plant.getBibliography());
-        } else {
-            plant_detail_bibliography.setText("");
         }
 
         addPlant = (Button) findViewById(R.id.button_update);

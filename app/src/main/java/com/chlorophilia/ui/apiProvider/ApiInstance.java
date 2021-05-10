@@ -17,7 +17,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 /**
- * Using okhttp3 to call trefle.io API
+ * Using okhttp3 to call //deprecated trefle.io API --> MY BRAND NEW REST API !!
  */
 public class ApiInstance extends AppCompatActivity {
 
@@ -41,7 +41,7 @@ public class ApiInstance extends AppCompatActivity {
     }
 
     /**
-     * This method calls for a list from trefle.io API. Param represents which plant-slug will be sent to the API
+     * This method calls for a list from REST API. Param represents which plant-slug will be sent to the API
      *
      * @param param
      * @return
@@ -51,12 +51,10 @@ public class ApiInstance extends AppCompatActivity {
         responseString = "";
         this.param = param;
         //Building URI
-        String search = "/plants/search";
         Request request = new Request.Builder()
                 .url(url + apiVersion + search + token + "/q=" + param)
                 .build();
         //Running api
-        String truc =url + apiVersion + search + token + "/q=" + param;
         this.run(request);
         //Waiting for API to send a response for two seconds
         //TODO MANAGE MALFORMED RESPONSE OR NO RESPONSE FROM API
@@ -67,7 +65,7 @@ public class ApiInstance extends AppCompatActivity {
     }
 
     /**
-     * This method calls for a specie from trefle.io API. Param represents which plant-id will be sent to the API
+     * This method calls for a specie from REST API. Param represents which plant-id will be sent to the API
      *
      * @param id
      * @return
@@ -85,7 +83,7 @@ public class ApiInstance extends AppCompatActivity {
         //Waiting for API to send a response for five seconds
         synchronized (lock) {
             while (responseString == null) {
-                lock.wait(5000);
+                lock.wait(10000);
             }
             return responseString;
         }

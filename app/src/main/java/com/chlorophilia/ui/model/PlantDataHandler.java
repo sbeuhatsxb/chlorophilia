@@ -17,15 +17,14 @@ import java.util.Random;
 
 public class PlantDataHandler extends SQLiteOpenHelper {
 
+    //Since 0 is a value for this Database, and since Java manages 0 as NULL, we assume to record everything in string
+    //Except for data managed by Android or Java directly
     private static final String CREATE_DATABASE_PLANT =
-            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT);";
-
-    private static final String INSERT_DATABASE_PLANT =
-            "INSERT INTO plant (nickname, common_name, scientific_name, family, bibliography, defaultImage, sowing, days_to_harvest, ph_maximum, ph_minimum, light, atmospheric_humidity, growth_months, bloom_months, fruit_months, soil_nutriments, soil_salinity, soil_humidity, spread, row_spacing, minimum_precipitation, maximum_precipitation, minimum_temperature, maximum_temperature, minimum_root_depth, root_depth_measure, spread_measure, row_spacing_measure, precipitation_measure, temperature_measure, temperature_measure, created_at, watered_at) VALUES ";
+            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT);";
 
     private static final String DROP_DATABASE_PLANT_TABLE = "DROP TABLE IF EXISTS plant;";
 
-    private static final String COUNT_PLANT_TABLE = "SELECT COUNT(*) FROM ?";
+    //private static final String COUNT_PLANT_TABLE = "SELECT COUNT(*) FROM ?";
 
     private static final String DELETE_PLANT_FROM_DATABASE = "DELETE FROM plant WHERE id=";
 
@@ -78,6 +77,20 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String row_spacing_measure = plant.getRowSpacingMeasure();
         String precipitation_measure = plant.getPrecipitationMeasure();
         String temperature_measure = plant.getTemperatureMeasure();
+        //API V2
+        String growthForm = plant.getGrowthForm();
+        String growthHabit = plant.getGrowthHabit();
+        String growthRate = plant.getGrowthRate();
+        String ediblePart = plant.getEdiblePart();
+        String vegetable = plant.getVegetable();
+        String edible = plant.getEdible();
+        String anaerobicTolerance = plant.getAnaerobicTolerance();
+        String averageHeightCm = plant.getAverageHeightCm();
+        String maximumHeightCm = plant.getMaximumHeightCm();
+        String urlPowo = plant.getUrlPowo();
+        String urlPlantnet = plant.getUrlPlantnet();
+        String urlGbif = plant.getUrlGbif();
+        String urlWikipediaEn = plant.getUrlWikipediaEn();
 
         int[] drawables = {
                 R.drawable.rand_plant_1,
@@ -129,6 +142,20 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());
         values.put("created_at", date);
+        //API V2
+        values.put("growthForm", growthForm);
+        values.put("growthHabit", growthHabit);
+        values.put("growthRate", growthRate);
+        values.put("ediblePart", ediblePart);
+        values.put("vegetable", vegetable);
+        values.put("edible", edible);
+        values.put("anaerobicTolerance", anaerobicTolerance);
+        values.put("averageHeightCm", averageHeightCm);
+        values.put("maximumHeightCm", maximumHeightCm);
+        values.put("urlPowo", urlPowo);
+        values.put("urlPlantnet", urlPlantnet);
+        values.put("urlGbif", urlGbif);
+        values.put("urlWikipediaEn", urlWikipediaEn);
 
         long id = database.insert("plant", null, values);
         database.close();
@@ -181,6 +208,20 @@ public class PlantDataHandler extends SQLiteOpenHelper {
                 plant.setPrecipitationMeasure(cursor.getString(cursor.getColumnIndex("precipitation_measure")));
                 plant.setTemperatureMeasure(cursor.getString(cursor.getColumnIndex("temperature_measure")));
                 plant.setFilenameCustomPicture(cursor.getString(cursor.getColumnIndex("filenameCustomPicture")));
+                //API V2
+                plant.setGrowthForm(cursor.getString(cursor.getColumnIndex("growthForm")));
+                plant.setGrowthHabit(cursor.getString(cursor.getColumnIndex("growthHabit")));
+                plant.setGrowthRate(cursor.getString(cursor.getColumnIndex("growthRate")));
+                plant.setEdiblePart(cursor.getString(cursor.getColumnIndex("ediblePart")));
+                plant.setVegetable(cursor.getString(cursor.getColumnIndex("vegetable")));
+                plant.setEdible(cursor.getString(cursor.getColumnIndex("edible")));
+                plant.setAnaerobicTolerance(cursor.getString(cursor.getColumnIndex("anaerobicTolerance")));
+                plant.setAverageHeightCm(cursor.getString(cursor.getColumnIndex("averageHeightCm")));
+                plant.setMaximumHeightCm(cursor.getString(cursor.getColumnIndex("maximumHeightCm")));
+                plant.setUrlPowo(cursor.getString(cursor.getColumnIndex("urlPowo")));
+                plant.setUrlPlantnet(cursor.getString(cursor.getColumnIndex("urlPlantnet")));
+                plant.setUrlGbif(cursor.getString(cursor.getColumnIndex("urlGbif")));
+                plant.setUrlWikipediaEn(cursor.getString(cursor.getColumnIndex("urlWikipediaEn")));
 
                 String dateFromSqlite = cursor.getString(cursor.getColumnIndex("created_at"));
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -252,6 +293,21 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String row_spacing_measure = plant.getRowSpacingMeasure();
         String precipitation_measure = plant.getPrecipitationMeasure();
         String temperature_measure = plant.getTemperatureMeasure();
+        //API V2
+        String growthForm = plant.getGrowthForm();
+        String growthHabit = plant.getGrowthHabit();
+        String growthRate = plant.getGrowthRate();
+        String ediblePart = plant.getEdiblePart();
+        String vegetable = plant.getVegetable();
+        String edible = plant.getEdible();
+        String anaerobicTolerance = plant.getAnaerobicTolerance();
+        String averageHeightCm = plant.getAverageHeightCm();
+        String maximumHeightCm = plant.getMaximumHeightCm();
+        String urlPowo = plant.getUrlPowo();
+        String urlPlantnet = plant.getUrlPlantnet();
+        String urlGbif = plant.getUrlGbif();
+        String urlWikipediaEn = plant.getUrlWikipediaEn();
+
 
         ContentValues values = new ContentValues();
         if(!nickname.equals("")){
@@ -398,6 +454,72 @@ public class PlantDataHandler extends SQLiteOpenHelper {
             values.put("temperature_measure", temperature_measure);
         } else {
             values.putNull("temperature_measure");
+        }
+        //API V2
+        if(!growthForm.equals("")) {
+            values.put("growthForm", growthForm);
+        } else {
+            values.putNull("growthForm");
+        }
+        if(!growthHabit.equals("")) {
+            values.put("growthHabit", growthHabit);
+        } else {
+            values.putNull("growthHabit");
+        }
+        if(!growthRate.equals("")) {
+        values.put("growthRate", growthRate);
+        } else {
+            values.putNull("growthRate");
+        }
+        if(!ediblePart.equals("")) {
+        values.put("ediblePart", ediblePart);
+        } else {
+            values.putNull("ediblePart");
+        }
+        if(!vegetable.equals("")) {
+        values.put("vegetable", vegetable);
+        } else {
+            values.putNull("vegetable");
+        }
+        if(!edible.equals("")) {
+        values.put("edible", edible);
+        } else {
+            values.putNull("edible");
+        }
+        if(!anaerobicTolerance.equals("")) {
+        values.put("anaerobicTolerance", anaerobicTolerance);
+        } else {
+            values.putNull("anaerobicTolerance");
+        }
+        if(!averageHeightCm.equals("")) {
+        values.put("averageHeightCm", averageHeightCm);
+        } else {
+            values.putNull("averageHeightCm");
+        }
+        if(!maximumHeightCm.equals("")) {
+        values.put("maximumHeightCm", maximumHeightCm);
+        } else {
+            values.putNull("maximumHeightCm");
+        }
+        if(!urlPowo.equals("")) {
+        values.put("urlPowo", urlPowo);
+        } else {
+            values.putNull("urlPowo");
+        }
+        if(!urlPlantnet.equals("")) {
+        values.put("urlPlantnet", urlPlantnet);
+        } else {
+            values.putNull("urlPlantnet");
+        }
+        if(!urlGbif.equals("")) {
+            values.put("urlGbif", urlGbif);
+        } else {
+            values.putNull("urlGbif");
+        }
+        if(!urlWikipediaEn.equals("")) {
+            values.put("urlWikipediaEn", urlWikipediaEn);
+        } else {
+            values.putNull("urlWikipediaEn");
         }
 
         long id = plant.getId();
