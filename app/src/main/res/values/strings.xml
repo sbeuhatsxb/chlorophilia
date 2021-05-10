@@ -34,6 +34,11 @@
     <string name="plant_detail_env">Environment</string>
     <string name="plant_detail_ground">Ground</string>
     <string name="plant_detail_sow">Sowing</string>
+    <string name="plant_detail_growth">Growth</string>
+    <string name="plant_detail_edible_cat">Edible (be cautious !)</string>
+    <string name="plant_detail_instructions">Instructions</string>
+    <string name="plant_detail_urls">More information :</string>
+    <string name="plant_detail_fruits_and_flowers">Fruits and flowers</string>
     <string name="plant_detail_nickname">Nickname :</string>
     <string name="plant_detail_common_name">Common name :</string>
     <string name="plant_detail_scientific_name">Scientific name :</string>
@@ -55,6 +60,26 @@
     <string name="plant_detail_bloomMonths">Bloom months :</string>
     <string name="plant_detail_fruitMonths">Fruit months :</string>
     <string name="plant_detail_bibliography">Bibliography :</string>
+    <string name="plant_detail_anaerobic">Anaerobic tolerance :</string>
+    <string name="plant_detail_growthForm">Growth Form :</string>
+    <string name="plant_detail_growthHabit">Growth Habit :</string>
+    <string name="plant_detail_growthRate">Growth Rate :</string>
+    <string name="plant_detail_ediblePart">Edible Part :</string>
+    <string name="plant_detail_vegetable">Vegetable :</string>
+    <string name="plant_detail_edible">Edible :</string>
+    <string name="plant_detail_averageHeightCm">Average Height :</string>
+    <string name="plant_detail_maximumHeight">Max Height :</string>
+    <string name="plant_detail_flowerColor">Flower Color :</string>
+    <string name="plant_detail_flowerConspicuous">Flower Conspicuous :</string>
+    <string name="plant_detail_foliageTexture">Foliage Texture :</string>
+    <string name="plant_detail_fruitColor">Fruit Color :</string>
+    <string name="plant_detail_fruitConspicuous">Fruit Conspicuous :</string>
+    <string name="plant_detail_urlPowo">Plant of the World Online :</string>
+    <string name="plant_detail_urlPlantnet">PlantNet :</string>
+    <string name="plant_detail_urlGbif">Global Biodiversity Information Facility :</string>
+    <string name="plant_detail_urlWikipediaEn">Wikipedia :</string>
+
+
 
     <string name="plant_edit_detail_precipitation_min">Precipitation in</string>
     <string name="plant_edit_detail_precipitation_max">Precipitation in</string>

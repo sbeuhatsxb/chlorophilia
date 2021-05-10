@@ -50,11 +50,11 @@
 
                 <ImageView
                     android:id="@+id/myPlantPicture"
-                    android:orientation="vertical"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="8dp"
-                    android:scaleType="centerCrop"/>
+                    android:orientation="vertical"
+                    android:scaleType="centerCrop" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -107,10 +107,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="TextView" />
-
                     </TableRow>
                 </LinearLayout>
-
             </LinearLayout>
 
             <TableLayout
@@ -128,8 +126,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/textView23"
@@ -162,7 +159,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
@@ -202,11 +198,28 @@
                         android:text="TextView" />
                 </TableRow>
 
-
-
                 <TableRow
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/anaerobic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/plant_detail_anaerobic" />
+
+                    <TextView
+                        android:id="@+id/myPlantAnaerobic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/editTemperatureTextMin"
@@ -220,12 +233,12 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/editTemperatureTextMax"
@@ -240,13 +253,11 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#2C4CAF50">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/editPrecipitationTextMin"
@@ -261,13 +272,11 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#2C4CAF50">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/editPrecipitationTextMax"
@@ -276,14 +285,12 @@
                         android:text=""
                         android:textSize="14sp" />
 
-
                     <TextView
                         android:id="@+id/myPlantPrecipitationMax"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow>
@@ -352,25 +359,6 @@
                         android:text="TextView" />
                 </TableRow>
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView31"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/plant_detail_minimumRootDepth" />
-
-                    <TextView
-                        android:id="@+id/myPlantMinRootDepth"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
-                        android:text="TextView" />
-
-                </TableRow>
-
                 <TableRow>
 
                     <TextView
@@ -390,7 +378,6 @@
                         android:id="@+id/editSpreadText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="@string/plant_detail_spread" />
 
                     <TextView
@@ -399,7 +386,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
@@ -418,7 +404,6 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
-
                 </TableRow>
 
                 <TableRow
@@ -495,6 +480,305 @@
                         android:text="TextView" />
                 </TableRow>
 
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/plant_detail_growth"
+                        android:textStyle="bold|italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_minimumRootDepth" />
+
+                    <TextView
+                        android:id="@+id/myPlantMinRootDepth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/growthFormTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_growthForm" />
+
+                    <TextView
+                        android:id="@+id/myPlantGrowthForm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/growthHabitTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_growthHabit" />
+
+                    <TextView
+                        android:id="@+id/myPlantGrowthHabit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/growthRateTxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_growthRate" />
+
+                    <TextView
+                        android:id="@+id/myPlantGrowthRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/averageHeightCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_averageHeightCm" />
+
+                    <TextView
+                        android:id="@+id/myPlantAverageHeightCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/maxHeightCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_maximumHeight" />
+
+                    <TextView
+                        android:id="@+id/myPlantMaxHeightCm"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/plant_detail_fruits_and_flowers"
+                        android:textStyle="bold|italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/flowerColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_flowerColor" />
+
+                    <TextView
+                        android:id="@+id/myPlantFlowerColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/flowerConspicuous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_flowerConspicuous" />
+
+                    <TextView
+                        android:id="@+id/myPlantFlowerConspicuous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/foliageTexture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_foliageTexture" />
+
+                    <TextView
+                        android:id="@+id/myPlantFoliageTexture"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/fruitColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_fruitColor" />
+
+                    <TextView
+                        android:id="@+id/myPlantFruitColor"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/fruitConspicuous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_fruitConspicuous" />
+
+                    <TextView
+                        android:id="@+id/myPlantFruitConspicuous"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/plant_detail_edible_cat"
+                        android:textStyle="bold|italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/edible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_edible" />
+
+                    <TextView
+                        android:id="@+id/myPlantEdible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/ediblePart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_ediblePart" />
+
+                    <TextView
+                        android:id="@+id/myPlantEdiblePart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/vegetable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_vegetable" />
+
+                    <TextView
+                        android:id="@+id/myPlantVegetable"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/plant_detail_instructions"
+                        android:textStyle="bold|italic" />
+                </TableRow>
             </TableLayout>
 
             <TextView
@@ -502,7 +786,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
-                android:background="#2C4CAF50"
                 android:text="@string/plant_detail_sowing" />
 
             <TextView
@@ -511,15 +794,15 @@
                 android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
                 android:autoSizeStepGranularity="2sp"
-                android:background="#2C4CAF50"
                 android:paddingLeft="7dp"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="8dp"
+                android:background="#2C4CAF50"
                 android:paddingLeft="7dp"
                 android:text="@string/plant_detail_bibliography" />
 
@@ -528,8 +811,104 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginLeft="8dp"
+                android:background="#2C4CAF50"
                 android:paddingLeft="5dp"
                 android:text="TextView" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="20dp">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/plant_detail_urls"
+                        android:textStyle="bold|italic" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/urlPowo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/plant_detail_urlPowo" />
+
+                    <TextView
+                        android:id="@+id/myPlanturlPowo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/urlPlantNet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/plant_detail_urlPlantnet" />
+
+                    <TextView
+                        android:id="@+id/myPlanturlPlantNet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#2C4CAF50">
+
+                    <TextView
+                        android:id="@+id/urlGbif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/plant_detail_urlGbif" />
+
+                    <TextView
+                        android:id="@+id/myPlanturlGbif"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/urlWikipedia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/plant_detail_urlWikipediaEn" />
+
+                    <TextView
+                        android:id="@+id/myPlanturlWikipedia"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingLeft="5dp"
+                        android:text="TextView" />
+                </TableRow>
+            </TableLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -540,9 +919,9 @@
                     android:id="@+id/editDetails"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
                     android:text="@string/plant_update_plant" />
 
                 <Button
@@ -555,7 +934,6 @@
                     android:backgroundTint="#AA3030"
                     android:text="Remove" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 

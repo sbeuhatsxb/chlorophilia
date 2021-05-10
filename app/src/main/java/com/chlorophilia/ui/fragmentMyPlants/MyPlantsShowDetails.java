@@ -14,6 +14,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -26,6 +28,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.core.text.HtmlCompat;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.dialogs.MyPlantsRemoveDialog;
@@ -34,7 +37,6 @@ import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,7 +63,10 @@ public class MyPlantsShowDetails extends AppCompatActivity {
     String currentPhotoPath;
     Plant plant;
     FloatingActionButton fab;
-
+    final String powo = "http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:";
+    final String plantNet = "https://identify.plantnet.org/species/the-plant-list/";
+    final String gbif = "https://www.gbif.org/species/";
+    final String wikipedia = "https://en.wikipedia.org/wiki/";
     @SuppressLint("SetTextI18n")
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +106,26 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         TextView plant_detail_fruitMonths = findViewById(R.id.myPlantFruitMonths);
         TextView plant_detail_bibliography = findViewById(R.id.myPlantBibliography);
         TextView plant_textImageView = findViewById(R.id.textImageView);
+        //API V2
+        TextView plant_detail_anaerobic = findViewById(R.id.myPlantAnaerobic);
+        TextView plant_detail_growthForm = findViewById(R.id.myPlantGrowthForm);
+        TextView plant_detail_growthHabit = findViewById(R.id.myPlantGrowthHabit);
+        TextView plant_detail_growthRate = findViewById(R.id.myPlantGrowthRate);
+        TextView plant_detail_averageHeightCm = findViewById(R.id.myPlantAverageHeightCm);
+        TextView plant_detail_maximumHeight = findViewById(R.id.myPlantMaxHeightCm);
+        TextView plant_detail_ediblePart = findViewById(R.id.myPlantEdiblePart);
+        TextView plant_detail_vegetable = findViewById(R.id.myPlantVegetable);
+        TextView plant_detail_edible = findViewById(R.id.myPlantEdible);
+        TextView plant_detail_flowerColor = findViewById(R.id.myPlantFlowerColor);
+        TextView plant_detail_flowerConspicuous = findViewById(R.id.myPlantFlowerConspicuous);
+        TextView plant_detail_foliageTexture = findViewById(R.id.myPlantFoliageTexture);
+        TextView plant_detail_fruitColor = findViewById(R.id.myPlantFruitColor);
+        TextView plant_detail_fruitConspicuous = findViewById(R.id.myPlantFruitConspicuous);
+        TextView plant_detail_urlPowo = findViewById(R.id.myPlanturlPowo);
+        TextView plant_detail_urlPlantnet = findViewById(R.id.myPlanturlPlantNet);
+        TextView plant_detail_urlGbif = findViewById(R.id.myPlanturlGbif);
+        TextView plant_detail_urlWikipediaEn = findViewById(R.id.myPlanturlWikipedia);
+
 
         if (plant.getFilenameCustomPicture() != null) {
 
@@ -145,13 +170,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getMinimumPrecipitation() != null) {
-            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + plant.getPrecipitationMeasure());
+            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + "cm");
         } else {
             plant_detail_Precipitation_min.setText("");
         }
 
         if (plant.getMaximumPrecipitation() != null) {
-            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + plant.getPrecipitationMeasure());
+            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + "cm");
         } else {
             plant_detail_Precipitation_max.setText("");
         }
@@ -240,13 +265,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getSpread() != null) {
-            plant_detail_spread.setText(plant.getSpread() + " " + plant.getSpreadMeasure());
+            plant_detail_spread.setText(plant.getSpread() + " cm");
         } else {
             plant_detail_spread.setText("");
         }
 
         if (plant.getMinimumRootDepth() != null) {
-            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + " " + plant.getRootDepthMeasure());
+            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + " cm");
         } else {
             plant_detail_minimumRootDepth.setText("");
         }
@@ -258,7 +283,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getRowSpacing() != null) {
-            plant_detail_rowSpacing.setText(plant.getRowSpacing() + " " + plant.getRowSpacingMeasure());
+            plant_detail_rowSpacing.setText(plant.getRowSpacing() + " cm");
         } else {
             plant_detail_rowSpacing.setText("");
         }
@@ -307,6 +332,135 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             plant_detail_bibliography.setText("");
         }
 
+        if (plant.getAnaerobicTolerance() != null) {
+            plant_detail_anaerobic.setText(plant.getAnaerobicTolerance());
+        } else {
+            plant_detail_anaerobic.setText("");
+        }
+
+        if (plant.getGrowthForm() != null) {
+            plant_detail_growthForm.setText(plant.getGrowthForm());
+        } else {
+            plant_detail_growthForm.setText("");
+        }
+
+        if (plant.getGrowthHabit() != null) {
+            plant_detail_growthHabit.setText(plant.getGrowthHabit());
+        } else {
+            plant_detail_growthHabit.setText("");
+        }
+
+        if (plant.getGrowthRate() != null) {
+            plant_detail_growthRate.setText(plant.getGrowthRate());
+        } else {
+            plant_detail_growthRate.setText("");
+        }
+
+        if (plant.getAverageHeightCm() != null) {
+            plant_detail_averageHeightCm.setText(plant.getAverageHeightCm());
+        } else {
+            plant_detail_averageHeightCm.setText("");
+        }
+
+        if (plant.getMaximumHeightCm() != null) {
+            plant_detail_maximumHeight.setText(plant.getMaximumHeightCm());
+        } else {
+            plant_detail_maximumHeight.setText("");
+        }
+
+        if (plant.getEdiblePart() != null) {
+            plant_detail_ediblePart.setText(plant.getEdiblePart());
+        } else {
+            plant_detail_ediblePart.setText("");
+        }
+
+        if (plant.getVegetable() != null) {
+            plant_detail_vegetable.setText(plant.getVegetable());
+        } else {
+            plant_detail_vegetable.setText("");
+        }
+
+        if (plant.getEdible() != null) {
+            plant_detail_edible.setText(plant.getEdible());
+        } else {
+            plant_detail_edible.setText("");
+        }
+
+        if (plant.getFlowerColor() != null) {
+            plant_detail_flowerColor.setText(plant.getFlowerColor());
+        } else {
+            plant_detail_flowerColor.setText("");
+        }
+
+        if (plant.getFlowerConspicuous() != null) {
+            plant_detail_flowerConspicuous.setText(plant.getFlowerConspicuous());
+        } else {
+            plant_detail_flowerConspicuous.setText("");
+        }
+
+        if (plant.getFoliageTexture() != null) {
+            plant_detail_foliageTexture.setText(plant.getFoliageTexture());
+        } else {
+            plant_detail_foliageTexture.setText("");
+        }
+
+        if (plant.getFruitColor() != null) {
+            plant_detail_fruitColor.setText(plant.getFruitColor());
+        } else {
+            plant_detail_fruitColor.setText("");
+        }
+
+        if (plant.getFruitConspicuous() != null) {
+            plant_detail_fruitConspicuous.setText(plant.getFruitConspicuous());
+        } else {
+            plant_detail_fruitConspicuous.setText("");
+        }
+
+        if (plant.getUrlPowo() != null) {
+            String url = powo + plant.getUrlPowo();
+            String linkedText = String.format("<a href=\"%s\">Powo</a> ", url);
+            plant_detail_urlPowo.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlPowo.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
+            plant_detail_urlPowo.setText("");
+        }
+
+        if (plant.getUrlPlantnet() != null) {
+            String url = plantNet + plant.getUrlPlantnet();
+            String linkedText = String.format("<a href=\"%s\">PlantNet</a> ", url);
+            plant_detail_urlPlantnet.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlPlantnet.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
+            plant_detail_urlPlantnet.setText("");
+        }
+
+        if (plant.getUrlGbif() != null) {
+            String url = gbif + plant.getUrlGbif();
+            String linkedText = String.format("<a href=\"%s\">Gbif</a> ", url);
+            plant_detail_urlGbif.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlGbif.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
+            plant_detail_urlGbif.setText("");
+        }
+
+        // text2 has links specified by putting <a> tags in the string
+        // resource.  By default these links will appear but not
+        // respond to user input.  To make them active, you need to
+        // call setMovementMethod() on the TextView object.
+
+
+
+
+        if (plant.getUrlWikipediaEn() != null) {
+            String url = wikipedia + plant.getUrlWikipediaEn();
+            String linkedText = String.format("<a href=\"%s\">Wikipedia</a> ", url);
+            plant_detail_urlWikipediaEn.setText(Html.fromHtml(linkedText));
+            plant_detail_urlWikipediaEn.setMovementMethod(LinkMovementMethod.getInstance());
+        } else {
+            plant_detail_urlWikipediaEn.setText("");
+        }
+
+        //Floating button
         Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.baseline_brightness_medium_24);
         Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
         DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#FFD700"));
