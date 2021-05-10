@@ -20,15 +20,8 @@ public class PlantDataHandler extends SQLiteOpenHelper {
     //Since 0 is a value for this Database, and since Java manages 0 as NULL, we assume to record everything in string
     //Except for data managed by Android or Java directly
     //TODO:
-//    "flowerColor": "yellow",
-//            "flowerConspicuous": null,
-//            "foliageColor": null,
-//            "foliageTexture": null,
-//            "fruitColor": null,
-//            "fruitConspicuous": null,
-    //groundHumidity
     private static final String CREATE_DATABASE_PLANT =
-            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT);";
+            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT, flowerColor TEXT, flowerConspicuous TEXT, foliageColor TEXT, foliageTexture TEXT, fruitColor TEXT, fruitConspicuous TEXT);";
 
     private static final String DROP_DATABASE_PLANT_TABLE = "DROP TABLE IF EXISTS plant;";
 
@@ -99,6 +92,12 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String urlPlantnet = plant.getUrlPlantnet();
         String urlGbif = plant.getUrlGbif();
         String urlWikipediaEn = plant.getUrlWikipediaEn();
+        String flowerColor = plant.getFlowerColor();
+        String flowerConspicuous = plant.getFlowerConspicuous();
+        String foliageColor = plant.getFoliageColor();
+        String foliageTexture = plant.getFoliageTexture();
+        String fruitColor = plant.getFruitColor();
+        String fruitConspicuous = plant.getFruitConspicuous();
 
         int[] drawables = {
                 R.drawable.rand_plant_1,
@@ -164,7 +163,12 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         values.put("urlPlantnet", urlPlantnet);
         values.put("urlGbif", urlGbif);
         values.put("urlWikipediaEn", urlWikipediaEn);
-
+        values.put("flowerColor", flowerColor);
+        values.put("flowerConspicuous", flowerConspicuous);
+        values.put("foliageColor", foliageColor);
+        values.put("foliageTexture", foliageTexture);
+        values.put("fruitColor", fruitColor);
+        values.put("fruitConspicuous", fruitConspicuous);
         long id = database.insert("plant", null, values);
         database.close();
         return id;
@@ -230,6 +234,12 @@ public class PlantDataHandler extends SQLiteOpenHelper {
                 plant.setUrlPlantnet(cursor.getString(cursor.getColumnIndex("urlPlantnet")));
                 plant.setUrlGbif(cursor.getString(cursor.getColumnIndex("urlGbif")));
                 plant.setUrlWikipediaEn(cursor.getString(cursor.getColumnIndex("urlWikipediaEn")));
+                plant.setFlowerColor(cursor.getString(cursor.getColumnIndex("flowerColor")));
+                plant.setFlowerConspicuous(cursor.getString(cursor.getColumnIndex("flowerConspicuous")));
+                plant.setFoliageColor(cursor.getString(cursor.getColumnIndex("foliageColor")));
+                plant.setFoliageTexture(cursor.getString(cursor.getColumnIndex("foliageTexture")));
+                plant.setFruitColor(cursor.getString(cursor.getColumnIndex("fruitColor")));
+                plant.setFruitConspicuous(cursor.getString(cursor.getColumnIndex("fruitConspicuous")));
 
                 String dateFromSqlite = cursor.getString(cursor.getColumnIndex("created_at"));
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -315,7 +325,12 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String urlPlantnet = plant.getUrlPlantnet();
         String urlGbif = plant.getUrlGbif();
         String urlWikipediaEn = plant.getUrlWikipediaEn();
-
+        String flowerColor = plant.getFlowerColor();
+        String flowerConspicuous = plant.getFlowerConspicuous();
+        String foliageColor = plant.getFoliageColor();
+        String foliageTexture = plant.getFoliageTexture();
+        String fruitColor = plant.getFruitColor();
+        String fruitConspicuous = plant.getFruitConspicuous();
 
         ContentValues values = new ContentValues();
         if(!nickname.equals("")){
@@ -528,6 +543,36 @@ public class PlantDataHandler extends SQLiteOpenHelper {
             values.put("urlWikipediaEn", urlWikipediaEn);
         } else {
             values.putNull("urlWikipediaEn");
+        }
+        if(!flowerColor.equals("")) {
+            values.put("flowerColor", flowerColor);
+        } else {
+            values.putNull("flowerColor");
+        }
+        if(!flowerConspicuous.equals("")) {
+            values.put("flowerConspicuous", flowerConspicuous);
+        } else {
+            values.putNull("flowerConspicuous");
+        }
+        if(!foliageColor.equals("")) {
+            values.put("foliageColor", foliageColor);
+        } else {
+            values.putNull("foliageColor");
+        }
+        if(!foliageTexture.equals("")) {
+            values.put("foliageTexture", foliageTexture);
+        } else {
+            values.putNull("foliageTexture");
+        }
+        if(!fruitColor.equals("")) {
+            values.put("fruitColor", fruitColor);
+        } else {
+            values.putNull("fruitColor");
+        }
+        if(!fruitConspicuous.equals("")) {
+            values.put("fruitConspicuous", fruitColor);
+        } else {
+            values.putNull("fruitConspicuous");
         }
 
         long id = plant.getId();

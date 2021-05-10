@@ -57,6 +57,12 @@ public class Plant implements Serializable {
     private String urlPlantnet;
     private String urlGbif;
     private String urlWikipediaEn;
+    private String flowerColor;
+    private String flowerConspicuous;
+    private String foliageColor;
+    private String foliageTexture;
+    private String fruitColor;
+    private String fruitConspicuous;
 
     public Plant() {
     }
@@ -442,5 +448,53 @@ public class Plant implements Serializable {
 
     public void setUrlWikipediaEn(String urlWikipediaEn) {
         this.urlWikipediaEn = urlWikipediaEn;
+    }
+
+    public String getFlowerColor() {
+        return flowerColor;
+    }
+
+    public void setFlowerColor(String flowerColor) {
+        this.flowerColor = flowerColor;
+    }
+
+    public String getFlowerConspicuous() {
+        return flowerConspicuous;
+    }
+
+    public void setFlowerConspicuous(String flowerConspicuous) {
+        this.flowerConspicuous = flowerConspicuous;
+    }
+
+    public String getFoliageColor() {
+        return foliageColor;
+    }
+
+    public void setFoliageColor(String foliageColor) {
+        this.foliageColor = foliageColor;
+    }
+
+    public String getFoliageTexture() {
+        return foliageTexture;
+    }
+
+    public void setFoliageTexture(String foliageTexture) {
+        this.foliageTexture = foliageTexture;
+    }
+
+    public String getFruitColor() {
+        return fruitColor;
+    }
+
+    public void setFruitColor(String fruitColor) {
+        this.fruitColor = fruitColor;
+    }
+
+    public String getFruitConspicuous() {
+        return fruitConspicuous;
+    }
+
+    public void setFruitConspicuous(String fruitConspicuous) {
+        this.fruitConspicuous = fruitConspicuous;
     }
 }

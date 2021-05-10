@@ -233,8 +233,10 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                             "plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
                             "fruitMonths", "soilNutriments", "soilSalinity","plantingSpreadCm", "plantingRowSpacingCm", "minimumRootDepthCm",
                             "growthForm", "growthHabit", "growthRate", "ediblePart", "vegetable", "edible", "anaerobicTolerance", "averageHeightCm",
-                            "maximumHeightCm", "urlPowo", "urlPlantnet", "urlGbif", "urlWikipediaEn", "groundHumidity"
+                            "maximumHeightCm", "urlPowo", "urlPlantnet", "urlGbif", "urlWikipediaEn", "groundHumidity", "flowerColor", "flowerConspicuous",
+                            "foliageColor", "foliageTexture", "fruitColor", "fruitConspicuous"
                     };
+
                     //Uppers fields are expected in the RestAPI, there for we're parsing each field and each JsonArray corresponding set the proper value
                     for (int i = 0; i < items.length; i++) {
                         String item = items[i];
@@ -313,6 +315,25 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                                 case "groundHumidity":
                                     bookPlant.setSoilHumidity(getItem.toString());
                                     break;
+                                case "flowerColor":
+                                    bookPlant.setFlowerColor(getItem.toString());
+                                    break;
+                                case "flowerConspicuous":
+                                    bookPlant.setFlowerConspicuous(getItem.toString());
+                                    break;
+                                case "foliageColor":
+                                    bookPlant.setFoliageColor(getItem.toString());
+                                    break;
+                                case "foliageTexture":
+                                    bookPlant.setFoliageTexture(getItem.toString());
+                                    break;
+                                case "fruitColor":
+                                    bookPlant.setFruitColor(getItem.toString());
+                                    break;
+                                case "fruitConspicuous":
+                                    bookPlant.setFruitConspicuous(getItem.toString());
+                                    break;
+
                             }
                         }
                     }
