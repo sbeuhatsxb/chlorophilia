@@ -21,7 +21,7 @@ public class PlantDataHandler extends SQLiteOpenHelper {
     //Except for data managed by Android or Java directly
     //TODO:
     private static final String CREATE_DATABASE_PLANT =
-            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, root_depth_measure TEXT, spread_measure TEXT, row_spacing_measure TEXT, precipitation_measure TEXT, temperature_measure TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT, flowerColor TEXT, flowerConspicuous TEXT, foliageColor TEXT, foliageTexture TEXT, fruitColor TEXT, fruitConspicuous TEXT);";
+            "CREATE TABLE plant (id INTEGER PRIMARY KEY ASC, nickname TEXT, common_name TEXT, scientific_name TEXT, family TEXT, bibliography TEXT, defaultImage INT, sowing TEXT, days_to_harvest TEXT, ph_maximum TEXT, ph_minimum TEXT, light TEXT, atmospheric_humidity TEXT, growth_months TEXT, bloom_months TEXT, fruit_months TEXT, soil_nutriments TEXT, soil_salinity TEXT, soil_humidity TEXT, spread TEXT, row_spacing TEXT, minimum_precipitation TEXT, maximum_precipitation TEXT, minimum_temperature TEXT, maximum_temperature TEXT, minimum_root_depth TEXT, filenameCustomPicture TEXT, created_at TEXT, watered_at TEXT, cancel_watered_at TEXT, growthForm TEXT, growthHabit TEXT, growthRate TEXT, ediblePart TEXT, vegetable TEXT, edible TEXT, anaerobicTolerance TEXT, averageHeightCm TEXT, maximumHeightCm TEXT, urlPowo TEXT, urlPlantnet TEXT, urlGbif TEXT, urlWikipediaEn TEXT, flowerColor TEXT, flowerConspicuous TEXT, foliageColor TEXT, foliageTexture TEXT, fruitColor TEXT, fruitConspicuous TEXT);";
 
     private static final String DROP_DATABASE_PLANT_TABLE = "DROP TABLE IF EXISTS plant;";
 
@@ -73,11 +73,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String minimum_temperature = plant.getMinimumTemperature();
         String maximum_temperature = plant.getMaximumTemperature();
         String minimum_root_depth = plant.getMinimumRootDepth();
-        String root_depth_measure = plant.getRootDepthMeasure();
-        String spread_measure = plant.getSpreadMeasure();
-        String row_spacing_measure = plant.getRowSpacingMeasure();
-        String precipitation_measure = plant.getPrecipitationMeasure();
-        String temperature_measure = plant.getTemperatureMeasure();
         //API V2
         String growthForm = plant.getGrowthForm();
         String growthHabit = plant.getGrowthHabit();
@@ -141,11 +136,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         values.put("minimum_temperature", minimum_temperature);
         values.put("maximum_temperature", maximum_temperature);
         values.put("minimum_root_depth", minimum_root_depth);
-        values.put("root_depth_measure", root_depth_measure);
-        values.put("spread_measure", spread_measure);
-        values.put("row_spacing_measure", row_spacing_measure);
-        values.put("precipitation_measure", precipitation_measure);
-        values.put("temperature_measure", temperature_measure);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String date = sdf.format(new Date());
         values.put("created_at", date);
@@ -214,11 +204,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
                 plant.setMinimumTemperature(cursor.getString(cursor.getColumnIndex("minimum_temperature")));
                 plant.setMaximumTemperature(cursor.getString(cursor.getColumnIndex("maximum_temperature")));
                 plant.setMinimumRootDepth(cursor.getString(cursor.getColumnIndex("minimum_root_depth")));
-                plant.setRootDepthMeasure(cursor.getString(cursor.getColumnIndex("root_depth_measure")));
-                plant.setSpreadMeasure(cursor.getString(cursor.getColumnIndex("spread_measure")));
-                plant.setRowSpacingMeasure(cursor.getString(cursor.getColumnIndex("row_spacing_measure")));
-                plant.setPrecipitationMeasure(cursor.getString(cursor.getColumnIndex("precipitation_measure")));
-                plant.setTemperatureMeasure(cursor.getString(cursor.getColumnIndex("temperature_measure")));
                 plant.setFilenameCustomPicture(cursor.getString(cursor.getColumnIndex("filenameCustomPicture")));
                 //API V2
                 plant.setGrowthForm(cursor.getString(cursor.getColumnIndex("growthForm")));
@@ -306,11 +291,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         String minimum_temperature = plant.getMinimumTemperature();
         String maximum_temperature = plant.getMaximumTemperature();
         String minimum_root_depth = plant.getMinimumRootDepth();
-        String root_depth_measure = plant.getRootDepthMeasure();
-        String spread_measure = plant.getSpreadMeasure();
-        String row_spacing_measure = plant.getRowSpacingMeasure();
-        String precipitation_measure = plant.getPrecipitationMeasure();
-        String temperature_measure = plant.getTemperatureMeasure();
         //API V2
         String growthForm = plant.getGrowthForm();
         String growthHabit = plant.getGrowthHabit();
@@ -452,31 +432,6 @@ public class PlantDataHandler extends SQLiteOpenHelper {
             values.put("minimum_root_depth", minimum_root_depth);
         } else {
             values.putNull("minimum_root_depth");
-        }
-        if(!root_depth_measure.equals("")){
-            values.put("root_depth_measure", root_depth_measure);
-        } else {
-            values.putNull("root_depth_measure");
-        }
-        if(!spread_measure.equals("")){
-            values.put("spread_measure", spread_measure);
-        } else {
-            values.putNull("spread_measure");
-        }
-        if(!row_spacing_measure.equals("")){
-            values.put("row_spacing_measure", row_spacing_measure);
-        } else {
-            values.putNull("row_spacing_measure");
-        }
-        if(!precipitation_measure.equals("")){
-            values.put("precipitation_measure", precipitation_measure);
-        } else {
-            values.putNull("precipitation_measure");
-        }
-        if(!temperature_measure.equals("")){
-            values.put("temperature_measure", temperature_measure);
-        } else {
-            values.putNull("temperature_measure");
         }
         //API V2
         if(!growthForm.equals("")) {

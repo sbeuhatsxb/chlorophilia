@@ -35,11 +35,6 @@ public class Plant implements Serializable {
     private String maximumPrecipitation;
     private String minimumTemperature;
     private String maximumTemperature;
-    private String rootDepthMeasure;
-    private String spreadMeasure;
-    private String rowSpacingMeasure;
-    private String precipitationMeasure;
-    private String temperatureMeasure;
     private String filenameCustomPicture;
     private Date createdAt;
     private Date wateredAt;
@@ -274,52 +269,12 @@ public class Plant implements Serializable {
         this.maximumTemperature = maximumTemperature;
     }
 
-    public String getSpreadMeasure() {
-        return spreadMeasure;
-    }
-
-    public void setSpreadMeasure(String spreadMeasure) {
-        this.spreadMeasure = spreadMeasure;
-    }
-
-    public String getRowSpacingMeasure() {
-        return rowSpacingMeasure;
-    }
-
-    public void setRowSpacingMeasure(String rowSpacingMeasure) {
-        this.rowSpacingMeasure = rowSpacingMeasure;
-    }
-
-    public String getPrecipitationMeasure() {
-        return precipitationMeasure;
-    }
-
-    public void setPrecipitationMeasure(String precipitationMeasure) {
-        this.precipitationMeasure = precipitationMeasure;
-    }
-
-    public String getTemperatureMeasure() {
-        return temperatureMeasure;
-    }
-
-    public void setTemperatureMeasure(String temperatureMeasure) {
-        this.temperatureMeasure = temperatureMeasure;
-    }
-
     public String getMinimumRootDepth() {
         return minimumRootDepth;
     }
 
     public void setMinimumRootDepth(String minimumRootDepth) {
         this.minimumRootDepth = minimumRootDepth;
-    }
-
-    public String getRootDepthMeasure() {
-        return rootDepthMeasure;
-    }
-
-    public void setRootDepthMeasure(String rootDepthMeasure) {
-        this.rootDepthMeasure = rootDepthMeasure;
     }
 
     public String getFilenameCustomPicture() {

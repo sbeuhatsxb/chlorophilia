@@ -96,13 +96,13 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         }
 
         if (plant.getMinimumPrecipitation() != null) {
-            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + plant.getPrecipitationMeasure());
+            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + " mm.");
         } else {
             plant_detail_Precipitation_min.setText("");
         }
 
         if (plant.getMaximumPrecipitation() != null) {
-            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + plant.getPrecipitationMeasure());
+            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + " mm.");
         } else {
             plant_detail_Precipitation_max.setText("");
         }
@@ -129,13 +129,13 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         }
 
         if (plant.getPhMinimum() != null) {
-            plant_detail_ph_min.setText("min. " + plant.getPhMinimum());
+            plant_detail_ph_min.setText(getResources().getString(R.string.min) + plant.getPhMinimum());
         } else {
             plant_detail_ph_min.setText("");
         }
 
         if (plant.getPhMaximum() != null) {
-            plant_detail_ph_max.setText("max. " + plant.getPhMaximum());
+            plant_detail_ph_max.setText(getResources().getString(R.string.max) + plant.getPhMaximum());
         } else {
             plant_detail_ph_max.setText("");
         }
@@ -183,13 +183,13 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         }
 
         if (plant.getSpread() != null) {
-            plant_detail_spread.setText(plant.getSpread() + " " + plant.getSpreadMeasure());
+            plant_detail_spread.setText(plant.getSpread() + getResources().getString(R.string.cm));
         } else {
             plant_detail_spread.setText("");
         }
 
         if (plant.getMinimumRootDepth() != null) {
-            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + " " + plant.getRootDepthMeasure());
+            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + getResources().getString(R.string.cm));
         } else {
             plant_detail_minimumRootDepth.setText("");
         }
@@ -201,13 +201,13 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         }
 
         if (plant.getRowSpacing() != null) {
-            plant_detail_rowSpacing.setText(plant.getRowSpacing() + " " + plant.getRowSpacingMeasure());
+            plant_detail_rowSpacing.setText(plant.getRowSpacing() + getResources().getString(R.string.cm));
         } else {
             plant_detail_rowSpacing.setText("");
         }
 
         if (plant.getDays_to_harvest() != null) {
-            plant_detail_days_to_harvest.setText(plant.getDays_to_harvest() + " days");
+            plant_detail_days_to_harvest.setText(plant.getDays_to_harvest() + getResources().getString(R.string.days));
         } else {
             plant_detail_days_to_harvest.setText("");
         }

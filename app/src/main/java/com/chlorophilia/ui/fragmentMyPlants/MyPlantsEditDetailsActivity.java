@@ -281,15 +281,11 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         TextView editSpreadText = findViewById(R.id.editSpreadText);
         TextView editPrecipitationTextMax = findViewById(R.id.editPrecipitationTextMax);
         TextView editPrecipitationTextMin = findViewById(R.id.editPrecipitationTextMin);
-        plant.setPrecipitationMeasure("mm");
-        plant.setRowSpacingMeasure("cm");
-        plant.setSpreadMeasure("cm");
 
-        editPrecipitationTextMax.setText(getResources().getString(R.string.plant_edit_detail_precipitation_max) + " " + plant.getPrecipitationMeasure() + ". (min.) :");
-        editPrecipitationTextMin.setText(getResources().getString(R.string.plant_edit_detail_precipitation_min) + " " + plant.getPrecipitationMeasure() + ". (max.) :");
-        editRowSpacingText.setText(getResources().getString(R.string.plant_edit_detail_rowSpacing) + " (in " +plant.getRowSpacingMeasure()+".) :");
-        editSpreadText.setText(getResources().getString(R.string.plant_edit_detail_spread) + " (in " +plant.getSpreadMeasure()+".) :");
-
+        editPrecipitationTextMax.setText(getResources().getString(R.string.plant_edit_detail_precipitation_max));
+        editPrecipitationTextMin.setText(getResources().getString(R.string.plant_edit_detail_precipitation_min));
+        editRowSpacingText.setText(getResources().getString(R.string.plant_edit_detail_rowSpacing));
+        editSpreadText.setText(getResources().getString(R.string.plant_edit_detail_spread));
 
         //SPINNERS - Find spinners 0 -> 10
         Spinner plant_edit_detail_light = (Spinner) findViewById(R.id.light_spinner);
@@ -329,6 +325,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         adapterPercent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plant_edit_detail_atmosphericHumidity.setAdapter(adapterPercent);
         plant_edit_detail_soilHumidity.setAdapter(adapterPercent);
+
+        //TEXT VALUES
         if (plant.getAtmosphericHumidity() != null) {
             plant_edit_detail_atmosphericHumidity.setSelection(Integer.parseInt(plant.getAtmosphericHumidity()));
         }
@@ -463,7 +461,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 } else {
                     plant.setSoilSalinity("");
                 }
-
 
                 //Form validation
                 boolean validForm = true;
