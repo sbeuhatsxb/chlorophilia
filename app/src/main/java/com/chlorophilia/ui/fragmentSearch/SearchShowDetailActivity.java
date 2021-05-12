@@ -51,7 +51,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
         Intent intent = getIntent();
         jsonPlantFromApiListDetail = intent.getExtras().getParcelable("ApiPlantDetail");
 
-
         // Capture the layout's TextView and set the string as its text
         final ImageView plantPictureExample = (ImageView) findViewById(R.id.plantPictureExample);
         final String imgURL = jsonPlantFromApiListDetail.getImage_url();
@@ -92,7 +91,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-
                 //Get plant id  from input
                 Integer id = jsonPlantFromApiListDetail.getId();
                 Plant plant = tryApiJsonToPlantObject(id);
@@ -106,7 +104,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
         seeDetails = findViewById(R.id.seeDetails);
 
         seeDetails.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
 

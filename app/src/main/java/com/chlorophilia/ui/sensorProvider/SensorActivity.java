@@ -75,49 +75,49 @@ public class SensorActivity extends Activity implements SensorEventListener {
             Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
             //Almost no light
             if (isBetween(measureOfLight, 0, 39)) {
-                textSunStatus.setText("Is there any light at all here ?");
+                textSunStatus.setText(getResources().getString(R.string.lightNull));
             } else if (measureOfLight > 120001) {
                 //More light than the sun is capable of
-                textSunStatus.setText("Have you brought another Sun ??");
+                textSunStatus.setText(getResources().getString(R.string.lightOverload));
             } else {
                 //In between
                 int grade = getGrade(measureOfLight);
                 int value = plantNeededLight - grade;
                 if (value == 0) {
-                    textSunStatus.setText("Ideal, good job !");
+                    textSunStatus.setText(getResources().getString(R.string.lightIdeal));
                     v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
                 }
                 if (value == -1) {
                     //a bit too much sun
-                    textSunStatus.setText("A bit too much sun light. But it's still ok...");
+                    textSunStatus.setText(getResources().getString(R.string.lightMinusOne));
                 }
                 if (value == -2) {
                     //too much sun
-                    textSunStatus.setText("Too much sun. Find a place a bit shadier !");
+                    textSunStatus.setText(getResources().getString(R.string.lightMinusTwo));
                 }
                 if (value == -3) {
                     //definitely too much sun
-                    textSunStatus.setText("Definitely too much sun ! Find a shadiest place !!");
+                    textSunStatus.setText(getResources().getString(R.string.lightMinusThree));
                 }
                 if (value < -3) {
                     //overeating
-                    textSunStatus.setText("Overheating !!!");
+                    textSunStatus.setText(getResources().getString(R.string.lightMinusFour));
                 }
                 if (value == 1) {
                     //a bit too shady
-                    textSunStatus.setText("A bit too shady, but it's still ok.");
+                    textSunStatus.setText(getResources().getString(R.string.lightPlusOne));
                 }
                 if (value == 2) {
                     //not enough sunlight
-                    textSunStatus.setText("Not enough light. Find more light !");
+                    textSunStatus.setText(getResources().getString(R.string.lightPlusTwo));
                 }
                 if (value == 3) {
                     //definitely not enough light
-                    textSunStatus.setText("Definitely not enough light ! Find more light !");
+                    textSunStatus.setText(getResources().getString(R.string.lightPlusThree));
                 }
                 if (value > 3) {
                     //total darkness
-                    textSunStatus.setText("Is there any light here ? Find more light for this plant !");
+                    textSunStatus.setText(getResources().getString(R.string.lightPlusFour));
                 }
             }
 
@@ -128,27 +128,27 @@ public class SensorActivity extends Activity implements SensorEventListener {
             int value = getGrade(measureOfLight);
             if (value == 0) {
                 //total darkness
-                textSunStatus.setText("Is there any light here ?");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightZero));
             }
             if (value == 1) {
                 //a bit too shady
-                textSunStatus.setText("Not enough light for seeds.");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightOne));
             }
             if (value == 2) {
                 //not enough sunlight
-                textSunStatus.setText("There is enough light for seeds. But not for growing well.");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightTwo));
             }
             if (value == 3) {
                 //definitely not enough light
-                textSunStatus.setText("There is not enough light for allowing this plant to grow. But it's ok for seeds !");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightThree));
             }
             if (value == 4) {
                 //total darkness
-                textSunStatus.setText("There is barely enough light for allowing this plant to bloom.");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightFour));
             }
             if (value >= 5) {
                 //total darkness
-                textSunStatus.setText("There is enough light for allowing this plant to bloom.");
+                textSunStatus.setText(getResources().getString(R.string.noiInfoLightFive));
             }
         }
     }

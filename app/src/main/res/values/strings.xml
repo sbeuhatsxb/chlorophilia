@@ -151,4 +151,25 @@
     <string name="minMaxPrec">Maximum precipitation can\'t be lower than minimum temperature</string>
     <string name="minMaxPh">Maximum pH can\'t be lower than minimum pH</string>
 
+    <string name="lightNull">Is there any light at all here ??</string>
+    <string name="lightOverload">Have you brought another Sun ??</string>
+    <string name="lightIdeal">Ideal, good job !</string>
+    <string name="lightMinusOne">A bit too much sun light. But it\'s still ok...</string>
+    <string name="lightMinusTwo">Too much sun. Find a place a bit shadier !</string>
+    <string name="lightMinusThree">Definitely too much sun ! Find a shadiest place !!</string>
+    <string name="lightMinusFour">Overheating !!!</string>
+    <string name="lightPlusOne">A bit too shady, but it\'s still ok.</string>
+    <string name="lightPlusTwo">Not enough light. Find more light !</string>
+    <string name="lightPlusThree">Definitely not enough light ! Find more light !</string>
+    <string name="lightPlusFour">Is there any light here ? Find more light for this plant !</string>
+
+    <string name="noiInfoLightZero">Is there any light here ?</string>
+    <string name="noiInfoLightOne">"Not enough light for seeds.</string>
+    <string name="noiInfoLightTwo">There is enough light for seeds. But not for growing well.</string>
+    <string name="noiInfoLightThree">"There is not enough light for allowing this plant to grow. But it's OK for seeds !</string>
+    <string name="noiInfoLightFour">There is barely enough light for allowing this plant to bloom.</string>
+    <string name="noiInfoLightFive">There is enough light for allowing this plant to bloom.</string>
+
+
+
 </resources>
