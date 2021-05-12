@@ -1,5 +1,6 @@
 package com.chlorophilia.ui.fragmentSearch;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -52,7 +53,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         plant = (Plant) getIntent().getSerializableExtra("plant");
         String imgURL = getIntent().getExtras().getString("imgURL");
         final ImageView plantPictureExample = (ImageView) findViewById(R.id.myPlantPicture);
-        new SeePlantDetailsActivity.DownLoadImageTask(plantPictureExample).execute(imgURL);
+        new DownLoadImageTask(plantPictureExample).execute(imgURL);
 
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
         TextView plant_detail_scientific_name = findViewById(R.id.myPlantScientificName);
@@ -277,7 +278,8 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
 
 
 
-    private class DownLoadImageTask extends AsyncTask<String, Void, Bitmap> {
+    private static class DownLoadImageTask extends AsyncTask<String, Void, Bitmap> {
+        @SuppressLint("StaticFieldLeak")
         ImageView imageView;
 
         public DownLoadImageTask(ImageView imageView) {

@@ -38,21 +38,17 @@ import java.util.ArrayList;
 public class SearchFragment extends Fragment {
 
     private EditText plantName;
-    private SearchViewModel searchViewModel;
-    private Button validateButton;
-    private Button translateButton;
     ArrayList<JsonPlantFromApiList> jsonPlantFromApiLists;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        searchViewModel =
-                new ViewModelProvider(this).get(SearchViewModel.class);
+        SearchViewModel searchViewModel = new ViewModelProvider(this).get(SearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_search, container, false);
         final TextView textView = root.findViewById(R.id.title_search);
 
         //Plant slug input
         plantName = (EditText) root.findViewById(R.id.plantNameInput);
-        validateButton = (Button) root.findViewById(R.id.dashboardSearchPlantButton);
+        Button validateButton = (Button) root.findViewById(R.id.dashboardSearchPlantButton);
 
         validateButton.setOnClickListener(new View.OnClickListener() {
 
@@ -127,7 +123,7 @@ public class SearchFragment extends Fragment {
 
         });
 
-        translateButton = (Button) root.findViewById(R.id.translateButton);
+        Button translateButton = (Button) root.findViewById(R.id.translateButton);
         translateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

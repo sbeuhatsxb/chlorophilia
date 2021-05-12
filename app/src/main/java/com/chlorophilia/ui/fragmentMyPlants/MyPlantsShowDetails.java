@@ -74,7 +74,6 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         final String[] SOILRICHNESS = {"", "extremely poor", "poor", "fairly poor", "lower middle", "middle", "higher middle", "fairly rich", "rich", "very rich", "extremely rich"};
 
         setContentView(R.layout.activity_myplants_show_detail);
-        PlantDataHandler db = new PlantDataHandler(getApplicationContext());
 
         plant = (Plant) getIntent().getSerializableExtra("plant");
 
@@ -185,18 +184,18 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             int sun = Integer.parseInt("2600", 16); // it will be 128013
             int cloud = Integer.parseInt("2601", 16); // it will be 128013
             int lightQuantity = Integer.parseInt(plant.getLight());
-            String sunnyString = "";
+            StringBuilder sunnyString = new StringBuilder();
             if (lightQuantity >= 0) {
                 for (int i = 0; i < lightQuantity; i++) {
-                    sunnyString += new String(new int[]{sun}, 0, 1);
+                    sunnyString.append(new String(new int[]{sun}, 0, 1));
                 }
 
                 for (int i = 0; i < abs(lightQuantity - 10); i++) {
-                    sunnyString += new String(new int[]{cloud}, 0, 1);
+                    sunnyString.append(new String(new int[]{cloud}, 0, 1));
                 }
             }
 
-            plant_detail_light.setText(sunnyString);
+            plant_detail_light.setText(sunnyString.toString());
         } else {
             plant_detail_light.setText("");
         }
@@ -296,32 +295,32 @@ public class MyPlantsShowDetails extends AppCompatActivity {
 
         if (plant.getGrowthMonths() != null) {
             ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getGrowthMonths());
-            String growth = "";
+            StringBuilder growth = new StringBuilder();
             for(String month : arrayMonths) {
-                growth += month+" ";
+                growth.append(month).append(" ");
             }
-            plant_detail_growthMonths.setText(growth);
+            plant_detail_growthMonths.setText(growth.toString());
         } else {
             plant_detail_growthMonths.setText("");
         }
         if (plant.getBloomMonths() != null) {
             ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getBloomMonths());
-            String growth = "";
+            StringBuilder growth = new StringBuilder();
             for(String month : arrayMonths) {
-                growth += month+" ";
+                growth.append(month).append(" ");
             }
-            plant_detail_bloomMonths.setText(growth);
+            plant_detail_bloomMonths.setText(growth.toString());
         } else {
             plant_detail_bloomMonths.setText("");
         }
 
         if (plant.getFruitMonths() != null) {
             ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getFruitMonths());
-            String growth = "";
+            StringBuilder growth = new StringBuilder();
             for(String month : arrayMonths) {
-                growth += month+" ";
+                growth.append(month).append(" ");
             }
-            plant_detail_fruitMonths.setText(growth);
+            plant_detail_fruitMonths.setText(growth.toString());
         } else {
             plant_detail_fruitMonths.setText("");
         }
@@ -443,18 +442,10 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             plant_detail_urlGbif.setText("");
         }
 
-        // text2 has links specified by putting <a> tags in the string
-        // resource.  By default these links will appear but not
-        // respond to user input.  To make them active, you need to
-        // call setMovementMethod() on the TextView object.
-
-
-
-
         if (plant.getUrlWikipediaEn() != null) {
             String url = wikipedia + plant.getUrlWikipediaEn();
             String linkedText = String.format("<a href=\"%s\">Wikipedia</a> ", url);
-            plant_detail_urlWikipediaEn.setText(Html.fromHtml(linkedText));
+            plant_detail_urlWikipediaEn.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
             plant_detail_urlWikipediaEn.setMovementMethod(LinkMovementMethod.getInstance());
         } else {
             plant_detail_urlWikipediaEn.setText("");

@@ -21,8 +21,6 @@ import com.chlorophilia.ui.model.PlantDataHandler;
 public class NicknameActivity extends AppCompatActivity {
 
     private EditText nicknameInput = null;
-    private Button validate = null;
-    private Button cancel = null;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +30,8 @@ public class NicknameActivity extends AppCompatActivity {
         PlantDataHandler db = new PlantDataHandler(this);
 
         nicknameInput = findViewById(R.id.nicknameInput);
-        validate = findViewById(R.id.done);
-        cancel = findViewById(R.id.no_thanks);
+        Button validate = findViewById(R.id.done);
+        Button cancel = findViewById(R.id.no_thanks);
 
         validate.setOnClickListener(new View.OnClickListener() {
             @Override

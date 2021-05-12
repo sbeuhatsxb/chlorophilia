@@ -30,9 +30,6 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.ListIterator;
-
-import static java.lang.Math.abs;
 
 public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
@@ -125,9 +122,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         //POPULATE CHECKBOXES
         if(plant.getBloomMonths() != null){
             ArrayList<String> bloomMonths = jsonArrayToArrayListConverter(plant.getBloomMonths());
-            ListIterator<String> li = bloomMonths.listIterator();
-            while (li.hasNext()){
-                switch (li.next()) {
+            for (String bloomMonth : bloomMonths) {
+                switch (bloomMonth) {
                     case "jan":
                         populateCheckboxes(bloom_january);
                         break;
@@ -169,9 +165,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         }
         if(plant.getFruitMonths() != null){
             ArrayList<String> fruitMonths = jsonArrayToArrayListConverter(plant.getFruitMonths());
-            ListIterator<String> li = fruitMonths.listIterator();
-            while (li.hasNext()){
-                switch (li.next()) {
+            for (String fruitMonth : fruitMonths) {
+                switch (fruitMonth) {
                     case "jan":
                         populateCheckboxes(fruit_january);
                         break;
@@ -213,9 +208,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         }
         if(plant.getGrowthMonths() != null){
             ArrayList<String> growthMonths = jsonArrayToArrayListConverter(plant.getGrowthMonths());
-            ListIterator<String> li = growthMonths.listIterator();
-            while (li.hasNext()){
-                switch (li.next()) {
+            for (String growthMonth : growthMonths) {
+                switch (growthMonth) {
                     case "jan":
                         populateCheckboxes(growth_january);
                         break;

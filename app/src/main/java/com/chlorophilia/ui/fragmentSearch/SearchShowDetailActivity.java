@@ -36,9 +36,6 @@ import java.util.Hashtable;
  */
 public class SearchShowDetailActivity extends AppCompatActivity {
 
-    private Button addPlant;
-    private Button backToList;
-    private Button seeDetails;
     private JsonPlantFromApiList jsonPlantFromApiListDetail;
 
     @Override
@@ -69,8 +66,9 @@ public class SearchShowDetailActivity extends AppCompatActivity {
         scientificName.setText(jsonPlantFromApiListDetail.getScientific_name());
         common_names.setText(jsonPlantFromApiListDetail.getCommon_names());
         new DownLoadImageTask(plantPictureExample).execute(imgURL);
-
-        backToList = (Button) findViewById(R.id.backToList);
+        Button addPlant = (Button) findViewById(R.id.addPlantButton);
+        Button backToList = (Button) findViewById(R.id.backToList);
+        Button seeDetails = findViewById(R.id.seeDetails);
 
         backToList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,11 +82,7 @@ public class SearchShowDetailActivity extends AppCompatActivity {
             }
         });
 
-
-        addPlant = (Button) findViewById(R.id.addPlantButton);
-
         addPlant.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 //Get plant id  from input
@@ -100,8 +94,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        seeDetails = findViewById(R.id.seeDetails);
 
         seeDetails.setOnClickListener(new View.OnClickListener() {
             @Override

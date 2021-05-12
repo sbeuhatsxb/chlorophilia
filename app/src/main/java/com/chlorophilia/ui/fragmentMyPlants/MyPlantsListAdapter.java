@@ -1,5 +1,6 @@
 package com.chlorophilia.ui.fragmentMyPlants;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -48,13 +49,11 @@ public class MyPlantsListAdapter extends ArrayAdapter<Plant> implements View.OnC
         int position = (Integer) v.getTag();
         Object object = getItem(position);
         Plant plant = (Plant) object;
-        SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d, ''yy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatter = new SimpleDateFormat("EEE, MMM d, ''yy");
 
-        switch (v.getId()) {
-            case R.id.item_img:
-                Snackbar.make(v, "Plant added the " + formatter.format(plant.getCreatedAt()), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
-                break;
+        if (v.getId() == R.id.item_img) {
+            Snackbar.make(v, "Plant added the " + formatter.format(plant.getCreatedAt()), Snackbar.LENGTH_LONG)
+                    .setAction("No action", null).show();
         }
     }
 

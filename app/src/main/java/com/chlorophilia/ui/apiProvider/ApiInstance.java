@@ -31,8 +31,6 @@ public class ApiInstance extends AppCompatActivity {
     private String plants = "/plants/";
     private String token;
     //Param sent to query "a plant" to the api
-    private String param;
-    private Integer id;
     private String responseString;
 
 
@@ -49,7 +47,6 @@ public class ApiInstance extends AppCompatActivity {
      */
     public String getPlantListFromSlug(String param) throws Exception {
         responseString = "";
-        this.param = param;
         //Building URI
         Request request = new Request.Builder()
                 .url(url + apiVersion + search + token + "/q=" + param)
@@ -72,7 +69,6 @@ public class ApiInstance extends AppCompatActivity {
      * @throws Exception
      */
     public String getPlantFromId(Integer id) throws Exception {
-        this.id = id;
         //Building URI
         String species = "/species/";
         Request request = new Request.Builder()
