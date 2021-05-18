@@ -24,7 +24,7 @@ public class ApiInstance extends AppCompatActivity {
     //Object lock dedicated to wait API response before dealing with the response
     private final Object lock = new Object();
     private final OkHttpClient client = new OkHttpClient();
-    private String url = "http://192.168.1.68";
+    private String url = "http://trefle.osc-fr1.scalingo.io";
     private String apiVersion = "/api/v1";
     private String search = "/species";
     private String species = "/species/";
@@ -68,7 +68,7 @@ public class ApiInstance extends AppCompatActivity {
      * @return
      * @throws Exception
      */
-    public String getPlantFromId(Integer id) throws Exception {
+    public String getPlantFromId(int id) throws Exception {
         //Building URI
         String species = "/species/";
         Request request = new Request.Builder()
