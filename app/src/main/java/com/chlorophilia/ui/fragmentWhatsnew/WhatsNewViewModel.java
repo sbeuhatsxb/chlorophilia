@@ -1,14 +1,14 @@
-package com.chlorophilia.ui.fragmentNotifications;
+package com.chlorophilia.ui.fragmentWhatsnew;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class WhatsNewViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public WhatsNewViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Notification are not managed yet !");
     }

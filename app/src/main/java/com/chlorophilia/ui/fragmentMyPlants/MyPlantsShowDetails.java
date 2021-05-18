@@ -63,7 +63,8 @@ public class MyPlantsShowDetails extends AppCompatActivity {
 
     String currentPhotoPath;
     Plant plant;
-    ExtendedFloatingActionButton fab;
+
+    Button lightMeasureButton;
     final String powo = "http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:";
     final String plantNet = "https://identify.plantnet.org/species/the-plant-list/";
     final String gbif = "https://www.gbif.org/species/";
@@ -184,7 +185,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         if (plant.getLight() != null) {
             int sun = Integer.parseInt("2600", 16); // it will be 128013
             int cloud = Integer.parseInt("2601", 16); // it will be 128013
-            int lightQuantity = Integer.parseInt(plant.getLight())+1;
+            int lightQuantity = Integer.parseInt(plant.getLight());
             StringBuilder sunnyString = new StringBuilder();
             if (lightQuantity >= 0) {
                 for (int i = 0; i < lightQuantity; i++) {
@@ -451,10 +452,10 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         } else {
             plant_detail_urlWikipediaEn.setText("");
         }
-        
 
-        fab = (ExtendedFloatingActionButton) findViewById(R.id.fab_sun);
-        fab.setOnClickListener(new View.OnClickListener() {
+
+        lightMeasureButton = (Button) findViewById(R.id.lightMeasureButton);
+        lightMeasureButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent lightIntent = new Intent(getApplicationContext(), SensorActivity.class);

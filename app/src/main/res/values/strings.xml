@@ -3,7 +3,7 @@
 
     <string name="title_home">My plants</string>
     <string name="title_search">Search a plant !</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Support this app !</string>
 
     <string name="list_plant_common_name">Common name :</string>
     <string name="list_plant_family_common_name">Family common name :</string>
@@ -27,7 +27,7 @@
     <string name="done">Done !</string>
     <string name="no_thx">No thanks !</string>
 
-    <string name="plant_update_plant_show">Fill your own data</string>
+    <string name="plant_update_plant_show">I know better !</string>
     <string name="plant_update_plant">Update</string>
     <string name="plant_change_picture">Click to change picture</string>
     <string name="plant_detail_env">Environment</string>
@@ -77,6 +77,7 @@
     <string name="plant_detail_urlPlantnet">PlantNet :</string>
     <string name="plant_detail_urlGbif">Global Biodiversity Information Facility :</string>
     <string name="plant_detail_urlWikipediaEn">Wikipedia :</string>
+    <string name="plant_detail_foliageColor">Foliage Color :</string>
 
     <string name="cm"> cm.</string>
     <string name="mm"> mm.</string>
@@ -121,7 +122,7 @@
 
     <string name="noLightInfoText">There were no light information for this particular plant, but we can say that :</string>
 
-    <string name="searchTooltip">Try out a common english name like \"Velvetleaf\" or a scientific name like : \"laurus nobilis\" or even in your own language like \"Sauge\" in French for instance.\n\n More than 1 million plants are actually indexed.</string>
+    <string name="searchTooltip">Try out a common english name like \"Garden Strawberry\" or a scientific name like : \"laurus nobilis\".\n\n More than 1 million plants are actually indexed.</string>
 
     <string name="home_request_camera">This functionality requires access to your camera in order to take a picture of your plant !\n\n If you misclicked \"Deny\" go to your phone \"Preferences/App Permission\" and grant permission to Camera and Files and Media !</string>
 
@@ -167,6 +168,17 @@
     <string name="noiInfoLightThree">"There is not enough light for allowing this plant to grow. But it's OK for seeds !</string>
     <string name="noiInfoLightFour">There is barely enough light for allowing this plant to bloom.</string>
     <string name="noiInfoLightFive">There is enough light for allowing this plant to bloom.</string>
+
+    <string name="whatsnew_title">What\'s new ?</string>
+    <string name="support_title">Want to support ?</string>
+    <string name="whatsnew1">- Almost everything ! On June 20, Chlorophilia V.1.1 has just been released.</string>
+    <string name="whatsnew2">- Our server now host more than 450.000 plants (sure, it\'s a big garden!).</string>
+    <string name="whatsnew3">- Light measuring management is pretty accurate but can still be improved a bit.</string>
+    <string name="whatsnew4">- Due to the late Trefle.io (RIP! :-\'( ) we were using, some inconsistencies may still remain.</string>
+    <string name="whatsnew5">- You can take a picture of your plant ONLY in landscape mode. Portraits are soon to be managed.</string>
+    <string name="whatsnew6">- Our database is very hungry and is still looking to gather more information (temperature and precipitation are our top priority)!</string>
+    <string name="support">Chlorophilia was made by Sébastien STELTZLEN. \n\nFeel free to use this application. Chlorophilia is going under continuous development. But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
+    <string name="contact">Do you have questions? Suggestions? Want to submit crashes? Feel free to contact us by mail: </string>
 
 
 
