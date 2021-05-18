@@ -150,44 +150,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Get a toString JSON array. Converting it String[] array.
-     *
-     * @param str
-     * @return
-     */
-    private String[] stringConverter(String str) {
-        //remove curly brackets
-        str = str.substring(1, str.length() - 1);
-        //split the string to create key-value pairs
-        String[] keyValuePairs = str.split(":");
-        //remove brackets
-        keyValuePairs[0] = keyValuePairs[0].substring(1, keyValuePairs[0].length() - 1);
-        return keyValuePairs;
-    }
-
-    /**
-     * Get some toString JSON arrays. Converting them to only return celsius values.
-     *
-     * @param str
-     * @return
-     */
-    private String[] stringTemperatureConverter(String str) {
-        str = str.substring(1, str.length() - 1);
-        String[] keyValuePairs = str.split(",");
-        String[] valuesReturned = new String[0];
-        for (String subPair : keyValuePairs) {
-            String[] entry = subPair.split(":");
-            //remove brackets
-            entry[0] = entry[0].substring(1, entry[0].length() - 1);
-            if (entry[0].equals("deg_c")) {
-                entry[0] = "celsius";
-                valuesReturned = entry;
-            }
-        }
-        return valuesReturned;
-    }
-
     private Plant tryApiJsonToPlantObject(Integer id) {
         //new API call
         ApiInstance getApi = new ApiInstance();

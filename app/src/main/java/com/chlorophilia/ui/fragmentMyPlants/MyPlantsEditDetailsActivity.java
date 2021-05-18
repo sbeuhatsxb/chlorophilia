@@ -22,6 +22,7 @@ import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.toolbox.InputFilterMinMax;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -35,7 +36,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     Button updatePlant;
-    FloatingActionButton fab;
+    ExtendedFloatingActionButton fab;
     HashSet<String> bloomCheckboxes;
     HashSet<String> growthCheckboxes;
     HashSet<String> fruitCheckboxes;
@@ -622,7 +623,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             }
         });
 
-        fab = (FloatingActionButton) findViewById(R.id.fab_update);
+        fab = (ExtendedFloatingActionButton) findViewById(R.id.fab_update);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

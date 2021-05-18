@@ -20,6 +20,7 @@ import androidx.core.graphics.drawable.DrawableCompat;
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -40,7 +41,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     Button addPlant;
-    FloatingActionButton fab;
+    ExtendedFloatingActionButton fab;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,17 +56,19 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         final ImageView plantPictureExample = (ImageView) findViewById(R.id.myPlantPicture);
         new DownLoadImageTask(plantPictureExample).execute(imgURL);
 
+        //TODO : Old API had those information - have to find a way to get them back one day
+//        TextView plant_detail_Precipitation_min = findViewById(R.id.myPlantPrecipitationMin);
+//        TextView plant_detail_Precipitation_max = findViewById(R.id.myPlantPrecipitationMax);
+//        TextView plant_detail_TemperatureMin = findViewById(R.id.myPlantTemperatureMin);
+//        TextView plant_detail_TemperatureMax = findViewById(R.id.myPlantTemperatureMax);
+
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
         TextView plant_detail_scientific_name = findViewById(R.id.myPlantScientificName);
         TextView plant_detail_family = findViewById(R.id.myPlantFamily);
-        TextView plant_detail_Precipitation_min = findViewById(R.id.myPlantPrecipitationMin);
-        TextView plant_detail_Precipitation_max = findViewById(R.id.myPlantPrecipitationMax);
         TextView plant_detail_light = findViewById(R.id.myPlantLight);
         TextView plant_detail_ph_min = findViewById(R.id.myPlantPhMin);
         TextView plant_detail_ph_max = findViewById(R.id.myPlantPhMax);
         TextView plant_detail_atmosphericHumidity = findViewById(R.id.myPlantAtmospheric);
-        TextView plant_detail_TemperatureMin = findViewById(R.id.myPlantTemperatureMin);
-        TextView plant_detail_TemperatureMax = findViewById(R.id.myPlantTemperatureMax);
         TextView plant_detail_soilNutriments = findViewById(R.id.myPlantSoilNutriments);
         TextView plant_detail_soilSalinity = findViewById(R.id.myPlantSoilSalinity);
         TextView plant_detail_soilHumidity = findViewById(R.id.myPlantSoilHumidity);
@@ -96,17 +99,18 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             plant_detail_family.setText("");
         }
 
-        if (plant.getMinimumPrecipitation() != null) {
-            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + " mm.");
-        } else {
-            plant_detail_Precipitation_min.setText("");
-        }
-
-        if (plant.getMaximumPrecipitation() != null) {
-            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + " mm.");
-        } else {
-            plant_detail_Precipitation_max.setText("");
-        }
+        //TODO : Ibid.
+//        if (plant.getMinimumPrecipitation() != null) {
+//            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + " mm.");
+//        } else {
+//            plant_detail_Precipitation_min.setText("");
+//        }
+//
+//        if (plant.getMaximumPrecipitation() != null) {
+//            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + " mm.");
+//        } else {
+//            plant_detail_Precipitation_max.setText("");
+//        }
 
         if (plant.getLight() != null) {
             int sun = Integer.parseInt("2600", 16); // it will be 128013
@@ -149,19 +153,20 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             plant_detail_atmosphericHumidity.setText("");
         }
 
-        if (plant.getMinimumTemperature() != null) {
-            double fahrenheit = Integer.parseInt(plant.getMinimumTemperature()) * 1.8 + 32;
-            plant_detail_TemperatureMin.setText("min. " + plant.getMinimumTemperature() + "°C / " + fahrenheit + "°F");
-        } else {
-            plant_detail_TemperatureMin.setText("");
-        }
-
-        if (plant.getMaximumTemperature() != null) {
-            double fahrenheit = Integer.parseInt(plant.getMaximumTemperature()) * 1.8 + 32;
-            plant_detail_TemperatureMax.setText("max. " + plant.getMaximumTemperature() + "°C / " + fahrenheit + "°F");
-        } else {
-            plant_detail_TemperatureMax.setText("");
-        }
+        //TODO : Ibid.
+//        if (plant.getMinimumTemperature() != null) {
+//            double fahrenheit = Integer.parseInt(plant.getMinimumTemperature()) * 1.8 + 32;
+//            plant_detail_TemperatureMin.setText("min. " + plant.getMinimumTemperature() + "°C / " + fahrenheit + "°F");
+//        } else {
+//            plant_detail_TemperatureMin.setText("");
+//        }
+//
+//        if (plant.getMaximumTemperature() != null) {
+//            double fahrenheit = Integer.parseInt(plant.getMaximumTemperature()) * 1.8 + 32;
+//            plant_detail_TemperatureMax.setText("max. " + plant.getMaximumTemperature() + "°C / " + fahrenheit + "°F");
+//        } else {
+//            plant_detail_TemperatureMax.setText("");
+//        }
 
         if (plant.getSoilNutriments() != null) {
             plant_detail_soilNutriments.setText(SOILRICHNESS[Integer.parseInt(plant.getSoilNutriments())]);
@@ -258,12 +263,7 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
             }
         });
 
-
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.baseline_add_20);
-        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
-        DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#FFFFFF"));
-
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (ExtendedFloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -5,19 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
+        android:backgroundTint="@android:color/holo_green_dark"
         android:contentDescription="@string/list_plant_add_plant"
-        android:src="@drawable/baseline_add_20"
-        app:backgroundTint="@android:color/holo_green_dark"
-        app:fabSize="auto"
+        android:text="UPDATE"
+        android:textColor="@color/white"
+        app:icon="@android:drawable/stat_notify_sync"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:maxImageSize="36dp" />
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3" />
 
     <LinearLayout
         android:id="@+id/linearLayout3"

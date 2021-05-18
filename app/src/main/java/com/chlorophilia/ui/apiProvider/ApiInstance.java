@@ -1,11 +1,6 @@
 package com.chlorophilia.ui.apiProvider;
 
-import android.content.Intent;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.chlorophilia.MainActivity;
 
 import java.io.IOException;
 
@@ -26,8 +21,7 @@ public class ApiInstance extends AppCompatActivity {
     private final OkHttpClient client = new OkHttpClient();
     private String url = "http://trefle.osc-fr1.scalingo.io";
     private String apiVersion = "/api/v1";
-    private String search = "/species";
-    private String species = "/species/";
+    private String species = "/species";
     private String plants = "/plants/";
     private String token;
     //Param sent to query "a plant" to the api
@@ -49,7 +43,7 @@ public class ApiInstance extends AppCompatActivity {
         responseString = "";
         //Building URI
         Request request = new Request.Builder()
-                .url(url + apiVersion + search + token + "/q=" + param)
+                .url(url + apiVersion + species + token + "/q=" + param)
                 .build();
         //Running api
         this.run(request);
@@ -70,7 +64,6 @@ public class ApiInstance extends AppCompatActivity {
      */
     public String getPlantFromId(int id) throws Exception {
         //Building URI
-        String species = "/species/";
         Request request = new Request.Builder()
                 .url(url + apiVersion + plants + id)
                 .build();

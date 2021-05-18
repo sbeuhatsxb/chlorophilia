@@ -5,16 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
+        android:backgroundTint="@android:color/holo_green_dark"
         android:contentDescription="@string/list_plant_add_plant"
-        android:src="@drawable/baseline_add_20"
-        android:tint="#FFFFFF"
-        app:backgroundTint="@android:color/holo_green_dark"
+        android:text="ADD"
+        android:textColor="@color/white"
+        app:icon="@android:drawable/ic_input_add"
+        app:iconTint="@color/white"
         app:layout_constraintBottom_toBottomOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout3" />
 
@@ -124,48 +126,6 @@
                         android:background="#2C4CAF50">
 
                         <TextView
-                            android:id="@+id/editPrecipitationTextMin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/plant_detail_Precipitation"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/myPlantPrecipitationMin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:text="TextView" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
-
-                        <TextView
-                            android:id="@+id/editPrecipitationTextMax"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text=""
-                            android:textSize="14sp" />
-
-
-                        <TextView
-                            android:id="@+id/myPlantPrecipitationMax"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:text="TextView" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
                             android:id="@+id/textView23"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -182,7 +142,7 @@
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
+                        >
 
                         <TextView
                             android:id="@+id/textView24"
@@ -234,45 +194,6 @@
                             android:layout_height="wrap_content"
                             android:paddingLeft="5dp"
                             android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/editTemperatureTextMin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/plant_detail_minimumTemperature" />
-
-                        <TextView
-                            android:id="@+id/myPlantTemperatureMin"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:text="TextView" />
-
-                    </TableRow>
-
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/editTemperatureTextMax"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:text="" />
-
-                        <TextView
-                            android:id="@+id/myPlantTemperatureMax"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingLeft="5dp"
-                            android:text="TextView" />
-
                     </TableRow>
 
 

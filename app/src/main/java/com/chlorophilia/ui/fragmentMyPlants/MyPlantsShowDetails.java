@@ -36,6 +36,7 @@ import com.chlorophilia.ui.dialogs.MyPlantsShowDialog;
 import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.sensorProvider.SensorActivity;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
@@ -62,7 +63,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
 
     String currentPhotoPath;
     Plant plant;
-    FloatingActionButton fab;
+    ExtendedFloatingActionButton fab;
     final String powo = "http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:";
     final String plantNet = "https://identify.plantnet.org/species/the-plant-list/";
     final String gbif = "https://www.gbif.org/species/";
@@ -450,13 +451,9 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         } else {
             plant_detail_urlWikipediaEn.setText("");
         }
+        
 
-        //Floating button
-        Drawable unwrappedDrawable = AppCompatResources.getDrawable(this, R.drawable.baseline_brightness_medium_24);
-        Drawable wrappedDrawable = DrawableCompat.wrap(unwrappedDrawable);
-        DrawableCompat.setTint(wrappedDrawable, Color.parseColor("#FFD700"));
-
-        fab = (FloatingActionButton) findViewById(R.id.fab_sun);
+        fab = (ExtendedFloatingActionButton) findViewById(R.id.fab_sun);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
