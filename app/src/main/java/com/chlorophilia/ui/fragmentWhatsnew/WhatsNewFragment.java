@@ -27,7 +27,7 @@ public class WhatsNewFragment extends Fragment {
         TextView email = root.findViewById(R.id.email);
         TextView tipee = root.findViewById(R.id.tipee);
 
-        String tipeeAddress = "https://fr.tipeee.com/";
+        String tipeeAddress = "https://fr.tipeee.com/chlorophilia/";
         String linkedEmailText = String.format("<a href=\"%s\">Tipee</a> ", tipeeAddress);
         tipee.setText(HtmlCompat.fromHtml(linkedEmailText, HtmlCompat.FROM_HTML_MODE_LEGACY));
         tipee.setMovementMethod(LinkMovementMethod.getInstance());
