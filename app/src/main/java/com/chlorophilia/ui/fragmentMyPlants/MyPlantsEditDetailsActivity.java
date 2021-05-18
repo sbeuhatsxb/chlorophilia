@@ -118,6 +118,35 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         final CheckBox fruit_november = (CheckBox) findViewById(R.id.fruit_november);
         final CheckBox fruit_october = (CheckBox) findViewById(R.id.fruit_october);
         final CheckBox fruit_december = (CheckBox) findViewById(R.id.fruit_december);
+        //MORE CHECKBOXES !!
+        final CheckBox vegetableBox = (CheckBox) findViewById(R.id.myPlantVegetable);
+        final CheckBox edibleBox = (CheckBox) findViewById(R.id.myPlantEdible);
+        final CheckBox flowerConspBox = (CheckBox) findViewById(R.id.myPlantEditFlowerConspicuous);
+        final CheckBox fruitConspBox = (CheckBox) findViewById(R.id.myPlantEditFruitConspicuous);
+
+        if(plant.getVegetable() != null) {
+            if(plant.getVegetable().equals("true")){
+                populateCheckboxes(vegetableBox);
+            }
+        }
+
+        if(plant.getEdible() != null) {
+            if(plant.getEdible().equals("true")){
+                populateCheckboxes(edibleBox);
+            }
+        }
+
+        if(plant.getFruitConspicuous() != null) {
+            if(plant.getFruitConspicuous().equals("true")){
+                populateCheckboxes(fruitConspBox);
+            }
+        }
+
+        if(plant.getFlowerConspicuous() != null) {
+            if(plant.getFlowerConspicuous().equals("true")){
+                populateCheckboxes(flowerConspBox);
+            }
+        }
 
         //POPULATE CHECKBOXES
         if(plant.getBloomMonths() != null){
@@ -266,6 +295,18 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         EditText plant_edit_detail_sowing = (EditText) findViewById(R.id.myPlantEditSowing);
         EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
 
+        EditText plant_edit_detail_anaerobic = (EditText) findViewById(R.id.myPlantEditAnaerobic);
+        EditText plant_edit_detail_growthForm = (EditText) findViewById(R.id.myPlantEditGrowthForm);
+        EditText plant_edit_detail_growthHabit = (EditText) findViewById(R.id.myPlantEditGrowthHabit);
+        EditText plant_edit_detail_growthRate = (EditText) findViewById(R.id.myPlantEditGrowthRate);
+        EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
+        EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
+        EditText plant_edit_detail_foliage_texture = (EditText) findViewById(R.id.myPlantEditFoliageTexture);
+        EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
+        EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
+        EditText plant_edit_detail_ediblePart = (EditText) findViewById(R.id.myPlantEditEdiblePart);
+
+
         //SET LIMIT TO EDIT TEXT
         plant_edit_detail_ph_min.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
         plant_edit_detail_ph_max.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
@@ -347,7 +388,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         }
 
         if (plant.getMinimumPrecipitation() != null) {
-
             plant_edit_detail_Precipitation_min.setText(plant.getMinimumPrecipitation());
         } else {
             plant_edit_detail_Precipitation_min.setText("");
@@ -407,6 +447,66 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_harvestDays.setText("");
         }
 
+        if (plant.getAnaerobicTolerance() != null) {
+            plant_edit_detail_anaerobic.setText(plant.getAnaerobicTolerance());
+        } else {
+            plant_edit_detail_anaerobic.setText("");
+        }
+
+        if (plant.getGrowthForm() != null) {
+            plant_edit_detail_growthForm.setText(plant.getGrowthForm());
+        } else {
+            plant_edit_detail_growthForm.setText("");
+        }
+
+        if (plant.getGrowthHabit() != null) {
+            plant_edit_detail_growthHabit.setText(plant.getGrowthHabit());
+        } else {
+            plant_edit_detail_growthHabit.setText("");
+        }
+
+        if (plant.getGrowthRate() != null) {
+            plant_edit_detail_growthRate.setText(plant.getGrowthRate());
+        } else {
+            plant_edit_detail_growthRate.setText("");
+        }
+
+        if (plant.getAverageHeightCm() != null) {
+            plant_edit_detail_averageHeight.setText(plant.getAverageHeightCm());
+        } else {
+            plant_edit_detail_averageHeight.setText("");
+        }
+
+        if (plant.getMaximumHeightCm() != null) {
+            plant_edit_detail_maxHeight.setText(plant.getMaximumHeightCm());
+        } else {
+            plant_edit_detail_maxHeight.setText("");
+        }
+
+        if (plant.getFoliageTexture() != null) {
+            plant_edit_detail_foliage_texture.setText(plant.getFoliageTexture());
+        } else {
+            plant_edit_detail_foliage_texture.setText("");
+        }
+
+        if (plant.getFlowerColor() != null) {
+            plant_edit_detail_flower_color.setText(plant.getFoliageTexture());
+        } else {
+            plant_edit_detail_flower_color.setText("");
+        }
+
+        if (plant.getFruitColor() != null) {
+            plant_edit_detail_fruit_color.setText(plant.getFruitColor());
+        } else {
+            plant_edit_detail_fruit_color.setText("");
+        }
+
+        if (plant.getEdiblePart() != null) {
+            plant_edit_detail_ediblePart.setText(plant.getEdiblePart());
+        } else {
+            plant_edit_detail_ediblePart.setText("");
+        }
+
         updatePlant = (Button) findViewById(R.id.button_update);
         updatePlant.setText(getResources().getString(R.string.plant_update_plant) + " " + plant.getNickname());
         updatePlant.setOnClickListener(new View.OnClickListener() {
@@ -426,11 +526,47 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
                 plant.setSowing(plant_edit_detail_sowing.getText().toString());
                 plant.setSpread(plant_edit_detail_spread.getText().toString());
+
+                plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
+                plant.setGrowthForm(plant_edit_detail_growthForm.getText().toString());
+                plant.setGrowthHabit(plant_edit_detail_growthHabit.getText().toString());
+                plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
+                plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
+                plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
+                plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
+                plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
+                plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
+                plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
+
+                if(vegetableBox.isChecked()){
+                    plant.setVegetable("true");
+                } else {
+                    plant.setVegetable("");
+                }
+
+                if(edibleBox.isChecked()){
+                    plant.setEdible("true");
+                } else {
+                    plant.setEdible("");
+                }
+
+                if(flowerConspBox.isChecked()){
+                    plant.setFlowerConspicuous("true");
+                } else {
+                    plant.setFlowerConspicuous("");
+                }
+
+                if(fruitConspBox.isChecked()){
+                    plant.setFruitConspicuous("true");
+                } else {
+                    plant.setFruitConspicuous("");
+                }
+
                 plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
                 plant.setFruitMonths(jsonConstructor(growthCheckboxes));
                 plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
 
-                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
+                if(plant_edit_detail_light.getSelectedItemPosition() != 10){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 } else {
                     plant.setLight("");
@@ -504,11 +640,47 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
                 plant.setSowing(plant_edit_detail_sowing.getText().toString());
                 plant.setSpread(plant_edit_detail_spread.getText().toString());
+
+                plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
+                plant.setGrowthForm(plant_edit_detail_growthForm.getText().toString());
+                plant.setGrowthHabit(plant_edit_detail_growthHabit.getText().toString());
+                plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
+                plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
+                plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
+                plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
+                plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
+                plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
+                plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
+
+                if(vegetableBox.isChecked()){
+                    plant.setVegetable("true");
+                } else {
+                    plant.setVegetable("");
+                }
+
+                if(edibleBox.isChecked()){
+                    plant.setEdible("true");
+                } else {
+                    plant.setEdible("");
+                }
+
+                if(flowerConspBox.isChecked()){
+                    plant.setFlowerConspicuous("true");
+                } else {
+                    plant.setFlowerConspicuous("");
+                }
+
+                if(fruitConspBox.isChecked()){
+                    plant.setFruitConspicuous("true");
+                } else {
+                    plant.setFruitConspicuous("");
+                }
+
                 plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
                 plant.setFruitMonths(jsonConstructor(growthCheckboxes));
                 plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
 
-                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
+                if(plant_edit_detail_light.getSelectedItemPosition() != 10){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 } else {
                     plant.setLight("");
@@ -533,7 +705,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 } else {
                     plant.setSoilSalinity("");
                 }
-
 
                 //Form validation
                 boolean validForm = true;

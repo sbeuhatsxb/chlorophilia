@@ -183,7 +183,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         if (plant.getLight() != null) {
             int sun = Integer.parseInt("2600", 16); // it will be 128013
             int cloud = Integer.parseInt("2601", 16); // it will be 128013
-            int lightQuantity = Integer.parseInt(plant.getLight());
+            int lightQuantity = Integer.parseInt(plant.getLight())+1;
             StringBuilder sunnyString = new StringBuilder();
             if (lightQuantity >= 0) {
                 for (int i = 0; i < lightQuantity; i++) {

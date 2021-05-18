@@ -171,33 +171,32 @@ public class SensorActivity extends Activity implements SensorEventListener {
         return lower <= x && x <= upper;
     }
 
-    /*
-    Return a grade according to light measure
-     */
+    /**
+    *  Return a grade according to light measure
+    */
     private static int getGrade(int measureOfLight) {
         int grade = 0;
 
         if (isBetween(measureOfLight, 40, 375)) {
-            grade = 1;
+            return 1;
         } else if (isBetween(measureOfLight, 376, 1000)) {
-            grade = 2;
+            return 2;
         } else if (isBetween(measureOfLight, 1001, 2500)) {
-            grade = 3;
+            return 3;
         } else if (isBetween(measureOfLight, 2501, 10000)) {
-            grade = 4;
+            return 4;
         } else if (isBetween(measureOfLight, 10001, 25000)) {
-            grade = 5;
+            return 5;
         } else if (isBetween(measureOfLight, 25001, 50000)) {
-            grade = 6;
+            return 6;
         } else if (isBetween(measureOfLight, 50001, 80000)) {
-            grade = 7;
+            return 7;
         } else if (isBetween(measureOfLight, 80001, 100000)) {
-            grade = 8;
-        } else if (isBetween(measureOfLight, 100001, 110000)) {
-            grade = 9;
-        } else if (isBetween(measureOfLight, 110001, 120000)) {
-            grade = 10;
+            return 8;
+        } else if (isBetween(measureOfLight, 100001, 120000)) {
+            return 9;
         }
+
         return grade;
     }
 

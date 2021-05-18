@@ -115,6 +115,7 @@
     <string name="plant_edit_detail_flowerColor">Flower Color :</string>
     <string name="plant_edit_detail_flowerConspicuous">Flower Conspicuous :</string>
     <string name="plant_edit_detail_foliageTexture">Foliage Texture :</string>
+    <string name="plant_edit_detail_foliageColor">Foliage Color :</string>
     <string name="plant_edit_detail_fruitColor">Fruit Color :</string>
     <string name="plant_edit_detail_fruitConspicuous">Fruit Conspicuous :</string>
 
