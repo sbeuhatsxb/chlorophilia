@@ -171,13 +171,18 @@
 
     <string name="whatsnew_title">What\'s new ?</string>
     <string name="support_title">Want to support ?</string>
-    <string name="whatsnew1">- Almost everything ! On June 20, Chlorophilia V.1.1 has just been released.</string>
-    <string name="whatsnew2">- Our server now host more than 450.000 plants (sure, it\'s a big garden!).</string>
-    <string name="whatsnew3">- Light measuring management is pretty accurate but can still be improved a bit.</string>
-    <string name="whatsnew4">- Due to the late Trefle.io (RIP! :-\'( ) we were using, some inconsistencies may still remain.</string>
-    <string name="whatsnew5">- You can take a picture of your plant ONLY in landscape mode. Portraits are soon to be managed.</string>
-    <string name="whatsnew6">- Our database is very hungry and is still looking to gather more information (temperature and precipitation are our top priority)!</string>
-    <string name="support">Chlorophilia was made by Sébastien STELTZLEN. \n\nFeel free to use this application. Chlorophilia is going under continuous development. But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
+    <string name="whatsnew">
+    - Almost everything ! On June 20, Chlorophilia V.1.1 has just been released.\n
+    - Our server now host more than 450.000 plants (sure, it\'s a big garden!).\n
+    - Light measuring management is pretty accurate but can still be improved a bit.\n
+    - Due to the late Trefle.io (RIP! :-\'( ) API we were using, some inconsistencies may still remain.\n
+    - You can take a picture of your plant ONLY in landscape mode. Portraits are soon to be managed.\n
+    - Our database is very hungry and is still looking to gather more information (temperature and precipitation are our top priority)!\n
+    </string>
+    <string name="support">Chlorophilia was made by Sébastien STELTZLEN. \n\n
+
+        Feel free to use this application. Chlorophilia is going under continuous development.
+        But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
     <string name="contact">Do you have questions? Suggestions? Want to submit crashes? Feel free to contact us by mail: </string>
 
 

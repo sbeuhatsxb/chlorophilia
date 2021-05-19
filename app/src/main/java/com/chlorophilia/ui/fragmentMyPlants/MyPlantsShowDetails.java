@@ -120,6 +120,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         TextView plant_detail_flowerColor = findViewById(R.id.myPlantFlowerColor);
         TextView plant_detail_flowerConspicuous = findViewById(R.id.myPlantFlowerConspicuous);
         TextView plant_detail_foliageTexture = findViewById(R.id.myPlantFoliageTexture);
+        TextView plant_detail_foliageColor = findViewById(R.id.myPlantFoliageColor);
         TextView plant_detail_fruitColor = findViewById(R.id.myPlantFruitColor);
         TextView plant_detail_fruitConspicuous = findViewById(R.id.myPlantFruitConspicuous);
         TextView plant_detail_urlPowo = findViewById(R.id.myPlanturlPowo);
@@ -403,6 +404,12 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             plant_detail_foliageTexture.setText(plant.getFoliageTexture());
         } else {
             plant_detail_foliageTexture.setText("");
+        }
+
+        if (plant.getFoliageColor() != null) {
+            plant_detail_foliageColor.setText(plant.getFoliageColor());
+        } else {
+            plant_detail_foliageColor.setText("");
         }
 
         if (plant.getFruitColor() != null) {

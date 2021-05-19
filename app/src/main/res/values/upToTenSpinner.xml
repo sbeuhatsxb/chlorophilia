@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="upToTen">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
-        <item>8</item>
-        <item>9</item>
-        <item>10</item>
         <item>No idea !</item>
+        <item>1 (For mushrooms only)</item>
+        <item>2 (A very dark room)</item>
+        <item>3 (A luminous room)</item>
+        <item>4 (Outside, in a shadowed place)</item>
+        <item>5 (A very cloudy sky)</item>
+        <item>6 (A cloudy sky, with some light)</item>
+        <item>7 (A sunny day)</item>
+        <item>8 (A very sunny day)</item>
+        <item>9 (A zenithal direct sunlight)</item>
+        <item>10 (Desertic conditions)</item>
     </string-array>
 </resources>

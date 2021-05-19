@@ -303,6 +303,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
         EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
         EditText plant_edit_detail_foliage_texture = (EditText) findViewById(R.id.myPlantEditFoliageTexture);
+        EditText plant_edit_detail_foliage_color = (EditText) findViewById(R.id.myPlantEditFoliageColor);
         EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
         EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
         EditText plant_edit_detail_ediblePart = (EditText) findViewById(R.id.myPlantEditEdiblePart);
@@ -567,7 +568,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setFruitMonths(jsonConstructor(growthCheckboxes));
                 plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
 
-                if(plant_edit_detail_light.getSelectedItemPosition() != 10){
+                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 } else {
                     plant.setLight("");
@@ -649,6 +650,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
                 plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
                 plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
+                plant.setFoliageColor(plant_edit_detail_foliage_color.getText().toString());
                 plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
                 plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
                 plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
@@ -681,7 +683,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 plant.setFruitMonths(jsonConstructor(growthCheckboxes));
                 plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
 
-                if(plant_edit_detail_light.getSelectedItemPosition() != 10){
+                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 } else {
                     plant.setLight("");

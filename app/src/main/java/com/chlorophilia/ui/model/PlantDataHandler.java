@@ -509,11 +509,11 @@ public class PlantDataHandler extends SQLiteOpenHelper {
         } else {
             values.putNull("flowerConspicuous");
         }
-//        if(!foliageColor.equals("")) {
-//            values.put("foliageColor", foliageColor);
-//        } else {
-//            values.putNull("foliageColor");
-//        }
+        if(!foliageColor.equals("")) {
+            values.put("foliageColor", foliageColor);
+        } else {
+            values.putNull("foliageColor");
+        }
         if(!foliageTexture.equals("")) {
             values.put("foliageTexture", foliageTexture);
         } else {
