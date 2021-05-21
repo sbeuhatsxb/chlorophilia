@@ -40,7 +40,6 @@ import static java.lang.Math.abs;
 public class SeePlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
-    Button addPlant;
     ExtendedFloatingActionButton fab;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -250,18 +249,6 @@ public class SeePlantDetailsActivity extends AppCompatActivity {
         } else {
             plant_detail_fruitMonths.setText("");
         }
-
-        addPlant = (Button) findViewById(R.id.button_update);
-        addPlant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Get plant slug  from input
-                Intent intent = new Intent(getApplicationContext(), NicknameActivity.class);
-                intent.putExtra("plant", plant);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         fab = (ExtendedFloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

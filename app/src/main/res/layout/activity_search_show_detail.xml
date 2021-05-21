@@ -43,7 +43,7 @@
                 <LinearLayout
                     android:id="@+id/linearLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="140dp"
                     android:orientation="horizontal">
 
                     <ImageView
@@ -51,20 +51,16 @@
                         android:layout_width="120dp"
                         android:layout_height="120dp"
                         android:layout_marginStart="8dp"
+                        android:layout_marginTop="10dp"
                         android:orientation="vertical"
                         android:scaleType="centerCrop" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="128dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
+                        android:layout_marginTop="30dp"
                         android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/button_update"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/list_plant_add_plant" />
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -79,29 +75,23 @@
                                 android:textStyle="italic" />
                         </TableRow>
 
-                        <TableRow
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="51dp">
+                            android:layout_height="52dp"
+                            android:orientation="vertical">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="52dp"
-                                android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/myPlantFamily"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TextView" />
 
-                                <TextView
-                                    android:id="@+id/myPlantFamily"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="TextView" />
-
-                                <TextView
-                                    android:id="@+id/myPlantScientificName"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="TextView" />
-                            </LinearLayout>
-
-                        </TableRow>
+                            <TextView
+                                android:id="@+id/myPlantScientificName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="TextView" />
+                        </LinearLayout>
 
                     </LinearLayout>
 

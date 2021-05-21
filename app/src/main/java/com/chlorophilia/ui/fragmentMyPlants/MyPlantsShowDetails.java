@@ -172,13 +172,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getMinimumPrecipitation() != null) {
-            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + "cm");
+            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + " mm.");
         } else {
             plant_detail_Precipitation_min.setText("");
         }
 
         if (plant.getMaximumPrecipitation() != null) {
-            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + "cm");
+            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + " mm.");
         } else {
             plant_detail_Precipitation_max.setText("");
         }
@@ -267,13 +267,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getSpread() != null) {
-            plant_detail_spread.setText(plant.getSpread() + " cm");
+            plant_detail_spread.setText(plant.getSpread() + " cm.");
         } else {
             plant_detail_spread.setText("");
         }
 
         if (plant.getMinimumRootDepth() != null) {
-            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + " cm");
+            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + " cm.");
         } else {
             plant_detail_minimumRootDepth.setText("");
         }
@@ -285,7 +285,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getRowSpacing() != null) {
-            plant_detail_rowSpacing.setText(plant.getRowSpacing() + " cm");
+            plant_detail_rowSpacing.setText(plant.getRowSpacing() + " cm.");
         } else {
             plant_detail_rowSpacing.setText("");
         }
