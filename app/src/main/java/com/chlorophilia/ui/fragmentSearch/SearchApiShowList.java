@@ -37,7 +37,7 @@ public class SearchApiShowList extends ListActivity {
 
     @Override
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent intent = new Intent(this, SearchShowDetailActivity.class);
+        Intent intent = new Intent(this, SearchShowSingleResultActivity.class);
         JsonPlantFromApiList selectedJsonPlantFromApiList = jsonPlantFromApiLists.get(position);
         intent.putExtra("ApiPlantDetail", selectedJsonPlantFromApiList);
         //Sending list to next view to eventually come back from next view

@@ -72,7 +72,7 @@ public class ApiInstance extends AppCompatActivity {
         //Waiting for API to send a response for five seconds
         synchronized (lock) {
             while (responseString == null) {
-                lock.wait(50000);
+                lock.wait(80000);
             }
             return responseString;
         }

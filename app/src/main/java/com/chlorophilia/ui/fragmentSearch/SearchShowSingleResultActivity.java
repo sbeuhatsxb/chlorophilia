@@ -4,16 +4,22 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.apiProvider.ApiInstance;
@@ -34,7 +40,7 @@ import java.util.Hashtable;
 /**
  * View dedicated to add a plant from the PlantApiShowList
  */
-public class SearchShowDetailActivity extends AppCompatActivity {
+public class SearchShowSingleResultActivity extends AppCompatActivity {
 
     private JsonPlantFromApiList jsonPlantFromApiListDetail;
 
@@ -42,7 +48,7 @@ public class SearchShowDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_search_plant_detail_from_api);
+        setContentView(R.layout.activity_show_single_result);
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();
@@ -65,7 +71,18 @@ public class SearchShowDetailActivity extends AppCompatActivity {
         genus.setText(jsonPlantFromApiListDetail.getGenus());
         scientificName.setText(jsonPlantFromApiListDetail.getScientific_name());
         common_names.setText(jsonPlantFromApiListDetail.getCommon_names());
-        new DownLoadImageTask(plantPictureExample).execute(imgURL);
+        if(!imgURL.equals("")){
+            new DownLoadImageTask(plantPictureExample).execute(imgURL);
+        } else {
+            ColorFilter filter = new LightingColorFilter( Color.LTGRAY, Color.LTGRAY);
+            Drawable notFound = AppCompatResources.getDrawable(getApplicationContext(), R.drawable.ic_organic_search_symbol_of_magnification_tool_with_leaves_svgrepo_com);
+            notFound.setColorFilter(filter);
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) plantPictureExample.getLayoutParams();
+            params.height = (int) Math.abs(params.height *0.7);
+            params.width = (int) Math.abs(params.height *0.7);
+            plantPictureExample.setLayoutParams(params);
+            plantPictureExample.setImageDrawable(notFound);
+    }
         Button addPlant = (Button) findViewById(R.id.addPlantButton);
         Button backToList = (Button) findViewById(R.id.backToList);
         Button seeDetails = findViewById(R.id.seeDetails);
@@ -102,7 +119,7 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                 //Get plant id  from input
                 Integer id = jsonPlantFromApiListDetail.getId();
                 Plant plant = tryApiJsonToPlantObject(id);
-                Intent intent = new Intent(getApplicationContext(), SeePlantDetailsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ShowPlantDetailsActivity.class);
                 intent.putExtra("plant", plant);
                 intent.putExtra("imgURL", imgURL);
                 startActivity(intent);
@@ -146,7 +163,9 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                 Runs on the UI thread after doInBackground(Params...).
          */
         protected void onPostExecute(Bitmap result) {
-            imageView.setImageBitmap(result);
+            if (result != null) {
+                imageView.setImageBitmap(result);
+            }
         }
     }
 
@@ -176,9 +195,6 @@ public class SearchShowDetailActivity extends AppCompatActivity {
                     bookPlant.setScientific_name(jsonPlantFromApiListDetail.getScientific_name());
                     bookPlant.setFamily(jsonPlantFromApiListDetail.getFamily());
 
-                    //OLD API (for memories !)
-                    // String[] items = {"sowing", "days_to_harvest", "ph_maximum", "ph_minimum", "light", "atmospheric_humidity", "growth_months", "bloom_months",
-                    //"fruit_months", "soil_nutriments", "soil_salinity", "soil_humidity"};
                     //API V2
                     String[] items = {
                             "plantingSowingDescription", "phMaximum", "phMinimum", "light", "atmosphericHumidity", "growthMonths", "bloomMonths",
@@ -354,7 +370,7 @@ public class SearchShowDetailActivity extends AppCompatActivity {
 
         } else {
             Context context = getApplicationContext();
-            CharSequence text = "Something went wrong - please try again later or another plant";
+            CharSequence text = getResources().getString(R.string.unknownError);
             int duration = Toast.LENGTH_LONG;
 
             Toast toast = Toast.makeText(context, text, duration);

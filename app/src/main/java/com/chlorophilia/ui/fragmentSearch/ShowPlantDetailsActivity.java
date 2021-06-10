@@ -37,7 +37,7 @@ import static java.lang.Math.abs;
 /**
  * A short Plant detailed preview
  */
-public class SeePlantDetailsActivity extends AppCompatActivity {
+public class ShowPlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     ExtendedFloatingActionButton fab;

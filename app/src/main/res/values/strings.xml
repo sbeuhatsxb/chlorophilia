@@ -184,6 +184,7 @@
         Feel free to use this application. Chlorophilia is going under continuous development.
         But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
     <string name="contact">Do you have questions? Suggestions? Want to submit crashes? Feel free to contact us by mail: </string>
+    <string name="unknownError">Something went wrong - please try again later or another plant</string>
 
 
 

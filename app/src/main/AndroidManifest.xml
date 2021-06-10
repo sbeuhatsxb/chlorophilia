@@ -40,12 +40,12 @@
             </intent-filter>
         </activity>
         <activity android:name="com.chlorophilia.ui.fragmentSearch.SearchApiShowList" />
-        <activity android:name="com.chlorophilia.ui.fragmentSearch.SearchShowDetailActivity" />
+        <activity android:name="com.chlorophilia.ui.fragmentSearch.SearchShowSingleResultActivity" />
         <activity android:name="com.chlorophilia.ui.fragmentSearch.NicknameActivity" />
         <activity android:name="com.chlorophilia.ui.fragmentMyPlants.MyPlantsShowDetails" />
         <activity android:name="com.chlorophilia.ui.sensorProvider.SensorActivity" />
         <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.dialogs.MyPlantsRemoveDialog" />
-        <activity android:name="com.chlorophilia.ui.fragmentSearch.SeePlantDetailsActivity" />
+        <activity android:name="com.chlorophilia.ui.fragmentSearch.ShowPlantDetailsActivity" />
         <activity android:theme="@style/Theme.AppCompat.Light.Dialog.Alert"  android:name="com.chlorophilia.ui.dialogs.MyPlantsShowDialog" />
         <activity android:name="com.chlorophilia.ui.apiProvider.ApiInstance" />
         <activity android:name=".ui.fragmentMyPlants.MyPlantsEditDetailsActivity" />

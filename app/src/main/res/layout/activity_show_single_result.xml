@@ -23,6 +23,7 @@
                 android:id="@+id/plantPictureExample"
                 android:layout_width="match_parent"
                 android:layout_height="340dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="5dp" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -77,7 +78,8 @@
             <TableLayout
                 android:id="@+id/tableLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -86,7 +88,7 @@
                     <TextView
                         android:id="@+id/textView11"
                         android:layout_width="125dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginEnd="20dp"
                         android:text="@string/list_plant_common_name"
@@ -95,9 +97,9 @@
                     <TextView
                         android:id="@+id/list_plant_common_name_desc"
                         android:layout_width="230dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:text="@string/list_plant_common_name_desc"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -108,7 +110,7 @@
                     <TextView
                         android:id="@+id/textView16"
                         android:layout_width="125dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
@@ -118,10 +120,10 @@
                     <TextView
                         android:id="@+id/list_plant_family_common_name_desc"
                         android:layout_width="230dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/list_plant_family_common_name_desc"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -133,7 +135,7 @@
                     <TextView
                         android:id="@+id/textView15"
                         android:layout_width="125dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
@@ -143,10 +145,10 @@
                     <TextView
                         android:id="@+id/list_plant_family_desc"
                         android:layout_width="230dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/list_plant_family_desc"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -157,7 +159,7 @@
                     <TextView
                         android:id="@+id/textView17"
                         android:layout_width="125dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
@@ -167,10 +169,10 @@
                     <TextView
                         android:id="@+id/list_plant_genus_desc"
                         android:layout_width="230dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginTop="8dp"
                         android:text="@string/list_plant_genus_desc"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </TableRow>
@@ -182,7 +184,7 @@
                     <TextView
                         android:id="@+id/textView18"
                         android:layout_width="125dp"
-                        android:layout_height="31dp"
+                        android:layout_height="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="20dp"
@@ -192,12 +194,12 @@
                     <TextView
                         android:id="@+id/list_plant_scientific_name_desc"
                         android:layout_width="230dp"
-                        android:layout_height="30dp"
+                        android:layout_height="20dp"
                         android:layout_marginTop="8dp"
 
                         android:autoText="false"
                         android:text="@string/list_plant_scientific_name_desc"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                 </TableRow>

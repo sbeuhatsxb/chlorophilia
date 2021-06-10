@@ -359,13 +359,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getAverageHeightCm() != null) {
-            plant_detail_averageHeightCm.setText(plant.getAverageHeightCm());
+            plant_detail_averageHeightCm.setText(plant.getAverageHeightCm() + " cm.");
         } else {
             plant_detail_averageHeightCm.setText("");
         }
 
         if (plant.getMaximumHeightCm() != null) {
-            plant_detail_maximumHeight.setText(plant.getMaximumHeightCm());
+            plant_detail_maximumHeight.setText(plant.getMaximumHeightCm() + " cm.");
         } else {
             plant_detail_maximumHeight.setText("");
         }
