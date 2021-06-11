@@ -5,27 +5,28 @@
     <string name="title_search">Search a plant !</string>
     <string name="title_notifications">Support this app !</string>
 
-    <string name="list_plant_common_name">Common name :</string>
-    <string name="list_plant_family_common_name">Family common name :</string>
-    <string name="list_plant_scientific_name">Scientific name :</string>
-    <string name="list_plant_family_common_names">Other names :</string>
-    <string name="list_plant_genus">Genus :</string>
-    <string name="list_plant_family">Family :</string>
+    <string name="list_plant_common_name">Common name:</string>
+    <string name="list_plant_family_common_name">Family common name:</string>
+    <string name="list_plant_scientific_name">Scientific name:</string>
+    <string name="list_plant_family_common_names">Other names:</string>
+    <string name="list_plant_genus">Genus:</string>
+    <string name="list_plant_family">Family:</string>
 
-    <string name="title_notifications_desc">title_notifications_desc</string>
-    <string name="list_plant_common_name_desc">list_plant_common_name_desc</string>
-    <string name="list_plant_family_common_name_desc">list_plant_family_common_name_desc</string>
-    <string name="list_plant_scientific_name_desc">list_plant_scientific_name_desc</string>
-    <string name="list_plant_genus_desc">list_plant_genus_desc</string>
-    <string name="list_plant_family_desc">list_plant_family_desc</string>
+    <string name="title_notifications_desc" translatable="false">title_notifications_desc</string>
+    <string name="list_plant_common_name_desc" translatable="false">list_plant_common_name_desc</string>
+    <string name="list_plant_family_common_name_desc" translatable="false">list_plant_family_common_name_desc</string>
+    <string name="list_plant_scientific_name_desc" translatable="false">list_plant_scientific_name_desc</string>
+    <string name="list_plant_genus_desc" translatable="false">list_plant_genus_desc</string>
+    <string name="list_plant_family_desc" translatable="false">list_plant_family_desc</string>
     <string name="list_plant_back_to_list_button">Return to list</string>
     <string name="list_plant_see_details">SEE DETAILS ?</string>
     <string name="list_plant_add_plant">Add Plant to my book</string>
     <string name="up_to_ten_percent">Up to 10%</string>
 
     <string name="title_custom">Would you like to name your plant ?</string>
-    <string name="done">Done !</string>
-    <string name="no_thx">No thanks !</string>
+    <string name="done">Done!</string>
+    <string name="no_thx">No thanks!</string>
+    <string name="nicknameHint">Give it a nice nickname...</string>
 
     <string name="plant_update_plant_show">I know better !</string>
     <string name="plant_update_plant">Update</string>
@@ -36,11 +37,11 @@
     <string name="plant_detail_growth">Growth</string>
     <string name="plant_detail_edible_cat">Edible (be cautious !)</string>
     <string name="plant_detail_instructions">Instructions</string>
-    <string name="plant_detail_urls">More information :</string>
+    <string name="plant_detail_urls">More information:</string>
     <string name="plant_detail_fruits_and_flowers">Fruits and flowers</string>
-    <string name="plant_detail_nickname">Nickname :</string>
-    <string name="plant_detail_common_name">Common name :</string>
-    <string name="plant_detail_scientific_name">Scientific name :</string>
+    <string name="plant_detail_nickname">Nickname:</string>
+    <string name="plant_detail_common_name">Common name:</string>
+    <string name="plant_detail_scientific_name">Scientific name:</string>
     <string name="plant_detail_family">Family :</string>
     <string name="plant_detail_Precipitation">Precipitation :</string>
     <string name="plant_detail_light">Light :</string>
@@ -68,16 +69,16 @@
     <string name="plant_detail_edible">Edible :</string>
     <string name="plant_detail_averageHeightCm">Average height :</string>
     <string name="plant_detail_maximumHeight">Max height :</string>
-    <string name="plant_detail_flowerColor">Flower color :</string>
-    <string name="plant_detail_flowerConspicuous">Flower conspicuous :</string>
-    <string name="plant_detail_foliageTexture">Foliage texture :</string>
-    <string name="plant_detail_fruitColor">Fruit color :</string>
-    <string name="plant_detail_fruitConspicuous">Fruit conspicuous :</string>
-    <string name="plant_detail_urlPowo">Plant of the World Online :</string>
-    <string name="plant_detail_urlPlantnet">PlantNet :</string>
-    <string name="plant_detail_urlGbif">Global Biodiversity Information Facility :</string>
-    <string name="plant_detail_urlWikipediaEn">Wikipedia :</string>
-    <string name="plant_detail_foliageColor">Foliage Color :</string>
+    <string name="plant_detail_flowerColor">Flower color:</string>
+    <string name="plant_detail_flowerConspicuous">Flower conspicuous:</string>
+    <string name="plant_detail_foliageTexture">Foliage texture:</string>
+    <string name="plant_detail_fruitColor">Fruit color:</string>
+    <string name="plant_detail_fruitConspicuous">Fruit conspicuous:</string>
+    <string name="plant_detail_urlPowo">Plant of the World Online:</string>
+    <string name="plant_detail_urlPlantnet">PlantNet:</string>
+    <string name="plant_detail_urlGbif">Global Biodiversity Information Facility:</string>
+    <string name="plant_detail_urlWikipediaEn">Wikipedia:</string>
+    <string name="plant_detail_foliageColor">Foliage Color:</string>
 
     <string name="cm"> cm.</string>
     <string name="mm"> mm.</string>
@@ -89,47 +90,47 @@
     <string name="plant_edit_detail_precipitation_max">Precipitation in mm. </string>
     <string name="plant_edit_detail_temperature_min">Temperature in celsius (min.) :</string>
     <string name="plant_edit_detail_temperature_max">Temperature in celsius (max.) :</string>
-    <string name="plant_edit_detail_ph_min">Soil pH (min.):</string>
+    <string name="plant_edit_detail_ph_min">Soil pH (min.) :</string>
     <string name="plant_edit_detail_ph_max">Soil pH (max.) :</string>
     <string name="plant_edit_detail_atmosphericHumidity">Atmospheric humidity (max. 10) :</string>
     <string name="plant_edit_detail_soilNutriments">Soil nutriments (max. 10) :</string>
     <string name="plant_edit_detail_soilSalinity">Soil salinity (max. 10) :</string>
     <string name="plant_edit_detail_soilHumidity">Soil humidity (max. 10) :</string>
-    <string name="plant_edit_detail_spread">Spread in cm :</string>
+    <string name="plant_edit_detail_spread">Spread in cm. :</string>
     <string name="plant_edit_detail_minimumRootDepth">Min. root depths (in cm.) :</string>
     <string name="plant_edit_detail_sowing">Sowing (instructions) :</string>
-    <string name="plant_edit_detail_rowSpacing">Row spacing in cm :</string>
-    <string name="plant_edit_detail_days_to_harvest">Harvest after :</string>
-    <string name="plant_edit_detail_growthMonths">Grows months :</string>
-    <string name="plant_edit_detail_bloomMonths">Bloom months :</string>
-    <string name="plant_edit_detail_fruitMonths">Fruit months :</string>
-    <string name="plant_edit_detail_bibliography">Bibliography (instructions) :</string>
-    <string name="plant_edit_detail_anaerobic">Anaerobic tolerance :</string>
-    <string name="plant_edit_detail_growthForm">Growth Form :</string>
-    <string name="plant_edit_detail_growthHabit">Growth Habit :</string>
-    <string name="plant_edit_detail_growthRate">Growth Rate :</string>
-    <string name="plant_edit_detail_ediblePart">Edible Part :</string>
-    <string name="plant_edit_detail_vegetable">Vegetable :</string>
-    <string name="plant_edit_detail_edible">Edible :</string>
-    <string name="plant_edit_detail_averageHeightCm">Average Height :</string>
-    <string name="plant_edit_detail_maximumHeight">Max Height :</string>
-    <string name="plant_edit_detail_flowerColor">Flower Color :</string>
-    <string name="plant_edit_detail_flowerConspicuous">Flower Conspicuous :</string>
-    <string name="plant_edit_detail_foliageTexture">Foliage Texture :</string>
-    <string name="plant_edit_detail_foliageColor">Foliage Color :</string>
-    <string name="plant_edit_detail_fruitColor">Fruit Color :</string>
-    <string name="plant_edit_detail_fruitConspicuous">Fruit Conspicuous :</string>
+    <string name="plant_edit_detail_rowSpacing">Row spacing in cm. :</string>
+    <string name="plant_edit_detail_days_to_harvest">Harvest after:</string>
+    <string name="plant_edit_detail_growthMonths">Growth months:</string>
+    <string name="plant_edit_detail_bloomMonths">Bloom months:</string>
+    <string name="plant_edit_detail_fruitMonths">Fruit months:</string>
+    <string name="plant_edit_detail_bibliography">Bibliography:</string>
+    <string name="plant_edit_detail_anaerobic">Anaerobic tolerance:</string>
+    <string name="plant_edit_detail_growthForm">Growth Form:</string>
+    <string name="plant_edit_detail_growthHabit">Growth Habit:</string>
+    <string name="plant_edit_detail_growthRate">Growth Rate:</string>
+    <string name="plant_edit_detail_ediblePart">Edible Part:</string>
+    <string name="plant_edit_detail_vegetable">Vegetable:</string>
+    <string name="plant_edit_detail_edible">Edible:</string>
+    <string name="plant_edit_detail_averageHeightCm">Average Height:</string>
+    <string name="plant_edit_detail_maximumHeight">Max Height:</string>
+    <string name="plant_edit_detail_flowerColor">Flower Color:</string>
+    <string name="plant_edit_detail_flowerConspicuous">Flower Conspicuous:</string>
+    <string name="plant_edit_detail_foliageTexture">Foliage Texture:</string>
+    <string name="plant_edit_detail_foliageColor">Foliage Color:</string>
+    <string name="plant_edit_detail_fruitColor">Fruit Color:</string>
+    <string name="plant_edit_detail_fruitConspicuous">Fruit Conspicuous:</string>
 
-    <string name="noLightInfoText">There were no light information for this particular plant, but we can say that :</string>
+    <string name="noLightInfoText">There were no light information for this particular plant, but we can say that:</string>
 
-    <string name="searchTooltip">Try out a common english name like \"Garden Strawberry\" or a scientific name like : \"laurus nobilis\".\n\n More than 1 million plants are actually indexed.</string>
+    <string name="searchTooltip">Try out a common english name like \"Garden Strawberry\" or a scientific name like : \"laurus nobilis\".   More than 1 million plants names are actually indexed.</string>
 
     <string name="home_request_camera">This functionality requires access to your camera in order to take a picture of your plant !\n\n If you misclicked \"Deny\" go to your phone \"Preferences/App Permission\" and grant permission to Camera and Files and Media !</string>
 
     <string name="home_first_time">Welcome to Chlorophilia.\n\nPlease click on the Search button to find your first plant and add it to your book !</string>
 
-    <string name="ok">OK !</string>
-    <string name="gotit">GOT IT !</string>
+    <string name="ok">OK!</string>
+    <string name="gotit">GOT IT!</string>
 
     <string name="january">January</string>
     <string name="february">February</string>
@@ -150,42 +151,62 @@
     <string name="minMaxPrec">Maximum precipitation can\'t be lower than minimum temperature</string>
     <string name="minMaxPh">Maximum pH can\'t be lower than minimum pH</string>
 
-    <string name="lightNull">Is there any light at all here ??</string>
-    <string name="lightOverload">Have you brought another Sun ??</string>
-    <string name="lightIdeal">Ideal, good job !</string>
+    <string name="lightNull">Is there any light at all here??</string>
+    <string name="lightOverload">Have you brought another Sun??</string>
+    <string name="lightIdeal">Ideal, good job!</string>
     <string name="lightMinusOne">A bit too much sun light. But it\'s still ok...</string>
-    <string name="lightMinusTwo">Too much sun. Find a place a bit shadier !</string>
-    <string name="lightMinusThree">Definitely too much sun ! Find a shadiest place !!</string>
-    <string name="lightMinusFour">Overheating !!!</string>
+    <string name="lightMinusTwo">Too much sun. Find a place a bit shadier!</string>
+    <string name="lightMinusThree">Definitely too much sun! Find a shadiest place!!</string>
+    <string name="lightMinusFour">Overheating!!!</string>
     <string name="lightPlusOne">A bit too shady, but it\'s still ok.</string>
-    <string name="lightPlusTwo">Not enough light. Find more light !</string>
-    <string name="lightPlusThree">Definitely not enough light ! Find more light !</string>
-    <string name="lightPlusFour">Is there any light here ? Find more light for this plant !</string>
+    <string name="lightPlusTwo">Not enough light. Find more light!</string>
+    <string name="lightPlusThree">Definitely not enough light ! Find more light!</string>
+    <string name="lightPlusFour">Is there any light here? Find more light for this plant!</string>
 
-    <string name="noiInfoLightZero">Is there any light here ?</string>
+    <string name="noiInfoLightZero">Is there any light here?</string>
     <string name="noiInfoLightOne">"Not enough light for seeds.</string>
     <string name="noiInfoLightTwo">There is enough light for seeds. But not for growing well.</string>
-    <string name="noiInfoLightThree">"There is not enough light for allowing this plant to grow. But it's OK for seeds !</string>
+    <string name="noiInfoLightThree">There is not enough light for allowing this plant to grow. But it\'s OK for seeds!</string>
     <string name="noiInfoLightFour">There is barely enough light for allowing this plant to bloom.</string>
     <string name="noiInfoLightFive">There is enough light for allowing this plant to bloom.</string>
 
-    <string name="whatsnew_title">What\'s new ?</string>
-    <string name="support_title">Want to support ?</string>
-    <string name="whatsnew">
-    - Almost everything ! On June 20, Chlorophilia V.1.0 has just been released.\n
-    - Our server now host more than 450.000 plants (sure, it\'s a big garden!).\n
-    - Light measuring management is pretty accurate but can still be improved a bit.\n
-    - Due to the late Trefle.io (RIP! :-\'( ) API we were using, some inconsistencies may still remain.\n
-    - You can take a picture of your plant ONLY in landscape mode. Portraits are soon to be managed.\n
-    - Our database is very hungry and is still looking to gather more information (temperature and precipitation are our top priority)!\n
-    </string>
-    <string name="support">Chlorophilia was made by Sébastien STELTZLEN. \n\n
-
-        Feel free to use this application. Chlorophilia is going under continuous development.
-        But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
+    <string name="whatsnew_title">What\'s new?</string>
+    <string name="support_title">Want to support?</string>
+    <string name="whatsnew">\n- Almost everything! On June 20, Chlorophilia V.1.0 has just been released.\n- Our server now host more than 450.000 plants (sure, it\'s a big garden!).\n- Light measuring management is pretty accurate but can still be improved a bit.\n- Due to the late Trefle.io (RIP! :-\'( ) API we were using, some inconsistencies may still remain.\n- You can take a picture of your plant ONLY in landscape mode. Portraits are soon to be managed.\n- Our database is very hungry and is still looking to gather more information (temperature and precipitation are our top priority)!\n</string>
+    <string name="support">Chlorophilia was made by Sébastien STELTZLEN.             Feel free to use this application. Chlorophilia is going under continuous development.         But hosting such a service has a cost. If you\'d like to support this application feel free to give a (monthly ?) tip to :</string>
     <string name="contact">Do you have questions? Suggestions? Want to submit crashes? Feel free to contact us by mail: </string>
     <string name="unknownError">Something went wrong - please try again later or another plant</string>
 
+    <string name="removePlantButtonBegin">Say goodbye to </string>
+    <string name="removePlantButtonEnd" translatable="false"> ! :\'(</string>
 
+    <string name="removePlantBegin">Are you sure you want to remove </string>
+    <string name="removePlantEnd"> from your book?</string>
+    <string name="removedPlant"> is no more !</string>
+
+    <string name="plantNameRequired">Please enter a plant name</string>
+    <string name="plantNameNotFound">Sorry, no plant having this name was found</string>
+
+    <string name="searchButton">SEARCH</string>
+    <string name="translateButton">NEED A TRANSLATION?</string>
+
+    <string name="nicknameInfo">Please, enter a name or press the other button</string>
+    <string name="nicknameAdded">Plant added!</string>
+
+    <string name="searchBar">Which plant?</string>
+
+    <string name="measureLight">MEASURE LIGHT</string>
+    <string name="trueInfo">Yes</string>
+    <string name="falseInfo">No</string>
+
+    <string name="addFab">ADD</string>
+    <string name="updateFab">UPDATE</string>
+
+    <string name="shortDescription">A short description</string>
+    <string name="aWord">A word</string>
+    <string name="color">Color</string>
+    <string name="texture">Texture</string>
+    <string name="whichPart">Which Part?</string>
+    <string name="nickname">Nickname</string>
 
 </resources>

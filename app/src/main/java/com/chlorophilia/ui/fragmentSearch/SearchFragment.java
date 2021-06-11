@@ -49,7 +49,7 @@ public class SearchFragment extends Fragment {
         //Plant slug input
         plantName = (EditText) root.findViewById(R.id.plantNameInput);
         Button validateButton = (Button) root.findViewById(R.id.dashboardSearchPlantButton);
-
+        validateButton.setText(getResources().getString(R.string.searchButton));
         validateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -97,7 +97,7 @@ public class SearchFragment extends Fragment {
                                     intent.putParcelableArrayListExtra("plants", (ArrayList<? extends Parcelable>) jsonPlantFromApiLists);
                                     startActivity(intent);
                                 } else {
-                                    CharSequence text = "Sorry, no plant having this name was found";
+                                    CharSequence text = getResources().getText(R.string.plantNameNotFound);
                                     int duration = Toast.LENGTH_SHORT;
 
                                     Toast toast = Toast.makeText(getContext(), text, duration);
@@ -113,7 +113,8 @@ public class SearchFragment extends Fragment {
                     }
                 } else {
                     Context context = getActivity().getApplicationContext();
-                    CharSequence text = "Please enter a plant name";
+
+                    CharSequence text = getResources().getString(R.string.plantNameRequired);
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
@@ -124,6 +125,7 @@ public class SearchFragment extends Fragment {
         });
 
         Button translateButton = (Button) root.findViewById(R.id.translateButton);
+        translateButton.setText(getResources().getString(R.string.translateButton));
         translateButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

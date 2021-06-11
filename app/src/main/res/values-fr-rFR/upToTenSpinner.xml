@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="upToTen">
+        <item>Aucune idée !</item>
+        <item>1 (Pour les champignons seulement)</item>
+        <item>2 (Une chambre très sombre)</item>
+        <item>3 (Une chambre lumineuse)</item>
+        <item>4 (En dehors, lieu ombragé)</item>
+        <item>5 (Ciel nuageux)</item>
+        <item>6 (Ciel nuageux avec éclaircis)</item>
+        <item>7 (Jour ensoleillé)</item>
+        <item>8 (Jour très ensoleillé)</item>
+        <item>9 (Lumière zénitale directe)</item>
+        <item>10 (Conditions désertiques !)</item>
+    </string-array>
+</resources>

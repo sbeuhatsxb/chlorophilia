@@ -345,7 +345,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
         //SPINNER RICHNESS
         ArrayAdapter<CharSequence> adapterRichness = ArrayAdapter.createFromResource(this,
-                R.array.soilrichness, android.R.layout.simple_spinner_item);
+                R.array.editSoilRichness, android.R.layout.simple_spinner_item);
         adapterRichness.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plant_edit_detail_soilNutriments.setAdapter(adapterRichness);
         plant_edit_detail_soilSalinity.setAdapter(adapterRichness);
@@ -625,6 +625,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         });
 
         fab = (ExtendedFloatingActionButton) findViewById(R.id.fab_update);
+        fab.setText(getResources().getString(R.string.updateFab));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -41,13 +41,13 @@ public class NicknameActivity extends AppCompatActivity {
                     plant.setNickname(nickname);
                     long insertedId = db.insertInto(plant);
                     plant.setId(insertedId);
-                    Toast.makeText(getApplicationContext(), "Plant added !", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.nicknameAdded), Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(getApplicationContext(), MyPlantsShowDetails.class);
                     intent.putExtra("plant", plant);
                     startActivity(intent);
                     finish();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Please, enter a name or press \"NO THANKS\"", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), getResources().getString(R.string.nicknameInfo), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -60,7 +60,7 @@ public class NicknameActivity extends AppCompatActivity {
                 plant.setNickname(name);
                 long insertedId = db.insertInto(plant);
                 plant.setId(insertedId);
-                Toast.makeText(getApplicationContext(), "Plant added !", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.nicknameAdded), Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), MyPlantsShowDetails.class);
                 intent.putExtra("plant", plant);
                 startActivity(intent);

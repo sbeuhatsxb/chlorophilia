@@ -73,7 +73,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String[] SOILRICHNESS = {"", "extremely poor", "poor", "fairly poor", "lower middle", "middle", "higher middle", "fairly rich", "rich", "very rich", "extremely rich"};
+        final String[] SOILRICHNESS = getResources().getStringArray(R.array.viewSoilRichness);
 
         setContentView(R.layout.activity_myplants_show_detail);
 
@@ -148,7 +148,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
 
         if (plant.getNickname() != null) {
             plant_detail_nickname.setText(plant.getNickname());
-            deleteButton.setText("Say goodbye to " + plant.getNickname() + " ! :'(");
+            deleteButton.setText(getResources().getString(R.string.removePlantButtonBegin) + plant.getNickname() + getResources().getString(R.string.removePlantButtonEnd));
         } else {
             plant_detail_nickname.setText("");
         }
@@ -254,7 +254,6 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getSoilHumidity() != null) {
-
             if(plant.getSoilHumidity().equals("0")){
                 plant_detail_soilHumidity.setText(getResources().getString(R.string.up_to_ten_percent));
             } else {
@@ -335,7 +334,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getAnaerobicTolerance() != null) {
-            plant_detail_anaerobic.setText(plant.getAnaerobicTolerance());
+            if(plant.getAnaerobicTolerance().equals("true")){
+                plant_detail_anaerobic.setText(getResources().getString(R.string.trueInfo));
+            } else if (plant.getAnaerobicTolerance().equals("false")) {
+                plant_detail_anaerobic.setText(getResources().getString(R.string.falseInfo));
+            } else {
+                plant_detail_anaerobic.setText(plant.getAnaerobicTolerance());
+            }
         } else {
             plant_detail_anaerobic.setText("");
         }
@@ -377,13 +382,21 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getVegetable() != null) {
-            plant_detail_vegetable.setText(plant.getVegetable());
+            if(plant.getVegetable().equals("true")){
+                plant_detail_vegetable.setText(getResources().getString(R.string.trueInfo));
+            } else {
+                plant_detail_vegetable.setText(getResources().getString(R.string.falseInfo));
+            }
         } else {
             plant_detail_vegetable.setText("");
         }
 
         if (plant.getEdible() != null) {
-            plant_detail_edible.setText(plant.getEdible());
+            if(plant.getEdible().equals("true")){
+                plant_detail_edible.setText(getResources().getString(R.string.trueInfo));
+            } else {
+                plant_detail_edible.setText(getResources().getString(R.string.falseInfo));
+            }
         } else {
             plant_detail_edible.setText("");
         }
@@ -395,7 +408,11 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getFlowerConspicuous() != null) {
-            plant_detail_flowerConspicuous.setText(plant.getFlowerConspicuous());
+            if(plant.getFlowerConspicuous().equals("true")){
+                plant_detail_flowerConspicuous.setText(getResources().getString(R.string.trueInfo));
+            } else {
+                plant_detail_flowerConspicuous.setText(getResources().getString(R.string.falseInfo));
+            }
         } else {
             plant_detail_flowerConspicuous.setText("");
         }
@@ -419,7 +436,11 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getFruitConspicuous() != null) {
-            plant_detail_fruitConspicuous.setText(plant.getFruitConspicuous());
+            if(plant.getFruitConspicuous().equals("true")){
+                plant_detail_fruitConspicuous.setText(getResources().getString(R.string.trueInfo));
+            } else {
+                plant_detail_fruitConspicuous.setText(getResources().getString(R.string.falseInfo));
+            }
         } else {
             plant_detail_fruitConspicuous.setText("");
         }

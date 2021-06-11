@@ -94,7 +94,6 @@ public class ApiInstance extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try (ResponseBody responseBody = response.body()) {
                     if (response.code() == 503 || response.code() == 500) {
-                        //TODO Manage message to user
                         return;
                     }
                     if (!response.isSuccessful()) {

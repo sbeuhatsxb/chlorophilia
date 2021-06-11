@@ -45,10 +45,9 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String[] SOILRICHNESS = {"extremely poor", "very poor", "poor", "fairly poor", "lower middle", "middle", "higher middle", "fairly rich", "rich", "very rich", "extremely rich"};
+        final String[] SOILRICHNESS = getResources().getStringArray(R.array.viewSoilRichness);
 
         setContentView(R.layout.activity_search_show_detail);
-        PlantDataHandler db = new PlantDataHandler(getApplicationContext());
 
         plant = (Plant) getIntent().getSerializableExtra("plant");
         String imgURL = getIntent().getExtras().getString("imgURL");
@@ -251,6 +250,7 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
         }
 
         fab = (ExtendedFloatingActionButton) findViewById(R.id.fab);
+        fab.setText(getResources().getString(R.string.addFab));
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

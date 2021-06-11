@@ -44,12 +44,15 @@
             android:id="@+id/plantNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Which plant ?"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:hint="@string/searchBar"
             android:inputType="textPersonName"
             android:lines="1"
             android:maxLines="1"
             android:minLines="1"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:textSize="18sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView

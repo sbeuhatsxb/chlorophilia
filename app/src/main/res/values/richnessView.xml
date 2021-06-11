@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="editSoilRichness">
+    <string-array name="viewSoilRichness">
         <item>No idea!</item>
         <item>extremely poor</item>
         <item>poor</item>

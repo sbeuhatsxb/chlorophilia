@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="editSoilRichness">
+        <item>Aucune idée!</item>
+        <item>Très pauvre</item>
+        <item>Pauvre</item>
+        <item>Plutôt pauvre</item>
+        <item>Légèrement pauvre</item>
+        <item>Moyen</item>
+        <item>Légèrement riche</item>
+        <item>Plutôt riche</item>
+        <item>Rich</item>
+        <item>Très riche</item>
+        <item>Très très riche</item>
+    </string-array>
+</resources>
