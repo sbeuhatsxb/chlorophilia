@@ -50,8 +50,8 @@
     <string name="plant_detail_fruitMonths">Fruitsaison (mois) :</string>
     <string name="plant_detail_bibliography">Bibliographie :</string>
     <string name="plant_detail_anaerobic">Tolérance anaérobique :</string>
-    <string name="plant_detail_growthForm">Forme de croissance :</string>
-    <string name="plant_detail_growthHabit">Habitudes de croissance :</string>
+    <string name="plant_detail_growthForm">Structure :</string>
+    <string name="plant_detail_growthHabit">Forme :</string>
     <string name="plant_detail_growthRate">Rythme de croissance :</string>
     <string name="plant_detail_ediblePart">Parties comestibles :</string>
     <string name="plant_detail_vegetable">Légumineuse :</string>
@@ -93,8 +93,8 @@
     <string name="plant_edit_detail_fruitMonths">Mois de fruitaison :</string>
     <string name="plant_edit_detail_bibliography">Bibliographie :</string>
     <string name="plant_edit_detail_anaerobic">Tolérance anaérobique :</string>
-    <string name="plant_edit_detail_growthForm">Forme de croissance :</string>
-    <string name="plant_edit_detail_growthHabit">Habitude de croissance :</string>
+    <string name="plant_edit_detail_growthForm">Structure :</string>
+    <string name="plant_edit_detail_growthHabit">Forme :</string>
     <string name="plant_edit_detail_growthRate">Rythme de croissance :</string>
     <string name="plant_edit_detail_ediblePart">Parties comestibles :</string>
     <string name="plant_edit_detail_vegetable">Légumineuse :</string>
@@ -175,4 +175,12 @@
     <string name="texture">Texture</string>
     <string name="whichPart">Quelle partie ?</string>
     <string name="nickname">Pseudonyme</string>
+    <string name="tree">Arbre</string>
+    <string name="nonvascular">Non-vasculaire</string>
+    <string name="forb_herb">Herbacée</string>
+    <string name="vine">Vigne</string>
+    <string name="subshrub">Sous arbrisseau</string>
+    <string name="shrub">Arbuste</string>
+    <string name="graminoid">Graminoïde</string>
+    <string name="lichenous">Lichen</string>
 </resources>

@@ -56,7 +56,7 @@
     <string name="plant_detail_sowing">Sowing :</string>
     <string name="plant_detail_rowSpacing">Row spacing :</string>
     <string name="plant_detail_days_to_harvest">Harvest after :</string>
-    <string name="plant_detail_growthMonths">Grows months :</string>
+    <string name="plant_detail_growthMonths">Growth months :</string>
     <string name="plant_detail_bloomMonths">Bloom months :</string>
     <string name="plant_detail_fruitMonths">Fruit months :</string>
     <string name="plant_detail_bibliography">Bibliography :</string>
@@ -208,5 +208,14 @@
     <string name="texture">Texture</string>
     <string name="whichPart">Which Part?</string>
     <string name="nickname">Nickname</string>
+
+    <string name="tree">Tree</string>
+    <string name="nonvascular">Nonvascular</string>
+    <string name="forb_herb">Forb/Herb</string>
+    <string name="vine">Vine</string>
+    <string name="subshrub">Subshrub</string>
+    <string name="shrub">Shrub</string>
+    <string name="graminoid">Graminoid</string>
+    <string name="lichenous">Lichenous</string>
 
 </resources>

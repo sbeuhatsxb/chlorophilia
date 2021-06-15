@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="growth_form">
+        <item>No idea!</item>
+        <item>Single stem</item>
+        <item>Multiple stem</item>
+        <item>Single crown</item>
+        <item>Rhizomatous</item>
+        <item>Bunch</item>
+        <item>Stoloniferous</item>
+        <item>Thicket forming</item>
+        <item>Colonizing</item>
+        <item>Erect</item>
+    </string-array>
+</resources>

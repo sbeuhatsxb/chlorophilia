@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="growth_form">
+        <item>Aucune idée !</item>
+        <item>Tige simple</item>
+        <item>Tiges multiples</item>
+        <item>Couronne</item>
+        <item>Rhizome</item>
+        <item>Bouquet</item>
+        <item>Stolonifère</item>
+        <item>Fourrés</item>
+        <item>Colonisatrice</item>
+        <item>Érigée</item>
+    </string-array>
+</resources>
