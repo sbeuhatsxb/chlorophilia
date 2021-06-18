@@ -2,13 +2,13 @@
 <resources>
     <string-array name="growth_form">
         <item>No idea!</item>
-        <item>Single stem</item>
-        <item>Multiple stem</item>
-        <item>Single crown</item>
+        <item>Single Stem</item>
+        <item>Multiple Stem</item>
+        <item>Single Crown</item>
         <item>Rhizomatous</item>
         <item>Bunch</item>
         <item>Stoloniferous</item>
-        <item>Thicket forming</item>
+        <item>Thicket Forming</item>
         <item>Colonizing</item>
         <item>Erect</item>
     </string-array>

@@ -533,8 +533,16 @@
                         android:id="@+id/myPlantGrowthHabit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:elegantTextHeight="false"
+                        android:inputType="textMultiLine"
                         android:paddingLeft="5dp"
                         android:text="TextView" />
+                </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
+
                 </TableRow>
 
                 <TableRow

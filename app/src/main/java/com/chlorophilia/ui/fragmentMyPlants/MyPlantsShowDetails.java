@@ -130,7 +130,6 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         TextView plant_detail_urlGbif = findViewById(R.id.myPlanturlGbif);
         TextView plant_detail_urlWikipediaEn = findViewById(R.id.myPlanturlWikipedia);
 
-
         if (plant.getFilenameCustomPicture() != null) {
 
             plant_textImageView.setVisibility(View.INVISIBLE);
@@ -348,52 +347,60 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getGrowthForm() != null) {
-
             int arrayGrowthFormTranslation = 0;
-            switch(plant.getGrowthForm()) {
-                case "Single Stem":
-                    arrayGrowthFormTranslation = 1;
-                    break;
-                case "Multiple stem":
-                    arrayGrowthFormTranslation = 2;
-                    break;
-                case "Single crown":
-                    arrayGrowthFormTranslation = 3;
-                    break;
-                case "Rhizomatous":
-                    arrayGrowthFormTranslation = 4;
-                    break;
-                case "Bunch":
-                    arrayGrowthFormTranslation = 5;
-                    break;
-                case "Stoloniferous":
-                    arrayGrowthFormTranslation = 6;
-                    break;
-                case "Thicket":
-                    arrayGrowthFormTranslation = 7;
-                    break;
-                case "Colonizing":
-                    arrayGrowthFormTranslation = 8;
-                    break;
-                case "Erect":
-                    arrayGrowthFormTranslation = 9;
-                    break;
-            }
-            if(arrayGrowthFormTranslation != 0){
-                plant_detail_growthForm.setText(GROWTHFORM[arrayGrowthFormTranslation]);
+            if(isInteger(plant.getGrowthForm()) == false) {
+                switch(plant.getGrowthForm()) {
+                    case "Single Stem":
+                        arrayGrowthFormTranslation = 1;
+                        break;
+                    case "Multiple stem":
+                        arrayGrowthFormTranslation = 2;
+                        break;
+                    case "Single crown":
+                        arrayGrowthFormTranslation = 3;
+                        break;
+                    case "Rhizomatous":
+                        arrayGrowthFormTranslation = 4;
+                        break;
+                    case "Bunch":
+                        arrayGrowthFormTranslation = 5;
+                        break;
+                    case "Stoloniferous":
+                        arrayGrowthFormTranslation = 6;
+                        break;
+                    case "Thicket":
+                        arrayGrowthFormTranslation = 7;
+                        break;
+                    case "Colonizing":
+                        arrayGrowthFormTranslation = 8;
+                        break;
+                    case "Erect":
+                        arrayGrowthFormTranslation = 9;
+                        break;
+                }
+
+                if(arrayGrowthFormTranslation != 0){
+                    plant_detail_growthForm.setText(GROWTHFORM[arrayGrowthFormTranslation]);
+                } else {
+                    plant_detail_growthForm.setText("");
+                }
+
             } else {
-                plant_detail_growthForm.setText("");
+                if(Integer.valueOf(plant.getGrowthForm()) != 0){
+                    plant_detail_growthForm.setText(GROWTHFORM[Integer.valueOf(plant.getGrowthForm())]);
+                }
             }
+
         } else {
             plant_detail_growthForm.setText("");
         }
 
         if (plant.getGrowthHabit() != null) {
-
             String[] growthHabitArray = plant.getGrowthHabit().split(", ", -1);
             ArrayList growthHabitTranslated = new ArrayList();
-            String growthHabitTranslation = "";
+
             for(int i = 0; i < growthHabitArray.length; i++){
+                String growthHabitTranslation = "";
                 switch(growthHabitArray[i]) {
                     case "Tree":
                         growthHabitTranslation = getResources().getString(R.string.tree);
@@ -401,7 +408,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
                     case "Nonvascular":
                         growthHabitTranslation = getResources().getString(R.string.nonvascular);
                         break;
-                    case "Forb/Herb":
+                    case "Forb/herb":
                         growthHabitTranslation = getResources().getString(R.string.forb_herb);
                         break;
                     case "Vine":
@@ -427,10 +434,9 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             for (Object s : growthHabitTranslated)
             {
                 sb.append(s);
-                sb.append(" - ");
+                sb.append("\n");
             }
-
-            plant_detail_growthHabit.setText(sb.toString().substring(0, sb.toString().length() - 3));
+            plant_detail_growthHabit.setText(sb.toString().substring(0, sb.toString().length() - 2));
         } else {
             plant_detail_growthHabit.setText("");
         }
@@ -794,6 +800,30 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             stringArray.add(monthStr.get(month).toString());
         }
         return stringArray;
+    }
+
+    public static boolean isInteger(String str) {
+        if (str == null) {
+            return false;
+        }
+        int length = str.length();
+        if (length == 0) {
+            return false;
+        }
+        int i = 0;
+//        if (str.charAt(0) == '-') {
+//            if (length == 1) {
+//                return false;
+//            }
+//            i = 1;
+//        }
+        for (; i < length; i++) {
+            char c = str.charAt(i);
+            if (c < '0' || c > '9') {
+                return false;
+            }
+        }
+        return true;
     }
 }
 

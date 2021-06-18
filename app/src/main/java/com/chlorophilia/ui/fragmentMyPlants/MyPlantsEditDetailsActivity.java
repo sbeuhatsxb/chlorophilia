@@ -40,6 +40,96 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
     HashSet<String> bloomCheckboxes;
     HashSet<String> growthCheckboxes;
     HashSet<String> fruitCheckboxes;
+    //CHECKBOXES !!!
+    final CheckBox bloom_january = (CheckBox) findViewById(R.id.bloom_january);
+    final CheckBox bloom_february = (CheckBox) findViewById(R.id.bloom_february);
+    final CheckBox bloom_march = (CheckBox) findViewById(R.id.bloom_march);
+    final CheckBox bloom_april = (CheckBox) findViewById(R.id.bloom_april);
+    final CheckBox bloom_june = (CheckBox) findViewById(R.id.bloom_june);
+    final CheckBox bloom_july = (CheckBox) findViewById(R.id.bloom_july);
+    final CheckBox bloom_may = (CheckBox) findViewById(R.id.bloom_may);
+    final CheckBox bloom_august = (CheckBox) findViewById(R.id.bloom_august);
+    final CheckBox bloom_september = (CheckBox) findViewById(R.id.bloom_september);
+    final CheckBox bloom_november = (CheckBox) findViewById(R.id.bloom_november);
+    final CheckBox bloom_october = (CheckBox) findViewById(R.id.bloom_october);
+    final CheckBox bloom_december = (CheckBox) findViewById(R.id.bloom_december);
+    final CheckBox growth_january = (CheckBox) findViewById(R.id.growth_january);
+    final CheckBox growth_february = (CheckBox) findViewById(R.id.growth_february);
+    final CheckBox growth_march = (CheckBox) findViewById(R.id.growth_march);
+    final CheckBox growth_april = (CheckBox) findViewById(R.id.growth_april);
+    final CheckBox growth_june = (CheckBox) findViewById(R.id.growth_june);
+    final CheckBox growth_july = (CheckBox) findViewById(R.id.growth_july);
+    final CheckBox growth_may = (CheckBox) findViewById(R.id.growth_may);
+    final CheckBox growth_august = (CheckBox) findViewById(R.id.growth_august);
+    final CheckBox growth_september = (CheckBox) findViewById(R.id.growth_september);
+    final CheckBox growth_november = (CheckBox) findViewById(R.id.growth_november);
+    final CheckBox growth_october = (CheckBox) findViewById(R.id.growth_october);
+    final CheckBox growth_december = (CheckBox) findViewById(R.id.growth_december);
+    final CheckBox fruit_january = (CheckBox) findViewById(R.id.fruit_january);
+    final CheckBox fruit_february = (CheckBox) findViewById(R.id.fruit_february);
+    final CheckBox fruit_march = (CheckBox) findViewById(R.id.fruit_march);
+    final CheckBox fruit_april = (CheckBox) findViewById(R.id.fruit_april);
+    final CheckBox fruit_june = (CheckBox) findViewById(R.id.fruit_june);
+    final CheckBox fruit_july = (CheckBox) findViewById(R.id.fruit_july);
+    final CheckBox fruit_may = (CheckBox) findViewById(R.id.fruit_may);
+    final CheckBox fruit_august = (CheckBox) findViewById(R.id.fruit_august);
+    final CheckBox fruit_september = (CheckBox) findViewById(R.id.fruit_september);
+    final CheckBox fruit_november = (CheckBox) findViewById(R.id.fruit_november);
+    final CheckBox fruit_october = (CheckBox) findViewById(R.id.fruit_october);
+    final CheckBox fruit_december = (CheckBox) findViewById(R.id.fruit_december);
+    //MORE CHECKBOXES !!
+    final CheckBox vegetableBox = (CheckBox) findViewById(R.id.myPlantVegetable);
+    final CheckBox edibleBox = (CheckBox) findViewById(R.id.myPlantEdible);
+    final CheckBox flowerConspBox = (CheckBox) findViewById(R.id.myPlantEditFlowerConspicuous);
+    final CheckBox fruitConspBox = (CheckBox) findViewById(R.id.myPlantEditFruitConspicuous);
+    //GROWTH HABIT CHECKBOXES
+    final CheckBox treeBox = (CheckBox) findViewById(R.id.tree);
+    final CheckBox forbBox = (CheckBox) findViewById(R.id.forb_herb);
+    final CheckBox vineBox = (CheckBox) findViewById(R.id.vine);
+    final CheckBox subshrubBox = (CheckBox) findViewById(R.id.subshrub);
+    final CheckBox shrubBox = (CheckBox) findViewById(R.id.shrub);
+    final CheckBox graminoidBox = (CheckBox) findViewById(R.id.graminoid);
+    final CheckBox lichenousBox = (CheckBox) findViewById(R.id.lichenous);
+    final CheckBox nonvascularBox = (CheckBox) findViewById(R.id.nonvascular);
+    //NON EDITABLE
+    TextView plant_edit_detail_scientific_name = findViewById(R.id.myPlantEditScientificName);
+    TextView plant_edit_detail_family = findViewById(R.id.myPlantEditFamily);
+    TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
+    //EDITABLE
+    EditText plant_edit_detail_nickname = (EditText) findViewById(R.id.myPlantEditNickname);
+    EditText plant_edit_detail_Precipitation_min = (EditText) findViewById(R.id.myPlantEditPrecipitationMin);
+    EditText plant_edit_detail_Precipitation_max = (EditText) findViewById(R.id.myPlantEditPrecipitationMax);
+    EditText plant_edit_detail_ph_min = (EditText) findViewById(R.id.myPlantEditPhMin);
+    EditText plant_edit_detail_ph_max = (EditText) findViewById(R.id.myPlantEditPhMax);
+    EditText plant_edit_detail_TemperatureMin = (EditText) findViewById(R.id.myPlantEditTemperatureMin);
+    EditText plant_edit_detail_TemperatureMax = (EditText) findViewById(R.id.myPlantEditTemperatureMax);
+    EditText plant_edit_detail_spread = (EditText) findViewById(R.id.myPlantEditSpread);
+    EditText plant_edit_detail_minimumRootDepth = (EditText) findViewById(R.id.myPlantEditMinRootDepth);
+    EditText plant_edit_detail_rowSpacing = (EditText) findViewById(R.id.myPlantEditRowSpacing);
+    EditText plant_edit_detail_harvestDays = (EditText) findViewById(R.id.myPlantEditDaysToHarvest);
+    EditText plant_edit_detail_sowing = (EditText) findViewById(R.id.myPlantEditSowing);
+    EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
+    EditText plant_edit_detail_anaerobic = (EditText) findViewById(R.id.myPlantEditAnaerobic);
+    EditText plant_edit_detail_growthRate = (EditText) findViewById(R.id.myPlantEditGrowthRate);
+    EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
+    EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
+    EditText plant_edit_detail_foliage_texture = (EditText) findViewById(R.id.myPlantEditFoliageTexture);
+    EditText plant_edit_detail_foliage_color = (EditText) findViewById(R.id.myPlantEditFoliageColor);
+    EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
+    EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
+    EditText plant_edit_detail_ediblePart = (EditText) findViewById(R.id.myPlantEditEdiblePart);
+    //DESCRIPTIONS
+    TextView editRowSpacingText = findViewById(R.id.editRowSpacingText);
+    TextView editSpreadText = findViewById(R.id.editSpreadText);
+    TextView editPrecipitationTextMax = findViewById(R.id.editPrecipitationTextMax);
+    TextView editPrecipitationTextMin = findViewById(R.id.editPrecipitationTextMin);
+    //SPINNERS
+    Spinner plant_edit_detail_light = (Spinner) findViewById(R.id.light_spinner);
+    Spinner plant_edit_detail_atmosphericHumidity = (Spinner) findViewById(R.id.atmospheric_humidity_spinner);
+    Spinner plant_edit_detail_soilNutriments = (Spinner) findViewById(R.id.soil_nutriments_spinner);
+    Spinner plant_edit_detail_soilSalinity = (Spinner) findViewById(R.id.soil_salinity_spinner);
+    Spinner plant_edit_detail_soilHumidity = (Spinner) findViewById(R.id.soil_humidity_spinner);
+    Spinner plant_edit_detail_growthForm = (Spinner) findViewById(R.id.growthFormSpinner);
 
     @Nullable
     @Override
@@ -59,11 +149,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
         plant = (Plant) getIntent().getSerializableExtra("plant");
 
-        //NON EDITABLE
-        TextView plant_edit_detail_scientific_name = findViewById(R.id.myPlantEditScientificName);
-        TextView plant_edit_detail_family = findViewById(R.id.myPlantEditFamily);
-        TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
-
         if (plant.getCommon_name() != null) {
             plant_detail_common_name.setText(plant.getCommon_name());
         } else {
@@ -82,48 +167,39 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_family.setText("");
         }
 
-        //CHECKBOXES !!!
-        final CheckBox bloom_january = (CheckBox) findViewById(R.id.bloom_january);
-        final CheckBox bloom_february = (CheckBox) findViewById(R.id.bloom_february);
-        final CheckBox bloom_march = (CheckBox) findViewById(R.id.bloom_march);
-        final CheckBox bloom_april = (CheckBox) findViewById(R.id.bloom_april);
-        final CheckBox bloom_june = (CheckBox) findViewById(R.id.bloom_june);
-        final CheckBox bloom_july = (CheckBox) findViewById(R.id.bloom_july);
-        final CheckBox bloom_may = (CheckBox) findViewById(R.id.bloom_may);
-        final CheckBox bloom_august = (CheckBox) findViewById(R.id.bloom_august);
-        final CheckBox bloom_september = (CheckBox) findViewById(R.id.bloom_september);
-        final CheckBox bloom_november = (CheckBox) findViewById(R.id.bloom_november);
-        final CheckBox bloom_october = (CheckBox) findViewById(R.id.bloom_october);
-        final CheckBox bloom_december = (CheckBox) findViewById(R.id.bloom_december);
-        final CheckBox growth_january = (CheckBox) findViewById(R.id.growth_january);
-        final CheckBox growth_february = (CheckBox) findViewById(R.id.growth_february);
-        final CheckBox growth_march = (CheckBox) findViewById(R.id.growth_march);
-        final CheckBox growth_april = (CheckBox) findViewById(R.id.growth_april);
-        final CheckBox growth_june = (CheckBox) findViewById(R.id.growth_june);
-        final CheckBox growth_july = (CheckBox) findViewById(R.id.growth_july);
-        final CheckBox growth_may = (CheckBox) findViewById(R.id.growth_may);
-        final CheckBox growth_august = (CheckBox) findViewById(R.id.growth_august);
-        final CheckBox growth_september = (CheckBox) findViewById(R.id.growth_september);
-        final CheckBox growth_november = (CheckBox) findViewById(R.id.growth_november);
-        final CheckBox growth_october = (CheckBox) findViewById(R.id.growth_october);
-        final CheckBox growth_december = (CheckBox) findViewById(R.id.growth_december);
-        final CheckBox fruit_january = (CheckBox) findViewById(R.id.fruit_january);
-        final CheckBox fruit_february = (CheckBox) findViewById(R.id.fruit_february);
-        final CheckBox fruit_march = (CheckBox) findViewById(R.id.fruit_march);
-        final CheckBox fruit_april = (CheckBox) findViewById(R.id.fruit_april);
-        final CheckBox fruit_june = (CheckBox) findViewById(R.id.fruit_june);
-        final CheckBox fruit_july = (CheckBox) findViewById(R.id.fruit_july);
-        final CheckBox fruit_may = (CheckBox) findViewById(R.id.fruit_may);
-        final CheckBox fruit_august = (CheckBox) findViewById(R.id.fruit_august);
-        final CheckBox fruit_september = (CheckBox) findViewById(R.id.fruit_september);
-        final CheckBox fruit_november = (CheckBox) findViewById(R.id.fruit_november);
-        final CheckBox fruit_october = (CheckBox) findViewById(R.id.fruit_october);
-        final CheckBox fruit_december = (CheckBox) findViewById(R.id.fruit_december);
-        //MORE CHECKBOXES !!
-        final CheckBox vegetableBox = (CheckBox) findViewById(R.id.myPlantVegetable);
-        final CheckBox edibleBox = (CheckBox) findViewById(R.id.myPlantEdible);
-        final CheckBox flowerConspBox = (CheckBox) findViewById(R.id.myPlantEditFlowerConspicuous);
-        final CheckBox fruitConspBox = (CheckBox) findViewById(R.id.myPlantEditFruitConspicuous);
+        if (plant.getGrowthHabit() != null) {
+            String[] growthHabitArray = plant.getGrowthHabit().split(", ", -1);
+            ArrayList growthHabitTranslated = new ArrayList();
+            String growthHabitTranslation = "";
+            for (int i = 0; i < growthHabitArray.length; i++) {
+                switch (growthHabitArray[i]) {
+                    case "Tree":
+                        populateCheckboxes(treeBox);
+                        break;
+                    case "Nonvascular":
+                        populateCheckboxes(nonvascularBox);
+                        break;
+                    case "Forb/herb":
+                        populateCheckboxes(forbBox);
+                        break;
+                    case "Vine":
+                        populateCheckboxes(vineBox);
+                        break;
+                    case "Subshrub":
+                        populateCheckboxes(subshrubBox);
+                        break;
+                    case "Shrub":
+                        populateCheckboxes(shrubBox);
+                        break;
+                    case "Graminoid":
+                        populateCheckboxes(graminoidBox);
+                        break;
+                    case "Lichenous":
+                        populateCheckboxes(lichenousBox);
+                        break;
+                }
+            }
+        }
 
         if(plant.getVegetable() != null) {
             if(plant.getVegetable().equals("true")){
@@ -281,55 +357,14 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         }
 
 
-        //EDITABLE
-        EditText plant_edit_detail_nickname = (EditText) findViewById(R.id.myPlantEditNickname);
-        EditText plant_edit_detail_Precipitation_min = (EditText) findViewById(R.id.myPlantEditPrecipitationMin);
-        EditText plant_edit_detail_Precipitation_max = (EditText) findViewById(R.id.myPlantEditPrecipitationMax);
-        EditText plant_edit_detail_ph_min = (EditText) findViewById(R.id.myPlantEditPhMin);
-        EditText plant_edit_detail_ph_max = (EditText) findViewById(R.id.myPlantEditPhMax);
-        EditText plant_edit_detail_TemperatureMin = (EditText) findViewById(R.id.myPlantEditTemperatureMin);
-        EditText plant_edit_detail_TemperatureMax = (EditText) findViewById(R.id.myPlantEditTemperatureMax);
-        EditText plant_edit_detail_spread = (EditText) findViewById(R.id.myPlantEditSpread);
-        EditText plant_edit_detail_minimumRootDepth = (EditText) findViewById(R.id.myPlantEditMinRootDepth);
-        EditText plant_edit_detail_rowSpacing = (EditText) findViewById(R.id.myPlantEditRowSpacing);
-        EditText plant_edit_detail_harvestDays = (EditText) findViewById(R.id.myPlantEditDaysToHarvest);
-        EditText plant_edit_detail_sowing = (EditText) findViewById(R.id.myPlantEditSowing);
-        EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
-
-        EditText plant_edit_detail_anaerobic = (EditText) findViewById(R.id.myPlantEditAnaerobic);
-        EditText plant_edit_detail_growthForm = (EditText) findViewById(R.id.myPlantEditGrowthForm);
-        EditText plant_edit_detail_growthHabit = (EditText) findViewById(R.id.myPlantEditGrowthHabit);
-        EditText plant_edit_detail_growthRate = (EditText) findViewById(R.id.myPlantEditGrowthRate);
-        EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
-        EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
-        EditText plant_edit_detail_foliage_texture = (EditText) findViewById(R.id.myPlantEditFoliageTexture);
-        EditText plant_edit_detail_foliage_color = (EditText) findViewById(R.id.myPlantEditFoliageColor);
-        EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
-        EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
-        EditText plant_edit_detail_ediblePart = (EditText) findViewById(R.id.myPlantEditEdiblePart);
-
-
         //SET LIMIT TO EDIT TEXT
         plant_edit_detail_ph_min.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
         plant_edit_detail_ph_max.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
-
-        //DESCRIPTIONS
-        TextView editRowSpacingText = findViewById(R.id.editRowSpacingText);
-        TextView editSpreadText = findViewById(R.id.editSpreadText);
-        TextView editPrecipitationTextMax = findViewById(R.id.editPrecipitationTextMax);
-        TextView editPrecipitationTextMin = findViewById(R.id.editPrecipitationTextMin);
 
         editPrecipitationTextMax.setText(getResources().getString(R.string.plant_edit_detail_precipitation_max));
         editPrecipitationTextMin.setText(getResources().getString(R.string.plant_edit_detail_precipitation_min));
         editRowSpacingText.setText(getResources().getString(R.string.plant_edit_detail_rowSpacing));
         editSpreadText.setText(getResources().getString(R.string.plant_edit_detail_spread));
-
-        //SPINNERS - Find spinners 0 -> 10
-        Spinner plant_edit_detail_light = (Spinner) findViewById(R.id.light_spinner);
-        Spinner plant_edit_detail_atmosphericHumidity = (Spinner) findViewById(R.id.atmospheric_humidity_spinner);
-        Spinner plant_edit_detail_soilNutriments = (Spinner) findViewById(R.id.soil_nutriments_spinner);
-        Spinner plant_edit_detail_soilSalinity = (Spinner) findViewById(R.id.soil_salinity_spinner);
-        Spinner plant_edit_detail_soilHumidity = (Spinner) findViewById(R.id.soil_humidity_spinner);
 
         // SPINNERS : Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterUpToTen = ArrayAdapter.createFromResource(this,
@@ -362,6 +397,15 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         adapterPercent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plant_edit_detail_atmosphericHumidity.setAdapter(adapterPercent);
         plant_edit_detail_soilHumidity.setAdapter(adapterPercent);
+
+        //SPINNER GROWTHFORM
+        ArrayAdapter<CharSequence> adapterGrowthForm = ArrayAdapter.createFromResource(this,
+                R.array.growth_form, android.R.layout.simple_spinner_item);
+        adapterGrowthForm.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_growthForm.setAdapter(adapterGrowthForm);
+        if (plant.getGrowthForm() != null) {
+            plant_edit_detail_growthForm.setSelection(Integer.parseInt(plant.getSoilNutriments()));
+        }
 
         //TEXT VALUES
         if (plant.getAtmosphericHumidity() != null) {
@@ -455,18 +499,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_anaerobic.setText("");
         }
 
-        if (plant.getGrowthForm() != null) {
-            plant_edit_detail_growthForm.setText(plant.getGrowthForm());
-        } else {
-            plant_edit_detail_growthForm.setText("");
-        }
-
-        if (plant.getGrowthHabit() != null) {
-            plant_edit_detail_growthHabit.setText(plant.getGrowthHabit());
-        } else {
-            plant_edit_detail_growthHabit.setText("");
-        }
-
         if (plant.getGrowthRate() != null) {
             plant_edit_detail_growthRate.setText(plant.getGrowthRate());
         } else {
@@ -514,113 +546,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         updatePlant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
-                plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
-                plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
-                plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
-                plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
-                plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
-                plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
-                plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
-                plant.setNickname(plant_edit_detail_nickname.getText().toString());
-                plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
-                plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
-                plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
-                plant.setSowing(plant_edit_detail_sowing.getText().toString());
-                plant.setSpread(plant_edit_detail_spread.getText().toString());
-
-                plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
-                plant.setGrowthForm(plant_edit_detail_growthForm.getText().toString());
-                plant.setGrowthHabit(plant_edit_detail_growthHabit.getText().toString());
-                plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
-                plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
-                plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
-                plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
-                plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
-                plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
-                plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
-
-                if(vegetableBox.isChecked()){
-                    plant.setVegetable("true");
-                } else {
-                    plant.setVegetable("");
-                }
-
-                if(edibleBox.isChecked()){
-                    plant.setEdible("true");
-                } else {
-                    plant.setEdible("");
-                }
-
-                if(flowerConspBox.isChecked()){
-                    plant.setFlowerConspicuous("true");
-                } else {
-                    plant.setFlowerConspicuous("");
-                }
-
-                if(fruitConspBox.isChecked()){
-                    plant.setFruitConspicuous("true");
-                } else {
-                    plant.setFruitConspicuous("");
-                }
-
-                plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
-                plant.setFruitMonths(jsonConstructor(growthCheckboxes));
-                plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
-
-                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
-                    plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
-                } else {
-                    plant.setLight("");
-                }
-                if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
-                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilHumidity("");
-                }
-                if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
-                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
-                } else {
-                    plant.setAtmosphericHumidity("");
-                }
-                if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
-                    plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilNutriments("");
-                }
-                if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
-                    plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilSalinity("");
-                }
-
-                //Form validation
-                boolean validForm = true;
-                if(!plant_edit_detail_Precipitation_max.getText().toString().equals("") && !plant_edit_detail_Precipitation_min.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_Precipitation_max.getText().toString()) < Integer.parseInt(plant_edit_detail_Precipitation_min.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPrec), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-                if(!plant_edit_detail_ph_min.getText().toString().equals("") && !plant_edit_detail_ph_max.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_ph_max.getText().toString()) < Integer.parseInt(plant_edit_detail_ph_min.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPh), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-                if(!plant_edit_detail_TemperatureMax.getText().toString().equals("") && !plant_edit_detail_TemperatureMin.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_TemperatureMax.getText().toString()) < Integer.parseInt(plant_edit_detail_TemperatureMin.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxTemp), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-
-                if(validForm){
-                    PlantDataHandler db = new PlantDataHandler(getApplicationContext());
-                    db.updatePlant(plant);
-                    finish();
-                }
-
+                updatePlant();
             }
         });
 
@@ -629,114 +555,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
-                plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
-                plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
-                plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
-                plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
-                plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
-                plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
-                plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
-                plant.setNickname(plant_edit_detail_nickname.getText().toString());
-                plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
-                plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
-                plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
-                plant.setSowing(plant_edit_detail_sowing.getText().toString());
-                plant.setSpread(plant_edit_detail_spread.getText().toString());
-
-                plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
-                plant.setGrowthForm(plant_edit_detail_growthForm.getText().toString());
-                plant.setGrowthHabit(plant_edit_detail_growthHabit.getText().toString());
-                plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
-                plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
-                plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
-                plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
-                plant.setFoliageColor(plant_edit_detail_foliage_color.getText().toString());
-                plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
-                plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
-                plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
-
-                if(vegetableBox.isChecked()){
-                    plant.setVegetable("true");
-                } else {
-                    plant.setVegetable("");
-                }
-
-                if(edibleBox.isChecked()){
-                    plant.setEdible("true");
-                } else {
-                    plant.setEdible("");
-                }
-
-                if(flowerConspBox.isChecked()){
-                    plant.setFlowerConspicuous("true");
-                } else {
-                    plant.setFlowerConspicuous("");
-                }
-
-                if(fruitConspBox.isChecked()){
-                    plant.setFruitConspicuous("true");
-                } else {
-                    plant.setFruitConspicuous("");
-                }
-
-                plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
-                plant.setFruitMonths(jsonConstructor(growthCheckboxes));
-                plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
-
-                if(plant_edit_detail_light.getSelectedItemPosition() != 0){
-                    plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
-                } else {
-                    plant.setLight("");
-                }
-                if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
-                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilHumidity("");
-                }
-                if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
-                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
-                } else {
-                    plant.setAtmosphericHumidity("");
-                }
-                if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
-                    plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilNutriments("");
-                }
-                if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
-                    plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
-                } else {
-                    plant.setSoilSalinity("");
-                }
-
-                //Form validation
-                boolean validForm = true;
-                if(!plant_edit_detail_Precipitation_max.getText().toString().equals("") && !plant_edit_detail_Precipitation_min.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_Precipitation_max.getText().toString()) < Integer.parseInt(plant_edit_detail_Precipitation_min.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPrec), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-                if(!plant_edit_detail_ph_min.getText().toString().equals("") && !plant_edit_detail_ph_max.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_ph_max.getText().toString()) < Integer.parseInt(plant_edit_detail_ph_min.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPh), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-                if(!plant_edit_detail_TemperatureMax.getText().toString().equals("") && !plant_edit_detail_TemperatureMin.getText().toString().equals("")){
-                    if(Integer.parseInt(plant_edit_detail_TemperatureMax.getText().toString()) < Integer.parseInt(plant_edit_detail_TemperatureMin.getText().toString())){
-                        Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxTemp), Toast.LENGTH_LONG).show();
-                        validForm = false;
-                    }
-                }
-
-                if(validForm){
-                    PlantDataHandler db = new PlantDataHandler(getApplicationContext());
-                    db.updatePlant(plant);
-                    finish();
-                }
-
+                updatePlant();
             }
         });
 
@@ -1027,4 +846,160 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
     private void populateCheckboxes(CheckBox checkBox){
         checkBox.setChecked(true);
     }
+
+    private void updatePlant(){
+        plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
+        plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
+        plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
+        plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
+        plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
+        plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
+        plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
+        plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
+        plant.setNickname(plant_edit_detail_nickname.getText().toString());
+        plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
+        plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
+        plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
+        plant.setSowing(plant_edit_detail_sowing.getText().toString());
+        plant.setSpread(plant_edit_detail_spread.getText().toString());
+
+        plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
+        plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
+        plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
+        plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
+        plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
+        plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
+        plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
+        plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
+
+        StringBuilder sb = new StringBuilder();
+        plant.setGrowthHabit(sb.toString());
+        if(treeBox.isChecked()){
+            sb.append("Tree, ");
+        }
+
+        if(forbBox.isChecked()){
+            sb.append("Forb/herb, ");
+        }
+
+        if(vineBox.isChecked()){
+            sb.append("Vine, ");
+        }
+
+        if(subshrubBox.isChecked()){
+            sb.append("Subshrub, ");
+        }
+
+        if(shrubBox.isChecked()){
+            sb.append("Shrub, ");
+        }
+
+        if(graminoidBox.isChecked()){
+            sb.append("Graminoid, ");
+        }
+
+        if(lichenousBox.isChecked()){
+            sb.append("Lichenous, ");
+        }
+
+        if(nonvascularBox.isChecked()){
+            sb.append("Nonvascular, ");
+        }
+
+        if(!sb.toString().equals("")){
+            plant.setGrowthHabit(sb.toString().substring(0, sb.toString().length() - 2));
+        }
+
+        if(vegetableBox.isChecked()){
+            plant.setVegetable("true");
+        } else {
+            plant.setVegetable("");
+        }
+
+        if(edibleBox.isChecked()){
+            plant.setEdible("true");
+        } else {
+            plant.setEdible("");
+        }
+
+        if(flowerConspBox.isChecked()){
+            plant.setFlowerConspicuous("true");
+        } else {
+            plant.setFlowerConspicuous("");
+        }
+
+        if(fruitConspBox.isChecked()){
+            plant.setFruitConspicuous("true");
+        } else {
+            plant.setFruitConspicuous("");
+        }
+
+        plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
+        plant.setFruitMonths(jsonConstructor(growthCheckboxes));
+        plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
+
+        if(plant_edit_detail_light.getSelectedItemPosition() != 0){
+            plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
+        } else {
+            plant.setLight("");
+        }
+
+        if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
+            plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
+        } else {
+            plant.setSoilHumidity("");
+        }
+
+        if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
+            plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
+        } else {
+            plant.setAtmosphericHumidity("");
+        }
+
+        if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
+            plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
+        } else {
+            plant.setSoilNutriments("");
+        }
+
+        if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
+            plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
+        } else {
+            plant.setSoilSalinity("");
+        }
+
+        if(plant_edit_detail_growthForm.getSelectedItemPosition() != 0){
+            plant.setGrowthForm(String.valueOf(plant_edit_detail_growthForm.getSelectedItemPosition()));
+        } else {
+            plant.setGrowthForm("");
+        }
+
+        //Form validation
+        boolean validForm = true;
+        if(!plant_edit_detail_Precipitation_max.getText().toString().equals("") && !plant_edit_detail_Precipitation_min.getText().toString().equals("")){
+            if(Integer.parseInt(plant_edit_detail_Precipitation_max.getText().toString()) < Integer.parseInt(plant_edit_detail_Precipitation_min.getText().toString())){
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPrec), Toast.LENGTH_LONG).show();
+                validForm = false;
+            }
+        }
+        if(!plant_edit_detail_ph_min.getText().toString().equals("") && !plant_edit_detail_ph_max.getText().toString().equals("")){
+            if(Integer.parseInt(plant_edit_detail_ph_max.getText().toString()) < Integer.parseInt(plant_edit_detail_ph_min.getText().toString())){
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxPh), Toast.LENGTH_LONG).show();
+                validForm = false;
+            }
+        }
+        if(!plant_edit_detail_TemperatureMax.getText().toString().equals("") && !plant_edit_detail_TemperatureMin.getText().toString().equals("")){
+            if(Integer.parseInt(plant_edit_detail_TemperatureMax.getText().toString()) < Integer.parseInt(plant_edit_detail_TemperatureMin.getText().toString())){
+                Toast.makeText(getApplicationContext(), getResources().getString(R.string.minMaxTemp), Toast.LENGTH_LONG).show();
+                validForm = false;
+            }
+        }
+
+        if(validForm){
+            PlantDataHandler db = new PlantDataHandler(getApplicationContext());
+            db.updatePlant(plant);
+            finish();
+        }
+    }
+
 }

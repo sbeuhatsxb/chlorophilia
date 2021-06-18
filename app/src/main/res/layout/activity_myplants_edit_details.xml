@@ -463,13 +463,10 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_growthForm"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/myPlantEditGrowthForm"
+                        <Spinner
+                            android:id="@+id/growthFormSpinner"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/shortDescription"
-                            android:inputType="text"
-                            android:singleLine="true" />
+                            android:layout_height="wrap_content" />
                     </TableRow>
                     <TableRow
                         android:layout_width="match_parent"
@@ -480,14 +477,85 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_growthHabit"/>
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/myPlantEditGrowthHabit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/shortDescription"
-                            android:singleLine="true" />
                     </TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/tree"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/tree" />
+
+                        <CheckBox
+                            android:id="@+id/forb_herb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/forb_herb" />
+
+                        <CheckBox
+                            android:id="@+id/vine"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/vine" />
+
+                        <CheckBox
+                            android:id="@+id/subshrub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/subshrub" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <CheckBox
+                            android:id="@+id/shrub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/shrub" />
+
+                        <CheckBox
+                            android:id="@+id/graminoid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/graminoid" />
+
+                        <CheckBox
+                            android:id="@+id/lichenous"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/lichenous" />
+
+                        <CheckBox
+                            android:id="@+id/nonvascular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:textSize="12sp"
+                            android:text="@string/nonvascular" />
+
+                    </LinearLayout>
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -710,7 +778,7 @@
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
+                        >
 
                         <TextView
                             android:id="@+id/foliageTextureDesc"
@@ -728,7 +796,8 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="#2C4CAF50">
 
                         <TextView
                             android:id="@+id/plant_edit_detail_flowerColor"
