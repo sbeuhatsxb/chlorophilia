@@ -113,16 +113,16 @@
     <string name="home_first_time">Bienvenue sur Chlorophilia. Cliquez sur \"Rechercher\" pour trouver votre première plante et l\'ajouter à votre herbier.</string>
     <string name="ok">OK !</string>
     <string name="gotit">J\'ai compris.</string>
-    <string name="january">Janvier</string>
-    <string name="february">Février</string>
+    <string name="january">Janv.</string>
+    <string name="february">Févr.</string>
     <string name="march">Mars</string>
     <string name="april">Avril</string>
-    <string name="may">May</string>
+    <string name="may">Mai</string>
     <string name="june">Juin</string>
-    <string name="july">Juillet</string>
+    <string name="july">Juil.</string>
     <string name="august">Août</string>
-    <string name="september">Septembre</string>
-    <string name="october">Octobre</string>
+    <string name="september">Sept.</string>
+    <string name="october">Octo.</string>
     <string name="november">Novembre</string>
     <string name="december">Décembre</string>
     <string name="remote_server_failed">Le serveur distant ne répond pas. Veuillez réessayer plus tard.</string>
@@ -139,7 +139,7 @@
     <string name="lightPlusOne">Un peu ombrageux mais ça va...</string>
     <string name="lightPlusTwo">Pas assez de lumière pour cette plante. Trouvez-en plus !</string>
     <string name="lightPlusThree">Vraiment pas assez de lumière pour cette plante. Trouvez plus de lumière !</string>
-    <string name="lightPlusFour">Y a-t-il de lumière ici ?? Trouvez plus de lumière pour cette plante.</string>
+    <string name="lightPlusFour">Trop sombre ! Trouvez plus de lumière pour cette plante.</string>
     <string name="noiInfoLightZero">Y a-t-il de la lumière ici ?</string>
     <string name="noiInfoLightOne">Pas assez de lumière pour les semis.</string>
     <string name="noiInfoLightTwo">Il y a assez de lumière pour les semis, mais pas pour la croissance.</string>
@@ -183,4 +183,14 @@
     <string name="shrub">Arbuste</string>
     <string name="graminoid">Graminoïde</string>
     <string name="lichenous">Lichen</string>
+    <string name="red">rouge</string>
+    <string name="orange">orange</string>
+    <string name="yellow">jaune</string>
+    <string name="green">vert</string>
+    <string name="blue">bleu</string>
+    <string name="purple">violet</string>
+    <string name="white">blanc</string>
+    <string name="black">noir</string>
+    <string name="brown">brun</string>
+    <string name="grey">gris</string>
 </resources>

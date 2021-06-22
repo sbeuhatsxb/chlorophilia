@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="growth_rate">
+        <item>No idea!</item>
+        <item>Slow</item>
+        <item>Moderate</item>
+        <item>Rapid</item>
+    </string-array>
+</resources>

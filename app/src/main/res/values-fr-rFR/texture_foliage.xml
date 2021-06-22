@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="texture_foliage">
+        <item>Aucune idée !</item>
+        <item>fine</item>
+        <item>moyenne</item>
+        <item>grossière</item>
+    </string-array>
+</resources>

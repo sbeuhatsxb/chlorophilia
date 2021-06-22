@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="anaerobic_tolerance">
+        <item>Aucune idée !</item>
+        <item>faible</item>
+        <item>moyenne</item>
+        <item>haute</item>
+    </string-array>
+</resources>

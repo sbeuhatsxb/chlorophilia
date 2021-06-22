@@ -76,6 +76,9 @@ public class MyPlantsShowDetails extends AppCompatActivity {
 
         final String[] SOILRICHNESS = getResources().getStringArray(R.array.viewSoilRichness);
         final String[] GROWTHFORM = getResources().getStringArray(R.array.growth_form);
+        final String[] GROWTHRATE = getResources().getStringArray(R.array.growth_rate);
+        final String[] ANAEROBICTOLERANCE = getResources().getStringArray(R.array.anaerobic_tolerance);
+        final String[] TEXTUREFOLIAGE = getResources().getStringArray(R.array.texture_foliage);
 
         setContentView(R.layout.activity_myplants_show_detail);
 
@@ -296,34 +299,22 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             plant_detail_days_to_harvest.setText("");
         }
 
-        if (plant.getGrowthMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getGrowthMonths());
-            StringBuilder growth = new StringBuilder();
-            for(String month : arrayMonths) {
-                growth.append(month).append(" ");
-            }
-            plant_detail_growthMonths.setText(growth.toString());
+        if (!plant.getGrowthMonths().equals("[]")) {
+            String translatedMonths = jsonArrayToStringConverter(plant.getGrowthMonths());
+            plant_detail_growthMonths.setText(translatedMonths);
         } else {
             plant_detail_growthMonths.setText("");
         }
-        if (plant.getBloomMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getBloomMonths());
-            StringBuilder growth = new StringBuilder();
-            for(String month : arrayMonths) {
-                growth.append(month).append(" ");
-            }
-            plant_detail_bloomMonths.setText(growth.toString());
+        if (!plant.getBloomMonths().equals("[]")) {
+            String translatedMonths = jsonArrayToStringConverter(plant.getBloomMonths());
+            plant_detail_bloomMonths.setText(translatedMonths);
         } else {
             plant_detail_bloomMonths.setText("");
         }
 
-        if (plant.getFruitMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getFruitMonths());
-            StringBuilder growth = new StringBuilder();
-            for(String month : arrayMonths) {
-                growth.append(month).append(" ");
-            }
-            plant_detail_fruitMonths.setText(growth.toString());
+        if (!plant.getFruitMonths().equals("[]")) {
+            String translatedMonths = jsonArrayToStringConverter(plant.getFruitMonths());
+            plant_detail_fruitMonths.setText(translatedMonths);
         } else {
             plant_detail_fruitMonths.setText("");
         }
@@ -335,95 +326,46 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getAnaerobicTolerance() != null) {
-            if(plant.getAnaerobicTolerance().equals("true")){
-                plant_detail_anaerobic.setText(getResources().getString(R.string.trueInfo));
-            } else if (plant.getAnaerobicTolerance().equals("false")) {
-                plant_detail_anaerobic.setText(getResources().getString(R.string.falseInfo));
-            } else {
-                plant_detail_anaerobic.setText(plant.getAnaerobicTolerance());
-            }
+            plant_detail_anaerobic.setText(ANAEROBICTOLERANCE[Integer.valueOf(plant.getAnaerobicTolerance())]);
         } else {
             plant_detail_anaerobic.setText("");
         }
 
         if (plant.getGrowthForm() != null) {
-            int arrayGrowthFormTranslation = 0;
-            if(isInteger(plant.getGrowthForm()) == false) {
-                switch(plant.getGrowthForm()) {
-                    case "Single Stem":
-                        arrayGrowthFormTranslation = 1;
-                        break;
-                    case "Multiple stem":
-                        arrayGrowthFormTranslation = 2;
-                        break;
-                    case "Single crown":
-                        arrayGrowthFormTranslation = 3;
-                        break;
-                    case "Rhizomatous":
-                        arrayGrowthFormTranslation = 4;
-                        break;
-                    case "Bunch":
-                        arrayGrowthFormTranslation = 5;
-                        break;
-                    case "Stoloniferous":
-                        arrayGrowthFormTranslation = 6;
-                        break;
-                    case "Thicket":
-                        arrayGrowthFormTranslation = 7;
-                        break;
-                    case "Colonizing":
-                        arrayGrowthFormTranslation = 8;
-                        break;
-                    case "Erect":
-                        arrayGrowthFormTranslation = 9;
-                        break;
-                }
-
-                if(arrayGrowthFormTranslation != 0){
-                    plant_detail_growthForm.setText(GROWTHFORM[arrayGrowthFormTranslation]);
-                } else {
-                    plant_detail_growthForm.setText("");
-                }
-
-            } else {
-                if(Integer.valueOf(plant.getGrowthForm()) != 0){
-                    plant_detail_growthForm.setText(GROWTHFORM[Integer.valueOf(plant.getGrowthForm())]);
-                }
-            }
-
+            plant_detail_growthForm.setText(GROWTHFORM[Integer.valueOf(plant.getGrowthForm())]);
         } else {
             plant_detail_growthForm.setText("");
         }
 
         if (plant.getGrowthHabit() != null) {
-            String[] growthHabitArray = plant.getGrowthHabit().split(", ", -1);
+            String[] growthHabitArray = plant.getGrowthHabit().split(",");
             ArrayList growthHabitTranslated = new ArrayList();
 
             for(int i = 0; i < growthHabitArray.length; i++){
                 String growthHabitTranslation = "";
                 switch(growthHabitArray[i]) {
-                    case "Tree":
+                    case "1":
                         growthHabitTranslation = getResources().getString(R.string.tree);
                         break;
-                    case "Nonvascular":
+                    case "2":
                         growthHabitTranslation = getResources().getString(R.string.nonvascular);
                         break;
-                    case "Forb/herb":
+                    case "3":
                         growthHabitTranslation = getResources().getString(R.string.forb_herb);
                         break;
-                    case "Vine":
+                    case "4":
                         growthHabitTranslation = getResources().getString(R.string.vine);
                         break;
-                    case "Subshrub":
+                    case "5":
                         growthHabitTranslation = getResources().getString(R.string.subshrub);
                         break;
-                    case "Shrub":
+                    case "6":
                         growthHabitTranslation = getResources().getString(R.string.shrub);
                         break;
-                    case "Graminoid":
+                    case "7":
                         growthHabitTranslation = getResources().getString(R.string.graminoid);
                         break;
-                   case "Lichenous":
+                   case "8":
                         growthHabitTranslation = getResources().getString(R.string.lichenous);
                         break;
                 }
@@ -436,13 +378,13 @@ public class MyPlantsShowDetails extends AppCompatActivity {
                 sb.append(s);
                 sb.append("\n");
             }
-            plant_detail_growthHabit.setText(sb.toString().substring(0, sb.toString().length() - 2));
+            plant_detail_growthHabit.setText(sb.toString().substring(0, sb.toString().length() - 1));
         } else {
             plant_detail_growthHabit.setText("");
         }
 
         if (plant.getGrowthRate() != null) {
-            plant_detail_growthRate.setText(plant.getGrowthRate());
+            plant_detail_growthRate.setText(GROWTHRATE[Integer.valueOf(plant.getGrowthRate())]);
         } else {
             plant_detail_growthRate.setText("");
         }
@@ -486,7 +428,9 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getFlowerColor() != null) {
-            plant_detail_flowerColor.setText(plant.getFlowerColor());
+            String[] colorIntArray = plant.getFlowerColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_flowerColor.setText(translatedColors);
         } else {
             plant_detail_flowerColor.setText("");
         }
@@ -502,19 +446,23 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getFoliageTexture() != null) {
-            plant_detail_foliageTexture.setText(plant.getFoliageTexture());
+            plant_detail_foliageTexture.setText(TEXTUREFOLIAGE[Integer.parseInt(plant.getFoliageTexture())]);
         } else {
             plant_detail_foliageTexture.setText("");
         }
 
         if (plant.getFoliageColor() != null) {
-            plant_detail_foliageColor.setText(plant.getFoliageColor());
+            String[] colorIntArray = plant.getFoliageColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_foliageColor.setText(translatedColors);
         } else {
             plant_detail_foliageColor.setText("");
         }
 
         if (plant.getFruitColor() != null) {
-            plant_detail_fruitColor.setText(plant.getFruitColor());
+            String[] colorIntArray = plant.getFoliageColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_fruitColor.setText(translatedColors);
         } else {
             plant_detail_fruitColor.setText("");
         }
@@ -740,90 +688,120 @@ public class MyPlantsShowDetails extends AppCompatActivity {
      * @param json
      * @return
      */
-    private ArrayList<String> jsonArrayToStringConverter(String json){
-        ArrayList<String> stringArray = new ArrayList<String>();
+    private String jsonArrayToStringConverter(String json){
+        ArrayList<Integer> intMonthsArray = new ArrayList<Integer>();
         JSONArray jsonArray = null;
         try {
             jsonArray = new JSONArray(json);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        String[] text = new String[jsonArray.length()];
 
+        ArrayList<String> translatedMonthes = new ArrayList();
         for (int i = 0; i < jsonArray.length(); i++) {
             try {
-                text[i] = jsonArray.getString(i);
-                String str = jsonArray.getString(i);
-                stringArray.add(str.substring(0, 1).toUpperCase() + str.substring(1)+".");
+                int monthInt = jsonArray.getInt(i);
+                String monthStr = "";
+                switch (monthInt){
+                    case 1:
+                        monthStr = getResources().getString(R.string.january);
+                        break;
+                    case 2:
+                        monthStr = getResources().getString(R.string.february);
+                        break;
+                    case 3:
+                        monthStr = getResources().getString(R.string.march);
+                        break;
+                    case 4:
+                        monthStr = getResources().getString(R.string.april);
+                        break;
+                    case 5:
+                        monthStr = getResources().getString(R.string.may);
+                        break;
+                    case 6:
+                        monthStr = getResources().getString(R.string.june);
+                        break;
+                    case 7:
+                        monthStr = getResources().getString(R.string.july);
+                        break;
+                    case 8:
+                        monthStr = getResources().getString(R.string.august);
+                        break;
+                    case 9:
+                        monthStr = getResources().getString(R.string.september);
+                        break;
+                    case 10:
+                        monthStr = getResources().getString(R.string.october);
+                        break;
+                    case 11:
+                        monthStr = getResources().getString(R.string.november);
+                        break;
+                    case 12:
+                        monthStr = getResources().getString(R.string.december);
+                        break;
+                }
+                translatedMonthes.add(monthStr);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-
-        //Ordering monthes
-        Hashtable monthInt = new Hashtable();
-        monthInt.put("Jan.", 1);
-        monthInt.put("Feb.", 2);
-        monthInt.put("Mar.", 3);
-        monthInt.put("Apr.", 4);
-        monthInt.put("May.", 5);
-        monthInt.put("Jun.", 6);
-        monthInt.put("Jul.", 7);
-        monthInt.put("Aug.", 8);
-        monthInt.put("Sep.", 9);
-        monthInt.put("Oct.", 10);
-        monthInt.put("Nov.", 11);
-        monthInt.put("Dec.", 12);
-
-        ArrayList<Integer> disorderNumberedMonthList = new ArrayList<>();
-        for( String month : stringArray){
-            disorderNumberedMonthList.add(Integer.valueOf(monthInt.get(month).toString()));
+        StringBuilder sb = new StringBuilder();
+        for (Object s : translatedMonthes)
+        {
+            sb.append(s);
+            sb.append(", ");
         }
-        Collections.sort(disorderNumberedMonthList);
 
-        Hashtable monthStr = new Hashtable();
-        monthStr.put(1, "Jan.");
-        monthStr.put(2, "Feb.");
-        monthStr.put(3, "Mar.");
-        monthStr.put(4, "Apr.");
-        monthStr.put(5, "May.");
-        monthStr.put(6, "Jun.");
-        monthStr.put(7, "Jul.");
-        monthStr.put(8, "Aug.");
-        monthStr.put(9, "Sep.");
-        monthStr.put(10, "Oct.");
-        monthStr.put(11, "Nov.");
-        monthStr.put(12, "Dec.");
-
-        stringArray.clear();
-        for( Integer month : disorderNumberedMonthList){
-            stringArray.add(monthStr.get(month).toString());
-        }
-        return stringArray;
+        return sb.toString().substring(0, sb.toString().length() - 2);
     }
 
-    public static boolean isInteger(String str) {
-        if (str == null) {
-            return false;
-        }
-        int length = str.length();
-        if (length == 0) {
-            return false;
-        }
-        int i = 0;
-//        if (str.charAt(0) == '-') {
-//            if (length == 1) {
-//                return false;
-//            }
-//            i = 1;
-//        }
-        for (; i < length; i++) {
-            char c = str.charAt(i);
-            if (c < '0' || c > '9') {
-                return false;
+    private String getTranslatedColors(String[] colorIntArray) {
+        ArrayList colorTranslated = new ArrayList();
+        for(int i = 0; i < colorIntArray.length; i++){
+            String colorString = "";
+            switch(colorIntArray[i]) {
+                case "1":
+                    colorString = getResources().getString(R.string.red);
+                    break;
+                case "2":
+                    colorString = getResources().getString(R.string.orange);
+                    break;
+                case "3":
+                    colorString = getResources().getString(R.string.yellow);
+                    break;
+                case "4":
+                    colorString = getResources().getString(R.string.green);
+                    break;
+                case "5":
+                    colorString = getResources().getString(R.string.blue);
+                    break;
+                case "6":
+                    colorString = getResources().getString(R.string.purple);
+                    break;
+                case "7":
+                    colorString = getResources().getString(R.string.white);
+                    break;
+                case "8":
+                    colorString = getResources().getString(R.string.black);
+                    break;
+                case "9":
+                    colorString = getResources().getString(R.string.brown);
+                    break;
+                case "10":
+                    colorString = getResources().getString(R.string.grey);
+                    break;
             }
+            colorTranslated.add(colorString);
         }
-        return true;
+
+        StringBuilder sb = new StringBuilder();
+        for (Object s : colorTranslated)
+        {
+            sb.append(s);
+            sb.append("\n");
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
     }
 }
 

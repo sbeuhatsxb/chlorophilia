@@ -132,19 +132,6 @@
     <string name="ok">OK!</string>
     <string name="gotit">GOT IT!</string>
 
-    <string name="january">January</string>
-    <string name="february">February</string>
-    <string name="march">March</string>
-    <string name="april">April</string>
-    <string name="may">May</string>
-    <string name="june">June</string>
-    <string name="july">July</string>
-    <string name="august">August</string>
-    <string name="september">September</string>
-    <string name="october">October</string>
-    <string name="november">November</string>
-    <string name="december">December</string>
-
     <string name="remote_server_failed">Remote server is not responding. Please try again later.</string>
 
     <string name="minMaxTemp">Maximum temperature can\'t be lower than minimum temperature</string>
@@ -161,7 +148,7 @@
     <string name="lightPlusOne">A bit too shady, but it\'s still ok.</string>
     <string name="lightPlusTwo">Not enough light. Find more light!</string>
     <string name="lightPlusThree">Definitely not enough light ! Find more light!</string>
-    <string name="lightPlusFour">Is there any light here? Find more light for this plant!</string>
+    <string name="lightPlusFour">It\'s too dark! Find more light for this plant!</string>
 
     <string name="noiInfoLightZero">Is there any light here?</string>
     <string name="noiInfoLightOne">"Not enough light for seeds.</string>
@@ -218,4 +205,27 @@
     <string name="graminoid">Graminoid</string>
     <string name="lichenous">Lichenous</string>
 
+    <string name="red">red</string>
+    <string name="orange">orange</string>
+    <string name="yellow">yellow</string>
+    <string name="green">green</string>
+    <string name="blue">blue</string>
+    <string name="purple">purple</string>
+    <string name="white">white</string>
+    <string name="black">black</string>
+    <string name="brown">brown</string>
+    <string name="grey">grey</string>
+
+    <string name="january">Jan.</string>
+    <string name="february">Feb.</string>
+    <string name="march">Mar.</string>
+    <string name="april">Apr.</string>
+    <string name="may">May</string>
+    <string name="june">Jun.</string>
+    <string name="july">Jul.</string>
+    <string name="august">Aug.</string>
+    <string name="september">Sep.</string>
+    <string name="october">Oct.</string>
+    <string name="november">Nov.</string>
+    <string name="december">Dec.</string>
 </resources>

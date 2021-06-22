@@ -35,6 +35,9 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Hashtable;
 
 /**
@@ -43,6 +46,7 @@ import java.util.Hashtable;
 public class SearchShowSingleResultActivity extends AppCompatActivity {
 
     private JsonPlantFromApiList jsonPlantFromApiListDetail;
+    int translationIndex = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -204,7 +208,7 @@ public class SearchShowSingleResultActivity extends AppCompatActivity {
                             "foliageColor", "foliageTexture", "fruitColor", "fruitConspicuous"
                     };
 
-                    //Uppers fields are expected in the RestAPI, there for we're parsing each field and each JsonArray corresponding set the proper value
+                    //Uppers fields are expected in the RestAPI, therefore we're parsing each field and each JsonArray corresponding set the proper value
                     for (int i = 0; i < items.length; i++) {
                         String item = items[i];
                         Object getItem = responseToJsonObject.get(item);
@@ -300,59 +304,198 @@ public class SearchShowSingleResultActivity extends AppCompatActivity {
                                 case "fruitConspicuous":
                                     bookPlant.setFruitConspicuous(getItem.toString());
                                     break;
-
                             }
                         }
                     }
 
-                    //Monthes : other logic since those are arrays that need to be recorded as string into the DB
-                    //TODO : Technical Debt since ApiV2
-                    //TODO : Conversation done according to old def. Nonsense actually.
-                    //TODO : Need to convert views as well (the big part)
+                    //TEXTURE_FOLIAGE
+                    translationIndex = 0;
+                    if(bookPlant.getFoliageTexture() != null){
+                        switch(bookPlant.getFoliageTexture()) {
+                            case "fine":
+                                translationIndex = 1;
+                                break;
+                            case "medium":
+                                translationIndex = 2;
+                                break;
+                            case "coarse":
+                                translationIndex = 3;
+                                break;
+                        }
+                    }
+                    bookPlant.setFoliageTexture(null);
+                    if(translationIndex != 0){
+                        bookPlant.setFoliageTexture(String.valueOf(translationIndex));
+                    }
+                    //ANAEROBIC_TOLERANCE
+                    translationIndex = 0;
+                    if(bookPlant.getAnaerobicTolerance() != null){
+                        switch(bookPlant.getAnaerobicTolerance()) {
+                            case "Low":
+                                translationIndex = 1;
+                                break;
+                            case "Medium":
+                                translationIndex = 2;
+                                break;
+                            case "High":
+                                translationIndex = 3;
+                                break;
+                        }
+                    }
+                    bookPlant.setAnaerobicTolerance(null);
+                    if(translationIndex != 0){
+                        bookPlant.setAnaerobicTolerance(String.valueOf(translationIndex));
+                    }
+                    //GROWTH_FORM
+                    translationIndex = 0;
+                    if(bookPlant.getGrowthForm() != null){
+                        switch(bookPlant.getGrowthForm()) {
+                            case "Single Stem":
+                                translationIndex = 1;
+                                break;
+                            case "Multiple Stem":
+                                translationIndex = 2;
+                                break;
+                            case "Single Crown":
+                                translationIndex = 3;
+                                break;
+                            case "Rhizomatous":
+                                translationIndex = 4;
+                                break;
+                            case "Bunch":
+                                translationIndex = 5;
+                                break;
+                            case "Stoloniferous":
+                                translationIndex = 6;
+                                break;
+                            case "Thicket":
+                                translationIndex = 7;
+                                break;
+                            case "Colonizing":
+                                translationIndex = 8;
+                                break;
+                            case "Erect":
+                                translationIndex = 9;
+                                break;
+                        }
+                        bookPlant.setGrowthForm(null);
+                        if(translationIndex != 0){
+                            bookPlant.setGrowthForm(String.valueOf(translationIndex));
+                        }
+                    }
+                    //GROWTH_HABIT
+                    translationIndex = 0;
+                    if (bookPlant.getGrowthHabit() != null) {
+                        String[] growthHabitArray = bookPlant.getGrowthHabit().split(", ", -1);
+                        ArrayList growthHabitTranslated = new ArrayList();
+
+                        for(int i = 0; i < growthHabitArray.length; i++){
+                            switch(growthHabitArray[i]) {
+                                case "Tree":
+                                    translationIndex = 1;
+                                    break;
+                                case "Nonvascular":
+                                    translationIndex = 2;
+                                    break;
+                                case "Forb/herb":
+                                    translationIndex = 3;
+                                    break;
+                                case "Vine":
+                                    translationIndex = 4;
+                                    break;
+                                case "Subshrub":
+                                    translationIndex = 5;
+                                    break;
+                                case "Shrub":
+                                    translationIndex = 6;
+                                    break;
+                                case "Graminoid":
+                                    translationIndex = 7;
+                                    break;
+                                case "Lichenous":
+                                    translationIndex = 8;
+                                    break;
+                            }
+                            growthHabitTranslated.add(translationIndex);
+                        }
+
+                        StringBuilder sb = new StringBuilder();
+                        for (Object s : growthHabitTranslated)
+                        {
+                            sb.append(s);
+                            sb.append(",");
+                        }
+                        bookPlant.setGrowthHabit(sb.toString().substring(0, sb.toString().length() - 1));
+                    }
+                    //GROWTH_RATE
+                    translationIndex = 0;
+                    if(bookPlant.getGrowthRate() != null){
+                        switch(bookPlant.getGrowthRate()) {
+                            case "Slow":
+                                translationIndex = 1;
+                                break;
+                            case "Moderate":
+                                translationIndex = 2;
+                                break;
+                            case "Fast":
+                                translationIndex = 3;
+                                break;
+                        }
+                    }
+                    bookPlant.setGrowthRate(null);
+                    if(translationIndex != 0){
+                        bookPlant.setGrowthRate(String.valueOf(translationIndex));
+                    }
+                    //COLORS
+                    if(bookPlant.getFoliageColor() != null){
+                        String translatedColor = colorConvertor(bookPlant.getFoliageColor());
+                        bookPlant.setFoliageColor(translatedColor);
+                    }
+                    if(bookPlant.getFruitColor() != null) {
+                        String translatedColor = colorConvertor(bookPlant.getFruitColor());
+                        bookPlant.setFruitColor(translatedColor);
+                    }
+                    if(bookPlant.getFlowerColor() != null) {
+                        String translatedColor = colorConvertor(bookPlant.getFlowerColor());
+                        bookPlant.setFlowerColor(translatedColor);
+                    }
+
+                    //MONTHS
                     String[] itemsArray = {
                             "growthMonths", "bloomMonths", "fruitMonths"
                     };
-                    Hashtable monthStr = new Hashtable();
-                    monthStr.put(1, "jan");
-                    monthStr.put(2, "feb");
-                    monthStr.put(3, "mar");
-                    monthStr.put(4, "apr");
-                    monthStr.put(5, "may");
-                    monthStr.put(6, "jun");
-                    monthStr.put(7, "jul");
-                    monthStr.put(8, "aug");
-                    monthStr.put(9, "sep");
-                    monthStr.put(10, "oct");
-                    monthStr.put(11, "nov");
-                    monthStr.put(12, "dec");
+
                     for (int i = 0; i < itemsArray.length; i++) {
                         String item = itemsArray[i];
                         Object getItem = responseToJsonObject.get(item);
-                        ArrayList<String> stringArray = new ArrayList<String>();
+                        ArrayList<Integer> stringArray = new ArrayList<Integer>();
                         if (!getItem.toString().equals("null")) {
                             switch (item) {
                                 case "growthMonths":
                                     for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
                                         Object month = ((JSONArray) getItem).get(j);
                                         int monthNumber = ((JSONObject) month).getInt("id");
-                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
+                                        stringArray.add(monthNumber);
                                     }
+                                    Collections.sort(stringArray);
                                     bookPlant.setGrowthMonths(stringArray.toString());
                                     break;
                                 case "bloomMonths":
                                     for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
                                         Object month = ((JSONArray) getItem).get(j);
                                         int monthNumber = ((JSONObject) month).getInt("id");
-                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
+                                        stringArray.add(monthNumber);
                                     }
+                                    Collections.sort(stringArray);
                                     bookPlant.setBloomMonths(stringArray.toString());
                                     break;
                                 case "fruitMonths":
                                     for (int j = 0; j < ((JSONArray) getItem).length(); j++) {
                                         Object month = ((JSONArray) getItem).get(j);
                                         int monthNumber = ((JSONObject) month).getInt("id");
-                                        stringArray.add("\"" + monthStr.get(monthNumber).toString() + "\"");
+                                        stringArray.add(monthNumber);
                                     }
+                                    Collections.sort(stringArray);
                                     bookPlant.setFruitMonths(stringArray.toString());
                                     break;
                             }
@@ -378,6 +521,53 @@ public class SearchShowSingleResultActivity extends AppCompatActivity {
         }
         return null;
     }
+    private String colorConvertor(String color){
+        int colorCode = 0;
+        String[] colorArray = color.split(",");
+        ArrayList colorIntArray = new ArrayList();
 
+        for(int i = 0; i < colorArray.length; i++){
+            switch(colorArray[i]) {
+                case "red":
+                    colorCode = 1;
+                    break;
+                case "orange":
+                    colorCode = 2;
+                    break;
+                case "yellow":
+                    colorCode = 3;
+                    break;
+                case "green":
+                    colorCode = 4;
+                    break;
+                case "blue":
+                    colorCode = 5;
+                    break;
+                case "purple":
+                    colorCode = 6;
+                    break;
+                case "white":
+                    colorCode = 7;
+                    break;
+                case "black":
+                    colorCode = 8;
+                    break;
+                case "brown":
+                    colorCode = 9;
+                    break;
+                case "grey":
+                    colorCode = 10;
+                    break;
+            }
+            colorIntArray.add(colorCode);
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Object s : colorIntArray)
+        {
+            sb.append(s);
+            sb.append(",");
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
+    }
 }
 
