@@ -138,6 +138,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="@string/mm"
                             android:inputType="numberDecimal" />
 
                     </TableRow>
@@ -159,6 +160,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="@string/mm"
                             android:inputType="numberDecimal" />
 
 
@@ -240,8 +242,7 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/anaerobicToleranceDesc"
@@ -249,18 +250,17 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_anaerobic"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <Spinner
                             android:id="@+id/myPlantEditAnaerobic"
-                            android:layout_width="250dp"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/aWord"
-                            android:inputType="text"
-                            android:singleLine="true" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
                     </TableRow>
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="#2C4CAF50">
 
                         <TextView
                             android:id="@+id/editTemperatureTextMin"
@@ -279,7 +279,8 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="#2C4CAF50">
 
                         <TextView
                             android:id="@+id/editTemperatureTextMax"
@@ -383,6 +384,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="@string/cm"
                             android:inputType="numberDecimal" />
 
                     </TableRow>
@@ -402,6 +404,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="@string/cm"
                             android:inputType="numberDecimal" />
 
                     </TableRow>
@@ -422,6 +425,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:ems="10"
+                            android:hint="@string/days"
                             android:inputType="number" />
 
                     </TableRow>
@@ -567,13 +571,10 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_growthRate"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <Spinner
                             android:id="@+id/myPlantEditGrowthRate"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/shortDescription"
-                            android:inputType="text"
-                            android:singleLine="true" />
+                            android:layout_height="wrap_content"/>
                     </TableRow>
                     <TableRow
                         android:layout_width="match_parent"
@@ -594,7 +595,8 @@
                     </TableRow>
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="#2C4CAF50">
 
                         <TextView
                             android:id="@+id/editMaxHeight"
@@ -786,12 +788,10 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_foliageTexture"/>
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <Spinner
                             android:id="@+id/myPlantEditFoliageTexture"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/texture"
-                            android:singleLine="true" />
+                            android:layout_height="wrap_content"/>
                     </TableRow>
 
                     <TableRow
@@ -852,8 +852,7 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/plant_edit_detail_fruit_conspicuous"
@@ -1173,8 +1172,7 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#2C4CAF50">
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/plant_edit_detail_edible_part"
@@ -1207,24 +1205,28 @@
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked" />
                     </TableRow>
-
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_detail_edible_cat"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic"/>
                 <TextView
                     android:id="@+id/SowingDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#2C4CAF50"
                     android:text="@string/plant_edit_detail_sowing"/>
 
                     <EditText
                         android:id="@+id/myPlantEditSowing"
                         android:layout_width="match_parent"
                         android:layout_height="65dp"
-                        android:background="#2C4CAF50"
                         android:ems="10"
                         android:gravity="start|top"
                         android:inputType="textMultiLine" />
 
                 <TextView
+                    android:background="#2C4CAF50"
                     android:id="@+id/BibliographyDesc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -1237,7 +1239,8 @@
                         android:layout_height="150dp"
                         android:ems="10"
                         android:gravity="start|top"
-                        android:inputType="textMultiLine" />
+                        android:inputType="textMultiLine"
+                        android:background="#2C4CAF50"/>
                 </TableLayout>
             </LinearLayout>
 

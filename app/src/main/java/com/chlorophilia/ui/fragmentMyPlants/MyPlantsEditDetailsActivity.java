@@ -36,10 +36,9 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     ExtendedFloatingActionButton fab;
-    HashSet<String> bloomCheckboxes;
-    HashSet<String> growthCheckboxes;
-    HashSet<String> fruitCheckboxes;
-
+    HashSet<Integer> bloomCheckboxes;
+    HashSet<Integer> growthCheckboxes;
+    HashSet<Integer> fruitCheckboxes;
 
     @Nullable
     @Override
@@ -51,9 +50,9 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        bloomCheckboxes = new HashSet<String>();
-        growthCheckboxes = new HashSet<String>();
-        fruitCheckboxes = new HashSet<String>();
+        bloomCheckboxes = new HashSet<Integer>();
+        growthCheckboxes = new HashSet<Integer>();
+        fruitCheckboxes = new HashSet<Integer>();
 
         setContentView(R.layout.activity_myplants_edit_details);
 
@@ -147,11 +146,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         EditText plant_edit_detail_harvestDays = (EditText) findViewById(R.id.myPlantEditDaysToHarvest);
         EditText plant_edit_detail_sowing = (EditText) findViewById(R.id.myPlantEditSowing);
         EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
-        EditText plant_edit_detail_anaerobic = (EditText) findViewById(R.id.myPlantEditAnaerobic);
-        EditText plant_edit_detail_growthRate = (EditText) findViewById(R.id.myPlantEditGrowthRate);
         EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
         EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
-        EditText plant_edit_detail_foliage_texture = (EditText) findViewById(R.id.myPlantEditFoliageTexture);
         EditText plant_edit_detail_foliage_color = (EditText) findViewById(R.id.myPlantEditFoliageColor);
         EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
         EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
@@ -168,28 +164,9 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         Spinner plant_edit_detail_soilSalinity = (Spinner) findViewById(R.id.soil_salinity_spinner);
         Spinner plant_edit_detail_soilHumidity = (Spinner) findViewById(R.id.soil_humidity_spinner);
         Spinner plant_edit_detail_growthForm = (Spinner) findViewById(R.id.growthFormSpinner);
-
-        setContentView(R.layout.activity_myplants_edit_details);
-
-        plant = (Plant) getIntent().getSerializableExtra("plant");
-
-        if (plant.getCommon_name() != null) {
-            plant_detail_common_name.setText(plant.getCommon_name());
-        } else {
-            plant_detail_common_name.setText("");
-        }
-
-        if (plant.getScientific_name() != null) {
-            plant_edit_detail_scientific_name.setText(plant.getScientific_name());
-        } else {
-            plant_edit_detail_scientific_name.setText("");
-        }
-
-        if (plant.getFamily() != null) {
-            plant_edit_detail_family.setText(plant.getFamily());
-        } else {
-            plant_edit_detail_family.setText("");
-        }
+        Spinner plant_edit_detail_foliage_texture = (Spinner) findViewById(R.id.myPlantEditFoliageTexture);
+        Spinner plant_edit_detail_anaerobic = (Spinner) findViewById(R.id.myPlantEditAnaerobic);
+        Spinner plant_edit_detail_growthRate = (Spinner) findViewById(R.id.myPlantEditGrowthRate);
 
         if (plant.getGrowthHabit() != null) {
             String[] growthHabitArray = plant.getGrowthHabit().split(", ", -1);
@@ -428,6 +405,33 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_growthForm.setSelection(Integer.parseInt(plant.getGrowthForm()));
         }
 
+        //SPINNER ANAEROBIC TOLERANCE
+        ArrayAdapter<CharSequence> adapterAnaerobicTolerance = ArrayAdapter.createFromResource(this,
+                R.array.anaerobic_tolerance, android.R.layout.simple_spinner_item);
+        adapterAnaerobicTolerance.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_anaerobic.setAdapter(adapterAnaerobicTolerance);
+        if (plant.getAnaerobicTolerance() != null) {
+            plant_edit_detail_anaerobic.setSelection(Integer.parseInt(plant.getAnaerobicTolerance()));
+        }
+
+        //SPINNER GROWTH RATE
+        ArrayAdapter<CharSequence> adapaterGrowthRate = ArrayAdapter.createFromResource(this,
+                R.array.growth_rate, android.R.layout.simple_spinner_item);
+        adapaterGrowthRate.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_growthRate.setAdapter(adapaterGrowthRate);
+        if (plant.getGrowthRate() != null) {
+            plant_edit_detail_growthRate.setSelection(Integer.parseInt(plant.getGrowthRate()));
+        }
+
+        //SPINNER FOLIAGE TEXTURE
+        ArrayAdapter<CharSequence> adapaterFoliage = ArrayAdapter.createFromResource(this,
+                R.array.texture_foliage, android.R.layout.simple_spinner_item);
+        adapaterFoliage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_foliage_texture.setAdapter(adapaterFoliage);
+        if (plant.getFoliageTexture() != null) {
+            plant_edit_detail_foliage_texture.setSelection(Integer.parseInt(plant.getFoliageTexture()));
+        }
+
         //TEXT VALUES
         if (plant.getAtmosphericHumidity() != null) {
             plant_edit_detail_atmosphericHumidity.setSelection(Integer.parseInt(plant.getAtmosphericHumidity()));
@@ -514,18 +518,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_harvestDays.setText("");
         }
 
-        if (plant.getAnaerobicTolerance() != null) {
-            plant_edit_detail_anaerobic.setText(plant.getAnaerobicTolerance());
-        } else {
-            plant_edit_detail_anaerobic.setText("");
-        }
-
-        if (plant.getGrowthRate() != null) {
-            plant_edit_detail_growthRate.setText(plant.getGrowthRate());
-        } else {
-            plant_edit_detail_growthRate.setText("");
-        }
-
         if (plant.getAverageHeightCm() != null) {
             plant_edit_detail_averageHeight.setText(plant.getAverageHeightCm());
         } else {
@@ -536,12 +528,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_maxHeight.setText(plant.getMaximumHeightCm());
         } else {
             plant_edit_detail_maxHeight.setText("");
-        }
-
-        if (plant.getFoliageTexture() != null) {
-            plant_edit_detail_foliage_texture.setText(plant.getFoliageTexture());
-        } else {
-            plant_edit_detail_foliage_texture.setText("");
         }
 
         if (plant.getFlowerColor() != null) {
@@ -567,29 +553,60 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
-                plant.setCommon_name(plant_edit_detail_nickname.getText().toString());
-                plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
-                plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
-                plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
-                plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
-                plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
-                plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
-                plant.setNickname(plant_edit_detail_nickname.getText().toString());
-                plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
-                plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
-                plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
-                plant.setSowing(plant_edit_detail_sowing.getText().toString());
-                plant.setSpread(plant_edit_detail_spread.getText().toString());
-
-                plant.setAnaerobicTolerance(plant_edit_detail_anaerobic.getText().toString());
-                plant.setGrowthRate(plant_edit_detail_growthRate.getText().toString());
-                plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
-                plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
-                plant.setFoliageTexture(plant_edit_detail_foliage_texture.getText().toString());
-                plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
-                plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
-                plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
+                if(!plant_edit_detail_bibliography.getText().toString().equals("")){
+                    plant.setBibliography(plant_edit_detail_bibliography.getText().toString());
+                }
+                if(!plant_edit_detail_nickname.getText().toString().equals("")) {
+                    plant.setNickname(plant_edit_detail_nickname.getText().toString());
+                }
+                if(!plant_edit_detail_harvestDays.getText().toString().equals("")) {
+                    plant.setDays_to_harvest(plant_edit_detail_harvestDays.getText().toString());
+                }
+                if(!plant_edit_detail_Precipitation_max.getText().toString().equals("")) {
+                    plant.setMaximumPrecipitation(plant_edit_detail_Precipitation_max.getText().toString());
+                }
+                if(!plant_edit_detail_TemperatureMax.getText().toString().equals("")) {
+                    plant.setMaximumTemperature(plant_edit_detail_TemperatureMax.getText().toString());
+                }
+                if(!plant_edit_detail_Precipitation_min.getText().toString().equals("")) {
+                    plant.setMinimumPrecipitation(plant_edit_detail_Precipitation_min.getText().toString());
+                }
+                if(!plant_edit_detail_minimumRootDepth.getText().toString().equals("")) {
+                    plant.setMinimumRootDepth(plant_edit_detail_minimumRootDepth.getText().toString());
+                }
+                if(!plant_edit_detail_TemperatureMin.getText().toString().equals("")) {
+                    plant.setMinimumTemperature(plant_edit_detail_TemperatureMin.getText().toString());
+                }
+                if(!plant_edit_detail_ph_min.getText().toString().equals("")) {
+                    plant.setPhMaximum(plant_edit_detail_ph_min.getText().toString());
+                }
+                if(!plant_edit_detail_ph_max.getText().toString().equals("")) {
+                    plant.setPhMinimum(plant_edit_detail_ph_max.getText().toString());
+                }
+                if(!plant_edit_detail_rowSpacing.getText().toString().equals("")) {
+                    plant.setRowSpacing(plant_edit_detail_rowSpacing.getText().toString());
+                }
+                if(!plant_edit_detail_sowing.getText().toString().equals("")) {
+                    plant.setSowing(plant_edit_detail_sowing.getText().toString());
+                }
+                if(!plant_edit_detail_spread.getText().toString().equals("")) {
+                    plant.setSpread(plant_edit_detail_spread.getText().toString());
+                }
+                if(!plant_edit_detail_averageHeight.getText().toString().equals("")) {
+                    plant.setAverageHeightCm(plant_edit_detail_averageHeight.getText().toString());
+                }
+                if(!plant_edit_detail_maxHeight.getText().toString().equals("")) {
+                    plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
+                }
+                if(!plant_edit_detail_flower_color.getText().toString().equals("")) {
+                    plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
+                }
+                if(!plant_edit_detail_fruit_color.getText().toString().equals("")) {
+                    plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
+                }
+                if(!plant_edit_detail_ediblePart.getText().toString().equals("")) {
+                    plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
+                }
 
                 StringBuilder sb = new StringBuilder();
                 plant.setGrowthHabit(sb.toString());
@@ -627,30 +644,32 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
 
                 if(!sb.toString().equals("")){
                     plant.setGrowthHabit(sb.toString().substring(0, sb.toString().length() - 2));
+                } else {
+                    plant.setGrowthHabit(null);
                 }
 
                 if(vegetableBox.isChecked()){
                     plant.setVegetable("true");
                 } else {
-                    plant.setVegetable("");
+                    plant.setVegetable(null);
                 }
 
                 if(edibleBox.isChecked()){
                     plant.setEdible("true");
                 } else {
-                    plant.setEdible("");
+                    plant.setEdible(null);
                 }
 
                 if(flowerConspBox.isChecked()){
                     plant.setFlowerConspicuous("true");
                 } else {
-                    plant.setFlowerConspicuous("");
+                    plant.setFlowerConspicuous(null);
                 }
 
                 if(fruitConspBox.isChecked()){
                     plant.setFruitConspicuous("true");
                 } else {
-                    plant.setFruitConspicuous("");
+                    plant.setFruitConspicuous(null);
                 }
 
                 plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
@@ -660,37 +679,55 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 if(plant_edit_detail_light.getSelectedItemPosition() != 0){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
                 } else {
-                    plant.setLight("");
+                    plant.setLight(null);
                 }
 
                 if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
                     plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
                 } else {
-                    plant.setSoilHumidity("");
+                    plant.setSoilHumidity(null);
                 }
 
                 if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
                     plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
                 } else {
-                    plant.setAtmosphericHumidity("");
+                    plant.setAtmosphericHumidity(null);
                 }
 
                 if(plant_edit_detail_soilNutriments.getSelectedItemPosition() != 0){
                     plant.setSoilNutriments(String.valueOf(plant_edit_detail_soilNutriments.getSelectedItemPosition()));
                 } else {
-                    plant.setSoilNutriments("");
+                    plant.setSoilNutriments(null);
                 }
 
                 if(plant_edit_detail_soilSalinity.getSelectedItemPosition() != 0){
                     plant.setSoilSalinity(String.valueOf(plant_edit_detail_soilSalinity.getSelectedItemPosition()));
                 } else {
-                    plant.setSoilSalinity("");
+                    plant.setSoilSalinity(null);
                 }
 
                 if(plant_edit_detail_growthForm.getSelectedItemPosition() != 0){
                     plant.setGrowthForm(String.valueOf(plant_edit_detail_growthForm.getSelectedItemPosition()));
                 } else {
-                    plant.setGrowthForm("");
+                    plant.setGrowthForm(null);
+                }
+
+                if(plant_edit_detail_anaerobic.getSelectedItemPosition() != 0){
+                    plant.setAnaerobicTolerance(String.valueOf(plant_edit_detail_anaerobic.getSelectedItemPosition()));
+                } else {
+                    plant.setAnaerobicTolerance(null);
+                }
+
+                if(plant_edit_detail_growthRate.getSelectedItemPosition() != 0){
+                    plant.setGrowthRate(String.valueOf(plant_edit_detail_growthRate.getSelectedItemPosition()));
+                } else {
+                    plant.setGrowthRate(null);
+                }
+
+                if(plant_edit_detail_foliage_texture.getSelectedItemPosition() != 0){
+                    plant.setFoliageTexture(String.valueOf(plant_edit_detail_foliage_texture.getSelectedItemPosition()));
+                } else {
+                    plant.setFoliageTexture(null);
                 }
 
                 //Form validation
@@ -750,219 +787,219 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.bloom_january:
                 if (checked)
-                    bloomCheckboxes.add("jan");
+                    bloomCheckboxes.add(1);
                 else
-                    bloomCheckboxes.remove("jan");
+                    bloomCheckboxes.remove(1);
                 break;
             case R.id.bloom_february:
                 if (checked)
-                    bloomCheckboxes.add("feb");
+                    bloomCheckboxes.add(2);
                 else
-                    bloomCheckboxes.remove("feb");
+                    bloomCheckboxes.remove(2);
                 break;
             case R.id.bloom_march:
                 if (checked)
-                    bloomCheckboxes.add("mar");
+                    bloomCheckboxes.add(3);
                 else
-                    bloomCheckboxes.remove("mar");
+                    bloomCheckboxes.remove(3);
                 break;
             case R.id.bloom_april:
                 if (checked)
-                    bloomCheckboxes.add("apr");
+                    bloomCheckboxes.add(4);
                 else
-                    bloomCheckboxes.remove("apr");
-                break;
-            case R.id.bloom_june:
-                if (checked)
-                    bloomCheckboxes.add("jun");
-                else
-                    bloomCheckboxes.remove("jun");
-                break;
-            case R.id.bloom_july:
-                if (checked)
-                    bloomCheckboxes.add("jul");
-                else
-                    bloomCheckboxes.remove("jul");
+                    bloomCheckboxes.remove(4);
                 break;
             case R.id.bloom_may:
                 if (checked)
-                    bloomCheckboxes.add("may");
+                    bloomCheckboxes.add(5);
                 else
-                    bloomCheckboxes.remove("may");
+                    bloomCheckboxes.remove(5);
+                break;
+            case R.id.bloom_june:
+                if (checked)
+                    bloomCheckboxes.add(6);
+                else
+                    bloomCheckboxes.remove(6);
+                break;
+            case R.id.bloom_july:
+                if (checked)
+                    bloomCheckboxes.add(7);
+                else
+                    bloomCheckboxes.remove(7);
                 break;
             case R.id.bloom_august:
                 if (checked)
-                    bloomCheckboxes.add("aug");
+                    bloomCheckboxes.add(8);
                 else
-                    bloomCheckboxes.remove("aug");
+                    bloomCheckboxes.remove(8);
                 break;
             case R.id.bloom_september:
                 if (checked)
-                    bloomCheckboxes.add("sep");
+                    bloomCheckboxes.add(9);
                 else
-                    bloomCheckboxes.remove("sep");
-                break;
-            case R.id.bloom_november:
-                if (checked)
-                    bloomCheckboxes.add("nov");
-                else
-                    bloomCheckboxes.remove("nov");
+                    bloomCheckboxes.remove(9);
                 break;
             case R.id.bloom_october:
                 if (checked)
-                    bloomCheckboxes.add("oct");
+                    bloomCheckboxes.add(10);
                 else
-                    bloomCheckboxes.remove("oct");
+                    bloomCheckboxes.remove(10);
+                break;
+            case R.id.bloom_november:
+                if (checked)
+                    bloomCheckboxes.add(11);
+                else
+                    bloomCheckboxes.remove(11);
                 break;
             case R.id.bloom_december:
                 if (checked)
-                    bloomCheckboxes.add("dec");
+                    bloomCheckboxes.add(12);
                 else
-                    bloomCheckboxes.remove("dec");
+                    bloomCheckboxes.remove(12);
                 break;
             case R.id.growth_january:
                 if (checked)
-                    growthCheckboxes.add("jan");
+                    growthCheckboxes.add(1);
                 else
-                    growthCheckboxes.remove("jan");
+                    growthCheckboxes.remove(1);
                 break;
             case R.id.growth_february:
                 if (checked)
-                    growthCheckboxes.add("feb");
+                    growthCheckboxes.add(2);
                 else
-                    growthCheckboxes.remove("feb");
+                    growthCheckboxes.remove(2);
                 break;
             case R.id.growth_march:
                 if (checked)
-                    growthCheckboxes.add("mar");
+                    growthCheckboxes.add(3);
                 else
-                    growthCheckboxes.remove("mar");
+                    growthCheckboxes.remove(3);
                 break;
             case R.id.growth_april:
                 if (checked)
-                    growthCheckboxes.add("apr");
+                    growthCheckboxes.add(4);
                 else
-                    growthCheckboxes.remove("apr");
-                break;
-            case R.id.growth_june:
-                if (checked)
-                    growthCheckboxes.add("jun");
-                else
-                    growthCheckboxes.remove("jun");
-                break;
-            case R.id.growth_july:
-                if (checked)
-                    growthCheckboxes.add("jul");
-                else
-                    growthCheckboxes.remove("jul");
+                    growthCheckboxes.remove(4);
                 break;
             case R.id.growth_may:
                 if (checked)
-                    growthCheckboxes.add("may");
+                    growthCheckboxes.add(5);
                 else
-                    growthCheckboxes.remove("may");
+                    growthCheckboxes.remove(5);
+                break;
+            case R.id.growth_june:
+                if (checked)
+                    growthCheckboxes.add(6);
+                else
+                    growthCheckboxes.remove(6);
+                break;
+            case R.id.growth_july:
+                if (checked)
+                    growthCheckboxes.add(7);
+                else
+                    growthCheckboxes.remove(7);
                 break;
             case R.id.growth_august:
                 if (checked)
-                    growthCheckboxes.add("aug");
+                    growthCheckboxes.add(8);
                 else
-                    growthCheckboxes.remove("aug");
+                    growthCheckboxes.remove(8);
                 break;
             case R.id.growth_september:
                 if (checked)
-                    growthCheckboxes.add("sep");
+                    growthCheckboxes.add(9);
                 else
-                    growthCheckboxes.remove("sep");
-                break;
-            case R.id.growth_november:
-                if (checked)
-                    growthCheckboxes.add("nov");
-                else
-                    growthCheckboxes.remove("nov");
+                    growthCheckboxes.remove(9);
                 break;
             case R.id.growth_october:
                 if (checked)
-                    growthCheckboxes.add("oct");
+                    growthCheckboxes.add(10);
                 else
-                    growthCheckboxes.remove("oct");
+                    growthCheckboxes.remove(10);
+                break;
+            case R.id.growth_november:
+                if (checked)
+                    growthCheckboxes.add(11);
+                else
+                    growthCheckboxes.remove(11);
                 break;
             case R.id.growth_december:
                 if (checked)
-                    growthCheckboxes.add("dec");
+                    growthCheckboxes.add(12);
                 else
-                    growthCheckboxes.remove("dec");
+                    growthCheckboxes.remove(12);
                 break;
             case R.id.fruit_january:
                 if (checked)
-                    fruitCheckboxes.add("jan");
+                    fruitCheckboxes.add(1);
                 else
-                    fruitCheckboxes.remove("jan");
+                    fruitCheckboxes.remove(1);
                 break;
             case R.id.fruit_february:
                 if (checked)
-                    fruitCheckboxes.add("feb");
+                    fruitCheckboxes.add(2);
                 else
-                    fruitCheckboxes.remove("feb");
+                    fruitCheckboxes.remove(2);
                 break;
             case R.id.fruit_march:
                 if (checked)
-                    fruitCheckboxes.add("mar");
+                    fruitCheckboxes.add(3);
                 else
-                    fruitCheckboxes.remove("mar");
+                    fruitCheckboxes.remove(3);
                 break;
             case R.id.fruit_april:
                 if (checked)
-                    fruitCheckboxes.add("apr");
+                    fruitCheckboxes.add(4);
                 else
-                    fruitCheckboxes.remove("apr");
-                break;
-            case R.id.fruit_june:
-                if (checked)
-                    fruitCheckboxes.add("jun");
-                else
-                    fruitCheckboxes.remove("jun");
-                break;
-            case R.id.fruit_july:
-                if (checked)
-                    fruitCheckboxes.add("jul");
-                else
-                    fruitCheckboxes.remove("jul");
+                    fruitCheckboxes.remove(4);
                 break;
             case R.id.fruit_may:
                 if (checked)
-                    fruitCheckboxes.add("may");
+                    fruitCheckboxes.add(5);
                 else
-                    fruitCheckboxes.remove("may");
+                    fruitCheckboxes.remove(5);
+                break;
+            case R.id.fruit_june:
+                if (checked)
+                    fruitCheckboxes.add(6);
+                else
+                    fruitCheckboxes.remove(6);
+                break;
+            case R.id.fruit_july:
+                if (checked)
+                    fruitCheckboxes.add(7);
+                else
+                    fruitCheckboxes.remove(7);
                 break;
             case R.id.fruit_august:
                 if (checked)
-                    fruitCheckboxes.add("aug");
+                    fruitCheckboxes.add(8);
                 else
-                    fruitCheckboxes.remove("aug");
+                    fruitCheckboxes.remove(8);
                 break;
             case R.id.fruit_september:
                 if (checked)
-                    fruitCheckboxes.add("sep");
+                    fruitCheckboxes.add(9);
                 else
-                    fruitCheckboxes.remove("sep");
-                break;
-            case R.id.fruit_november:
-                if (checked)
-                    fruitCheckboxes.add("nov");
-                else
-                    fruitCheckboxes.remove("nov");
+                    fruitCheckboxes.remove(9);
                 break;
             case R.id.fruit_october:
                 if (checked)
-                    fruitCheckboxes.add("oct");
+                    fruitCheckboxes.add(10);
                 else
-                    fruitCheckboxes.remove("oct");
+                    fruitCheckboxes.remove(10);
+                break;
+            case R.id.fruit_november:
+                if (checked)
+                    fruitCheckboxes.add(11);
+                else
+                    fruitCheckboxes.remove(11);
                 break;
             case R.id.fruit_december:
                 if (checked)
-                    fruitCheckboxes.add("dec");
+                    fruitCheckboxes.add(12);
                 else
-                    fruitCheckboxes.remove("dec");
+                    fruitCheckboxes.remove(12);
                 break;
         }
     }
@@ -971,14 +1008,15 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         String jsonString = "";
         if(hashSet.size() > 0){
             jsonString = "[";
-            Iterator<String> it = hashSet.iterator();
+            Iterator<Integer> it = hashSet.iterator();
             while (it.hasNext()){
-                jsonString += "\"" + it.next() + "\",";
+                jsonString += it.next()+",";
             }
-            jsonString = removeLastComma(jsonString);
-            jsonString += "]";
+        } else {
+            return "[]";
         }
-        return jsonString;
+        jsonString = removeLastComma(jsonString);
+        return jsonString += "]";
     }
 
     private String removeLastComma(String str){

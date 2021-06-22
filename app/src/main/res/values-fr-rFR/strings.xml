@@ -47,7 +47,7 @@
     <string name="plant_detail_days_to_harvest">Récolter après :</string>
     <string name="plant_detail_growthMonths">Croissance (mois) :</string>
     <string name="plant_detail_bloomMonths">Floraison (mois) :</string>
-    <string name="plant_detail_fruitMonths">Fruitsaison (mois) :</string>
+    <string name="plant_detail_fruitMonths">Fruitaison (mois) :</string>
     <string name="plant_detail_bibliography">Bibliographie :</string>
     <string name="plant_detail_anaerobic">Tolérance anaérobique :</string>
     <string name="plant_detail_growthForm">Structure :</string>
@@ -67,7 +67,7 @@
     <string name="plant_detail_urlPlantnet">PlantNet :</string>
     <string name="plant_detail_urlGbif">Global Biodiversity Information Facility :</string>
     <string name="plant_detail_urlWikipediaEn">Wikipedia :</string>
-    <string name="plant_detail_foliageColor">Couleur du feuillag e:</string>
+    <string name="plant_detail_foliageColor">Couleur du feuillage :</string>
     <string name="cm">" cm."</string>
     <string name="mm">" mm."</string>
     <string name="min">"min. "</string>
@@ -75,16 +75,16 @@
     <string name="days">jours</string>
     <string name="plant_edit_detail_precipitation_min">Précipitations en mm. :</string>
     <string name="plant_edit_detail_precipitation_max">Précipitations en mm. :</string>
-    <string name="plant_edit_detail_temperature_min">Temperature en celsius (min.) :</string>
-    <string name="plant_edit_detail_temperature_max">Temperature en celsius (max.) :</string>
+    <string name="plant_edit_detail_temperature_min">Température (min.) :</string>
+    <string name="plant_edit_detail_temperature_max">Température (max.) :</string>
     <string name="plant_edit_detail_ph_min">pH du sol (min.):</string>
     <string name="plant_edit_detail_ph_max">pH du sol (max.):</string>
-    <string name="plant_edit_detail_atmosphericHumidity">Humidité atmosphérique (max. 10) :</string>
-    <string name="plant_edit_detail_soilNutriments">Nutriments du sol (max. 10) :</string>
-    <string name="plant_edit_detail_soilSalinity">Salinité du sol (max. 10) :</string>
-    <string name="plant_edit_detail_soilHumidity">Humidité du so  (max. 10) :</string>
-    <string name="plant_edit_detail_spread">Dissémination en cm. :</string>
-    <string name="plant_edit_detail_minimumRootDepth">Profondeur min. des racines (en cm) :</string>
+    <string name="plant_edit_detail_atmosphericHumidity">Humidité atmosphérique :</string>
+    <string name="plant_edit_detail_soilNutriments">Nutriments du sol :</string>
+    <string name="plant_edit_detail_soilSalinity">Salinité du sol :</string>
+    <string name="plant_edit_detail_soilHumidity">Humidité du sol :</string>
+    <string name="plant_edit_detail_spread">Dissémination :</string>
+    <string name="plant_edit_detail_minimumRootDepth">Profondeur min. des racines :</string>
     <string name="plant_edit_detail_sowing">Instructions de semence :</string>
     <string name="plant_edit_detail_rowSpacing">Ecartement des semis :</string>
     <string name="plant_edit_detail_days_to_harvest">Récolter en :</string>
@@ -110,7 +110,7 @@
     <string name="noLightInfoText">Il n\'y a pas d\'information relative à la lumière pour cette plante, mais nous pouvons dire que :</string>
     <string name="searchTooltip">Essayez un nom anglais comme \"Garden Strawberry\" ou un nom scientifique comme : \"laurus nobilis\". Plus d\'un million de noms sont référencés.</string>
     <string name="home_request_camera">Cette fonctionnalité requiert l\'accès à votre appareil photo.</string>
-    <string name="home_first_time">Bienvenue sur Chlorophilia. Cliquez sur \"Rechercher\" pour trouver votre première plante et l\'ajouter à votre herbier.</string>
+    <string name="home_first_time">Bienvenue sur Chlorophilia.\n\nCliquez sur \"Rechercher\" pour trouver votre première plante et l\'ajouter à votre herbier.</string>
     <string name="ok">OK !</string>
     <string name="gotit">J\'ai compris.</string>
     <string name="january">Janv.</string>
@@ -121,10 +121,10 @@
     <string name="june">Juin</string>
     <string name="july">Juil.</string>
     <string name="august">Août</string>
-    <string name="september">Sept.</string>
-    <string name="october">Octo.</string>
-    <string name="november">Novembre</string>
-    <string name="december">Décembre</string>
+    <string name="september">Sep.</string>
+    <string name="october">Oct.</string>
+    <string name="november">Nov.</string>
+    <string name="december">Déc.</string>
     <string name="remote_server_failed">Le serveur distant ne répond pas. Veuillez réessayer plus tard.</string>
     <string name="minMaxTemp">La température ne peut être inférieure à la température minimale</string>
     <string name="minMaxPrec">Les précipitations ne peuvent être inférieures à aux précipitations minimales</string>
@@ -193,4 +193,5 @@
     <string name="black">noir</string>
     <string name="brown">brun</string>
     <string name="grey">gris</string>
+    <string name="other">Autres :</string>
 </resources>

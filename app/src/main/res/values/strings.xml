@@ -92,14 +92,14 @@
     <string name="plant_edit_detail_temperature_max">Temperature in celsius (max.) :</string>
     <string name="plant_edit_detail_ph_min">Soil pH (min.) :</string>
     <string name="plant_edit_detail_ph_max">Soil pH (max.) :</string>
-    <string name="plant_edit_detail_atmosphericHumidity">Atmospheric humidity (max. 10) :</string>
-    <string name="plant_edit_detail_soilNutriments">Soil nutriments (max. 10) :</string>
-    <string name="plant_edit_detail_soilSalinity">Soil salinity (max. 10) :</string>
-    <string name="plant_edit_detail_soilHumidity">Soil humidity (max. 10) :</string>
-    <string name="plant_edit_detail_spread">Spread in cm. :</string>
-    <string name="plant_edit_detail_minimumRootDepth">Min. root depths (in cm.) :</string>
+    <string name="plant_edit_detail_atmosphericHumidity">Atmospheric humidity:</string>
+    <string name="plant_edit_detail_soilNutriments">Soil nutriments:</string>
+    <string name="plant_edit_detail_soilSalinity">Soil salinity:</string>
+    <string name="plant_edit_detail_soilHumidity">Soil humidity:</string>
+    <string name="plant_edit_detail_spread">Spread:</string>
+    <string name="plant_edit_detail_minimumRootDepth">Min. root depths:</string>
     <string name="plant_edit_detail_sowing">Sowing (instructions) :</string>
-    <string name="plant_edit_detail_rowSpacing">Row spacing in cm. :</string>
+    <string name="plant_edit_detail_rowSpacing">Row spacing (in cm.) :</string>
     <string name="plant_edit_detail_days_to_harvest">Harvest after:</string>
     <string name="plant_edit_detail_growthMonths">Growth months:</string>
     <string name="plant_edit_detail_bloomMonths">Bloom months:</string>
@@ -228,4 +228,6 @@
     <string name="october">Oct.</string>
     <string name="november">Nov.</string>
     <string name="december">Dec.</string>
+
+    <string name="other">Other :</string>
 </resources>

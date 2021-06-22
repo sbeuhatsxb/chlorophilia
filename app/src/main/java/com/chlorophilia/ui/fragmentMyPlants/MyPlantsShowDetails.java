@@ -338,34 +338,34 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getGrowthHabit() != null) {
-            String[] growthHabitArray = plant.getGrowthHabit().split(",");
+            String[] growthHabitArray = plant.getGrowthHabit().split(", ");
             ArrayList growthHabitTranslated = new ArrayList();
 
             for(int i = 0; i < growthHabitArray.length; i++){
                 String growthHabitTranslation = "";
                 switch(growthHabitArray[i]) {
-                    case "1":
+                    case "Tree":
                         growthHabitTranslation = getResources().getString(R.string.tree);
                         break;
-                    case "2":
+                    case "Nonvascular":
                         growthHabitTranslation = getResources().getString(R.string.nonvascular);
                         break;
-                    case "3":
+                    case "Forb/herb":
                         growthHabitTranslation = getResources().getString(R.string.forb_herb);
                         break;
-                    case "4":
+                    case "Vine":
                         growthHabitTranslation = getResources().getString(R.string.vine);
                         break;
-                    case "5":
+                    case "Subshrub":
                         growthHabitTranslation = getResources().getString(R.string.subshrub);
                         break;
-                    case "6":
+                    case "Shrub":
                         growthHabitTranslation = getResources().getString(R.string.shrub);
                         break;
-                    case "7":
+                    case "Graminoid":
                         growthHabitTranslation = getResources().getString(R.string.graminoid);
                         break;
-                   case "8":
+                   case "lichenous":
                         growthHabitTranslation = getResources().getString(R.string.lichenous);
                         break;
                 }

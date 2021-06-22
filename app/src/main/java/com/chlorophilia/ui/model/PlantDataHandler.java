@@ -267,265 +267,221 @@ public class PlantDataHandler extends SQLiteOpenHelper {
 
     public void updatePlant(Plant plant) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String nickname = plant.getNickname();
-        String common_name = plant.getCommon_name();
-        String bibliography = plant.getBibliography();
-        String scientific_name = plant.getScientific_name();
-        String family = plant.getFamily();
-        String sowing = plant.getSowing();
-        String days_to_harvest = plant.getDays_to_harvest();
-        String ph_maximum = plant.getPhMaximum();
-        String ph_minimum = plant.getPhMinimum();
-        String light = plant.getLight();
-        String atmospheric_humidity = plant.getAtmosphericHumidity();
-        String growth_months = plant.getGrowthMonths();
-        String bloom_months = plant.getBloomMonths();
-        String fruit_months = plant.getFruitMonths();
-        String soil_nutriments = plant.getSoilNutriments();
-        String soil_salinity = plant.getSoilSalinity();
-        String soil_humidity = plant.getSoilHumidity();
-        String spread = plant.getSpread();
-        String row_spacing = plant.getRowSpacing();
-        String minimum_precipitation = plant.getMinimumPrecipitation();
-        String maximum_precipitation = plant.getMaximumPrecipitation();
-        String minimum_temperature = plant.getMinimumTemperature();
-        String maximum_temperature = plant.getMaximumTemperature();
-        String minimum_root_depth = plant.getMinimumRootDepth();
-        //API V2
-        String growthForm = plant.getGrowthForm();
-        String growthHabit = plant.getGrowthHabit();
-        String growthRate = plant.getGrowthRate();
-        String ediblePart = plant.getEdiblePart();
-        String vegetable = plant.getVegetable();
-        String edible = plant.getEdible();
-        String anaerobicTolerance = plant.getAnaerobicTolerance();
-        String averageHeightCm = plant.getAverageHeightCm();
-        String maximumHeightCm = plant.getMaximumHeightCm();
-        String urlPowo = plant.getUrlPowo();
-        String urlPlantnet = plant.getUrlPlantnet();
-        String urlGbif = plant.getUrlGbif();
-        String urlWikipediaEn = plant.getUrlWikipediaEn();
-        String flowerColor = plant.getFlowerColor();
-        String flowerConspicuous = plant.getFlowerConspicuous();
-        String foliageColor = plant.getFoliageColor();
-        String foliageTexture = plant.getFoliageTexture();
-        String fruitColor = plant.getFruitColor();
-        String fruitConspicuous = plant.getFruitConspicuous();
 
         ContentValues values = new ContentValues();
-        if(!nickname.equals("")){
-            values.put("nickname", nickname);
+        if(plant.getNickname() != null){
+            values.put("nickname", plant.getNickname());
         } else {
             values.putNull("nickname");
         }
-        if(!common_name.equals("")){
-            values.put("common_name", common_name);
+        if(plant.getCommon_name() != null){
+            values.put("common_name", plant.getCommon_name());
         } else {
             values.putNull("common_name");
         }
-        if(!scientific_name.equals("")){
-            values.put("scientific_name", scientific_name);
+        if(plant.getScientific_name() != null){
+            values.put("scientific_name", plant.getScientific_name());
         } else {
             values.putNull("scientific_name");
         }
-        if(!family.equals("")){
-            values.put("family", family);
+        if(plant.getFamily() != null){
+            values.put("family", plant.getFamily());
         } else {
             values.putNull("family");
         }
-        if(!bibliography.equals("")){
-            values.put("bibliography", bibliography);
+        if(plant.getBibliography() != null){
+            values.put("bibliography", plant.getBibliography());
         } else {
             values.putNull("bibliography");
         }
-        if(!sowing.equals("")){
-            values.put("sowing", sowing);
+        if(plant.getSowing() != null){
+            values.put("sowing", plant.getSowing());
         } else {
             values.putNull("sowing");
         }
-        if(!days_to_harvest.equals("")){
-            values.put("days_to_harvest", days_to_harvest);
+        if(plant.getDays_to_harvest() != null){
+            values.put("days_to_harvest", plant.getDays_to_harvest());
         } else {
             values.putNull("days_to_harvest");
         }
-        if(!ph_minimum.equals("")){
-            values.put("ph_minimum", ph_minimum);
+        if(plant.getPhMinimum() != null){
+            values.put("ph_minimum", plant.getPhMinimum());
         } else {
             values.putNull("ph_minimum");
         }
-        if(!ph_maximum.equals("")){
-            values.put("ph_maximum", ph_maximum);
+        if(plant.getPhMaximum() != null){
+            values.put("ph_maximum", plant.getPhMaximum());
         } else {
             values.putNull("ph_maximum");
         }
-        if(!light.equals("")){
-            values.put("light", light);
+        if(plant.getLight() != null){
+            values.put("light", plant.getLight());
         } else {
             values.putNull("light");
         }
-        if(!atmospheric_humidity.equals("")){
-            values.put("atmospheric_humidity", atmospheric_humidity);
+        if(plant.getAtmosphericHumidity() != null){
+            values.put("atmospheric_humidity", plant.getAtmosphericHumidity());
         } else {
             values.putNull("atmospheric_humidity");
         }
-        if(!growth_months.equals("")){
-            values.put("growth_months", growth_months);
+        if(plant.getGrowthMonths() != null){
+            values.put("growth_months", plant.getGrowthMonths());
         } else {
             values.putNull("growth_months");
         }
-        if(!bloom_months.equals("")){
-            values.put("bloom_months", bloom_months);
+        if(plant.getBloomMonths() != null){
+            values.put("bloom_months", plant.getBloomMonths());
         } else {
             values.putNull("bloom_months");
         }
-        if(!fruit_months.equals("")){
-            values.put("fruit_months", fruit_months);
+        if(plant.getFruitMonths() != null){
+            values.put("fruit_months", plant.getFruitMonths());
         } else {
             values.putNull("fruit_months");
         }
-        if(!soil_nutriments.equals("")){
-            values.put("soil_nutriments", soil_nutriments);
+        if(plant.getSoilNutriments() != null){
+            values.put("soil_nutriments", plant.getSoilNutriments());
         } else {
             values.putNull("soil_nutriments");
         }
-        if(!soil_salinity.equals("")){
-            values.put("soil_salinity", soil_salinity);
+        if(plant.getSoilSalinity() != null){
+            values.put("soil_salinity", plant.getSoilSalinity());
         } else {
             values.putNull("soil_salinity");
         }
-        if(!soil_humidity.equals("")){
-            values.put("soil_humidity", soil_humidity);
+        if(plant.getSoilHumidity() != null){
+            values.put("soil_humidity", plant.getSoilHumidity());
         } else {
             values.putNull("soil_humidity");
         }
-        if(!spread.equals("")){
-            values.put("spread", spread);
+        if(plant.getSpread() != null){
+            values.put("spread", plant.getSpread());
         } else {
             values.putNull("spread");
         }
-        if(!row_spacing.equals("")){
-            values.put("row_spacing", row_spacing);
+        if(plant.getRowSpacing() != null){
+            values.put("row_spacing", plant.getRowSpacing());
         } else {
             values.putNull("row_spacing");
         }
-        if(!minimum_precipitation.equals("")){
-            values.put("minimum_precipitation", minimum_precipitation);
+        if(plant.getMinimumPrecipitation() != null){
+            values.put("minimum_precipitation", plant.getMinimumPrecipitation());
         } else {
             values.putNull("minimum_precipitation");
         }
-        if(!maximum_precipitation.equals("")){
-            values.put("maximum_precipitation", maximum_precipitation);
+        if(plant.getMaximumPrecipitation() != null){
+            values.put("maximum_precipitation", plant.getMaximumPrecipitation());
         } else {
             values.putNull("maximum_precipitation");
         }
-        if(!minimum_temperature.equals("")){
-            values.put("minimum_temperature", minimum_temperature);
+        if(plant.getMinimumTemperature() != null){
+            values.put("minimum_temperature", plant.getMinimumTemperature());
         } else {
             values.putNull("minimum_temperature");
         }
-        if(!maximum_temperature.equals("")){
-            values.put("maximum_temperature", maximum_temperature);
+        if(plant.getMaximumTemperature() != null){
+            values.put("maximum_temperature", plant.getMaximumTemperature());
         } else {
             values.putNull("maximum_temperature");
         }
-        if(!minimum_root_depth.equals("")){
-            values.put("minimum_root_depth", minimum_root_depth);
+        if(plant.getMinimumRootDepth() != null){
+            values.put("minimum_root_depth", plant.getMinimumRootDepth());
         } else {
             values.putNull("minimum_root_depth");
         }
         //API V2
-        if(!growthForm.equals("")) {
-            values.put("growthForm", growthForm);
+        if(plant.getGrowthForm() != null) {
+            values.put("growthForm", plant.getGrowthForm());
         } else {
             values.putNull("growthForm");
         }
-        if(!growthHabit.equals("")) {
-            values.put("growthHabit", growthHabit);
+        if(plant.getGrowthHabit() != null) {
+            values.put("growthHabit", plant.getGrowthHabit());
         } else {
             values.putNull("growthHabit");
         }
-        if(!growthRate.equals("")) {
-        values.put("growthRate", growthRate);
+        if(plant.getGrowthRate() != null) {
+            values.put("growthRate", plant.getGrowthRate());
         } else {
             values.putNull("growthRate");
         }
-        if(!ediblePart.equals("")) {
-        values.put("ediblePart", ediblePart);
+        if(plant.getEdiblePart() != null) {
+            values.put("ediblePart", plant.getEdiblePart());
         } else {
             values.putNull("ediblePart");
         }
-        if(!vegetable.equals("")) {
-        values.put("vegetable", vegetable);
+        if(plant.getVegetable() != null) {
+            values.put("vegetable", plant.getVegetable());
         } else {
             values.putNull("vegetable");
         }
-        if(!edible.equals("")) {
-        values.put("edible", edible);
+        if(plant.getEdible() != null) {
+            values.put("edible", plant.getEdible());
         } else {
             values.putNull("edible");
         }
-        if(!anaerobicTolerance.equals("")) {
-        values.put("anaerobicTolerance", anaerobicTolerance);
+        if(plant.getAnaerobicTolerance() != null) {
+            values.put("anaerobicTolerance", plant.getAnaerobicTolerance());
         } else {
             values.putNull("anaerobicTolerance");
         }
-        if(!averageHeightCm.equals("")) {
-        values.put("averageHeightCm", averageHeightCm);
+        if(plant.getAverageHeightCm() != null) {
+            values.put("averageHeightCm", plant.getAverageHeightCm());
         } else {
             values.putNull("averageHeightCm");
         }
-        if(!maximumHeightCm.equals("")) {
-        values.put("maximumHeightCm", maximumHeightCm);
+        if(plant.getMaximumHeightCm() != null) {
+            values.put("maximumHeightCm", plant.getMaximumHeightCm());
         } else {
             values.putNull("maximumHeightCm");
         }
-        if(!urlPowo.equals("")) {
-        values.put("urlPowo", urlPowo);
+        if(plant.getUrlPowo() != null) {
+            values.put("urlPowo", plant.getUrlPowo());
         } else {
             values.putNull("urlPowo");
         }
-        if(!urlPlantnet.equals("")) {
-        values.put("urlPlantnet", urlPlantnet);
+        if(plant.getUrlPlantnet() != null) {
+            values.put("urlPlantnet", plant.getUrlPlantnet());
         } else {
             values.putNull("urlPlantnet");
         }
-        if(!urlGbif.equals("")) {
-            values.put("urlGbif", urlGbif);
+        if(plant.getUrlGbif() != null) {
+            values.put("urlGbif", plant.getUrlGbif());
         } else {
             values.putNull("urlGbif");
         }
-        if(!urlWikipediaEn.equals("")) {
-            values.put("urlWikipediaEn", urlWikipediaEn);
+        if(plant.getUrlWikipediaEn() != null) {
+            values.put("urlWikipediaEn", plant.getUrlWikipediaEn());
         } else {
             values.putNull("urlWikipediaEn");
         }
-        if(!flowerColor.equals("")) {
-            values.put("flowerColor", flowerColor);
+        if(plant.getFlowerColor() != null) {
+            values.put("flowerColor", plant.getFlowerColor());
         } else {
             values.putNull("flowerColor");
         }
-        if(!flowerConspicuous.equals("")) {
-            values.put("flowerConspicuous", flowerConspicuous);
+        if(plant.getFlowerConspicuous() != null) {
+            values.put("flowerConspicuous", plant.getFlowerConspicuous());
         } else {
             values.putNull("flowerConspicuous");
         }
-        if(!foliageColor.equals("")) {
-            values.put("foliageColor", foliageColor);
+        if(plant.getFoliageColor() != null) {
+            values.put("foliageColor", plant.getFoliageColor());
         } else {
             values.putNull("foliageColor");
         }
-        if(!foliageTexture.equals("")) {
-            values.put("foliageTexture", foliageTexture);
+        if(plant.getFoliageTexture() != null) {
+            values.put("foliageTexture", plant.getFoliageTexture());
         } else {
             values.putNull("foliageTexture");
         }
-        if(!fruitColor.equals("")) {
-            values.put("fruitColor", fruitColor);
+        if(plant.getFruitColor() != null) {
+            values.put("fruitColor", plant.getFruitColor());
         } else {
             values.putNull("fruitColor");
         }
-        if(!fruitConspicuous.equals("")) {
-            values.put("fruitConspicuous", fruitColor);
+        if(plant.getFruitConspicuous() != null) {
+            values.put("fruitConspicuous", plant.getFlowerConspicuous());
         } else {
             values.putNull("fruitConspicuous");
         }
