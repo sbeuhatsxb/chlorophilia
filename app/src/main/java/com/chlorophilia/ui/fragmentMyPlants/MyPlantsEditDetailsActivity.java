@@ -7,7 +7,6 @@ import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -23,7 +22,6 @@ import com.chlorophilia.ui.entities.Plant;
 import com.chlorophilia.ui.model.PlantDataHandler;
 import com.chlorophilia.ui.toolbox.InputFilterMinMax;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -231,39 +229,51 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 switch (bloomMonth) {
                     case 1:
                         populateCheckboxes(bloom_january);
+                        bloomCheckboxes.add(1);
                         break;
                     case 2:
                         populateCheckboxes(bloom_february);
+                        bloomCheckboxes.add(2);
                         break;
                     case 3:
                         populateCheckboxes(bloom_march);
+                        bloomCheckboxes.add(3);
                         break;
                     case 4:
                         populateCheckboxes(bloom_april);
+                        bloomCheckboxes.add(4);
                         break;
                     case 5:
                         populateCheckboxes(bloom_may);
+                        bloomCheckboxes.add(5);
                         break;
                     case 6:
                         populateCheckboxes(bloom_june);
+                        bloomCheckboxes.add(6);
                         break;
                     case 7:
                         populateCheckboxes(bloom_july);
+                        bloomCheckboxes.add(7);
                         break;
                     case 8:
                         populateCheckboxes(bloom_august);
+                        bloomCheckboxes.add(8);
                         break;
                     case 9:
                         populateCheckboxes(bloom_september);
+                        bloomCheckboxes.add(9);
                         break;
                     case 10:
                         populateCheckboxes(bloom_october);
+                        bloomCheckboxes.add(10);
                         break;
                     case 11:
                         populateCheckboxes(bloom_november);
+                        bloomCheckboxes.add(11);
                         break;
                     case 12:
                         populateCheckboxes(bloom_december);
+                        bloomCheckboxes.add(12);
                         break;
                 }
             }
@@ -274,39 +284,51 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 switch (fruitMonth) {
                     case 1:
                         populateCheckboxes(fruit_january);
+                        fruitCheckboxes.add(1);
                         break;
                     case 2:
                         populateCheckboxes(fruit_february);
+                        fruitCheckboxes.add(2);
                         break;
                     case 3:
                         populateCheckboxes(fruit_march);
+                        fruitCheckboxes.add(3);
                         break;
                     case 4:
                         populateCheckboxes(fruit_april);
+                        fruitCheckboxes.add(4);
                         break;
                     case 5:
                         populateCheckboxes(fruit_may);
+                        fruitCheckboxes.add(5);
                         break;
                     case 6:
                         populateCheckboxes(fruit_june);
+                        fruitCheckboxes.add(6);
                         break;
                     case 7:
                         populateCheckboxes(fruit_july);
+                        fruitCheckboxes.add(7);
                         break;
                     case 8:
                         populateCheckboxes(fruit_august);
+                        fruitCheckboxes.add(8);
                         break;
                     case 9:
                         populateCheckboxes(fruit_september);
+                        fruitCheckboxes.add(9);
                         break;
                     case 10:
                         populateCheckboxes(fruit_october);
+                        fruitCheckboxes.add(10);
                         break;
                     case 11:
                         populateCheckboxes(fruit_november);
+                        fruitCheckboxes.add(11);
                         break;
                     case 12:
                         populateCheckboxes(fruit_december);
+                        fruitCheckboxes.add(12);
                         break;
                 }
             }
@@ -317,39 +339,51 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 switch (growthMonth) {
                     case 1:
                         populateCheckboxes(growth_january);
+                        growthCheckboxes.add(1);
                         break;
                     case 2:
                         populateCheckboxes(growth_february);
+                        growthCheckboxes.add(2);
                         break;
                     case 3:
                         populateCheckboxes(growth_march);
+                        growthCheckboxes.add(3);
                         break;
                     case 4:
                         populateCheckboxes(growth_april);
+                        growthCheckboxes.add(4);
                         break;
                     case 5:
                         populateCheckboxes(growth_may);
+                        growthCheckboxes.add(5);
                         break;
                     case 6:
                         populateCheckboxes(growth_june);
+                        growthCheckboxes.add(6);
                         break;
                     case 7:
                         populateCheckboxes(growth_july);
+                        growthCheckboxes.add(7);
                         break;
                     case 8:
                         populateCheckboxes(growth_august);
+                        growthCheckboxes.add(8);
                         break;
                     case 9:
                         populateCheckboxes(growth_september);
+                        growthCheckboxes.add(9);
                         break;
                     case 10:
                         populateCheckboxes(growth_october);
+                        growthCheckboxes.add(10);
                         break;
                     case 11:
                         populateCheckboxes(growth_november);
+                        growthCheckboxes.add(11);
                         break;
                     case 12:
                         populateCheckboxes(growth_december);
+                        growthCheckboxes.add(12);
                         break;
                 }
             }
@@ -395,6 +429,12 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         adapterPercent.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         plant_edit_detail_atmosphericHumidity.setAdapter(adapterPercent);
         plant_edit_detail_soilHumidity.setAdapter(adapterPercent);
+        if (plant.getAtmosphericHumidity() != null) {
+            plant_edit_detail_atmosphericHumidity.setSelection(Integer.parseInt(plant.getAtmosphericHumidity())+1);
+        }
+        if (plant.getSoilHumidity() != null) {
+            plant_edit_detail_soilHumidity.setSelection(Integer.parseInt(plant.getSoilHumidity())+1);
+        }
 
         //SPINNER GROWTHFORM
         ArrayAdapter<CharSequence> adapterGrowthForm = ArrayAdapter.createFromResource(this,
@@ -433,14 +473,7 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         }
 
         //TEXT VALUES
-        if (plant.getAtmosphericHumidity() != null) {
-            plant_edit_detail_atmosphericHumidity.setSelection(Integer.parseInt(plant.getAtmosphericHumidity()));
-        }
-        if (plant.getSoilHumidity() != null) {
-            plant_edit_detail_soilHumidity.setSelection(Integer.parseInt(plant.getSoilHumidity()));
-        }
-
-        if (plant.getNickname() != null) {
+       if (plant.getNickname() != null) {
             plant_edit_detail_nickname.setText(plant.getNickname());
         } else {
             plant_edit_detail_nickname.setText("");
@@ -673,8 +706,8 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 }
 
                 plant.setBloomMonths(jsonConstructor(bloomCheckboxes));
-                plant.setFruitMonths(jsonConstructor(growthCheckboxes));
-                plant.setGrowthMonths(jsonConstructor(fruitCheckboxes));
+                plant.setFruitMonths(jsonConstructor(fruitCheckboxes));
+                plant.setGrowthMonths(jsonConstructor(growthCheckboxes));
 
                 if(plant_edit_detail_light.getSelectedItemPosition() != 0){
                     plant.setLight(String.valueOf(plant_edit_detail_light.getSelectedItemPosition()));
@@ -683,13 +716,13 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 }
 
                 if(plant_edit_detail_soilHumidity.getSelectedItemPosition() != 0){
-                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()));
+                    plant.setSoilHumidity(String.valueOf(plant_edit_detail_soilHumidity.getSelectedItemPosition()-1));
                 } else {
                     plant.setSoilHumidity(null);
                 }
 
                 if(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition() != 0){
-                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()));
+                    plant.setAtmosphericHumidity(String.valueOf(plant_edit_detail_atmosphericHumidity.getSelectedItemPosition()-1));
                 } else {
                     plant.setAtmosphericHumidity(null);
                 }
@@ -782,223 +815,224 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
     public void onCheckboxClicked(View view){
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
+        boolean unchecked = !((CheckBox) view).isChecked();
 
         // Check which checkbox was clicked
         switch (view.getId()) {
             case R.id.bloom_january:
                 if (checked)
                     bloomCheckboxes.add(1);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(1);
                 break;
             case R.id.bloom_february:
                 if (checked)
                     bloomCheckboxes.add(2);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(2);
                 break;
             case R.id.bloom_march:
                 if (checked)
                     bloomCheckboxes.add(3);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(3);
                 break;
             case R.id.bloom_april:
                 if (checked)
                     bloomCheckboxes.add(4);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(4);
                 break;
             case R.id.bloom_may:
                 if (checked)
                     bloomCheckboxes.add(5);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(5);
                 break;
             case R.id.bloom_june:
                 if (checked)
                     bloomCheckboxes.add(6);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(6);
                 break;
             case R.id.bloom_july:
                 if (checked)
                     bloomCheckboxes.add(7);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(7);
                 break;
             case R.id.bloom_august:
                 if (checked)
                     bloomCheckboxes.add(8);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(8);
                 break;
             case R.id.bloom_september:
                 if (checked)
                     bloomCheckboxes.add(9);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(9);
                 break;
             case R.id.bloom_october:
                 if (checked)
                     bloomCheckboxes.add(10);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(10);
                 break;
             case R.id.bloom_november:
                 if (checked)
                     bloomCheckboxes.add(11);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(11);
                 break;
             case R.id.bloom_december:
                 if (checked)
                     bloomCheckboxes.add(12);
-                else
+                if(unchecked)
                     bloomCheckboxes.remove(12);
                 break;
             case R.id.growth_january:
                 if (checked)
                     growthCheckboxes.add(1);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(1);
                 break;
             case R.id.growth_february:
                 if (checked)
                     growthCheckboxes.add(2);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(2);
                 break;
             case R.id.growth_march:
                 if (checked)
                     growthCheckboxes.add(3);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(3);
                 break;
             case R.id.growth_april:
                 if (checked)
                     growthCheckboxes.add(4);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(4);
                 break;
             case R.id.growth_may:
                 if (checked)
                     growthCheckboxes.add(5);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(5);
                 break;
             case R.id.growth_june:
                 if (checked)
                     growthCheckboxes.add(6);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(6);
                 break;
             case R.id.growth_july:
                 if (checked)
                     growthCheckboxes.add(7);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(7);
                 break;
             case R.id.growth_august:
                 if (checked)
                     growthCheckboxes.add(8);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(8);
                 break;
             case R.id.growth_september:
                 if (checked)
                     growthCheckboxes.add(9);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(9);
                 break;
             case R.id.growth_october:
                 if (checked)
                     growthCheckboxes.add(10);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(10);
                 break;
             case R.id.growth_november:
                 if (checked)
                     growthCheckboxes.add(11);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(11);
                 break;
             case R.id.growth_december:
                 if (checked)
                     growthCheckboxes.add(12);
-                else
+                if(unchecked)
                     growthCheckboxes.remove(12);
                 break;
             case R.id.fruit_january:
                 if (checked)
                     fruitCheckboxes.add(1);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(1);
                 break;
             case R.id.fruit_february:
                 if (checked)
                     fruitCheckboxes.add(2);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(2);
                 break;
             case R.id.fruit_march:
                 if (checked)
                     fruitCheckboxes.add(3);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(3);
                 break;
             case R.id.fruit_april:
                 if (checked)
                     fruitCheckboxes.add(4);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(4);
                 break;
             case R.id.fruit_may:
                 if (checked)
                     fruitCheckboxes.add(5);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(5);
                 break;
             case R.id.fruit_june:
                 if (checked)
                     fruitCheckboxes.add(6);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(6);
                 break;
             case R.id.fruit_july:
                 if (checked)
                     fruitCheckboxes.add(7);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(7);
                 break;
             case R.id.fruit_august:
                 if (checked)
                     fruitCheckboxes.add(8);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(8);
                 break;
             case R.id.fruit_september:
                 if (checked)
                     fruitCheckboxes.add(9);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(9);
                 break;
             case R.id.fruit_october:
                 if (checked)
                     fruitCheckboxes.add(10);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(10);
                 break;
             case R.id.fruit_november:
                 if (checked)
                     fruitCheckboxes.add(11);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(11);
                 break;
             case R.id.fruit_december:
                 if (checked)
                     fruitCheckboxes.add(12);
-                else
+                if(unchecked)
                     fruitCheckboxes.remove(12);
                 break;
         }

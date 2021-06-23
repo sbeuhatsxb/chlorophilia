@@ -35,10 +35,7 @@ import org.json.JSONObject;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Hashtable;
 
 /**
  * View dedicated to add a plant from the PlantApiShowList
