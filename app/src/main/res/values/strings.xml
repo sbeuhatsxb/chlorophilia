@@ -29,7 +29,7 @@
     <string name="nicknameHint">Give it a nice nickname...</string>
 
     <string name="plant_update_plant_show">I know better !</string>
-    <string name="plant_update_plant">Update</string>
+    <string name="plant_update_plant">Updating</string>
     <string name="plant_change_picture">Click to change picture</string>
     <string name="plant_detail_env">Environment</string>
     <string name="plant_detail_ground">Ground</string>

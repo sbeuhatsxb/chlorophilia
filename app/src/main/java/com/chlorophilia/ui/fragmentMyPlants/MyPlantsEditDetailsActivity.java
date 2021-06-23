@@ -60,6 +60,11 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         TextView plant_edit_detail_scientific_name = findViewById(R.id.myPlantEditScientificName);
         TextView plant_edit_detail_family = findViewById(R.id.myPlantEditFamily);
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
+        TextView plant_detail_update_title = findViewById(R.id.updateTitle);
+
+        if (plant.getNickname() != null) {
+            plant_detail_update_title.setText(getResources().getString(R.string.plant_update_plant) + plant.getNickname());
+        }
 
         if (plant.getCommon_name() != null) {
             plant_detail_common_name.setText(plant.getCommon_name());

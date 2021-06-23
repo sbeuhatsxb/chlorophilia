@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_update"
@@ -52,12 +53,26 @@
                         android:layout_marginLeft="10dp"
                         android:orientation="vertical">
 
-                        <Button
-                            android:id="@+id/button_update"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="@string/plant_update_plant" />
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/updateTitle"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="#8BC34A"
+                                android:gravity="center"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="TextView"
+                                android:textColor="#FFFFFF"
+                                android:textSize="18sp" />
+                        </TableRow>
 
                         <TableRow
                             android:layout_width="match_parent"
@@ -111,8 +126,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="8dp"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginTop="20dp">
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="8dp">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -248,12 +263,12 @@
                             android:id="@+id/anaerobicToleranceDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_anaerobic"/>
+                            android:text="@string/plant_edit_detail_anaerobic" />
 
                         <Spinner
                             android:id="@+id/myPlantEditAnaerobic"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
 
                     </TableRow>
 
@@ -456,6 +471,7 @@
                             android:inputType="numberDecimal" />
 
                     </TableRow>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -465,13 +481,14 @@
                             android:id="@+id/growthFormDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_growthForm"/>
+                            android:text="@string/plant_edit_detail_growthForm" />
 
                         <Spinner
                             android:id="@+id/growthFormSpinner"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </TableRow>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -480,8 +497,9 @@
                             android:id="@+id/growthHabitDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_growthHabit"/>
+                            android:text="@string/plant_edit_detail_growthHabit" />
                     </TableRow>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -493,34 +511,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/tree" />
+                            android:text="@string/tree"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/forb_herb"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/forb_herb" />
+                            android:text="@string/forb_herb"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/vine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/vine" />
+                            android:text="@string/vine"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/subshrub"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/subshrub" />
+                            android:text="@string/subshrub"
+                            android:textSize="12sp" />
 
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -532,34 +551,35 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/shrub" />
+                            android:text="@string/shrub"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/graminoid"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/graminoid" />
+                            android:text="@string/graminoid"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/lichenous"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/lichenous" />
+                            android:text="@string/lichenous"
+                            android:textSize="12sp" />
 
                         <CheckBox
                             android:id="@+id/nonvascular"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked"
-                            android:textSize="12sp"
-                            android:text="@string/nonvascular" />
+                            android:text="@string/nonvascular"
+                            android:textSize="12sp" />
 
                     </LinearLayout>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -569,13 +589,14 @@
                             android:id="@+id/growthRateDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_growthRate"/>
+                            android:text="@string/plant_edit_detail_growthRate" />
 
                         <Spinner
                             android:id="@+id/myPlantEditGrowthRate"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
                     </TableRow>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -593,6 +614,7 @@
                             android:ems="10"
                             android:inputType="numberSigned" />
                     </TableRow>
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -640,32 +662,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/january" />
+                                android:text="@string/january"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_february"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/february" />
+                                android:text="@string/february"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_march"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/march" />
+                                android:text="@string/march"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_april"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/april" />
+                                android:text="@string/april"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -680,32 +702,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/june" />
+                                android:text="@string/june"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_july"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/july" />
+                                android:text="@string/july"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_may"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/may" />
+                                android:text="@string/may"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_august"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/august" />
+                                android:text="@string/august"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -719,32 +741,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/september" />
+                                android:text="@string/september"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_november"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/november" />
+                                android:text="@string/november"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_october"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/october" />
+                                android:text="@string/october"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/growth_december"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/december" />
+                                android:text="@string/december"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -753,10 +775,10 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#2C4CAF50"
                         android:text="@string/plant_detail_fruits_and_flowers"
                         android:textSize="14sp"
-                        android:textStyle="bold|italic"
-                        android:background="#2C4CAF50"/>
+                        android:textStyle="bold|italic" />
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -767,7 +789,7 @@
                             android:id="@+id/foliageColorDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_foliageColor"/>
+                            android:text="@string/plant_edit_detail_foliageColor" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/myPlantEditFoliageColor"
@@ -779,19 +801,18 @@
 
                     <TableRow
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        >
+                        android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/foliageTextureDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_foliageTexture"/>
+                            android:text="@string/plant_edit_detail_foliageTexture" />
 
                         <Spinner
                             android:id="@+id/myPlantEditFoliageTexture"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
+                            android:layout_height="wrap_content" />
                     </TableRow>
 
                     <TableRow
@@ -803,7 +824,7 @@
                             android:id="@+id/plant_edit_detail_flowerColor"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_flowerColor"/>
+                            android:text="@string/plant_edit_detail_flowerColor" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/myPlantEditFlowerColor"
@@ -822,7 +843,7 @@
                             android:id="@+id/plant_edit_detail_flowerConspicuous"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_detail_flowerConspicuous"/>
+                            android:text="@string/plant_detail_flowerConspicuous" />
 
                         <CheckBox
                             android:id="@+id/myPlantEditFlowerConspicuous"
@@ -840,7 +861,7 @@
                             android:id="@+id/fruitColorDesc"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_fruitColor"/>
+                            android:text="@string/plant_edit_detail_fruitColor" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/myPlantEditFruitColor"
@@ -858,7 +879,7 @@
                             android:id="@+id/plant_edit_detail_fruit_conspicuous"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_detail_fruitConspicuous"/>
+                            android:text="@string/plant_detail_fruitConspicuous" />
 
                         <CheckBox
                             android:id="@+id/myPlantEditFruitConspicuous"
@@ -872,19 +893,19 @@
                         android:id="@+id/textView10"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="@string/plant_detail_fruitMonths"
-                        android:background="#2C4CAF50"/>
+                        android:background="#2C4CAF50"
+                        android:text="@string/plant_detail_fruitMonths" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#2C4CAF50"
                         android:gravity="center|center_horizontal|center_vertical"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:background="#2C4CAF50">
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -897,32 +918,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/january" />
+                                android:text="@string/january"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_february"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/february" />
+                                android:text="@string/february"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_march"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/march" />
+                                android:text="@string/march"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_april"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/april" />
+                                android:text="@string/april"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -937,32 +958,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/june" />
+                                android:text="@string/june"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_july"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/july" />
+                                android:text="@string/july"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_may"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/may" />
+                                android:text="@string/may"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_august"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/august" />
+                                android:text="@string/august"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -976,32 +997,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/september" />
+                                android:text="@string/september"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_november"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/november" />
+                                android:text="@string/november"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_october"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/october" />
+                                android:text="@string/october"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/fruit_december"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/december" />
+                                android:text="@string/december"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -1035,32 +1056,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/january" />
+                                android:text="@string/january"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_february"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/february" />
+                                android:text="@string/february"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_march"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/march" />
+                                android:text="@string/march"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_april"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/april" />
+                                android:text="@string/april"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -1075,32 +1096,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/june" />
+                                android:text="@string/june"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_july"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/july" />
+                                android:text="@string/july"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_may"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/may" />
+                                android:text="@string/may"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_august"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/august" />
+                                android:text="@string/august"
+                                android:textSize="12sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -1114,32 +1135,32 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/september" />
+                                android:text="@string/september"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_november"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/november" />
+                                android:text="@string/november"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_october"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/october" />
+                                android:text="@string/october"
+                                android:textSize="12sp" />
 
                             <CheckBox
                                 android:id="@+id/bloom_december"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:onClick="onCheckboxClicked"
-                                android:textSize="12sp"
-                                android:text="@string/december" />
+                                android:text="@string/december"
+                                android:textSize="12sp" />
 
                         </LinearLayout>
 
@@ -1148,10 +1169,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:background="#2C4CAF50"
                         android:text="@string/plant_detail_edible_cat"
                         android:textSize="14sp"
-                        android:textStyle="bold|italic"
-                        android:background="#2C4CAF50"/>
+                        android:textStyle="bold|italic" />
+
                     <TableRow
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -1161,7 +1183,7 @@
                             android:id="@+id/plant_edit_edible"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_edible"/>
+                            android:text="@string/plant_edit_detail_edible" />
 
                         <CheckBox
                             android:id="@+id/myPlantEdible"
@@ -1178,7 +1200,7 @@
                             android:id="@+id/plant_edit_detail_edible_part"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_ediblePart"/>
+                            android:text="@string/plant_edit_detail_ediblePart" />
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/myPlantEditEdiblePart"
@@ -1197,7 +1219,7 @@
                             android:id="@+id/plant_vegetable"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/plant_edit_detail_vegetable"/>
+                            android:text="@string/plant_edit_detail_vegetable" />
 
                         <CheckBox
                             android:id="@+id/myPlantVegetable"
@@ -1205,17 +1227,19 @@
                             android:layout_height="wrap_content"
                             android:onClick="onCheckboxClicked" />
                     </TableRow>
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/plant_detail_edible_cat"
                         android:textSize="14sp"
-                        android:textStyle="bold|italic"/>
-                <TextView
-                    android:id="@+id/SowingDesc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/plant_edit_detail_sowing"/>
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:id="@+id/SowingDesc"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/plant_edit_detail_sowing" />
 
                     <EditText
                         android:id="@+id/myPlantEditSowing"
@@ -1225,22 +1249,22 @@
                         android:gravity="start|top"
                         android:inputType="textMultiLine" />
 
-                <TextView
-                    android:background="#2C4CAF50"
-                    android:id="@+id/BibliographyDesc"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="7dp"
-                    android:text="@string/plant_detail_bibliography" />
+                    <TextView
+                        android:id="@+id/BibliographyDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#2C4CAF50"
+                        android:paddingLeft="7dp"
+                        android:text="@string/plant_detail_bibliography" />
 
                     <EditText
                         android:id="@+id/myPlantEditBibliography"
                         android:layout_width="match_parent"
                         android:layout_height="150dp"
+                        android:background="#2C4CAF50"
                         android:ems="10"
                         android:gravity="start|top"
-                        android:inputType="textMultiLine"
-                        android:background="#2C4CAF50"/>
+                        android:inputType="textMultiLine" />
                 </TableLayout>
             </LinearLayout>
 

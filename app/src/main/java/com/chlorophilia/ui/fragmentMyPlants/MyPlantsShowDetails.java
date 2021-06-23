@@ -355,7 +355,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
                     case "Graminoid":
                         growthHabitTranslation = getResources().getString(R.string.graminoid);
                         break;
-                   case "lichenous":
+                   case "Lichenous":
                         growthHabitTranslation = getResources().getString(R.string.lichenous);
                         break;
                 }
