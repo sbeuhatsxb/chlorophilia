@@ -6,11 +6,14 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import com.chlorophilia.R;
 import com.chlorophilia.ui.entities.Plant;
@@ -19,6 +22,9 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
@@ -34,24 +40,22 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
 
     Plant plant;
     ExtendedFloatingActionButton fab;
+    final String powo = "http://powo.science.kew.org/taxon/urn:lsid:ipni.org:names:";
+    final String plantNet = "https://identify.plantnet.org/species/the-plant-list/";
+    final String gbif = "https://www.gbif.org/species/";
+    final String wikipedia = "https://en.wikipedia.org/wiki/";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String[] SOILRICHNESS = getResources().getStringArray(R.array.viewSoilRichness);
-
+        final String[] ANAEROBICTOLERANCE = getResources().getStringArray(R.array.anaerobic_tolerance);
+        final String[] TEXTUREFOLIAGE = getResources().getStringArray(R.array.texture_foliage);
         setContentView(R.layout.activity_search_show_detail);
 
         plant = (Plant) getIntent().getSerializableExtra("plant");
         String imgURL = getIntent().getExtras().getString("imgURL");
         final ImageView plantPictureExample = (ImageView) findViewById(R.id.myPlantPicture);
         new DownLoadImageTask(plantPictureExample).execute(imgURL);
-
-        //TODO : Old API had those information - have to find a way to get them back one day
-//        TextView plant_detail_Precipitation_min = findViewById(R.id.myPlantPrecipitationMin);
-//        TextView plant_detail_Precipitation_max = findViewById(R.id.myPlantPrecipitationMax);
-//        TextView plant_detail_TemperatureMin = findViewById(R.id.myPlantTemperatureMin);
-//        TextView plant_detail_TemperatureMax = findViewById(R.id.myPlantTemperatureMax);
 
         TextView plant_detail_common_name = findViewById(R.id.myPlantCommonName);
         TextView plant_detail_scientific_name = findViewById(R.id.myPlantScientificName);
@@ -60,17 +64,17 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
         TextView plant_detail_ph_min = findViewById(R.id.myPlantPhMin);
         TextView plant_detail_ph_max = findViewById(R.id.myPlantPhMax);
         TextView plant_detail_atmosphericHumidity = findViewById(R.id.myPlantAtmospheric);
-        TextView plant_detail_soilNutriments = findViewById(R.id.myPlantSoilNutriments);
-        TextView plant_detail_soilSalinity = findViewById(R.id.myPlantSoilSalinity);
-        TextView plant_detail_soilHumidity = findViewById(R.id.myPlantSoilHumidity);
-        TextView plant_detail_spread = findViewById(R.id.myPlantSpread);
-        TextView plant_detail_minimumRootDepth = findViewById(R.id.myPlantMinRootDepth);
-        TextView plant_detail_sowing = findViewById(R.id.myPlantSowing);
-        TextView plant_detail_rowSpacing = findViewById(R.id.myPlantRowSpacing);
-        TextView plant_detail_days_to_harvest = findViewById(R.id.myPlantDaysToHarvest);
-        TextView plant_detail_growthMonths = findViewById(R.id.myPlantGrowsMonths);
-        TextView plant_detail_bloomMonths = findViewById(R.id.myPlantBloomMonths);
-        TextView plant_detail_fruitMonths = findViewById(R.id.myPlantFruitMonths);
+        //API V2
+        TextView plant_detail_flowerColor = findViewById(R.id.myPlantFlowerColor);
+        TextView plant_detail_flowerConspicuous = findViewById(R.id.myPlantFlowerConspicuous);
+        TextView plant_detail_foliageTexture = findViewById(R.id.myPlantFoliageTexture);
+        TextView plant_detail_foliageColor = findViewById(R.id.myPlantFoliageColor);
+        TextView plant_detail_fruitColor = findViewById(R.id.myPlantFruitColor);
+        TextView plant_detail_fruitConspicuous = findViewById(R.id.myPlantFruitConspicuous);
+        TextView plant_detail_urlPowo = findViewById(R.id.myPlanturlPowo);
+        TextView plant_detail_urlPlantnet = findViewById(R.id.myPlanturlPlantNet);
+        TextView plant_detail_urlGbif = findViewById(R.id.myPlanturlGbif);
+        TextView plant_detail_urlWikipediaEn = findViewById(R.id.myPlanturlWikipedia);
 
         if (plant.getCommon_name() != null) {
             plant_detail_common_name.setText(plant.getCommon_name());
@@ -90,156 +94,114 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
             plant_detail_family.setText("");
         }
 
-        //TODO : Ibid.
-//        if (plant.getMinimumPrecipitation() != null) {
-//            plant_detail_Precipitation_min.setText("min. " + plant.getMinimumPrecipitation() + " mm.");
-//        } else {
-//            plant_detail_Precipitation_min.setText("");
-//        }
-//
-//        if (plant.getMaximumPrecipitation() != null) {
-//            plant_detail_Precipitation_max.setText("max. " + plant.getMaximumPrecipitation() + " mm.");
-//        } else {
-//            plant_detail_Precipitation_max.setText("");
-//        }
-
         if (plant.getLight() != null) {
             int sun = Integer.parseInt("2600", 16); // it will be 128013
             int cloud = Integer.parseInt("2601", 16); // it will be 128013
             int lightQuantity = Integer.parseInt(plant.getLight());
-            String sunnyString = "";
+            StringBuilder sunnyString = new StringBuilder();
             if (lightQuantity >= 0) {
                 for (int i = 0; i < lightQuantity; i++) {
-                    sunnyString += new String(new int[]{sun}, 0, 1);
+                    sunnyString.append(new String(new int[]{sun}, 0, 1));
                 }
 
                 for (int i = 0; i < abs(lightQuantity - 10); i++) {
-                    sunnyString += new String(new int[]{cloud}, 0, 1);
+                    sunnyString.append(new String(new int[]{cloud}, 0, 1));
                 }
-
             }
 
-            plant_detail_light.setText(sunnyString);
+            plant_detail_light.setText(sunnyString.toString());
         } else {
             plant_detail_light.setText("");
         }
 
         if (plant.getPhMinimum() != null) {
-            plant_detail_ph_min.setText(getResources().getString(R.string.min) + plant.getPhMinimum());
+            plant_detail_ph_min.setText("min. " + plant.getPhMinimum());
         } else {
             plant_detail_ph_min.setText("");
         }
 
         if (plant.getPhMaximum() != null) {
-            plant_detail_ph_max.setText(getResources().getString(R.string.max) + plant.getPhMaximum());
+            plant_detail_ph_max.setText("max. " + plant.getPhMaximum());
         } else {
             plant_detail_ph_max.setText("");
         }
 
         if (plant.getAtmosphericHumidity() != null) {
-            double atmosphericHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
-            int atmosphericHumidity = (int) Math.round(atmosphericHumidityDouble);
-            plant_detail_atmosphericHumidity.setText(atmosphericHumidity + " %");
+            if(plant.getAtmosphericHumidity().equals("0")){
+                plant_detail_atmosphericHumidity.setText(getResources().getString(R.string.up_to_ten_percent));
+            } else {
+                double atmosphericHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
+                int atmosphericHumidity = (int) Math.round(atmosphericHumidityDouble);
+                plant_detail_atmosphericHumidity.setText(atmosphericHumidity + " %");
+            }
         } else {
             plant_detail_atmosphericHumidity.setText("");
         }
 
-        //TODO : Ibid.
-//        if (plant.getMinimumTemperature() != null) {
-//            double fahrenheit = Integer.parseInt(plant.getMinimumTemperature()) * 1.8 + 32;
-//            plant_detail_TemperatureMin.setText("min. " + plant.getMinimumTemperature() + "°C / " + fahrenheit + "°F");
-//        } else {
-//            plant_detail_TemperatureMin.setText("");
-//        }
-//
-//        if (plant.getMaximumTemperature() != null) {
-//            double fahrenheit = Integer.parseInt(plant.getMaximumTemperature()) * 1.8 + 32;
-//            plant_detail_TemperatureMax.setText("max. " + plant.getMaximumTemperature() + "°C / " + fahrenheit + "°F");
-//        } else {
-//            plant_detail_TemperatureMax.setText("");
-//        }
-
-        if (plant.getSoilNutriments() != null) {
-            plant_detail_soilNutriments.setText(SOILRICHNESS[Integer.parseInt(plant.getSoilNutriments())]);
+        if (plant.getFlowerColor() != null) {
+            String[] colorIntArray = plant.getFlowerColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_flowerColor.setText(translatedColors);
         } else {
-            plant_detail_soilNutriments.setText("");
+            plant_detail_flowerColor.setText("");
         }
 
-        if (plant.getSoilSalinity() != null) {
-            plant_detail_soilSalinity.setText(SOILRICHNESS[Integer.parseInt(plant.getSoilSalinity())]);
+        if (plant.getFoliageTexture() != null) {
+            plant_detail_foliageTexture.setText(TEXTUREFOLIAGE[Integer.parseInt(plant.getFoliageTexture())]);
         } else {
-            plant_detail_soilSalinity.setText("");
+            plant_detail_foliageTexture.setText("");
         }
 
-        if (plant.getSoilHumidity() != null) {
-            double soilHumidityDouble = Double.parseDouble(plant.getAtmosphericHumidity()) * 10;
-            int soilHumidity = (int) Math.round(soilHumidityDouble);
-            plant_detail_soilHumidity.setText(soilHumidity + " %");
+        if (plant.getFoliageColor() != null) {
+            String[] colorIntArray = plant.getFoliageColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_foliageColor.setText(translatedColors);
         } else {
-            plant_detail_soilHumidity.setText("");
+            plant_detail_foliageColor.setText("");
         }
 
-        if (plant.getSpread() != null) {
-            plant_detail_spread.setText(plant.getSpread() + getResources().getString(R.string.cm));
+        if (plant.getFruitColor() != null) {
+            String[] colorIntArray = plant.getFruitColor().split(",");
+            String translatedColors = getTranslatedColors(colorIntArray);
+            plant_detail_fruitColor.setText(translatedColors);
         } else {
-            plant_detail_spread.setText("");
+            plant_detail_fruitColor.setText("");
         }
 
-        if (plant.getMinimumRootDepth() != null) {
-            plant_detail_minimumRootDepth.setText(plant.getMinimumRootDepth() + getResources().getString(R.string.cm));
+        if (plant.getUrlPowo() != null) {
+            String url = powo + plant.getUrlPowo();
+            String linkedText = String.format("<a href=\"%s\">Powo</a> ", url);
+            plant_detail_urlPowo.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlPowo.setMovementMethod(LinkMovementMethod.getInstance());
         } else {
-            plant_detail_minimumRootDepth.setText("");
+            plant_detail_urlPowo.setText("");
         }
 
-        if (plant.getSowing() != null) {
-            plant_detail_sowing.setText(plant.getSowing());
+        if (plant.getUrlPlantnet() != null) {
+            String url = plantNet + plant.getUrlPlantnet();
+            String linkedText = String.format("<a href=\"%s\">PlantNet</a> ", url);
+            plant_detail_urlPlantnet.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlPlantnet.setMovementMethod(LinkMovementMethod.getInstance());
         } else {
-            plant_detail_sowing.setText("");
+            plant_detail_urlPlantnet.setText("");
         }
 
-        if (plant.getRowSpacing() != null) {
-            plant_detail_rowSpacing.setText(plant.getRowSpacing() + getResources().getString(R.string.cm));
+        if (plant.getUrlGbif() != null) {
+            String url = gbif + plant.getUrlGbif();
+            String linkedText = String.format("<a href=\"%s\">Gbif</a> ", url);
+            plant_detail_urlGbif.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlGbif.setMovementMethod(LinkMovementMethod.getInstance());
         } else {
-            plant_detail_rowSpacing.setText("");
+            plant_detail_urlGbif.setText("");
         }
 
-        if (plant.getDays_to_harvest() != null) {
-            plant_detail_days_to_harvest.setText(plant.getDays_to_harvest() + getResources().getString(R.string.days));
+        if (plant.getUrlWikipediaEn() != null) {
+            String url = wikipedia + plant.getUrlWikipediaEn();
+            String linkedText = String.format("<a href=\"%s\">Wikipedia</a> ", url);
+            plant_detail_urlWikipediaEn.setText(HtmlCompat.fromHtml(linkedText, HtmlCompat.FROM_HTML_MODE_LEGACY));
+            plant_detail_urlWikipediaEn.setMovementMethod(LinkMovementMethod.getInstance());
         } else {
-            plant_detail_days_to_harvest.setText("");
-        }
-
-        if (plant.getGrowthMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getGrowthMonths());
-            String growth = "";
-            for(String month : arrayMonths) {
-                growth += month+" ";
-            }
-            plant_detail_growthMonths.setText(growth);
-        } else {
-            plant_detail_growthMonths.setText("");
-        }
-
-        if (plant.getBloomMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getBloomMonths());
-            String growth = "";
-            for(String month : arrayMonths) {
-                growth += month+" ";
-            }
-            plant_detail_bloomMonths.setText(growth);
-        } else {
-            plant_detail_bloomMonths.setText("");
-        }
-
-        if (plant.getFruitMonths() != null) {
-            ArrayList<String> arrayMonths = jsonArrayToStringConverter(plant.getFruitMonths());
-            String growth = "";
-            for(String month : arrayMonths) {
-                growth += month+" ";
-            }
-            plant_detail_fruitMonths.setText(growth);
-        } else {
-            plant_detail_fruitMonths.setText("");
+            plant_detail_urlWikipediaEn.setText("");
         }
 
         fab = (ExtendedFloatingActionButton) findViewById(R.id.fab);
@@ -254,6 +216,57 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private String getTranslatedColors(String[] colorIntArray) {
+        ArrayList colorTranslated = new ArrayList();
+        for(int i = 0; i < colorIntArray.length; i++){
+            String colorString = "";
+            switch(colorIntArray[i]) {
+                case "1":
+                    colorString = getResources().getString(R.string.green);
+                    break;
+                case "2":
+                    colorString = getResources().getString(R.string.red);
+                    break;
+                case "3":
+                    colorString = getResources().getString(R.string.yellow);
+                    break;
+                case "4":
+                    colorString = getResources().getString(R.string.grey);
+                    break;
+                case "5":
+                    colorString = getResources().getString(R.string.brown);
+                    break;
+                case "6":
+                    colorString = getResources().getString(R.string.green_brown);
+                    break;
+                case "7":
+                    colorString = getResources().getString(R.string.orange);
+                    break;
+                case "8":
+                    colorString = getResources().getString(R.string.blue);
+                    break;
+                case "9":
+                    colorString = getResources().getString(R.string.purple);
+                    break;
+                case "10":
+                    colorString = getResources().getString(R.string.white);
+                    break;
+                case "11":
+                    colorString = getResources().getString(R.string.black);
+                    break;
+            }
+            colorTranslated.add(colorString);
+        }
+
+        StringBuilder sb = new StringBuilder();
+        for (Object s : colorTranslated)
+        {
+            sb.append(s);
+            sb.append("\n");
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
     }
 
 
@@ -293,72 +306,5 @@ public class ShowPlantDetailsActivity extends AppCompatActivity {
         protected void onPostExecute(Bitmap result) {
             imageView.setImageBitmap(result);
         }
-    }
-
-    /**
-     * Convert and sort months for display
-     * @param json
-     * @return
-     */
-    private ArrayList<String> jsonArrayToStringConverter(String json){
-        ArrayList<String> stringArray = new ArrayList<String>();
-        JSONArray jsonArray = null;
-        try {
-            jsonArray = new JSONArray(json);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        String[] text = new String[jsonArray.length()];
-
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                text[i] = jsonArray.getString(i);
-                String str = jsonArray.getString(i);
-                stringArray.add(str.substring(0, 1).toUpperCase() + str.substring(1)+".");
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-        //Ordering monthes
-        Hashtable monthInt = new Hashtable();
-        monthInt.put("Jan.", 1);
-        monthInt.put("Feb.", 2);
-        monthInt.put("Mar.", 3);
-        monthInt.put("Apr.", 4);
-        monthInt.put("May.", 5);
-        monthInt.put("Jun.", 6);
-        monthInt.put("Jul.", 7);
-        monthInt.put("Aug.", 8);
-        monthInt.put("Sep.", 9);
-        monthInt.put("Oct.", 10);
-        monthInt.put("Nov.", 11);
-        monthInt.put("Dec.", 12);
-
-        ArrayList<Integer> disorderNumberedMonthList = new ArrayList<>();
-        for( String month : stringArray){
-            disorderNumberedMonthList.add(Integer.valueOf(monthInt.get(month).toString()));
-        }
-        Collections.sort(disorderNumberedMonthList);
-
-        Hashtable monthStr = new Hashtable();
-        monthStr.put(1, "Jan.");
-        monthStr.put(2, "Feb.");
-        monthStr.put(3, "Mar.");
-        monthStr.put(4, "Apr.");
-        monthStr.put(5, "May.");
-        monthStr.put(6, "Jun.");
-        monthStr.put(7, "Jul.");
-        monthStr.put(8, "Aug.");
-        monthStr.put(9, "Sep.");
-        monthStr.put(10, "Oct.");
-        monthStr.put(11, "Nov.");
-        monthStr.put(12, "Dec.");
-
-        stringArray.clear();
-        for( Integer month : disorderNumberedMonthList){
-            stringArray.add(monthStr.get(month).toString());
-        }
-        return stringArray;
     }
 }

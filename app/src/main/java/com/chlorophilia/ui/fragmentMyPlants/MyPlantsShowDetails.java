@@ -647,32 +647,6 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
     };
 
-//    private void setPic() {
-//        // Get the dimensions of the View
-//        int targetW = plant_detail_img.getWidth();
-//        int targetH = plant_detail_img.getHeight();
-//
-//        // Get the dimensions of the bitmap
-//        BitmapFactory.Options bmOptions = new BitmapFactory.Options();
-//        bmOptions.inJustDecodeBounds = true;
-//
-//        BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
-//
-//        int photoW = bmOptions.outWidth;
-//        int photoH = bmOptions.outHeight;
-//
-//        // Determine how much to scale down the image
-//        int scaleFactor = Math.max(1, Math.min(photoW/targetW, photoH/targetH));
-//
-//        // Decode the image file into a Bitmap sized to fill the View
-//        bmOptions.inJustDecodeBounds = false;
-//        bmOptions.inSampleSize = scaleFactor;
-//        bmOptions.inPurgeable = true;
-//
-//        Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath, bmOptions);
-//        plant_detail_img.setImageBitmap(bitmap);
-//    }
-
     /**
      * Convert and sort months for display
      * @param json

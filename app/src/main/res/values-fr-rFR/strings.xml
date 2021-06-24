@@ -24,7 +24,7 @@
     <string name="plant_detail_ground">Sol</string>
     <string name="plant_detail_sow">Semence</string>
     <string name="plant_detail_growth">Croissance</string>
-    <string name="plant_detail_edible_cat">Comestibilité (attention !)</string>
+    <string name="plant_detail_edible_cat">Comestibilité (attention !)\nNe mangez pas de plantes\nque vous ne connaissez pas !</string>
     <string name="plant_detail_instructions">Instructions</string>
     <string name="plant_detail_urls">Plus d\'informations :</string>
     <string name="plant_detail_fruits_and_flowers">Floraison et fruitaison</string>
@@ -34,7 +34,6 @@
     <string name="plant_detail_family">Famille :</string>
     <string name="plant_detail_Precipitation">Précipitations :</string>
     <string name="plant_detail_light">Lumière :</string>
-    <string name="plant_detail_ph">pH du sol :</string>
     <string name="plant_detail_atmosphericHumidity">Humidité atmosphérique :</string>
     <string name="plant_detail_minimumTemperature">Températures :</string>
     <string name="plant_detail_soilNutriments">Nutriments du sol :</string>
@@ -194,5 +193,6 @@
     <string name="brown">brun</string>
     <string name="grey">gris</string>
     <string name="green_brown">brun-vert</string>
-    <string name="other">Autres :</string>
+    <string name="other">Autres</string>
+    <string name="plant_detail_ph">pH du sol :</string>
 </resources>

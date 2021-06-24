@@ -162,13 +162,13 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/empty2"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="" />
+                        android:layout_height="wrap_content" />
 
                     <TextView
                         android:id="@+id/myPlantPhMax"
@@ -180,8 +180,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#2C4CAF50">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/textView25"
@@ -199,7 +198,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/anaerobic"
@@ -217,8 +217,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#2C4CAF50">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/editTemperatureTextMin"
@@ -236,8 +235,7 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#2C4CAF50">
+                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/editTemperatureTextMax"
@@ -256,7 +254,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/editPrecipitationTextMin"
@@ -275,7 +274,8 @@
 
                 <TableRow
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:background="#2C4CAF50">
 
                     <TextView
                         android:id="@+id/editPrecipitationTextMax"

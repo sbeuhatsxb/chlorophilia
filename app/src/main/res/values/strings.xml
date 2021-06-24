@@ -35,40 +35,40 @@
     <string name="plant_detail_ground">Ground</string>
     <string name="plant_detail_sow">Sowing</string>
     <string name="plant_detail_growth">Growth</string>
-    <string name="plant_detail_edible_cat">Edible (be cautious !)</string>
+    <string name="plant_detail_edible_cat">Edible (be cautious !)\nDo NOT eat plants\nyou don\'t know !</string>
     <string name="plant_detail_instructions">Instructions</string>
-    <string name="plant_detail_urls">More information:</string>
+    <string name="plant_detail_urls">More information</string>
     <string name="plant_detail_fruits_and_flowers">Fruits and flowers</string>
     <string name="plant_detail_nickname">Nickname:</string>
     <string name="plant_detail_common_name">Common name:</string>
     <string name="plant_detail_scientific_name">Scientific name:</string>
-    <string name="plant_detail_family">Family :</string>
-    <string name="plant_detail_Precipitation">Precipitation :</string>
-    <string name="plant_detail_light">Light :</string>
-    <string name="plant_detail_ph">Soil pH :</string>
-    <string name="plant_detail_atmosphericHumidity">Atmospheric humidity :</string>
-    <string name="plant_detail_minimumTemperature">Temperature :</string>
-    <string name="plant_detail_soilNutriments">Soil nutriments :</string>
-    <string name="plant_detail_soilSalinity">Soil salinity :</string>
-    <string name="plant_detail_soilHumidity">Soil humidity :</string>
-    <string name="plant_detail_spread">Spread :</string>
-    <string name="plant_detail_minimumRootDepth">Min. root depths :</string>
-    <string name="plant_detail_sowing">Sowing :</string>
-    <string name="plant_detail_rowSpacing">Row spacing :</string>
-    <string name="plant_detail_days_to_harvest">Harvest after :</string>
-    <string name="plant_detail_growthMonths">Growth months :</string>
-    <string name="plant_detail_bloomMonths">Bloom months :</string>
-    <string name="plant_detail_fruitMonths">Fruit months :</string>
-    <string name="plant_detail_bibliography">Bibliography :</string>
-    <string name="plant_detail_anaerobic">Anaerobic tolerance :</string>
-    <string name="plant_detail_growthForm">Growth form :</string>
-    <string name="plant_detail_growthHabit">Growth habit :</string>
-    <string name="plant_detail_growthRate">Growth rate :</string>
-    <string name="plant_detail_ediblePart">Edible part :</string>
-    <string name="plant_detail_vegetable">Vegetable :</string>
-    <string name="plant_detail_edible">Edible :</string>
-    <string name="plant_detail_averageHeightCm">Average height :</string>
-    <string name="plant_detail_maximumHeight">Max height :</string>
+    <string name="plant_detail_family">Family:</string>
+    <string name="plant_detail_Precipitation">Precipitation:</string>
+    <string name="plant_detail_light">Light:</string>
+    <string name="plant_detail_ph">Soil pH</string>
+    <string name="plant_detail_atmosphericHumidity">Atmospheric humidity:</string>
+    <string name="plant_detail_minimumTemperature">Temperature:</string>
+    <string name="plant_detail_soilNutriments">Soil nutriments:</string>
+    <string name="plant_detail_soilSalinity">Soil salinity:</string>
+    <string name="plant_detail_soilHumidity">Soil humidity:</string>
+    <string name="plant_detail_spread">Spread:</string>
+    <string name="plant_detail_minimumRootDepth">Min. root depths:</string>
+    <string name="plant_detail_sowing">Sowing:</string>
+    <string name="plant_detail_rowSpacing">Row spacing:</string>
+    <string name="plant_detail_days_to_harvest">Harvest after:</string>
+    <string name="plant_detail_growthMonths">Growth months:</string>
+    <string name="plant_detail_bloomMonths">Bloom months:</string>
+    <string name="plant_detail_fruitMonths">Fruit months:</string>
+    <string name="plant_detail_bibliography">Bibliography:</string>
+    <string name="plant_detail_anaerobic">Anaerobic tolerance:</string>
+    <string name="plant_detail_growthForm">Growth form:</string>
+    <string name="plant_detail_growthHabit">Growth habit:</string>
+    <string name="plant_detail_growthRate">Growth rate:</string>
+    <string name="plant_detail_ediblePart">Edible part:</string>
+    <string name="plant_detail_vegetable">Vegetable:</string>
+    <string name="plant_detail_edible">Edible:</string>
+    <string name="plant_detail_averageHeightCm">Average height:</string>
+    <string name="plant_detail_maximumHeight">Max height:</string>
     <string name="plant_detail_flowerColor">Flower color:</string>
     <string name="plant_detail_flowerConspicuous">Flower conspicuous:</string>
     <string name="plant_detail_foliageTexture">Foliage texture:</string>
@@ -86,20 +86,20 @@
     <string name="min">min. </string>
     <string name="max">max. </string>
 
-    <string name="plant_edit_detail_precipitation_min">Precipitation in mm. :</string>
-    <string name="plant_edit_detail_precipitation_max">Precipitation in mm. </string>
-    <string name="plant_edit_detail_temperature_min">Temperature in celsius (min.) :</string>
-    <string name="plant_edit_detail_temperature_max">Temperature in celsius (max.) :</string>
-    <string name="plant_edit_detail_ph_min">Soil pH (min.) :</string>
-    <string name="plant_edit_detail_ph_max">Soil pH (max.) :</string>
+    <string name="plant_edit_detail_precipitation_min">Precipitation in mm.:</string>
+    <string name="plant_edit_detail_precipitation_max">Precipitation in mm.:</string>
+    <string name="plant_edit_detail_temperature_min">Temperature in celsius (min.):</string>
+    <string name="plant_edit_detail_temperature_max">Temperature in celsius (max.):</string>
+    <string name="plant_edit_detail_ph_min">Soil pH (min.):</string>
+    <string name="plant_edit_detail_ph_max">Soil pH (max.):</string>
     <string name="plant_edit_detail_atmosphericHumidity">Atmospheric humidity:</string>
     <string name="plant_edit_detail_soilNutriments">Soil nutriments:</string>
     <string name="plant_edit_detail_soilSalinity">Soil salinity:</string>
     <string name="plant_edit_detail_soilHumidity">Soil humidity:</string>
     <string name="plant_edit_detail_spread">Spread:</string>
     <string name="plant_edit_detail_minimumRootDepth">Min. root depths:</string>
-    <string name="plant_edit_detail_sowing">Sowing (instructions) :</string>
-    <string name="plant_edit_detail_rowSpacing">Row spacing (in cm.) :</string>
+    <string name="plant_edit_detail_sowing">Sowing (instructions):</string>
+    <string name="plant_edit_detail_rowSpacing">Row spacing (in cm.):</string>
     <string name="plant_edit_detail_days_to_harvest">Harvest after:</string>
     <string name="plant_edit_detail_growthMonths">Growth months:</string>
     <string name="plant_edit_detail_bloomMonths">Bloom months:</string>
@@ -123,7 +123,7 @@
 
     <string name="noLightInfoText">There were no light information for this particular plant, but we can say that:</string>
 
-    <string name="searchTooltip">Try out a common english name like \"Garden Strawberry\" or a scientific name like : \"laurus nobilis\".   More than 1 million plants names are actually indexed.</string>
+    <string name="searchTooltip">Try out a common english name like \"Garden Strawberry\" or a scientific name like: \"laurus nobilis\".   More than 1 million plants names are actually indexed.</string>
 
     <string name="home_request_camera">This functionality requires access to your camera in order to take a picture of your plant !\n\n If you misclicked \"Deny\" go to your phone \"Preferences/App Permission\" and grant permission to Camera and Files and Media !</string>
 
@@ -230,5 +230,5 @@
     <string name="november">Nov.</string>
     <string name="december">Dec.</string>
 
-    <string name="other">Other :</string>
+    <string name="other">Other</string>
 </resources>
