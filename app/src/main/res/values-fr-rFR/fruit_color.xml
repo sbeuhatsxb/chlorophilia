@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fruit_color">
+        <item>No idea!</item>
+        <item>vert</item>
+        <item>rouge</item>
+        <item>jaune</item>
+        <item>gris</item>
+        <item>brun</item>
+        <item>brun-vert</item>
+        <item>orange</item>
+        <item>bleu</item>
+        <item>violet</item>
+        <item>blanc</item>
+        <item>noir</item>
+    </string-array>
+</resources>

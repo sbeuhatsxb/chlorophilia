@@ -450,7 +450,7 @@ public class MyPlantsShowDetails extends AppCompatActivity {
         }
 
         if (plant.getFruitColor() != null) {
-            String[] colorIntArray = plant.getFoliageColor().split(",");
+            String[] colorIntArray = plant.getFruitColor().split(",");
             String translatedColors = getTranslatedColors(colorIntArray);
             plant_detail_fruitColor.setText(translatedColors);
         } else {
@@ -752,34 +752,37 @@ public class MyPlantsShowDetails extends AppCompatActivity {
             String colorString = "";
             switch(colorIntArray[i]) {
                 case "1":
-                    colorString = getResources().getString(R.string.red);
+                    colorString = getResources().getString(R.string.green);
                     break;
                 case "2":
-                    colorString = getResources().getString(R.string.orange);
+                    colorString = getResources().getString(R.string.red);
                     break;
                 case "3":
                     colorString = getResources().getString(R.string.yellow);
                     break;
                 case "4":
-                    colorString = getResources().getString(R.string.green);
+                    colorString = getResources().getString(R.string.grey);
                     break;
                 case "5":
-                    colorString = getResources().getString(R.string.blue);
-                    break;
-                case "6":
-                    colorString = getResources().getString(R.string.purple);
-                    break;
-                case "7":
-                    colorString = getResources().getString(R.string.white);
-                    break;
-                case "8":
-                    colorString = getResources().getString(R.string.black);
-                    break;
-                case "9":
                     colorString = getResources().getString(R.string.brown);
                     break;
+                case "6":
+                    colorString = getResources().getString(R.string.green_brown);
+                    break;
+                case "7":
+                    colorString = getResources().getString(R.string.orange);
+                    break;
+                case "8":
+                    colorString = getResources().getString(R.string.blue);
+                    break;
+                case "9":
+                    colorString = getResources().getString(R.string.purple);
+                    break;
                 case "10":
-                    colorString = getResources().getString(R.string.grey);
+                    colorString = getResources().getString(R.string.white);
+                    break;
+                case "11":
+                    colorString = getResources().getString(R.string.black);
                     break;
             }
             colorTranslated.add(colorString);

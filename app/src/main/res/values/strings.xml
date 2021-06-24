@@ -215,6 +215,7 @@
     <string name="black">black</string>
     <string name="brown">brown</string>
     <string name="grey">grey</string>
+    <string name="green_brown">brown-green</string>
 
     <string name="january">Jan.</string>
     <string name="february">Feb.</string>

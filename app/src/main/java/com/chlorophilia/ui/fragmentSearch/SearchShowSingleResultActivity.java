@@ -525,35 +525,38 @@ public class SearchShowSingleResultActivity extends AppCompatActivity {
 
         for(int i = 0; i < colorArray.length; i++){
             switch(colorArray[i]) {
-                case "red":
+                case "green":
                     colorCode = 1;
                     break;
-                case "orange":
+                case "red":
                     colorCode = 2;
                     break;
                 case "yellow":
                     colorCode = 3;
                     break;
-                case "green":
+                case "grey":
                     colorCode = 4;
                     break;
-                case "blue":
+                case "brown":
                     colorCode = 5;
                     break;
-                case "purple":
+                case "brown-green":
                     colorCode = 6;
                     break;
-                case "white":
+                case "orange":
                     colorCode = 7;
                     break;
-                case "black":
+                case "blue":
                     colorCode = 8;
                     break;
-                case "brown":
+                case "purple":
                     colorCode = 9;
                     break;
-                case "grey":
+                case "white":
                     colorCode = 10;
+                    break;
+                case "black":
+                    colorCode = 11;
                     break;
             }
             colorIntArray.add(colorCode);

@@ -29,7 +29,8 @@ public class MyPlantsRemoveDialog extends AppCompatActivity {
         Button yes = findViewById(R.id.yesRemove);
         Button no = findViewById(R.id.noRemove);
         TextView removeText = findViewById(R.id.removeText);
-        removeText.setText(getResources().getString(R.string.removePlantBegin) + plant.getNickname() + getResources().getString(R.string.removePlantEnd));
+        String message = getResources().getString(R.string.removePlantBegin) + plant.getNickname() + getResources().getString(R.string.removePlantEnd);
+        removeText.setText(message);
 
         yes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class MyPlantsRemoveDialog extends AppCompatActivity {
 
                 new MyPlantsListAdapter(db.getPlants(), getApplicationContext());
                 Intent startIntent = new Intent(getApplicationContext(), MainActivity.class);
-                startIntent.putExtra("message", plant.getNickname() + getResources().getString(R.string.removePlantEnd));
+                startIntent.putExtra("message", plant.getNickname() + getResources().getString(R.string.removedPlant));
                 startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(startIntent);
             }

@@ -58,7 +58,7 @@
     <string name="plant_detail_edible">Comestible :</string>
     <string name="plant_detail_averageHeightCm">Hauteur moyenne :</string>
     <string name="plant_detail_maximumHeight">Hauteur maximale :</string>
-    <string name="plant_detail_flowerColor">Couleur de fleurs :</string>
+    <string name="plant_detail_flowerColor">Couleur des fleurs :</string>
     <string name="plant_detail_flowerConspicuous">Fleurs visibles :</string>
     <string name="plant_detail_foliageTexture">Texture des feuilles :</string>
     <string name="plant_detail_fruitColor">Couleur du fruit :</string>
@@ -154,7 +154,7 @@
     <string name="whatsnew">\n- Presque tout ! Chlorophilia V.1.0 est sorti en juin 2020.\n- Notre serveur héberge plus de 450000 plantes (C\'est un grand jardin !).\n- La mesure de lumière est satisfaisante mais peut encore être améliorée.\n- En raison de la fermeture de Trefle.io, l\'application peut encore présenter des problèmes de traduction dans les descriptions\n- La prise de photos se fait UNIQUEMENT en paysage. Le mode portrait sera bientôt géré.\n- Notre base de données a faim et nous cherchons à récolter encore plus d\'informations (Les températures et les précipitations sont notre priorité)!</string>
     <string name="removePlantBegin">"Êtes-vous sûr de vouloir retirer "</string>
     <string name="removePlantEnd">" de votre herbier ?"</string>
-    <string name="removedPlant">" n'est plus !"</string>
+    <string name="removedPlant">" a été retiré !"</string>
     <string name="plantNameRequired">Veuillez indiquer un nom de plante</string>
     <string name="plantNameNotFound">Désolé, nous n\'avons pas trouvé de plante avec ce nom</string>
     <string name="searchButton">RECHERCHER</string>
@@ -193,5 +193,6 @@
     <string name="black">noir</string>
     <string name="brown">brun</string>
     <string name="grey">gris</string>
+    <string name="green_brown">brun-vert</string>
     <string name="other">Autres :</string>
 </resources>

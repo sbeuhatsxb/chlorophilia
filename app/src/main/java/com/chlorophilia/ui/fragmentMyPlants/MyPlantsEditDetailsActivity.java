@@ -135,6 +135,19 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         final CheckBox graminoidBox = (CheckBox) findViewById(R.id.graminoid);
         final CheckBox lichenousBox = (CheckBox) findViewById(R.id.lichenous);
         final CheckBox nonvascularBox = (CheckBox) findViewById(R.id.nonvascular);
+        //FLOWER COLOR CHECKBOXES
+        final CheckBox greenBox = (CheckBox) findViewById(R.id.greenBox);
+        final CheckBox redBox = (CheckBox) findViewById(R.id.redBox);
+        final CheckBox yellowBox = (CheckBox) findViewById(R.id.yellowBox);
+        final CheckBox greyBox = (CheckBox) findViewById(R.id.greyBox);
+        final CheckBox brownBox = (CheckBox) findViewById(R.id.brownBox);
+        final CheckBox brownGreenBox = (CheckBox) findViewById(R.id.brownGreenBox);
+        final CheckBox orangeBox = (CheckBox) findViewById(R.id.orangeBox);
+        final CheckBox blueBox = (CheckBox) findViewById(R.id.blueBox);
+        final CheckBox purpleBox = (CheckBox) findViewById(R.id.purpleBox);
+        final CheckBox whiteBox = (CheckBox) findViewById(R.id.whiteBox);
+        final CheckBox blackBox = (CheckBox) findViewById(R.id.blackBox);
+
         //EDITABLE
         EditText plant_edit_detail_nickname = (EditText) findViewById(R.id.myPlantEditNickname);
         EditText plant_edit_detail_Precipitation_min = (EditText) findViewById(R.id.myPlantEditPrecipitationMin);
@@ -151,9 +164,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         EditText plant_edit_detail_bibliography = (EditText) findViewById(R.id.myPlantEditBibliography);
         EditText plant_edit_detail_averageHeight = (EditText) findViewById(R.id.myPlantEditAverageHeight);
         EditText plant_edit_detail_maxHeight = (EditText) findViewById(R.id.myPlantEditMaxHeight);
-        EditText plant_edit_detail_foliage_color = (EditText) findViewById(R.id.myPlantEditFoliageColor);
-        EditText plant_edit_detail_flower_color = (EditText) findViewById(R.id.myPlantEditFlowerColor);
-        EditText plant_edit_detail_fruit_color = (EditText) findViewById(R.id.myPlantEditFruitColor);
         EditText plant_edit_detail_ediblePart = (EditText) findViewById(R.id.myPlantEditEdiblePart);
         //DESCRIPTIONS
         TextView editRowSpacingText = findViewById(R.id.editRowSpacingText);
@@ -170,7 +180,10 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         Spinner plant_edit_detail_foliage_texture = (Spinner) findViewById(R.id.myPlantEditFoliageTexture);
         Spinner plant_edit_detail_anaerobic = (Spinner) findViewById(R.id.myPlantEditAnaerobic);
         Spinner plant_edit_detail_growthRate = (Spinner) findViewById(R.id.myPlantEditGrowthRate);
+        Spinner plant_edit_detail_foliage_color = (Spinner) findViewById(R.id.myPlantEditFoliageColor);
+        Spinner plant_edit_detail_fruit_color = (Spinner) findViewById(R.id.myPlantEditFruitColor);
 
+        //POPULATE CHECKBOXES
         if (plant.getGrowthHabit() != null) {
             String[] growthHabitArray = plant.getGrowthHabit().split(", ", -1);
             for (int i = 0; i < growthHabitArray.length; i++) {
@@ -203,31 +216,47 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             }
         }
 
-        if(plant.getVegetable() != null) {
-            if(plant.getVegetable().equals("true")){
-                populateCheckboxes(vegetableBox);
+        if (plant.getFlowerColor() != null) {
+            String[] flowerColorArray = plant.getFlowerColor().split(",", -1);
+            for (int i = 0; i < flowerColorArray.length; i++) {
+                switch (flowerColorArray[i]) {
+                    case "1":
+                        populateCheckboxes(greenBox);
+                        break;
+                    case "2":
+                        populateCheckboxes(redBox);
+                        break;
+                    case "3":
+                        populateCheckboxes(yellowBox);
+                        break;
+                    case "4":
+                        populateCheckboxes(greyBox);
+                        break;
+                    case "5":
+                        populateCheckboxes(brownBox);
+                        break;
+                    case "6":
+                        populateCheckboxes(brownGreenBox);
+                        break;
+                    case "7":
+                        populateCheckboxes(orangeBox);
+                        break;
+                    case "8":
+                        populateCheckboxes(blueBox);
+                        break;
+                    case "9":
+                        populateCheckboxes(purpleBox);
+                        break;
+                    case "10":
+                        populateCheckboxes(whiteBox);
+                        break;
+                    case "11":
+                        populateCheckboxes(blackBox);
+                        break;
+                }
             }
         }
 
-        if(plant.getEdible() != null) {
-            if(plant.getEdible().equals("true")){
-                populateCheckboxes(edibleBox);
-            }
-        }
-
-        if(plant.getFruitConspicuous() != null) {
-            if(plant.getFruitConspicuous().equals("true")){
-                populateCheckboxes(fruitConspBox);
-            }
-        }
-
-        if(plant.getFlowerConspicuous() != null) {
-            if(plant.getFlowerConspicuous().equals("true")){
-                populateCheckboxes(flowerConspBox);
-            }
-        }
-
-        //POPULATE CHECKBOXES
         if(plant.getBloomMonths() != null){
             ArrayList<Integer> bloomMonths = jsonArrayToArrayListConverter(plant.getBloomMonths());
             for (Integer bloomMonth : bloomMonths) {
@@ -394,6 +423,30 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             }
         }
 
+        if(plant.getVegetable() != null) {
+            if(plant.getVegetable().equals("true")){
+                populateCheckboxes(vegetableBox);
+            }
+        }
+
+        if(plant.getEdible() != null) {
+            if(plant.getEdible().equals("true")){
+                populateCheckboxes(edibleBox);
+            }
+        }
+
+        if(plant.getFruitConspicuous() != null) {
+            if(plant.getFruitConspicuous().equals("true")){
+                populateCheckboxes(fruitConspBox);
+            }
+        }
+
+        if(plant.getFlowerConspicuous() != null) {
+            if(plant.getFlowerConspicuous().equals("true")){
+                populateCheckboxes(flowerConspBox);
+            }
+        }
+
         //SET LIMIT TO EDIT TEXT
         plant_edit_detail_ph_min.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
         plant_edit_detail_ph_max.setFilters(new InputFilter[]{ new InputFilterMinMax("0", "14")});
@@ -475,6 +528,24 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
         plant_edit_detail_foliage_texture.setAdapter(adapaterFoliage);
         if (plant.getFoliageTexture() != null) {
             plant_edit_detail_foliage_texture.setSelection(Integer.parseInt(plant.getFoliageTexture()));
+        }
+
+        //SPINNER FOLIAGE COLOR
+        ArrayAdapter<CharSequence> adapaterFoliageColor = ArrayAdapter.createFromResource(this,
+                R.array.foliage_color, android.R.layout.simple_spinner_item);
+        adapaterFoliage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_foliage_color.setAdapter(adapaterFoliageColor);
+        if (plant.getFoliageColor() != null) {
+            plant_edit_detail_foliage_color.setSelection(Integer.parseInt(plant.getFoliageColor()));
+        }
+
+        //SPINNER FRUIT COLOR
+        ArrayAdapter<CharSequence> adapaterFruitColor = ArrayAdapter.createFromResource(this,
+                R.array.fruit_color, android.R.layout.simple_spinner_item);
+        adapaterFoliage.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        plant_edit_detail_fruit_color.setAdapter(adapaterFruitColor);
+        if (plant.getFruitColor() != null) {
+            plant_edit_detail_fruit_color.setSelection(Integer.parseInt(plant.getFruitColor()));
         }
 
         //TEXT VALUES
@@ -568,18 +639,6 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
             plant_edit_detail_maxHeight.setText("");
         }
 
-        if (plant.getFlowerColor() != null) {
-            plant_edit_detail_flower_color.setText(plant.getFoliageTexture());
-        } else {
-            plant_edit_detail_flower_color.setText("");
-        }
-
-        if (plant.getFruitColor() != null) {
-            plant_edit_detail_fruit_color.setText(plant.getFruitColor());
-        } else {
-            plant_edit_detail_fruit_color.setText("");
-        }
-
         if (plant.getEdiblePart() != null) {
             plant_edit_detail_ediblePart.setText(plant.getEdiblePart());
         } else {
@@ -636,55 +695,94 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                 if(!plant_edit_detail_maxHeight.getText().toString().equals("")) {
                     plant.setMaximumHeightCm(plant_edit_detail_maxHeight.getText().toString());
                 }
-                if(!plant_edit_detail_flower_color.getText().toString().equals("")) {
-                    plant.setFlowerColor(plant_edit_detail_flower_color.getText().toString());
-                }
-                if(!plant_edit_detail_fruit_color.getText().toString().equals("")) {
-                    plant.setFruitColor(plant_edit_detail_fruit_color.getText().toString());
-                }
+
                 if(!plant_edit_detail_ediblePart.getText().toString().equals("")) {
                     plant.setEdiblePart(plant_edit_detail_ediblePart.getText().toString());
                 }
 
-                StringBuilder sb = new StringBuilder();
-                plant.setGrowthHabit(sb.toString());
+                StringBuilder growthHabit = new StringBuilder();
+                plant.setGrowthHabit(growthHabit.toString());
                 if(treeBox.isChecked()){
-                    sb.append("Tree, ");
+                    growthHabit.append("Tree, ");
                 }
 
                 if(forbBox.isChecked()){
-                    sb.append("Forb/herb, ");
+                    growthHabit.append("Forb/herb, ");
                 }
 
                 if(vineBox.isChecked()){
-                    sb.append("Vine, ");
+                    growthHabit.append("Vine, ");
                 }
 
                 if(subshrubBox.isChecked()){
-                    sb.append("Subshrub, ");
+                    growthHabit.append("Subshrub, ");
                 }
 
                 if(shrubBox.isChecked()){
-                    sb.append("Shrub, ");
+                    growthHabit.append("Shrub, ");
                 }
 
                 if(graminoidBox.isChecked()){
-                    sb.append("Graminoid, ");
+                    growthHabit.append("Graminoid, ");
                 }
 
                 if(lichenousBox.isChecked()){
-                    sb.append("Lichenous, ");
+                    growthHabit.append("Lichenous, ");
                 }
 
                 if(nonvascularBox.isChecked()){
-                    sb.append("Nonvascular, ");
+                    growthHabit.append("Nonvascular, ");
                 }
 
-                if(!sb.toString().equals("")){
-                    plant.setGrowthHabit(sb.toString().substring(0, sb.toString().length() - 2));
+                if(!growthHabit.toString().equals("")){
+                    plant.setGrowthHabit(growthHabit.toString().substring(0, growthHabit.toString().length() - 2));
                 } else {
                     plant.setGrowthHabit(null);
                 }
+
+
+                StringBuilder flowerColor = new StringBuilder();
+                plant.setFlowerColor(flowerColor.toString());
+                if(greenBox.isChecked()){
+                    flowerColor.append("1,");
+                }
+                if(redBox.isChecked()){
+                    flowerColor.append("2,");
+                }
+                if(yellowBox.isChecked()){
+                    flowerColor.append("3,");
+                }
+                if(greyBox.isChecked()){
+                    flowerColor.append("4,");
+                }
+                if(brownBox.isChecked()){
+                    flowerColor.append("5,");
+                }
+                if(brownGreenBox.isChecked()){
+                    flowerColor.append("6,");
+                }
+                if(orangeBox.isChecked()){
+                    flowerColor.append("7,");
+                }
+                if(blueBox.isChecked()){
+                    flowerColor.append("8,");
+                }
+                if(purpleBox.isChecked()){
+                    flowerColor.append("9,");
+                }
+                if(whiteBox.isChecked()){
+                    flowerColor.append("10,");
+                }
+                if(blackBox.isChecked()){
+                    flowerColor.append("11,");
+                }
+
+                if(!flowerColor.toString().equals("")){
+                    plant.setFlowerColor(flowerColor.toString().substring(0, flowerColor.toString().length() - 1));
+                } else {
+                    plant.setFlowerColor(null);
+                }
+
 
                 if(vegetableBox.isChecked()){
                     plant.setVegetable("true");
@@ -766,6 +864,19 @@ public class MyPlantsEditDetailsActivity extends AppCompatActivity {
                     plant.setFoliageTexture(String.valueOf(plant_edit_detail_foliage_texture.getSelectedItemPosition()));
                 } else {
                     plant.setFoliageTexture(null);
+                }
+
+                if(plant_edit_detail_fruit_color.getSelectedItemPosition() != 0){
+                    plant.setFruitColor(String.valueOf(plant_edit_detail_fruit_color.getSelectedItemPosition()));
+                } else {
+                    plant.setFruitColor(null);
+                }
+
+
+                if(plant_edit_detail_foliage_color.getSelectedItemPosition() != 0){
+                    plant.setFoliageColor(String.valueOf(plant_edit_detail_foliage_color.getSelectedItemPosition()));
+                } else {
+                    plant.setFoliageColor(null);
                 }
 
                 //Form validation

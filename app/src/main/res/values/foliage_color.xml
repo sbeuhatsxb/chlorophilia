@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="foliage_color">
+        <item>No idea!</item>
+        <item>green</item>
+        <item>red</item>
+        <item>yellow</item>
+        <item>grey</item>
+    </string-array>
+</resources>

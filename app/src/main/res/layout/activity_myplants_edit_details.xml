@@ -791,12 +791,10 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_foliageColor" />
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <Spinner
                             android:id="@+id/myPlantEditFoliageColor"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/color"
-                            android:singleLine="true" />
+                            android:layout_height="wrap_content" />
                     </TableRow>
 
                     <TableRow
@@ -826,14 +824,120 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_flowerColor" />
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/myPlantEditFlowerColor"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/color"
-                            android:inputType="text"
-                            android:singleLine="true" />
                     </TableRow>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="#2C4CAF50">
+
+                        <CheckBox
+                            android:id="@+id/greenBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/green"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/redBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/red"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/yellowBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/yellow"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/greyBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/grey"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="#2C4CAF50">
+
+                        <CheckBox
+                            android:id="@+id/brownBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/brown"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/brownGreenBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/green_brown"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/orangeBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/orange"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/blueBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/blue"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:background="#2C4CAF50">
+
+                        <CheckBox
+                            android:id="@+id/purpleBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/purple"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/whiteBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/white"
+                            android:textSize="12sp" />
+
+                        <CheckBox
+                            android:id="@+id/blackBox"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:onClick="onCheckboxClicked"
+                            android:text="@string/black"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
 
                     <TableRow
                         android:layout_width="match_parent"
@@ -863,12 +967,10 @@
                             android:layout_height="wrap_content"
                             android:text="@string/plant_edit_detail_fruitColor" />
 
-                        <com.google.android.material.textfield.TextInputEditText
+                        <Spinner
                             android:id="@+id/myPlantEditFruitColor"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/color"
-                            android:singleLine="true" />
+                            android:layout_height="wrap_content"/>
                     </TableRow>
 
                     <TableRow
